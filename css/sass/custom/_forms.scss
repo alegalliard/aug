@@ -1,0 +1,119 @@
+@import "custom/vars";
+@import "components/variables";
+
+.block_form{
+    label{
+        display: block;
+        margin-bottom:5px;
+        margin-top:15px;
+        // font-weight: 800;
+    }
+    
+    .col{
+        margin-bottom:2.0rem;
+    }
+    
+    input[type=text],
+    input[type=password],
+    input[type=search],
+    select,
+    textarea{
+        display: block;
+        font-size: 1.6rem;
+        font-weight: 200;
+        letter-spacing: 2px;
+        padding:10px;
+        border:0px;
+        border-bottom:2px solid $aug_blue;
+        color:#666;
+        width: 100%;
+        width: calc(100% - 20px);
+        background: $aug_grey;
+    }
+    textarea{
+        height:5.0rem;
+    }
+    
+    .mid_select{
+        display: block;
+        font-size: 1.2rem;
+        font-weight: 200;
+        letter-spacing: 2px;
+        padding:5px;
+        border:0px;
+        border-bottom:2px solid $aug_blue;
+        color:#666;
+        width: 100%;
+        width: calc(100% - 20px);
+        background: $aug_grey;
+    }
+}
+
+.bt{
+    border:0;
+    font-size: 1.2rem;
+    padding: 10px 15px;
+}
+
+.bt_mini{
+    border:0;
+    font-size: 0.9rem;
+    padding: 5px 10px;
+    display: inline-block;
+    margin: 3px;
+}
+
+.bt_blue {
+    background: $aug_blue;
+    color:#fff;
+}
+
+.bt_orange {
+    background: $aug_orange;
+    color:#fff;
+}
+.bt_purple {
+    background: $aug_purple;
+    color:#fff;
+}
+
+.bt_gray {
+    background: #ddd;
+    color:$aug_blue;
+}
+
+.div_left1{
+    margin-left:1.0rem;
+}
+
+.kids-home{
+    margin-bottom: 0px;
+    margin-top: 20px;
+    font-size: 1.5rem;
+    font-weight: 200 !important;
+    letter-spacing: 2px;
+}
+
+#kids_age{
+    @media #{$small-and-down}{margin-top: -20px;}
+}
+
+.kids-input{
+    @media #{$small-and-down}{
+        float: right;
+        width: 75px !important;
+    }
+}
+
+// .required{
+//     font-weight: bold;
+//     color: $aug_blue;
+//     text-decoration: uppercase;
+// }
+
+// específica para cuidar do botão 'pagseguro'
+
+#pagseguro{
+    display: block;
+    margin: 0 auto;
+}

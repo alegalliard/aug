@@ -1,0 +1,359 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="pt-br">
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>www.adoteumgatinho.org.br</title>
+<!-- TemplateEndEditable -->
+
+<style type="text/css">
+<!--
+.style1 {color: #FFFFFF}
+-->
+</style>
+<!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link href="../styles/mix.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.style2 {
+	font-size: 10px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+.style6 {
+	color: #FFCC00;
+	font-weight: bold;
+}
+.style7 {
+	color: #FFCC33;
+	font-size: 10px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.style8 {font-size: 10px}
+.style12 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+.style13 {font-family: Verdana, Arial, Helvetica, sans-serif}
+.style14 {
+	font-size: 10px;
+	color: #FFFFFF;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.style18 {
+	color: #FFCC33;
+	font-style: italic;
+}
+.style20 {color: #FFCC33}
+.style21 {
+	color: #663399;
+	font-size: 14px;
+}
+.style22 {
+	font-size: 12px;
+	font-style: italic;
+}
+.style24 {
+	font-size: 12;
+	font-style: italic;
+	font-weight: bold;
+}
+-->
+</style>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+
+<script language="javascript">
+<!--
+
+function abrecartoes(janela)
+        {
+
+window.open(janela,"cartoes","toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,copyhistory=no,width=350,height=263,left=300,top=300")
+        }
+
+
+                //-->
+                
+                
+<!--
+
+function abrecartoes2(janela)
+        {
+
+window.open(janela,"cartoes","toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,copyhistory=no,width=263,height=350,left=300,top=300")
+        }
+
+
+                //-->
+</script>
+
+
+</head>
+
+<body link="#000000" vlink="#000000" alink="#000000" class="tiny" onLoad="MM_preloadImages('../images/queroadotar2.jpg','../images/queroajudar2.jpg','../images/prestacao2.jpg','../images/lojinha2.jpg','../images/parceiros2.jpg','../images/somos2.jpg','../images/mapa2.jpg','../images/materias2.jpg','../images/vetresponde2.jpg','../images/adotados2.jpg','../images/blog2.jpg','../images/boletins2.jpg','../images/imprensa2.jpg','../images/faq2.jpg','../images/rifas2.jpg','../images/apadrinhamento2.jpg')">
+<center><script src="http://barra.uol.com.br/b/parceiro.js"></script>
+
+<script>
+
+// Variaveis de configuracao
+
+var DEaff="paradoteumgatinho"; // Affiliate
+
+var DEchan=""; // Canal quando existe
+
+var DEsubc="outros"; // Subcanal capa ou outros.
+
+var Expble=1; // Alterar para 0 se não houver espaço para banner expansível
+
+var DEcmpng=1; // Alterar para 1 se participa da Campanha por Clique
+
+var DEGroup=6; // Grupo de afinidade "group"
+
+// Fim da configuracao 
+
+ 
+
+/* NAO ALTERAR DAQUI PARA BAIXO, apenas remova os comentarios se precisar.
+
+A linha abaixo deve obrigatoriamente ficar fora da função o valor de 
+
+"DErand" nao pode ser diferente para os banners de uma mesma pagina */
+
+d=document; var DEt=new Date(); DEt=DEt.getTime(); DErand=Math.floor(DEt*1000*Math.random());
+
+ 
+
+// Verifica tipo de conexao do usuario
+
+var DEconn=d.body; DEconn.style.behavior='url(#default#clientCaps)'; DEconn=(DEconn.connectionType=='lan')?1:0;
+
+ 
+
+// Verifica resolucao de tela
+
+var scw=0,sch=0; if(screen.height){scw=screen.width;sch=screen.height;}
+
+ 
+
+// Funcao que exibe o banner
+
+function DEshow(ad,pos){
+
+d.write('<scr'+'ipt language="JavaScript1.1" src="http://bn.uol.com.br/js.ng/site=par&chan='+DEchan+'&subchan='+DEsubc+'&affiliate='+DEaff+'&size='+ad+'&page='+pos+'&conntype='+DEconn+'&expble='+Expble+'&reso='+scw+'x'+sch+'&cmpng='+DEcmpng+'&group='+DEGroup+'&tile='+DErand+'?"></scr'+'ipt>');
+
+}
+
+</script>
+
+
+</center>
+<div align="center">
+  <center>
+    <table border="0" bordercolor="#9900FF" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="770" id="AutoNumber1" height="500">
+      <tr>
+        <td width="100%" valign="top">
+          <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%" id="AutoNumber2">
+            <tr>
+              <td width="19%" bgcolor="#F9F9F9">
+                <p class="tiny"> <a href="http://www.adoteumgatinho.org.br"> <img border="0" src="../images/logo.jpg"></a></td>
+              <td width="60%" bgcolor="#F9F9F9"> <div align="center">
+			  
+<script type="text/javascript">
+// Exibe Full 468x60
+DEshow('468x60',1);
+</script>
+
+</div></td>
+              <td width="21%" bgcolor="#F9F9F9">
+                <p align="center">
+				
+<script type="text/javascript">
+// Exibe Botao 120x60
+DEshow('120x60',3);
+</script>
+
+
+</td>
+            </tr>
+            <tr>
+              <td height="35" colspan="3" nowrap bgcolor="#9900FF"><div align="center">
+                                 <table width="100%"  border="0" cellspacing="2" cellpadding="0">
+                                   <tr>
+                                     <td><div align="center">
+                                       <p><img src="../images/bolinha.jpg" width="10" height="17" align="middle"><a href="../queroadotar.htm" onMouseOver="MM_swapImage('Image7','','../images/queroadotar2.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="../images/queroadotar1.jpg" name="Image7" width="94" height="19" border="0" align="middle" id="Image7"></a><img src="../images/bolinha.jpg" width="10" height="17" align="middle"><a href="../ajuda.htm" onMouseOver="MM_swapImage('Image8','','../images/queroajudar2.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="../images/queroajudar1.jpg" name="Image8" width="92" height="19" border="0" align="middle" id="Image8"></a><img src="../images/bolinha.jpg" width="10" height="17" align="middle"><a href="../prestacao.htm" onMouseOver="MM_swapImage('Image9','','../images/prestacao2.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="../images/prestacao1.jpg" name="Image9" width="140" height="19" border="0" align="middle" id="Image9"></a><img src="../images/bolinha.jpg" width="10" height="17" align="middle"><a href="../lojinha" onMouseOver="MM_swapImage('Image10','','../images/lojinha2.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="../images/lojinha1.jpg" name="Image10" width="57" height="19" border="0" align="middle" id="Image10"></a><img src="../images/bolinha.jpg" width="10" height="17" align="middle"><a href="../materias" onMouseOver="MM_swapImage('Image11','','../images/materias2.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="../images/materias1.jpg" name="Image11" width="64" height="19" border="0" align="middle" id="Image11"></a><img src="../images/bolinha.jpg" width="10" height="17" align="middle"><a href="../maustratos.htm" onMouseOver="MM_swapImage('Image12','','../images/denuncie2.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="../images/denuncie1.jpg" name="Image12" border="0" align="middle" id="Image12"></a><img src="../images/bolinha.jpg" width="10" height="17" align="middle"><a href="../adotados.htm" onMouseOver="MM_swapImage('Image13','','../images/adotados2.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="../images/adotados1.jpg" name="Image13" width="69" height="19" border="0" align="middle" id="Image13"><br>
+                                       </a><img src="../images/bolinha.jpg" width="10" height="17" align="middle"><a href="../madrinhas.htm" onMouseOver="MM_swapImage('Image131','','../images/apadrinhamento2.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="../images/apadrinhamento1.jpg" name="Image131" width="107" height="19" border="0" align="middle" id="Image131"></a><a href="../adotados.htm" onMouseOver="MM_swapImage('Image131','','../images/adotados2.jpg',1)" onMouseOut="MM_swapImgRestore()"></a><img src="../images/bolinha.jpg" width="10" height="17" align="middle"><a href="../faq.htm" onMouseOver="MM_swapImage('Image17','','../images/faq2.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="../images/faq1.jpg" name="Image17" border="0" align="middle" id="Image17"></a><img src="../images/bolinha.jpg" width="10" height="17" align="middle"><a href="../blog.htm" onMouseOver="MM_swapImage('Image16','','../images/blog2.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="../images/blog1.jpg" name="Image16" width="35" height="19" border="0" align="middle" id="Image1"></a><img src="../images/bolinha.jpg" width="10" height="17" align="middle"><a href="../boletins.htm" onMouseOver="MM_swapImage('Image21','','../images/boletins2.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="../images/boletins1.jpg" name="Image21" width="58" height="19" border="0" align="middle" id="Image2"></a><img src="../images/bolinha.jpg" width="10" height="17" align="middle"><a href="../rifas.htm" onMouseOver="MM_swapImage('Image22','','../images/rifas2.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="../images/rifas.jpg" name="Image22" width="38" height="19" border="0" align="middle" id="Image23"></a><img src="../images/bolinha.jpg" width="10" height="17" align="middle"><a href="../midia.htm" onMouseOver="MM_swapImage('Image31','','../images/imprensa2.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="../images/imprensa1.jpg" name="Image31" width="63" height="19" border="0" align="middle" id="Image3"></a><img src="../images/bolinha.jpg" width="10" height="17" align="middle"><a href="../parceiros.htm" onMouseOver="MM_swapImage('Image41','','../images/parceiros2.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="../images/parceiros1.jpg" name="Image41" width="117" height="19" border="0" align="middle" id="Image4"></a><img src="../images/bolinha.jpg" width="10" height="17" align="middle"><a href="../somos.htm" onMouseOver="MM_swapImage('Image141','','../images/somos2.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="../images/somos1.jpg" name="Image141" width="82" height="19" border="0" align="middle" id="Image14"></a><img src="../images/bolinha.jpg" width="10" height="17" align="middle"><a href="../mapa.htm" onMouseOver="MM_swapImage('Image151','','../images/mapa2.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="../images/mapa1.jpg" name="Image151" width="82" height="19" border="0" align="middle" id="Image15"></a><img src="../images/bolinha.jpg" width="10" height="17" align="middle"><a href="http://www.adoteumgatinho.org.br"><img src="../images/home5.jpg" border="0" align="middle"></a>                                       </p>
+                                       </div></td>
+                                   </tr>
+                                 </table>
+
+              </div></td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber3">
+                  <tr>
+                    <td width="79%" bgcolor="#F4F4F4" valign="top">                   <br>
+                      <table width="100%"  border="0" cellspacing="2" cellpadding="0">
+                        <tr>
+                          <td><b class="style2">ADOTE UM GATINHO</b></td>
+                        </tr>
+                      </table>
+
+                      <!-- TemplateBeginEditable name="miolinho" -->
+                      <table border="0" cellpadding="0" cellspacing="10" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber5">
+                        <tr>
+                          <td width="25%" height="250" valign="top" bgcolor="#FDFDFD" class="style2"><p align="center" class="style21">Conhe&ccedil;a a toxoplasmose a desfa&ccedil;a mitos</p>
+                            <p align="center" class="style22">Entenda como &eacute; a doen&ccedil;a que, erroneamente, muitos  profissionais de sa&uacute;de associam apenas aos gatos</p>
+                            <p align="right"><br>
+                            Por Marisa Moraes </p>
+                            <p>Falar em toxoplasmose n&atilde;o &eacute; um assunto dos mais  simples. H&aacute; muita mistifica&ccedil;&atilde;o em torno do tema e os principais afetados s&atilde;o  sempre os gatos. &Eacute; comum ver um obstetra dizer a uma mulher gr&aacute;vida que ela  precisa se desfazer de seu gato, sob pena de por em risco a sa&uacute;de do seu beb&ecirc;. </p>
+                            <p>Profissionais que se ap&oacute;iam em mitos ultrapassados  como esse certamente n&atilde;o est&atilde;o se atualizando corretamente na sua profiss&atilde;o. H&aacute;  muito tempo o gato deixou de ser o grande vil&atilde;o da toxoplasmose. Sim, o animal  pode transmitir a doen&ccedil;a. Mas &eacute; preciso saber em quais condi&ccedil;&otilde;es e que h&aacute;  outros meios de transmiss&atilde;o muito mais perigosos. </p>
+                            <p>Antes de come&ccedil;armos a tratar deste assunto t&atilde;o  pol&ecirc;mico, vamos passar por algumas defini&ccedil;&otilde;es. A toxoplasmose &eacute; uma zoonoze,  trata-se de uma doen&ccedil;a transmitida aos homens pelos animais. Ela &eacute; causada por  um protozo&aacute;rio chamado &lsquo;&rsquo;Toxoplasma gondii&rsquo;&rsquo; e ocorre em uma grande variedade  de animais de produ&ccedil;&atilde;o ou de estima&ccedil;&atilde;o, como aves, bois, ovelhas, porcos,  cabras, gatos, c&atilde;es, animais silvestres e a maioria dos animais vertebrados  terrestes.</p>
+                            <p>Estes animais podem se infectar atrav&eacute;s da ingest&atilde;o de  outros animais j&aacute; contaminados pelo <em>toxoplasma  gondii</em>, no contato direto com a terra contaminada ou pela ingest&atilde;o de &aacute;gua  contaminada.</p>
+                            <p>Com excess&atilde;o do gato, os outros animais n&atilde;o eliminam o  parasita para o ambiente. Isto &eacute;, ap&oacute;s a contamina&ccedil;&atilde;o, o parasita passa por um  ciclo de vida no organismo do animal, at&eacute; que este organismo desenvolva  imunidade e o parasita, em uma forma latente, se aloje nos m&uacute;sculos deste animal.  Ali podem permanecer por muitos anos.</p>
+                            <p>No  tocante aos gatos, eles se contaminam principalmente pela ingest&atilde;o de pequenos  animais ou insetos como ratos, lagartixas, &nbsp;p&aacute;ssaros ou carne crua de animais que j&aacute;  estejam contaminados. O mito sobre esta doen&ccedil;a ao redor dos gatos existe porque  os felinos s&atilde;o os &uacute;nicos animais que eliminam os &lsquo;&rsquo;ovos&rsquo;&rsquo; (oocistos) deste  parasita para o ambiente.</p>
+                            <p>Isto se d&aacute; atrav&eacute;s da fezes. Por&eacute;m, para que as fezes  se tornem contaminantes, devem permanecer em contato com o ar por um per&iacute;odo de  5 dias. Os gatos portadores da toxoplasmose s&oacute; eliminam fezes contaminadas por uma  vez, durante um per&iacute;odo &nbsp;de at&eacute; 2  semanas.</p>
+                            <p>Ap&oacute;s este per&iacute;odo adquirem imunidade e, em geral, n&atilde;o  voltam mais a eliminar os ovos nas fezes, mesmo se forem recontaminados. Somente  em casos de queda da imunidade geral do felino, eles podem voltar a excretar fezes  contaminadas. Por&eacute;m, durante uma segunda infec&ccedil;&atilde;o, o n&uacute;mero de ovos excretados  &eacute; muito menor do que na primeira infec&ccedil;&atilde;o.<br>
+  &nbsp;<br>
+                              A maioria dos gatos que ca&ccedil;am, ou seja, vivem livres,  s&atilde;o frequentemente expostos ao Toxoplasma gondii, se mantendo, portanto,  imunes. Ou seja: de tanto conviver com a doen&ccedil;a, eles adquirem imunidade contra  ela. </p>
+                            <p>Frequentemente os donos de gatinhos de estima&ccedil;&atilde;o  solicitam orienta&ccedil;&atilde;o aos veterin&aacute;rios sobre a toxoplasmose. Segundo relata a veterin&aacute;ria  Cristiane S.Martins no<em> livro Medicina e  Cirurgia Felina</em>, &ldquo;se boa parte dos profissionais da sa&uacute;de ainda possui  muitas d&uacute;vidas a respeito das modalidades da infec&ccedil;&atilde;o humana, do perigo  potencial deste parasita nos v&aacute;rios segmentos da popula&ccedil;&atilde;o em risco e do  verdadeiro papel do gato dom&eacute;stico na transmiss&atilde;o da doen&ccedil;a&rdquo;. N&atilde;o &eacute; de  surpreender assim que a popula&ccedil;&atilde;o de maneira geral esteja mal informada a  respeito do problema. Dessa maneira, muitos m&eacute;dicos e veterin&aacute;rios ainda fazem  recomenda&ccedil;&otilde;es, quanto aos animais de estima&ccedil;&atilde;o, baseadas, muitas vezes, em  preconceito e desinforma&ccedil;&atilde;o.<br>
+  &nbsp;</p>
+                            <p><br>
+                              <span class="style24">Qual &eacute; o papel  do gato na transmiss&atilde;o da toxoplasmose?</span></p>
+                            <p>O cont&aacute;gio do ser humano se d&aacute; principalmente pela  ingest&atilde;o de leite (principalmente de cabra) &ldquo;in natura&rdquo; (ou seja, sem  pasteuriza&ccedil;&atilde;o); carnes (pincipalmente carnes de porco, cabrito, carneiro e  coelho) cruas ou mal cozidas; &aacute;gua contamida (de locais onde n&atilde;o h&aacute; saneamento  b&aacute;sico); frutas e verduras mal lavadas ou pelo contato com terra ou areia  contaminadas por fezes de aimais doentes.</p>
+                            <p>O simples ato de temperar um bife usando as m&atilde;os pode  ser uma forma de cont&aacute;gio. Os utens&iacute;lios utilizados no preparo das carnes, se  n&atilde;o forem bem lavados, tamb&eacute;m representam uma possibilidade de ficar exposto &agrave;  doen&ccedil;a.</p>
+                            <p>A infec&ccedil;&atilde;o nas pessoas normalmente passa despercebida,  sendo detectada somente atrav&eacute;s de sorologia. Em 10% &agrave; 20% destas pessoas s&atilde;o  percebidos alguns sintomas como febre, dores de cabe&ccedil;a e dores musculares.  Muitas vezes, devido a similaridade dos sintomas, estas infec&ccedil;&otilde;es s&atilde;o  diagnosticadas como gripe.</p>
+                            <p>Apesar do mito que se criou em torno deste assunto, &eacute;  pouco prov&aacute;vel que uma pessoa contraia a doen&ccedil;a pelo contato direto com um gato  contaminado.</p>
+                            <p>Para que ocorra o cont&aacute;gio &eacute; necess&aacute;rio que se consuma  uma alimento que teve contato com as fezes que contenham &lsquo;&rsquo;ovos&rsquo;&rsquo; contaminantes  e que estas fezes tenham ficado expostas ao meio ambiente por 5 dias.<br>
+                              Sendo assim, o contato com as fezes frescas n&atilde;o &eacute;  capaz de de causar a infec&ccedil;&atilde;o.</p>
+                            <p>Portanto, h&aacute;bitos simples de higiene como limpar a  caixa de areia diariamente lavando as m&atilde;os em seguida, lavar as m&atilde;os e os  alimentos antes da refei&ccedil;&atilde;o s&atilde;o importantes para se evitar a doen&ccedil;a.</p>
+                            <p>Geralmente as fezes do gato sadio s&atilde;o firmes. A menos  que o gato esteja doente muito pouco ou nenhum res&iacute;duo de fezes ficar&aacute; na  regi&atilde;o perianal. Outro fato &eacute; que normalmente os gatos n&atilde;o est&atilde;o diarr&eacute;icos  durante o per&iacute;odo que excretam os &lsquo;&rsquo;ovos&rsquo;&rsquo; contaminantes.</p>
+                            <p>Por causa do conhecido h&aacute;bito de limpeza dos felinos,  n&atilde;o se encontra res&iacute;duos de fezes em sua pelagem. Portanto, a chance de  transmiss&atilde;o da doen&ccedil;a por acariciar um gatinho ou t&ecirc;-lo como seu animal de  estima&ccedil;&atilde;o &eacute; m&iacute;nima ou inexistente.</p>
+                            <p>Desta forma, conclui-se que o meio mais prov&aacute;vel de contato  do humano com a doen&ccedil;a se d&aacute; atrav&eacute;s do contato direto com a terra ou &aacute;gua  contaminada, um exemplo: caixas de areias de parques e pra&ccedil;as p&uacute;blicas, j&aacute; que  &eacute; habito dos felinos enterrarem suas fezes na terra fofa ou areia..</p>
+                            <p>Os insetos, como as baratas, tamb&eacute;m devem  ser considerados como uma forma de cont&aacute;gio, visto que estas podem contaminar  diretamente os ambientes, e manter a contamina&ccedil;&atilde;o de ratos e gatos, inclusive  os dom&eacute;sticos, devido ao h&aacute;bito de ca&ccedil;ar e ingerir baratas.</p>
+                            <p><em>Veja,  na sexta feira, a parte II dessa reportagem e saiba mais:</em><br>
+                                <em>- O  que dizem os veterin&aacute;rios &agrave; respeito da toxoplasmose</em><br>
+                                <em>-  Saiba como ter uma gesta&ccedil;&atilde;o tranq&uuml;ila e manter seu gatinho com voc&ecirc;</em></p>                          </td>
+                        </tr>
+                      </table>
+                      <br>
+                      <!-- TemplateEndEditable --></td>
+                    <td width="21%" bgcolor="#666699" valign="top">
+                      <div align="center">
+                        <center>
+                          <table border="0" cellpadding="0" cellspacing="5" style="border-collapse: collapse" bordercolor="#111111" width="98%" id="AutoNumber4">
+                            <tr>
+                              <td width="100%" valign="top" class="style6"><p align="center"><span class="style7">PR&Ecirc;MIO 
+                                  IBEST 2008 <br>
+                                  <img src="../images/ibest.jpg" width="100" height="91"><br>
+                                  <a href="http://www.premioibest.com.br/ibest/categoria.action?id=24" target="_blank"><font color="FFFFFF">Vote 
+                                  e eleja o Adote um Gatinho o melhor site de 
+                                  ONGs do Brasil</font></a><br>
+                                  <br>
+                                  <br>
+                                  AJUDE UM GATINHO </span> <br>
+                                  <span class=""><span class="style14">Existem 
+                                  v&aacute;rias maneiras de ajudar os gatinhos 
+                                  deste site:</span><br>
+                                  </span><span class="style1 style13  style8"><br>
+                                  . CONTRIBUI&Ccedil;&Otilde;ES EM DINHEIRO <br>
+                                  <br>
+                                  <span class="style18">Adote um Gatinho<br>
+                                  CNPJ 08858329/0001-08<br>
+                                  <br>
+                                  Itau 0341<br>
+                                  Ag&ecirc;ncia 2970<br>
+                                  C/C 12869-6</span></span></p>
+                                <p align="center"> <span class="style1 style13  style8">Se 
+                                  voc&ecirc; prefere doar por meio de boleto banc&aacute;rio 
+                                  ou cart&atilde;o de cr&eacute;dito, clique no 
+                                  selo abaixo:<br>
+                                  <br>
+                                  <a href="../doe.htm"><img src="../images/Pagseguro.gif" width="108" height="38" border="0"></a> 
+                                  <br>
+                                  <br>
+                                  . CONTRIBUI&Ccedil;&Otilde;ES EM PRODUTOS (ra&ccedil;&atilde;o, 
+                                  latinhas, rem&eacute;dios, caminhas, caixinhas 
+                                  de transporte, etc) <br>
+                                  </span><span class="style1 style13  style8"> 
+                                  <br>
+                                  </span><span class="style1 style13  style8"> 
+                                  </span><span class="style1 style13  style8">. 
+                                  COMPRANDO NA NOSSA LOJINHA: </span><br>
+                                  <br>
+                                  <a href="../lojinha"><img src="../images/bazar.jpg" width="136" height="320" border="0"></a> 
+
+                                </td>
+                            </tr>
+                            <tr>
+                              <td valign="top"><div align="center" class="style12">
+                                <div align="center"><strong><span class="style20">mais informa&ccedil;&otilde;es sobre 
+                                      como ajudar: </span><br>
+                                    <br>
+                                    <a href="mailto:informacoes@adoteumgatinho.org.br"><span class="style1">informacoes@<br>
+                                    adoteumgatinho.org.br</span></a><span class="style1"></font></span></strong></div>
+                              </div></td>
+                            </tr>
+                          </table>
+                        </center>
+                    </div></td>
+                  </tr>
+                  <tr>
+                    <td width="79%" bgcolor="#F4F4F4" valign="top">                      <p align="left" class="tiny"><br>
+                          </p>
+                      <hr color="#9900FF" size="1">
+                      <p align="left" class="tiny"><br>
+                    </p></td>
+                    <td width="21%" bgcolor="#F4F4F4">&nbsp; </td>
+                  </tr>
+
+                </table></td>
+            </tr>
+            <tr>
+              <td colspan="3">&nbsp;</td>
+            </tr>
+            <tr>
+              <td colspan="3" bgcolor="#9900FF">
+                <p class="tinywhite" align="center"><b><br>
+                    <span class="style1 style12">© Adote um Gatinho - 2003/2011 - Todos os Direitos Reservados</span><br>
+&nbsp;</b></td>
+            </tr>
+        </table></td>
+      </tr>
+    </table>
+  </center>
+</div>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-3360136-1";
+urchinTracker();
+</script>
+</body>
+
+</html>

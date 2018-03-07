@@ -1,0 +1,19 @@
+<h2>Adicionar usuário na base de newsletter</h2>
+<form action="<?php echo HOST;?>adm/newsletter/salvar" method="post">
+	<div>
+		<label for="user">Nome:</label>
+		<input type="text" name="user" id="user" class="required" />
+	</div>
+	<div>
+		<label for="email">eMail:</label>
+		<input type="text" name="email" id="email" class="required email" />
+	</div>
+	<div>
+		<input type="submit" value="Salvar" />
+	</div>
+</form>
+
+<style>
+	label{width:60px;}
+	input[type="text"]{width:280px !important;}
+</style>

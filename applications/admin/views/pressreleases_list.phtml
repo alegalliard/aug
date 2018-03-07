@@ -1,0 +1,31 @@
+<h2>AUG na Mídia</h2>
+<p>
+	<a href="<?php echo HOST;?>adm/aug-na-midia/adicionar">Adicionar entrada</a>
+</p>
+<table width="100%" border="1">
+	<thead>
+		<tr>
+			<th width="13%"></th>
+			<th>Título</th>
+			<th>Chamada</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php if(is_array($this->data) and (sizeof($this->data) > 0)):?>
+			<?php foreach($this->data as $row):?>
+				<tr align="center">
+					<td>
+						<a href="<?php echo HOST;?>adm/aug-na-midia/editar/<?php echo $row->id;?>" class="edit-item">EDITAR</a>
+						<a href="<?php echo HOST;?>adm/aug-na-midia/remover/<?php echo $row->id;?>" class="remove-item">REMOVER</a>
+					</td>
+					<td><?php echo $row->title;?></td>
+					<td><?php echo $row->heading;?></td>
+				</tr>
+			<?php endforeach;?>
+		<?php else:?>
+			<tr>
+				<td colspan="3" align="center">Não há matérias cadastradas</td>
+			</tr>
+		<?php endif;?>
+	</tbody>
+</table>

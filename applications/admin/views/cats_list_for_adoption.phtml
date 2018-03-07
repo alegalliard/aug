@@ -1,0 +1,121 @@
+<h2><?php echo $this->title;?></h2>
+
+<form name="cat" id="cat" action="<?php echo HOST;?>adm/gatos/para-adocao/<?php echo $this->current_page;?>" method="post">
+    <input type="hidden" id="current_page" value="<?php echo $this->current_page;?>"/>
+    <input type="hidden" id="total_pages" value="<?php echo $this->total_pages;?>"/>
+    
+    <p>
+        Buscar Gato: <input type="text" id="search" name="search" value="<?php echo $this->search; ?>" />
+        Ordenar: 
+        <select type="select" id="order" name="order"> 
+            <option value="name ASC" <?php if ($this->order=="name ASC") echo "selected=\"selected\""; ?>>Alfabética A-Z</option>
+            <option value="name DESC" <?php if ($this->order=="name DESC") echo "selected=\"selected\""; ?>>Alfabética Z-A</option>
+            <option value="registry_date DESC" <?php if ($this->order!="name ASC" && $this->order!="name DESC") echo "selected=\"selected\""; ?>>Data do Cadastro</option>
+        </select>
+        <input type="submit" value="OK" />
+        
+        <span class="pagination">
+            <?php if ($this->total_pages > 0) { ?>Página <?php if(($this->total_pages > 1) && ($this->current_page != 1)) { ?> <span class="pagination-prev">Prev</span> <?php } ?> <?php echo $this->current_page; ?> de <?php echo $this->total_pages; ?> <?php if(($this->total_pages > 1) && ($this->current_page != $this->total_pages)) { ?> <span class="pagination-next">Next</span> <?php } } ?>
+        </span>
+    </p>
+</form>
+
+<table width="100%" border="1">
+    <thead>
+        <tr>
+            <th width="29%"></th>
+            <th width="4%">ID</th>
+            <th>Nome</th>
+            <th width="15%">Foto</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php if(is_array($this->data) and (sizeof($this->data) > 0)):?>
+    <?php foreach($this->data as $row):?>
+        <tr>
+            <td align="center">       
+                <?php if ($row->status == 0) { ?><a class="reserved" href="<?php echo HOST;?>adm/gatos/reservar/1/<?php echo $row->id;?>" title="Reservar">Reservar</a> <?php } ?>
+                
+                <?php if ($row->status == 0 || $row->status == 1) { ?><a class="gato_adotado" href="<?php echo HOST;?>adm/gatos/adotar/<?php echo $row->id;?>" title="Marcar como Adotado">Adotar</a> <?php } ?>
+                
+                <?php if($row->status == 1) : ?>
+                <a class="gato_adotado" href="<?php echo HOST;?>adm/gatos/adotar/<?php echo $row->id;?>" title="Marcar como Adotado">Adotar</a>
+                
+                <a class="unreserved" href="<?php echo HOST;?>adm/gatos/reservar/0/<?php echo $row->id;?>" title="Remover Reserva">Remover Reserva</a>
+                <?php endif; ?>
+
+                <?php if ($row->status == 2) { ?><a class="return_cat" href="<?php echo HOST;?>adm/gatos/desadotar/<?php echo $row->id;?>" title="Voltar para adoção">Voltar para adoção</a> <?php } ?>
+
+                <a class="feature <?php if($row->featured==1):?> featured <?php endif;?>" ref="<?php echo $row->id;?>" title="Destacar"></a>
+
+                <?php if($row->special == 0) : ?>
+                <a class="special" href="<?php echo HOST;?>adm/gatos/special/1/<?php echo $row->id;?>" title="Marcar como Especial">Especial</a>
+                <?php else: ?>
+                <a class="unspecial" href="<?php echo HOST;?>adm/gatos/special/0/<?php echo $row->id;?>" title="Desmarcar como Especial">Especial</a>
+                <?php endif; ?>
+                
+                <a class="edit-item" href="<?php echo HOST;?>adm/gatos/editar/<?php echo $row->id;?>" title="Editar">Editar</a>
+
+                <?php if($row->inactive == 0) : ?>
+                <a class="remove-item" href="<?php echo HOST;?>adm/gatos/remover/<?php echo $row->id;?>" title="Desativar">Desativar</a>
+                <?php else: ?>
+                <a class="activate-item" href="<?php echo HOST;?>adm/gatos/ativar/<?php echo $row->id;?>" title="Ativar">Ativar</a>
+                <?php endif; ?>
+            </td>
+        <td><?php echo $row->id;?></td>
+        <td><?php echo $row->name;?> <?php if ($row->special == 1) { echo "<span style=\"display: block; font-size: 9px;\">** ESPECIAL **</span>"; } ?></td>
+        <td align="center">
+            <a href="<?php echo MEDIA_DIR.'uploads/cats/'.$row->picture;?>" class="fancybox">
+                <img src="<?php echo MEDIA_DIR.'uploads/cats/'.$row->picture;?>" data-src="<?php echo MEDIA_DIR.'uploads/cats/'.$row->picture;?>"  class="cat_thumb" />
+            </a>
+        </td>
+        </tr>
+    <?php endforeach;?>
+    <?php else:?>
+        <tr>
+            <td colspan="4" align="center">Nenhum registro encontrado</td>
+        </tr>
+    <?php endif;?>
+    </tbody>
+</table>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $("a.feature").click(function(){
+        var action = ($(this).hasClass("featured")) ? 'unfeature' : 'feature';
+        var cat_id = $(this).attr("ref");
+
+        $(this).toggleClass("featured");
+
+        $.ajax({
+            type: "POST",
+            url: "<?php echo HOST;?>adm/gatos/promover",
+            data: {
+                cat_id: cat_id,
+                action: action
+            }
+        });
+    });
+    
+    var action = $('#cat').attr('action');
+
+    var current_page = eval($("#current_page").val());
+    var total_pages  = eval($("#total_pages").val());
+    
+    $(".pagination-next").click(function(){
+        if(current_page != total_pages)
+        {
+            $('#cat').attr('action', action.replace(action.substr(action.lastIndexOf('/')), "/"+eval(current_page+1)));
+            $('#cat').submit();
+        }
+    });
+    
+    $(".pagination-prev").click(function(){
+        if(current_page > 0)
+        {
+            $('#cat').attr('action', action.replace(action.substr(action.lastIndexOf('/')), "/"+eval(current_page-1)));
+            $('#cat').submit();
+        }
+    });
+});
+</script>

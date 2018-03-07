@@ -1,0 +1,36 @@
+<h2>Ordenar Gatos</h2>
+<span>Clique e arraste os gatinhos na ordem desejada. Vale ressaltar que, aqui nessa lista, somente os gatinhos marcados com a estrela são mostrados. Depois de mudar a ordem é só clicar em <u>Salvar</u>.</span>
+<br/><br/>
+<form method="POST" action="<?php echo HOST;?>adm/gatos/reordenar-gatos/salvar">   
+    <input type="submit" value="Salvar" />
+    
+    <ul class="sortable" id="sortable">
+    <?php foreach ($this->data as $cat):?>
+        <li class="cat">
+            <h4><?php echo ($cat->name); ?></h4>
+            <input type="hidden" name="id[]" value="<?php echo $cat->id;?>" />
+            <img src="<?php echo MEDIA_DIR;?>uploads/cats/<?php echo $cat->picture;?>" />
+            
+            <?php if($cat->special == 1):?><div class="special"></div><?php endif;?>
+
+            <a class="edit-item" href="<?php echo HOST;?>adm/gatos/editar/<?php echo $cat->id;?>" title="Editar">EDITAR</a>
+        </li>	
+    <?php endforeach;?>
+    </ul>
+    
+    <input type="submit" value="Salvar" />
+</form>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#sortable").sortable().disableSelection();
+
+    $("form").submit(function(){
+        $("#loading-screen").fadeIn("fast");
+    });
+});
+</script>
+
+<style type="text/css">
+    li.cat a.edit-item{ position:absolute;top:-10px;right:-10px; }
+</style>

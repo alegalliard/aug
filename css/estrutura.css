@@ -1,0 +1,185 @@
+@charset "iso-8859-1";
+/* CSS Document */
+
+body {
+	margin:0;
+	padding:0;
+	}
+
+
+
+#dvPrincipal {
+	position: absolute;
+	left: 50%;
+	width: 760px;
+	margin-left: -380px;
+	margin-top: 0;
+}
+
+
+    div.box {
+        position:                   relative;
+        font-family:                sans-serif;
+        display:                    block;
+        width:                      100%;
+        height:                     7em;
+        overflow:                   hidden;
+    }
+    div.box p.text {
+        color:                      #333;
+        padding:                    1%;
+        width:                      98%;
+        overflow:                   hidden;
+        background:                 #fff;
+        font-size:                  .95em;
+        line-height:                1;
+        text-align:                 justify;
+    }
+
+    div.box p.text:after {
+        content:                    ' ';
+        position:                   absolute;
+        display:                    block;
+        width:                      100%;
+        height:                     1em;
+        bottom:                     0px;
+        left:                       0px;
+        background:                 #fff;
+    }
+
+    div.box p.text:before {
+        content:                    '...';
+        text-align:                 right;
+        position:                   absolute;
+        display:                    block;
+        width:                      2em;
+        height:                     1em;
+        bottom:                     1em;
+        right:                      20px;
+background: -moz-linear-gradient(left,  rgba(224,224,224,0) 0%, rgba(224,224,224,1) 38%, rgba(224,224,224,1) 99%);
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(224,224,224,0)), color-stop(38%,rgba(224,224,224,1)), color-stop(99%,rgba(224,224,224,1)));
+background: -webkit-linear-gradient(left,  rgba(224,224,224,0) 0%,rgba(224,224,224,1) 38%,rgba(224,224,224,1) 99%);
+background: -o-linear-gradient(left,  rgba(224,224,224,0) 0%,rgba(224,224,224,1) 38%,rgba(224,224,224,1) 99%);
+background: -ms-linear-gradient(left,  rgba(224,224,224,0) 0%,rgba(224,224,224,1) 38%,rgba(224,224,224,1) 99%);
+background: linear-gradient(to right,  rgba(224,224,224,0) 0%,rgba(224,224,224,1) 38%,rgba(224,224,224,1) 99%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=1 );
+    }
+
+#dvCabecalho {
+	position: relative;
+	left: 50%;
+	width: 760px;
+	height:176px;
+	margin-left: -380px;
+	margin-top: 0;
+}
+
+#dvMenu {
+	width:760px;
+	height:53px;
+	background:url(../images/fundo_menu.gif) no-repeat;
+	margin:5px 0 5px 0;
+	float:left;
+	position: relative;
+	text-align: center;
+	}
+
+#dvMenuLateral {
+	width:162px;
+	float:right;
+	position: relative;
+	margin:10px 0 0 0;
+	background:url(../images/menu_direito_top.gif) no-repeat top #666699;
+	}
+
+#dvCorpo {
+	width:598px;
+	float:left;
+	position: relative;
+	}
+
+#dvGatoNome {
+	position:relative;
+	width:185px;
+	height:16px;
+	text-align:center;
+	padding:2px 0 0 0;
+	}
+
+#dvGatoFoto {
+	width:144px;
+	height:108px;
+	position:relative;
+	margin:5px 0 0 20px;
+	text-align: center;
+	}
+
+#dvGatoPerfil {
+	width:185px;
+	height:24px;
+	position:relative;
+	text-align:center;
+	margin: 5px 0 0 0;
+	}
+
+#dvGatoDescricao {
+	width:181px;
+	height:230px;
+	text-align:center;
+	position:relative;
+	margin:5px 0 0 0;
+	padding:0 4px 0 4px;
+	}
+
+#dvGatoSaibaMais {
+	width:185px;
+	height:20px;
+	text-align:center;
+	position:relative;
+	text-decoration:underline;
+	}
+
+
+
+.dvGato {
+	width:188px;
+	height:424px;
+	margin:10px 0 0 10px;
+	background:url(../images/fundo_gatos.gif) no-repeat;
+	position:relative;
+	float:left;
+	}
+
+.dvGatoAdotado {width:140px;height:100px;margin:10px 0 0 5px;position:relative;float:left;}
+
+input {
+	margin:2px;
+	padding:2px;
+	font:verdana;
+	font-size:11px;
+}
+
+.radio, .checkbox {
+	margin:-2px;
+}
+
+.dvFormOk{
+	border:1px solid #009966;
+	background:#AEF7C0;
+	width: 150px;
+	float:left;
+	margin:2px 0 0 5px;
+	padding:2px;
+	height:14px;
+	color:#009966;
+}
+.dvFormNo{
+	border:1px solid #990000;
+	background:#FFAAAA;
+	width: 180px;
+	float:left;
+	margin:2px 0 0 5px;
+	padding:2px;
+	height:14px;
+	color:#990000;
+}

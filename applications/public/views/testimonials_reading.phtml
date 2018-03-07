@@ -1,0 +1,26 @@
+<?php 
+$breadColor = 'purple';
+//$breadPaths = array('Busca de gatos'=> 'buscar-gato');
+$breadPaths = array('Depoimentos'=>'Depoimentos');
+$lastPath = $this->data->title;;
+include('top.phtml'); 
+
+?> 
+        
+   <section class="row container-large m-b-0">
+    <article class="col s12" id="dynamic-content">
+       <h1 class="h1 aug_purple bold upper"><?php echo $this->data->title;?></h1>
+        <h5 class="bold upper"><?php echo $this->data->heading;?></h5>
+
+            <?php echo stripslashes($this->data->content);?>
+
+        <div class="col s12 m-b-0">
+            <a class="perfil bt bt_purple right bold upper" style="display: inline-block; margin: 10px -10px; float: right;" href="javascript:history.go(-1);">Voltar</a>
+        </div>
+        
+    </article>
+</section>
+
+
+
+	

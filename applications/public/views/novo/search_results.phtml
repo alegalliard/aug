@@ -1,0 +1,159 @@
+<?php
+	function highlight($text_to_highlight, $in_string){
+		return preg_replace('/('.$in_string.')/i', '<span class="highlight">$1</span>', $text_to_highlight);
+	}
+?>
+
+<!--    /* .texto-mobile{
+        padding: 10%;
+        padding-top: 0%;
+        overflow-y: scroll;
+        height: 90%;
+
+    }*/ -->
+    
+<?php 
+$breadColor = 'orange';
+//$breadPaths = array('Busca de gatos'=> 'buscar-gato');
+$breadPaths = array();
+$lastPath = 'Busca de gatinhos';
+include('top.phtml'); 
+
+?>
+    
+
+<section>
+    <div class="row container-large m-b-0">
+    <header class="col s10 offset-s1">
+                <h1 class="text_15 right">Resultados da busca por: <span class="aug_orange bold"><?php 
+                    $Query = $this->data->query;
+                    $pieces = explode("&", $Query);
+                    echo $pieces[0];
+                    ?></span></h1>
+            </header>
+            <?php if(sizeof($this->data->cats) == 0 and sizeof($this->data->pages) == 0):?>
+                <article class="col s6 offset-s3">
+        		    <p>Nenhum resultado encontrado. Por favor tente outro termo.</p>
+        		</article>
+        	<?php else:?>
+
+
+
+        		
+        <article class="col s12 m12 l12">
+        		<h2 class="aug_orange h1 bold upper">Páginas</h2>
+        		<?php if(is_array($this->data->pages) and sizeof($this->data->pages) > 0):?>
+        		<ul class="collapsible white">
+        			<?php foreach($this->data->pages as $page):?>
+                    <li>
+                       <div class="collapsible-header aug_blue text_15 bold upper">
+                        <h5 class="aug_blue_btn"><?php echo highlight($page->name, $this->data->query);?></h5>
+                        </div>
+                        <div class="collapsible-body p-10">
+                            
+                            <p><?php 
+                                $full =  highlight(strip_tags($page->content), $this->data->query);
+                                if(strlen($full) > 500) {
+                                     //echo substr($page->content, 0, 100) . '...';
+                                    
+                                    echo substr($full, 0, 500) . '...';
+                                } else {
+                                      echo highlight(strip_tags($page->content), $this->data->query); 
+                                }
+                                
+                                
+                                
+                                
+                                //echo highlight(strip_tags($page->content), $this->data->query);
+                                
+                                ?></p>
+                                <p class="text-right">
+                                <a class="aug_blue" href="<?php echo HOST . $page->slug;?>">Continue lendo
+                            </a></p>
+                        </div>
+                    </li>
+
+        			<?php endforeach;?>
+        			</ul>
+        		<?php else:?>
+        			<p>Nenhuma página encontrada</p>
+        		<?php endif;?>
+        	<?php endif;?>
+        </article>
+
+
+
+
+        <article class="s12 m6 l6">
+        		<h2 class="aug_orange h1 bold upper">Gatos</h2>   
+  		    
+        		<?php if(is_array($this->data->cats) and sizeof($this->data->cats) > 0):?>
+        		<ul class="meio_mural">
+
+        			<?php foreach($this->data->cats as $cat):?>
+                    <li class="col s12 m6 l3">
+                        <a class="perfil" href="<?php echo HOST;?>detalhes-gato2/<?php echo $cat->id;?>/<?php echo strtolower(str_replace(' ', '-', $cat->name));?>" style="background-image: url('<?php echo MEDIA_DIR;?>uploads/cats/<?php echo $cat->picture;?>');">
+                            <div class="shadow hide-on-med-and-down"></div>      
+                            <div class="texto hide-on-med-and-down">
+                                <h1 class="cat_name text_13 bold upper" style="color: white;"><?php echo highlight($cat->name, $this->data->query);?></h1>
+       
+                                <div class="cat_desc text_10"><?php echo highlight($cat->description, $this->data->query);?></div>
+                                <div class="more upper bold text_20">+</div>
+                            </div>
+                            <div class="more upper bold text_20 hide-on-large-only aug_purple_bg" style="color: white;">+</div>
+                            <div class="hide-on-large-only border_b_purple" style="width: 100%; position: absolute; bottom: 0px;"></div>                  
+                        </a>
+                    </li>
+                    <li class="container-large col s12 m6 l3 hide-on-large-only text-small-complete">
+                        <div class="col s12 texto-mobile">
+                                <h1 class="cat_name pop_title bold upper"><?php echo highlight($cat->name, $this->data->query);?></h1>
+       
+                                <div class="text_10"><?php echo highlight($cat->description, $this->data->query);?></div>
+                        </div>
+                    </li>
+
+        						
+        			<?php endforeach;?>
+        			
+        		</ul>
+        		<?php else:?>
+                    <div class="row container-large m-b-0">
+        			     <p>Nenhum gatinho encontrado</p>
+                   <br>
+                   <br>
+                   <br>
+                    </div>
+        		<?php endif;?>
+        </article>		 		    		
+      		
+
+
+  
+</section>
+<script>
+    function isChrome() {
+        var myNavChrome = navigator.userAgent.toLowerCase();
+        return (myNavChrome.indexOf('chrome/') != -1) ? parseInt(myNavChrome.split('chrome/')[1]) : false;
+    }
+
+    function isFirefoxandIE() {
+        var myNavFirefox = navigator.userAgent.toLowerCase();
+        return (myNavFirefox.indexOf('rv:') != -1) ? parseInt(myNavFirefox.split('rv:')[1]) : false;
+    }
+
+    function isSafari() {
+        var myNavSafari = navigator.userAgent.toLowerCase();
+        return (myNavSafari.indexOf('version/') != -1) ? parseInt(myNavSafari.split('version/')[1]) : false;
+    }
+        
+        if (isChrome() <= 35 && isChrome() != false || isFirefoxandIE() <= 30 && isFirefoxandIE() != false || navigator.userAgent.match(/Edge/) == "Edge" || isSafari() <=7 && isSafari() != false) {
+            $(document).ready(function(){
+                $("div.texto").hover(function(){
+                    $(this).prev().css("display", "inline-block");
+                    }, function(){
+                    $(this).prev().css("display", "none");
+                });
+            });
+        }
+
+    </script>

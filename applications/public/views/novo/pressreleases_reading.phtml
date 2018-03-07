@@ -1,0 +1,19 @@
+<?php 
+$breadColor = 'orange';
+$breadPaths = array('AUG na mídia'=>'aug-na-midia2');
+$lastPath = $this->data->title;
+include('top.phtml'); 
+
+?>
+   <section class="row container-large m-b-0">
+    <article class="col s12" id="dynamic-content">
+
+        <h1 class="h1 aug_orange upper bold"><?php echo $this->data->title;?></h1>
+        <h2 class="text_15 bold"><?php echo $this->data->heading;?></h2>
+
+            <?php echo stripslashes($this->data->content);?>
+        <div class="col s12">
+            <a class="right perfil bt bt_orange m-b-20 bold upper" href="javascript:history.go(-1);" style="display: inline-block; float: right;">Voltar</a>
+        </div>
+    </article>
+</section>

@@ -1,0 +1,31 @@
+.card.mitos-verdades-ferais{
+	span{
+		text-shadow: none;
+	}
+	.card-content{
+		max-height: initial;
+
+		p{
+    		margin-top: 50%;
+    		transform: translateY(-50%);
+		}
+
+		i {margin-top: 8px;}
+
+	}
+
+	.card-reveal{
+		padding: 0;
+
+		.card-title, p{
+			padding: 20px;
+		}
+	}
+}
+
+.card.contato{
+
+	.card-content{
+		max-height: initial;
+	}
+}

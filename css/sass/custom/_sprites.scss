@@ -1,0 +1,414 @@
+$SVGspriteWhite: url(../../img/icones-white.svg);
+$SVGspriteGrey: url(../../img/icones-grey.svg);
+$SVGspritePurple: url(../../img/icones-purple.svg);
+$SVGspriteInfo: url(../../img/icones-infografico.svg);
+$SVGspriteCriterio: url(../../img/icones-infografico2.svg);
+
+@import "components/variables";
+
+.ic-pos{
+    display: inline-block;
+    vertical-align: middle;
+   // margin:0 0.5rem;
+    background-color:transparent;
+}
+
+
+
+.icon-white{background-image: $SVGspriteWhite; @extend .ic-pos;}
+.icon-grey{background-image: $SVGspriteGrey; @extend .ic-pos;}
+.icon-purple{background-image: $SVGspritePurple; @extend .ic-pos;}
+
+
+.ic-in-circle{
+    width: 37px;
+    height:37px;
+    
+}
+
+    .ic-home{background-position: -3px -3px; @extend .ic-in-circle;}
+    .ic-arrow-left{background-position: -43px -3px; @extend .ic-in-circle;}
+    .ic-arrow-right{background-position:-82px -3px; @extend .ic-in-circle;}
+    .ic-tools{background-position:-120px -3px; @extend .ic-in-circle;}
+
+    .ic-zoom{background-position: -3px -40px; @extend .ic-in-circle}
+    .ic-refresh{background-position: -43px -40px; @extend .ic-in-circle;}
+    .ic-shield{background-position: -82px -40px; @extend .ic-in-circle;}
+    .ic-email{background-position: -120px -40px; @extend .ic-in-circle;}
+
+    .ic-clock{background-position:-3px -80px; @extend .ic-in-circle}
+    .ic-locked{background-position: -43px -80px; @extend .ic-in-circle}
+    .ic-unlocked{background-position: -82px -80px; @extend .ic-in-circle}
+    .ic-download{background-position: -120px -80px; @extend .ic-in-circle}
+
+    .ic-baloon{background-position: -3px -118px; @extend .ic-in-circle}
+    .ic-star{background-position: -43px -118px; @extend .ic-in-circle}
+    .ic-cloud{background-position:-82px -118px; @extend .ic-in-circle}
+    .ic-trash{background-position: -120px -118px; @extend .ic-in-circle}
+
+    .ic-hank{background-position: 0 -221px; @extend .ic-in-circle}
+    .ic-happy{background-position: -30px -218px; @extend .ic-in-circle}
+    .ic-heart{background-position: -62px -216px; @extend .ic-in-circle}
+
+    .ic-facebook-circle{background-position: -4px -265px; @extend .ic-in-circle}
+    .ic-instagram-circle{background-position: -43px -265px; @extend .ic-in-circle}
+    .ic-twitter-circle{background-position: -82px -265px; @extend .ic-in-circle}
+    .ic-video-circle{background-position: -122px -265px; @extend .ic-in-circle}
+
+    .ic-close-circle{background-position: -4px -306px; @extend .ic-in-circle}
+
+
+.big-stars-range{
+    width:60px;
+    height: 60px;
+}
+
+    .ic-hank-big{background-position: 0 -160px; @extend .big-stars-range}
+    .ic-happy-big{background-position: -54px -160px; @extend .big-stars-range}
+    .ic-heart-big{background-position:  -108px -160px; @extend .big-stars-range}
+
+
+
+    
+.social{
+    width: 48px;
+    height: 48px;
+
+}
+    .ic-facebook{background-position: -162px 0; @extend .social;}
+    .ic-instagram{background-position: -209px 0; @extend .social;}
+    .ic-twitter{background-position: -255px 0; @extend .social;}
+
+
+
+.ic-down{background-position: -317px -17px; width:30px; height: 20px;}
+.ic-list{background-position: -351px -12px; width:37px; height: 30px;}
+
+
+.submenu-icons{
+    width:110px;
+    height:80px;
+}
+
+.ic-cat-tooth{background-position: -178px -550px; @extend .submenu-icons;}
+.ic-looking-cat{background-position: -178px -128px; @extend .submenu-icons;}
+.ic-ok-doc{background-position: -178px -200px; @extend .submenu-icons;}
+.ic-info{background-position: -178px -276px; @extend .submenu-icons;}
+.ic-letter{background-position: -178px -349px; @extend .submenu-icons;}
+//
+
+.big-circle{
+    width:80px;
+    height:80px;
+}
+    .ic-footprint{background-position:-299px -49px; @extend .big-circle;}
+    .ic-heart-bigger{background-position:-299px -132px; @extend .big-circle;}
+    .ic-question-big{background-position:-299px -222px; @extend .big-circle;}
+
+
+
+//
+.ic-male{
+    background-position: -494px -57px;
+    width: 65px;
+    height: 65px;
+
+    &.text{
+
+        @media #{$small-and-down}{
+            zoom: 32%;
+            margin-top: 30px;
+            float: right;
+        }
+
+        @media #{$medium-only}{
+            zoom: 56%;
+            margin-top: 20px;
+            float: right;
+            margin-right: -42px;
+
+        }
+    }
+}
+.ic-female{
+    background-position: -494px -125px; 
+    width: 65px;
+    height: 65px;
+
+    &.text{
+
+        @media #{$small-and-down}{
+            zoom: 32%;
+            margin-top: 30px;
+            float: right;
+        }
+
+        @media #{$medium-only}{
+            zoom: 56%;
+            margin-top: 20px;
+            float: right;
+            margin-right: -42px;
+
+        }
+    }
+}
+.ic-male-female{
+    background-position: -494px -200px; 
+    width: 65px;
+    height: 65px;
+
+    &.text{
+
+        @media #{$small-and-down}{
+            zoom: 32%;
+            margin-top: 30px;
+            float: right;
+        }
+
+        @media #{$medium-only}{
+            zoom: 56%;
+            margin-top: 20px;
+            float: right;
+            margin-right: -42px;
+
+        }
+    }
+}
+
+$icon-large: 150px; //em caso de alteração do tamanho das divs, alterar este valor para os desenhos caberem na mesma.
+$icon-medium: $icon-large*1.5;
+$icon-small: $icon-large*2;
+
+.info{
+    background-image: $SVGspriteInfo; @extend .ic-pos;
+    background-size: cover;
+
+    &1{ @extend .info;
+        @media #{$large-and-up}{
+            width: $icon-large;
+            height: $icon-large;
+            background-position: -$icon-large*0;
+            // margin-top: 1rem;
+        }
+        @media only screen and (min-width: $small-screen) and (max-width: $medium-screen){
+            width: $icon-medium;
+            height: $icon-medium;
+            background-position: -$icon-medium*0;
+            // margin-top: 2rem;
+        }
+        @media #{$small-and-down}{
+            width: $icon-small;
+            height: $icon-small;
+            background-position: -$icon-small*0;
+            // margin-top: 4rem;
+        }
+    }
+    &2{ @extend .info;
+        @media #{$large-and-up}{
+            width: $icon-large;
+            height: $icon-large;
+            background-position: -$icon-large*1;
+            // margin-top: 1rem;
+        }
+        @media only screen and (min-width: $small-screen) and (max-width: $medium-screen){
+            width: $icon-medium;
+            height: $icon-medium;
+            background-position: -$icon-medium*1;
+            // margin-top: 2rem;
+        }
+        @media #{$small-and-down}{
+            width: $icon-small;
+            height: $icon-small;
+            background-position: -$icon-small*1;
+            // margin-top: 4rem;
+        }
+    }
+    &3{ @extend .info;
+        @media #{$large-and-up}{
+            width: $icon-large;
+            height: $icon-large;
+            background-position: -$icon-large*2;
+            // margin-top: 1rem;
+        }
+        @media only screen and (min-width: $small-screen) and (max-width: $medium-screen){
+            width: $icon-medium;
+            height: $icon-medium;
+            background-position: -$icon-medium*2;
+            // margin-top: 2rem;
+        }
+        @media #{$small-and-down}{
+            width: $icon-small;
+            height: $icon-small;
+            background-position: -$icon-small*2;
+            // margin-top: 4rem;
+        }
+    }
+    &4{ @extend .info;
+        @media #{$large-and-up}{
+            width: $icon-large;
+            height: $icon-large;
+            background-position: -$icon-large*3;
+            // margin-top: 1rem;
+        }
+        @media only screen and (min-width: $small-screen) and (max-width: $medium-screen){
+            width: $icon-medium;
+            height: $icon-medium;
+            background-position: -$icon-medium*3;
+            // margin-top: 2rem;
+        }
+        @media #{$small-and-down}{
+            width: $icon-small;
+            height: $icon-small;
+            background-position: -$icon-small*3;
+            // margin-top: 4rem;
+        }
+    }
+    &5{ @extend .info;
+        @media #{$large-and-up}{
+            width: $icon-large;
+            height: $icon-large;
+            background-position: -$icon-large*4;
+            // margin-top: 1rem;
+        }
+        @media only screen and (min-width: $small-screen) and (max-width: $medium-screen){
+            width: $icon-medium;
+            height: $icon-medium;
+            background-position: -$icon-medium*4;
+            // margin-top: 2rem;
+        }
+        @media #{$small-and-down}{
+            width: $icon-small;
+            height: $icon-small;
+            background-position: -$icon-small*4;
+            // margin-top: 4rem;
+        }
+    }
+    &6{ @extend .info;
+        @media #{$large-and-up}{
+            width: $icon-large;
+            height: $icon-large;
+            background-position: -$icon-large*5;
+            // margin-top: 1rem;
+        }
+        @media only screen and (min-width: $small-screen) and (max-width: $medium-screen){
+            width: $icon-medium;
+            height: $icon-medium;
+            background-position: -$icon-medium*5;
+            // margin-top: 2rem;
+        }
+        @media #{$small-and-down}{
+            width: $icon-small;
+            height: $icon-small;
+            background-position: -$icon-small*5;
+            // margin-top: 4rem;
+        }
+    }
+    &7{ @extend .info;
+        @media #{$large-and-up}{
+            width: $icon-large;
+            height: $icon-large;
+            background-position: -$icon-large*6;
+            // margin-top: 1rem;
+        }
+        @media only screen and (min-width: $small-screen) and (max-width: $medium-screen){
+            width: $icon-medium;
+            height: $icon-medium;
+            background-position: -$icon-medium*6;
+            // margin-top: 2rem;
+        }
+        @media #{$small-and-down}{
+            width: $icon-small;
+            height: $icon-small;
+            background-position: -$icon-small*6;
+            // margin-top: 4rem;
+        }
+    }
+    &8{ @extend .info;
+        @media #{$large-and-up}{
+            width: $icon-large;
+            height: $icon-large;
+            background-position: -$icon-large*7;
+            // margin-top: 1rem;
+        }
+        @media only screen and (min-width: $small-screen) and (max-width: $medium-screen){
+            width: $icon-medium;
+            height: $icon-medium;
+            background-position: -$icon-medium*7;
+            // margin-top: 2rem;
+        }
+        @media #{$small-and-down}{
+            width: $icon-small;
+            height: $icon-small;
+            background-position: -$icon-small*7;
+            // margin-top: 4rem;
+        }
+    }
+    &9{ @extend .info;
+        @media #{$large-and-up}{
+            width: $icon-large;
+            height: $icon-large;
+            background-position: -$icon-large*8;
+            // margin-top: 1rem;
+        }
+        @media only screen and (min-width: $small-screen) and (max-width: $medium-screen){
+            width: $icon-medium;
+            height: $icon-medium;
+            background-position: -$icon-medium*8;
+            // margin-top: 2rem;
+        }
+        @media #{$small-and-down}{
+            width: $icon-small;
+            height: $icon-small;
+            background-position: -$icon-small*8;
+            // margin-top: 4rem;
+        }
+    }
+    &10{ @extend .info;
+        @media #{$large-and-up}{
+            width: $icon-large;
+            height: $icon-large;
+            background-position: -$icon-large*9;
+            // margin-top: 1rem;
+        }
+        @media only screen and (min-width: $small-screen) and (max-width: $medium-screen){
+            width: $icon-medium;
+            height: $icon-medium;
+            background-position: -$icon-medium*9;
+            // margin-top: 2rem;
+        }
+        @media #{$small-and-down}{
+            width: $icon-small;
+            height: $icon-small;
+            background-position: -$icon-small*9;
+            // margin-top: 4rem;
+        }
+    }
+}
+
+// .card-content{
+//     max-width: 80%;
+// }
+
+$icon-infos-important: 1.8;
+
+.info-quero-adotar{
+    @media #{$large-and-up}{
+        zoom: $icon-infos-important;
+    }
+    @media only screen and (min-width: $small-screen) and (max-width: $medium-screen){
+        zoom: $icon-infos-important*1.333333;
+    }
+    @media #{$small-and-down}{
+        zoom: $icon-infos-important*1.6666;
+    }
+}
+
+.icone-adocao{
+    background-image: url(../../img/icone-adocao.svg);
+    width: 80px;
+    height: 80px;
+}
+
+.icone-home{
+    margin: 0 25%;  
+}

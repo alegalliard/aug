@@ -1,0 +1,1 @@
+<?php header("Location:https://pagseguro.uol.com.br/checkout/nc/nl/donation/sender-identification.jhtml?t=fc8179ae0a009078214adb16329ca166#rmcl");?>

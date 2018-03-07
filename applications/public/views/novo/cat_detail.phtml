@@ -1,0 +1,565 @@
+<style>
+    .title-cats{
+        display: none!important;
+    }
+</style>
+
+<?php 
+$breadColor = 'purple';
+$breadPaths = array('Gatos'=> 'gatinhos-para-adocao');
+$lastPath = 'Perfil de '. $this->data->name;
+include('top.phtml'); 
+
+?>
+            
+<!-- # # # # # # # # # # # # # # 
+    Content
+# # # # # # # # # # # # # # -->
+<section class="grey lighten-3">
+   <div class="row container-large m-b-0">
+       <div class="col s12 m5 l6 square-cat-large" style="position: relative; padding: 0;">
+    <aside class="slide right m-t-0">
+           <?php if($this->data->special == 1):?>
+                <div class="special-cat"><i class="icon-white ic-star"></i>Especial </div>
+            <?php endif;?>
+            <?php if($this->data->status == 1):?>
+                <div class="special-cat" style="right:0; left:auto;"><i class="icon-white ic-lock"></i>Reservado </div>
+            <?php endif;?>
+            
+            
+            <div id="jssor_1">
+            <!-- Loading Screen -->
+            <div data-u="loading" id="loaderSlider">
+                <div id="camada1"></div>
+                <div id="camada2"></div>
+            </div>
+            <div data-u="slides" id="sliders">
+                <?php if($this->data->picture != ''):?>
+                     <div data-p="225.00" style="display: none;" class="sld">>
+                        <img data-u="image" src="<?php echo MEDIA_DIR;?>uploads/cats/<?php echo $this->data->picture;?>" />
+                        <img data-u="thumb" src="<?php echo MEDIA_DIR;?>uploads/cats/<?php echo $this->data->picture;?>" />
+                    </div>
+                <?php endif;?>
+                <?php if($this->data->picture_2 != ''):?>
+                     <div data-p="225.00" style="display: none;" class="sld">>
+                        <img data-u="image" src="<?php echo MEDIA_DIR;?>uploads/cats/<?php echo $this->data->picture_2;?>" />
+                        <img data-u="thumb" src="<?php echo MEDIA_DIR;?>uploads/cats/<?php echo $this->data->picture_2;?>" />
+                    </div>
+                <?php endif;?>
+                <?php if($this->data->picture_3 != ''):?>
+                     <div data-p="225.00" style="display: none;" class="sld">>
+                        <img data-u="image" src="<?php echo MEDIA_DIR;?>uploads/cats/<?php echo $this->data->picture_3;?>" />
+                        <img data-u="thumb" src="<?php echo MEDIA_DIR;?>uploads/cats/<?php echo $this->data->picture_3;?>" />
+                    </div>
+                <?php endif;?>
+                <?php if($this->data->picture_4 != ''):?>
+                     <div data-p="225.00" style="display: none;" class="sld">>
+                        <img data-u="image" src="<?php echo MEDIA_DIR;?>uploads/cats/<?php echo $this->data->picture_4;?>" />
+                        <img data-u="thumb" src="<?php echo MEDIA_DIR;?>uploads/cats/<?php echo $this->data->picture_4;?>" />
+                    </div>
+                <?php endif;?>
+                
+                <?php if($this->data->video_embed_code != ''):?>
+                <div id="cat_video">
+                    <div data-p="225.00" style="display: none;" class="sld">>
+                    <?php
+                        $this->data->video_embed_code = stripslashes($this->data->video_embed_code);
+                        if(stripos($this->data->video_embed_code, 'youtube.com') !== FALSE){
+                            $url_parsed = parse_url($this->data->video_embed_code);
+                            parse_str($url_parsed["query"],$url_variables);
+                            if($url_variables['v'])
+                                echo "<iframe width='100%' height='415' src='http://www.youtube.com/embed/".$url_variables['v']."?wmode=Opaque' frameborder='0' allowfullscreen></iframe>";
+                        }		
+                    ?>
+                </div>
+                </div>
+            <?php endif;?>
+
+                
+
+            </div>
+           
+           <!-- Thumbnail Navigator -->
+        <div data-u="thumbnavigator" class="jssort01" data-autocenter="1">
+            <!-- Thumbnail Item Skin Begin -->
+            <div data-u="slides" style="cursor: default; top: 420px;!important" id="thumbs_bottom">
+                <div data-u="prototype" class="p">
+                    <div class="w">
+                        <div data-u="thumbnailtemplate" class="t"></div>
+                    </div>
+                    <div class="c"></div>
+                </div>
+            </div>
+            <!-- Thumbnail Item Skin End -->
+        </div>
+        <!-- Arrow Navigator -->
+        <span data-u="arrowleft" class="jssora05l"></span>
+        <span data-u="arrowright" class="jssora05r"></span>
+           
+           
+           
+        </div>
+        
+        
+        
+        <a href="#modal1" id="adotar_nomodal" class="hide-on-large-only">
+            <div class="text-center right-mobile" style="width: 140px;">
+               <div class="circle_icon aug_purple_bg centered" style="margin-top: -35px;"><i class="icon-white ic-footprint"></i></div>
+                <p class="aug_purple text_15 upper bold">Adotar</p>
+            </div>
+        </a>
+    </aside>
+              
+              
+              
+              
+<!--
+              
+               <aside class="slide right">
+   	               <a href="<?php echo MEDIA_DIR;?>uploads/cats/<?php echo $this->data->picture;?>" class="cat_picture">
+                        <div style="background-image: url(<?php echo MEDIA_DIR;?>uploads/cats/<?php echo $this->data->picture;?>)" class="cat-responsive" />
+                    </a>
+-->
+					<!--<a href="#modal1" data-target="modal1" class=" modal-trigger col s5 m6 l4 offset-m6 offset-l1 right m-t-20 btn-adotar-small hide-on-med-and-up">
+	                    <div class="text-center m-t-20 m-b-20">
+	                       <div class="circle_icon aug_purple_bg centered"><i class="icon-white ic-footprint"></i></div>
+	                        <p class="aug_purple text_15 upper bold m-t-10 m-b-10" style="display: inline-block; background-color: #fff;">Adotar</p>
+	                    </div>
+	            	</a>-->
+		            
+<!--
+		            <a href="#modal1" data-target="modal1" class=" modal-trigger col s4 m4 l4 offset-m6 offset-l1 right m-t-20 hide-on-large-only btn-adotar-small">
+		                    <div class="text-center m-t-20">
+		                       <div class="circle_icon aug_purple_bg centered"><i class="icon-white ic-footprint"></i></div>
+		                        <p class="aug_purple text_15 upper bold m-t-10" style="display: inline-block; background: #fff;">Adotar</p>
+		                    </div>
+		            </a>
+                </aside>
+-->
+
+           </div>
+           
+           <section class="col s12 m7 l6 cat-content m-t-20">
+                <header>
+                   <h1 class="pop_title bold upper" style="margin-top: 0px;"><?php echo $this->data->name;?></h1>
+                </header>
+                
+                <aside class="row hide-on-large-only">
+                    <div class="mobile_grade">
+                        <div class="col s4 m4 hank">
+                            <?php 
+                            for ($i = 0; $i < $this->data->playful; $i++) {
+                                echo '<i class="sociavel icon-purple ic-hank-big"></i>';
+                            }
+                            switch($this->data->playful){
+                                case 2:
+                                     echo '<i class="sociavel icon-grey ic-hank-big"></i>';
+                                break;
+                                    
+                                case 1:
+                                    echo '<i class="sociavel icon-grey ic-hank-big"></i>';
+                                    echo '<i class="sociavel icon-grey ic-hank-big"></i>';
+                                break;
+                                case 0:
+                                     echo '<i class="sociavel icon-grey ic-hank-big"></i>';
+                                    echo '<i class="sociavel icon-grey ic-hank-big"></i>';
+                                    echo '<i class="sociavel icon-grey ic-hank-big"></i>';
+                                break;
+                            }
+                            ?>
+                            <p class="text-right text_15">Sociável</p>
+                        </div>
+                        <div class="col s4 m4 happy">
+                            <?php 
+                            for ($i = 0; $i < $this->data->social; $i++) {
+                                echo '<i class="sociavel icon-purple ic-happy-big"></i>';
+                            } 
+                            switch($this->data->social){
+                                case 2:
+                                     echo '<i class="sociavel icon-grey ic-happy-big"></i>';
+                                break;
+                                    
+                                case 1:
+                                    echo '<i class="sociavel icon-grey ic-happy-big"></i>';
+                                    echo '<i class="sociavel icon-grey ic-happy-big"></i>';
+                                break;
+                                case 0:
+                                     echo '<i class="sociavel icon-grey ic-happy-big"></i>';
+                                     echo '<i class="sociavel icon-grey ic-happy-big"></i>';
+                                     echo '<i class="sociavel icon-grey ic-happy-big"></i>';
+                                break;
+                            }
+                            ?>
+                            <p class="text-right text_15">Brincalhão</p>
+                        </div>
+                       <div class="col s4 m4 heart">
+                            <?php 
+                                for ($i = 0; $i < $this->data->lovely; $i++) {
+                                echo '<i class="sociavel icon-purple ic-heart-big"></i>';
+                            } 
+                           switch($this->data->lovely){
+                                case 2:
+                                     echo '<i class="sociavel icon-grey ic-heart-big"></i>';
+                                break;
+                                    
+                                case 1:
+                                    echo '<i class="sociavel icon-grey ic-heart-big"></i>';
+                                    echo '<i class="sociavel icon-grey ic-heart-big"></i>';
+                                break;
+                                case 0:
+                                     echo '<i class="sociavel icon-grey ic-heart-big"></i>';
+                                     echo '<i class="sociavel icon-grey ic-heart-big"></i>';
+                                     echo '<i class="sociavel icon-grey ic-heart-big"></i>';
+                                break;
+                            }
+                            ?>
+                            <p class="text-right text_15">Carinhoso</p>
+                        </div>
+                    </div>
+                </aside>
+	                
+                <article class="m-b-20">
+                    <ul class="cat_desc">
+
+                    <?php //apenas a lista
+                    $desc = $this->data->full_description;
+                    $lista = str_replace('p>', "li>", $infor);
+                    $pos = strpos( $desc , '<div');
+                    $somente_lista = substr($desc, 0, $pos);
+
+                    echo $somente_lista;?>
+               </ul>
+
+                <?php //apenas os parágrafos
+                    $contador = strlen($desc);
+                   $p_ini = str_replace('<div', "<p", $desc);
+                   $p_fim = str_replace('div>', "p>", $p_ini);
+                    echo substr($p_fim, $pos, $contador);
+                ?>
+                </article>
+
+
+                <div class="col s7 m-t-20 m-b-20 hide-on-med-and-down">
+                    <div class="cat-grades">
+                        <div class="hank">
+                            <?php 
+                            for ($i = 0; $i < $this->data->playful; $i++) {
+                                echo '<i class="sociavel icon-purple ic-hank-big"></i>';
+                            }
+                            switch($this->data->playful){
+                                case 2:
+                                     echo '<i class="sociavel icon-grey ic-hank-big"></i>';
+                                break;
+                                    
+                                case 1:
+                                     echo '<i class="sociavel icon-grey ic-hank-big"></i>';
+                                     echo '<i class="sociavel icon-grey ic-hank-big"></i>';
+                                break;
+                                case 0:
+                                     echo '<i class="sociavel icon-grey ic-hank-big"></i>';
+                                     echo '<i class="sociavel icon-grey ic-hank-big"></i>';
+                                     echo '<i class="sociavel icon-grey ic-hank-big"></i>';
+                                break;
+                            }
+                            ?>
+                            <p class="text-right text_15">Sociável</p>
+                        </div>
+                        <div class="happy">
+                            <?php 
+                            for ($i = 0; $i < $this->data->social; $i++) {
+                                echo '<i class="sociavel icon-purple ic-happy-big"></i>';
+                            }
+                            switch($this->data->social){
+                                case 2:
+                                     echo '<i class="sociavel icon-grey ic-happy-big"></i>';
+                                break;
+                                    
+                                case 1:
+                                     echo '<i class="sociavel icon-grey ic-happy-big"></i>';
+                                     echo '<i class="sociavel icon-grey ic-happy-big"></i>';
+                                break;
+                                case 0:
+                                     echo '<i class="sociavel icon-grey ic-happy-big"></i>';
+                                     echo '<i class="sociavel icon-grey ic-happy-big"></i>';
+                                     echo '<i class="sociavel icon-grey ic-happy-big"></i>';
+                                break;
+                            }
+                           
+                            ?>
+                            <p class="text-right text_15">Brincalhão</p>
+                        </div>
+                        <div class="heart">
+                            <?php 
+                                for ($i = 0; $i < $this->data->lovely; $i++) {
+                                echo '<i class="sociavel icon-purple ic-heart-big"></i>';
+                            }
+                            switch($this->data->lovely){
+                                case 2:
+                                     echo '<i class="sociavel icon-grey ic-heart-big"></i>';
+                                break;
+                                    
+                                case 1:
+                                     echo '<i class="sociavel icon-grey ic-heart-big"></i>';
+                                     echo '<i class="sociavel icon-grey ic-heart-big"></i>';
+                                break;
+                                case 0:
+                                     echo '<i class="sociavel icon-grey ic-heart-big"></i>';
+                                     echo '<i class="sociavel icon-grey ic-heart-big"></i>';
+                                     echo '<i class="sociavel icon-grey ic-heart-big"></i>';
+                                break;
+                            }
+                            ?>
+                            <p class="text-right text_15">Carinhoso</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#modal1" data-target="modal1" class=" modal-trigger col s5 m6 l4 offset-m6 offset-l1 right m-t-20 hide-on-med-and-down">
+                        <div class="text-center m-t-20 m-b-20">
+                           <div class="circle_icon aug_purple_bg centered"><i class="icon-white ic-footprint"></i></div>
+                            <p class="aug_purple text_15 upper bold">Adotar</p>
+                        </div>
+                </a>
+		     
+           </section>
+          		<!--<footer class="row stars">
+                   
+                </footer>-->
+       </div>
+          
+    </section>
+
+
+
+<!--
+
+<div id="cat-detail">
+	<?php if($this->data->special == 1):?>
+		<div class="special-cat"></div>
+	<?php endif;?>
+	<div class="cat_pictures">
+        <?php if($this->data->picture != ''):?>
+	        <a href="<?php echo MEDIA_DIR;?>uploads/cats/<?php echo $this->data->picture;?>" class="cat_picture">
+	            <img src="<?php echo MEDIA_DIR;?>uploads/cats/<?php echo $this->data->picture;?>" alt="" />
+	            <cite>Clique para ampliar</cite>
+	        </a>
+        <?php endif;?>
+        <?php if($this->data->picture_2 != ''):?>	
+	        <a href="<?php echo MEDIA_DIR;?>uploads/cats/<?php echo $this->data->picture_2;?>" class="cat_picture">
+	            <img src="<?php echo MEDIA_DIR;?>uploads/cats/<?php echo $this->data->picture_2;?>" alt="" />
+	            <cite>Clique para ampliar</cite>
+	        </a>
+        <?php endif;?>
+        <?php if($this->data->picture_3 != ''):?>	
+	        <a href="<?php echo MEDIA_DIR;?>uploads/cats/<?php echo $this->data->picture_3;?>" class="cat_picture">
+	            <img src="<?php echo MEDIA_DIR;?>uploads/cats/<?php echo $this->data->picture_3;?>" alt="" />
+	            <cite>Clique para ampliar</cite>
+	        </a>
+        <?php endif;?>
+        <?php if($this->data->picture_4 != ''):?>	
+	        <a href="<?php echo MEDIA_DIR;?>uploads/cats/<?php echo $this->data->picture_4;?>" class="cat_picture">
+	            <img src="<?php echo MEDIA_DIR;?>uploads/cats/<?php echo $this->data->picture_4;?>" alt="" />
+	            <cite>Clique para ampliar</cite>
+	        </a>
+        <?php endif;?>
+	</div>
+	<div class="cat_details">
+		<div class="cat_stats">
+			<h2></h2>
+			<span>Sociável: <span class="sociavel rating_<?php echo $this->data->social;?>"></span></span>
+			<span>Brincalhão: <span class="brincalhao rating_<?php echo $this->data->playful;?>"></span></span>
+			<span>Carinhoso: <span class="carinhoso rating_<?php echo $this->data->lovely;?>"></span></span>
+		</div>
+		
+		<div class="cat_description">
+			<?php
+				echo stripslashes(utf8_encode($this->data->full_description));
+			?>
+		</div>
+                
+	</div>
+                
+	<?php if($this->data->video_embed_code != ''):?>
+		<div id="cat_video">
+			<?php
+				$this->data->video_embed_code = stripslashes($this->data->video_embed_code);
+				if(stripos($this->data->video_embed_code, 'youtube.com') !== FALSE){
+					$url_parsed = parse_url($this->data->video_embed_code);
+					parse_str($url_parsed["query"],$url_variables);
+					if($url_variables['v'])
+						echo "<iframe width='100%' height='415' src='http://www.youtube.com/embed/".$url_variables['v']."?wmode=Opaque' frameborder='0' allowfullscreen></iframe>";
+				}		
+			?>
+		</div>
+	<?php endif;?>
+	<?php if($this->data->status == 0):?>
+		<a href="javascript:history.go(-1);" id="go-back">Voltar</a>
+		<a id="want-to-adopt" href="#criterios-de-adocao">Quero adotar</a>
+	<?php endif;?>
+	<div class="clear"></div>
+	</div>
+</div>
+-->
+
+ <!-- Modal Structure -->
+<div id="modal1" class="modal modal-fixed-footer">
+	<div id="criterios-de-adocao" class="modal-content">
+		<header class="header row white">
+            <div class="col s2 offset-l1 hide-on-small-only">
+                <img src="<?php echo HOST;?>templates/public/css/images/logo.png" class="hide-on-small-only" width="70" height="70" style="margin-top:15px; margin-left:25%;" />
+            </div>
+            <div class="col s9">
+                <h1 class="h1 bold upper aug_purple" style="font-size:2rem; margin-top:2.0rem;">Critérios de adoção</h1>
+            </div>
+		</header>
+		<section class="content">
+		<div class="row">
+		<div style="padding:1.2rem 2.0rem">
+		
+			<h2 class="text_15 bold aug_purple">Para adotar</h2>
+			<p class="m-b-20">Por favor, observe o quadro abaixo para saber se você está preparado para adotar o gatinho escolhido.</p>
+			<ul class="we-do-donate  img-desc-list">
+				<li>
+					<img src="<?php echo MEDIA_DIR;?>images/criterios-de-adocao/doamos/01-gato-janela.png" class="left" />
+					<p>Apartamentos precisam ter redes de proteção próprias para gatos em TODAS as sacadas e janelas, incluindo vitrôs e basculantes. As redes devem ser instaladas antes da chegada do gatinho e  serem fixas, não aceitamos nenhum tipo de rede removível.</p>
+				</li>
+				<li>
+					<img src="<?php echo MEDIA_DIR;?>images/criterios-de-adocao/doamos/02-casa.png" class="left" />
+                    <p>Casas precisam ser seguras (com muros bem altos, telas ou alguma barreira física que impeça a saída do gatinho para o telhado/rua). Não basta fechar as portas ou janelas, essa barreira física a mais precisa existir ou ser instalada.</p>
+				</li>
+				<li>
+					<img src="<?php echo MEDIA_DIR;?>images/criterios-de-adocao/doamos/03-racao.png"  class="left" />
+					<p>É preciso ter condições financeiras para arcar com ração e areia de boa qualidade e idas ao veterinário (vacinas/tratamento de doenças que possam surgir).</p>
+				</li>
+				<li>
+					<img src="<?php echo MEDIA_DIR;?>images/criterios-de-adocao/doamos/04-sampa.png"  class="left" />
+					
+					<p>É preciso morar dentro da Cidade de São Paulo ou no ABC (Santo André, São Bernardo e São Caetano), pois as entregas são feitas pessoalmente nas casas dos adotantes.</p>
+				</li>
+				<li>
+					<img src="<?php echo MEDIA_DIR;?>images/criterios-de-adocao/doamos/05-termo.png"   class="left"/>
+					
+					<p>Não é preciso pagar nada, mas você terá que assinar um termo de responsabilidade, comprometendo-se a não repassá-lo a terceiros sem nosso consentimento e zelar por sua saúde e segurança.</p>
+				</li>
+			</ul>
+			<h2 class="text_15 bold aug_purple">Não doamos para</h2>
+			<ul class="we-dont-donate img-desc-list m-b-20">
+			
+				<li>
+					<img src="<?php echo MEDIA_DIR;?>images/criterios-de-adocao/nao-doamos/01-gato-pulo.png" />
+					<p>Apartamentos sem telas de proteção em TODAS as janelas/sacadas ou telas do tipo REMOVÍVEIS OU DESLIZANTES.</p>
+				</li>
+				<li>
+					<img src="<?php echo MEDIA_DIR;?>images/criterios-de-adocao/nao-doamos/02-casa-maior.png" />
+					<p>Casas com janelas ou muros baixos, portão aberto, sem telas, ou abertas, que permita que o gatinho possa sair para passear em telhados ou na rua.</p>
+				</li>
+				<li>
+					<img src="<?php echo MEDIA_DIR;?>images/criterios-de-adocao/nao-doamos/03-racao-vazio.png" />
+					<p>Pessoas que não tenham condições financeiras mínimas de alimentar e cuidar da saúde do gato.</p>
+				</li>
+				<li>
+					<img src="<?php echo MEDIA_DIR;?>images/criterios-de-adocao/nao-doamos/04-fora-sampa.png" />
+					<p>Quem mora fora da Cidade de São Paulo ou ABC (Santo André, São Bernardo e São Caetano)</p>
+				</li>
+				<li>
+					<img src="<?php echo MEDIA_DIR;?>images/criterios-de-adocao/nao-doamos/05-termos.png" />
+					<p>Pessoas que não concordem com nossa entrada em suas casas para entrega dos gatinhos e averiguação dos itens exigidos.</p>
+				</li>
+			</ul>
+			<p class="m-b-20">Estes são critérios do Adote um Gatinho e não são abertas exceções. Outras questões podem ser levadas em consideração no ato da adoção como alergia, gravidez, crianças e idosos em casa, a existência de outros animais em casa e a personalidade de cada gato.</p>
+			<p class="m-b-20">A segurança da casa é avaliada no dia da entrega do gatinho, que é feita pessoalmente. Caso o adotante não se encaixe no perfil, a adoção não é realizada e o gatinho escolhido volta com a gente.</p>
+			<p class="m-b-20">Caso a entrega seja feita e posteriormente constatado que o adotante está incapacitado de cuidar do gatinho ocorrerá a retirada do animal nas penalidades previstas pela Lei Federal 9.605 de Proteção Animal contra maus tratos e abandono.</p>
+			<p class="m-b-20">Por que somos tão criteriosos? Porque este é um trabalho feito por amor, sem fins lucrativos e nossa única gratificação é saber que o gatinho que cuidamos como filho, como se fosse nosso, vai ser amado e estar seguro, longe dos perigos da rua por ele já vivido.</p>
+			<p class="m-b-20">Para saber mais sobre nossa política de adoção, <a href="<?php echo HOST;?>politica-de-adocao" class="aug_blue">clique aqui</a>.<br/>Para saber mais sobre a importância das telas e empresas que instalam, <a href="<?php echo HOST;?>telas-nas-janelas" class="aug_blue">clique aqui</a>.<br/>Para qualquer dúvida, escreva para <a href="mailto:informacoes@adoteumgatinho.org.br" class="aug_blue">informacoes@adoteumgatinho.org.br</a></p>
+			<p class="m-b-20">Agradecemos a compreensão de nossos critérios. Caso você não se encaixe no perfil, clique na opção em vermelho abaixo e indicaremos outros locais para você adotar um gatinho.</p>
+			<p class="m-b-20">Atenciosamente,<br />Adote um Gatinho</p>
+			<p class="m-b-20">Agora que você conhece nossos critérios de adoção, você se encaixa no perfil?</p>
+
+		</div>
+		</div>
+		</section>
+	</div>
+	<footer class="row modal-footer" style="padding-top:15px; padding-bottom: 30px;">
+        <a id="sim" class="col s12 m5 bt bt_orange bold upper right text-center push-m7" style="padding: 15px;" href="<?php echo HOST;?>formulario-de-adocao2/<?php echo $this->data->id;?>/<?php echo strtolower(str_replace(' ', '-',$this->data->name));?>">Me encaixo no perfil</a>
+        <a id="nao" class="col s12 m5 bt bt_purple bold upper left pull-m5 text-center" style="padding: 15px;" href="<?php echo HOST;?>fora-do-perfil-de-adocao2?version=2">Não me encaixo no perfil</a>
+    </footer>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+
+<script src="<?php echo HOST;?>/js/jssor.slider.min.js"></script>
+<script>
+        jQuery(document).ready(function ($) {
+            
+            $('.modal-trigger').on('click',function(){
+                
+                $('#modal1').openModal();
+            });
+            
+            
+            var jssor_1_SlideshowTransitions = [
+              {$Duration:1200,x:0.3,$During:{$Left:[0.3,0.7]},$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+              {$Duration:1200,x:-0.3,$SlideOut:true,$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+              {$Duration:1200,x:-0.3,$During:{$Left:[0.3,0.7]},$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+              {$Duration:1200,x:0.3,$SlideOut:true,$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+              {$Duration:1200,y:0.3,$During:{$Top:[0.3,0.7]},$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+              {$Duration:1200,y:-0.3,$SlideOut:true,$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+              {$Duration:1200,y:-0.3,$During:{$Top:[0.3,0.7]},$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+              {$Duration:1200,y:0.3,$SlideOut:true,$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+              {$Duration:1200,x:0.3,$Cols:2,$During:{$Left:[0.3,0.7]},$ChessMode:{$Column:3},$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+              {$Duration:1200,x:0.3,$Cols:2,$SlideOut:true,$ChessMode:{$Column:3},$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+              {$Duration:1200,y:0.3,$Rows:2,$During:{$Top:[0.3,0.7]},$ChessMode:{$Row:12},$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+              {$Duration:1200,y:0.3,$Rows:2,$SlideOut:true,$ChessMode:{$Row:12},$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+              {$Duration:1200,y:0.3,$Cols:2,$During:{$Top:[0.3,0.7]},$ChessMode:{$Column:12},$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+              {$Duration:1200,y:-0.3,$Cols:2,$SlideOut:true,$ChessMode:{$Column:12},$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+              {$Duration:1200,x:0.3,$Rows:2,$During:{$Left:[0.3,0.7]},$ChessMode:{$Row:3},$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+              {$Duration:1200,x:-0.3,$Rows:2,$SlideOut:true,$ChessMode:{$Row:3},$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+              {$Duration:1200,x:0.3,y:0.3,$Cols:2,$Rows:2,$During:{$Left:[0.3,0.7],$Top:[0.3,0.7]},$ChessMode:{$Column:3,$Row:12},$Easing:{$Left:$Jease$.$InCubic,$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+              {$Duration:1200,x:0.3,y:0.3,$Cols:2,$Rows:2,$During:{$Left:[0.3,0.7],$Top:[0.3,0.7]},$SlideOut:true,$ChessMode:{$Column:3,$Row:12},$Easing:{$Left:$Jease$.$InCubic,$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+              {$Duration:1200,$Delay:20,$Clip:3,$Assembly:260,$Easing:{$Clip:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+              {$Duration:1200,$Delay:20,$Clip:3,$SlideOut:true,$Assembly:260,$Easing:{$Clip:$Jease$.$OutCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+              {$Duration:1200,$Delay:20,$Clip:12,$Assembly:260,$Easing:{$Clip:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+              {$Duration:1200,$Delay:20,$Clip:12,$SlideOut:true,$Assembly:260,$Easing:{$Clip:$Jease$.$OutCubic,$Opacity:$Jease$.$Linear},$Opacity:2}
+            ];
+            
+            var jssor_1_options = {
+              $AutoPlay: true,
+              $SlideshowOptions: {
+                $Class: $JssorSlideshowRunner$,
+                $Transitions: jssor_1_SlideshowTransitions,
+                $TransitionsOrder: 1
+              },
+              $ArrowNavigatorOptions: {
+                $Class: $JssorArrowNavigator$
+              },
+              $ThumbnailNavigatorOptions: {
+                $Class: $JssorThumbnailNavigator$,
+                $Cols: 10,
+                $SpacingX: 8,
+                $SpacingY: 8,
+                $Align: 360
+              }
+            };
+            
+            var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+            
+            //responsive code begin
+            //you can remove responsive code if you don't want the slider scales while window resizing
+            function ScaleSlider() {
+                var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+                if (refSize) {
+                    refSize = Math.min(refSize, 600);
+                    jssor_1_slider.$ScaleWidth(refSize);
+                }
+                else {
+                    window.setTimeout(ScaleSlider, 30);
+                }
+            }
+            ScaleSlider();
+            $(window).bind("load", ScaleSlider);
+            $(window).bind("resize", ScaleSlider);
+            $(window).bind("orientationchange", ScaleSlider);
+            //responsive code end
+        });
+    </script>

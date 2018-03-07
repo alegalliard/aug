@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="<?php echo HOST;?>templates/public/css/reset.css" />
+		<link rel="stylesheet" href="<?php echo HOST;?>templates/public/css/structure.css?<?php echo time(); ?>" />
+		<link rel="stylesheet" href="<?php echo MEDIA_DIR;?>styles/jquery.nivoslider.css" />
+		<link rel="stylesheet" href="<?php echo HOST;?>templates/public/css/jquery.tipsy.css" />
+		<link rel="stylesheet" href="<?php echo MEDIA_DIR;?>fancybox/jquery.fancybox-1.3.4.css" />
+		<link rel="shortcut icon" href="<?php echo HOST;?>favicon.png" type="image/png" />
+		
+		<script type="text/javascript" src="<?php echo MEDIA_DIR;?>scripts/jquery.js"></script>
+		<script type="text/javascript" src="<?php echo MEDIA_DIR;?>scripts/jquery.mask.js"></script>
+		
+		<script type="text/javascript">var HOST="<?php echo HOST;?>";</script>
+		<script type="text/javascript" src="<?php echo MEDIA_DIR;?>scripts/jquery.validate.js"></script>
+		<script type="text/javascript" src="<?php echo MEDIA_DIR;?>scripts/jquery.tipsy.js"></script>
+		<title><?php echo SITE_NAME;?></title>
+		
+		<?php if($this->og):?>
+			<meta property="og:title" content="<?php echo $this->og->title;?>" />
+			<meta property="og:description" content="<?php echo strip_tags($this->og->description);?>" />
+			<meta property="og:image" content="<?php echo $this->og->img;?>" />
+			<meta property="og:url" content="<?php echo HOST.URI;?>" />
+			<meta property="og:type" content="website" />
+		<?php endif;?>
+	</head>
+	<body>
+		<script type="text/javascript" src="http://jsuol.com/barra/parceiro-1024.js?refbusca=adoteumgatinho&full=true"></script>
+		              
+                <div id="fb-root"></div>
+                <script>(function(d, s, id) {
+                  var js, fjs = d.getElementsByTagName(s)[0];
+                  if (d.getElementById(id)) return;
+                  js = d.createElement(s); js.id = id;
+                  js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=281099021901939";
+                  fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script>
+
+                <div id="wrapper">
+			<div id="header">
+				<a href="<?php echo HOST;?>">
+					<h1 id="logo"><?php echo SITE_NAME;?></h1>
+				</a>
+				<div id="menu-wrapper">
+					<div>
+						<ul id="main-menu">
+							<li><a href="<?php echo HOST;?>quero-adotar">Quero adotar</a>|</li>
+							<li><a href="<?php echo HOST;?>adocoes-especiais">Adoções especiais</a>|</li>
+							<li><a href="<?php echo HOST;?>gatos-adotados">Gatos adotados</a>|</li>
+							<li><a href="<?php echo HOST;?>quero-ajudar">Quero ajudar</a>|</li>
+							<li><a href="<?php echo HOST;?>apadrinhamento">Apadrinhamento</a></li>
+							<li class="increased-left-margin"><a href="<?php echo HOST;?>prestacao-de-contas">Prestação de contas</a>|</li>
+							<li><a href="<?php echo HOST;?>cadastre-se">cadastre-se</a>|</li>
+							<!--<li><a href="http://www.auglojinha.com.br/">Lojinha</a>|</li>-->
+                                                        <li><a href="<?php echo HOST;?>lojinha">Lojinha</a>|</li>
+							<li><a href="<?php echo HOST;?>materias">Matérias</a>|</li>
+							<li><a href="<?php echo HOST;?>rifas">Rifas</a>|</li>
+							<li><a href="<?php echo HOST;?>boletins">Boletins</a></li>
+						</ul>
+					</div>
+					<div>
+						<div id="social-network-sharing">
+                                                    <div>
+                                                        <div class="fb-like" data-href="<?php echo HOST;?>" data-layout="button_count" data-send="false" data-width="120" data-show-faces="false"></div>
+                                                    </div>
+                                                    <div>
+                                                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="<?php echo HOST;?>" data-count="horizontal">Tweet</a>
+                                                        <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+                                                    </div>
+						</div>
+						<div id="search-box" style="margin-top: 5px;">
+							<form method="get" action="<?php echo HOST;?>buscar">
+								<input type="text" name="q" />
+								<button>Buscar</button>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div id="slider-wrapper" style="margin-left: 15px;">
+					<div id="nivoslider">
+						
+						<?php
+							Phalanx::loadClasses('BillBoard');
+							$billboards = BillBoard::get();
+							foreach($billboards as $billboard):?>
+							<?php if($billboard->link != ''):?><a href="<?php echo $billboard->link;?>"><?php endif;?>
+								<img src="<?php echo MEDIA_DIR.'uploads/billboards/'.$billboard->image;?>" />
+							<?php if($billboard->link != ''):?></a><?php endif;?>	
+						<?php endforeach;?>
+					</div>
+				</div>
+				<div class="rounded"  style="margin-left: 15px;">
+					<span><a href="<?php echo HOST;?>cadastre-se">ACOMPANHE O NOSSO TRABALHO: Receba os boletins do AUG no seu email</a></span>
+				</div>
+				<span>Gatinhos somente para a cidade de São Paulo E ABC</span>
+			</div>
+                    <div id="content">
+				<div style="float:right;margin: 5px 20px 10px 0;" id="social-network-share-bar">
+					<div class="fb-send" data-href="<?php echo HOST;?>"></div>
+					<iframe allowtransparency="true" frameborder="0" scrolling="no" src="//platform.twitter.com/widgets/tweet_button.html" style="background#C00; width:100px; height:21px; margin: 0 0 -5px 5px;"></iframe>
+				</div>
+				<div class="clear"></div>
+				<?php $this->loadViewContent();?>
+			</div>
+                        <style>
+                            .connect_widget_not_connected_text { display: none !important; }
+                        </style>
+				<div class="clear"></div>
+				<?php $this->loadViewContent();?>
+			</div>
+		</div>
+		<div id="footer">
+			<div>
+				<ul id="theme-switcher">
+					<li><a href="javascript:void(0);" rel="orange">Laranja</a></li>
+					<li><a href="javascript:void(0);" rel="green" style="background-position: -20px 0px;">Verde</a></li>
+					<li><a href="javascript:void(0);" rel="purple" style="background-position: -39px 0px;">Roxo</a></li>
+				</ul>
+				<ul id="social-networks">
+					<!--<li><a href="http://www.orkut.com.br/Community?cmm=55124">Orkut</a></li>-->
+					<li><a href="http://www.twitter.com/adoteumgatinho" style="background-position: -30px -1px;">Twitter</a></li>
+					<li><a href="http://www.facebook.com/adoteumgatinho" style="background-position: -59px -1px;">Facebook</a></li>
+				</ul>
+			</div>
+			<div>
+				<ul id="footer-links">
+					<li><a href="<?php echo HOST;?>quem-somos">Quem somos</a></li>
+					<li><a href="<?php echo HOST;?>aug-na-midia">AUG na mídia</a></li>
+					<li><a href="<?php echo HOST;?>parceiros-e-links">Parceiros e Links</a></li>
+					<li><a href="<?php echo HOST;?>contato">Contato</a></li>
+					<li><a href="<?php echo HOST;?>faq">Faq</a></li>
+					<li><a href="<?php echo HOST;?>english-version">English Version</a></li>
+				</ul>
+			</div>
+			<div style="font-size: 10px !important;">&copy; 2003 ~ <?php echo date('Y');?> Adote um Gatinho. Todos os Direitos Reservados.</div>
+		</div>
+
+	<script type="text/javascript" src="<?php echo MEDIA_DIR;?>scripts/jquery.nivoslider.js"></script>
+	<script type="text/javascript" src="<?php echo MEDIA_DIR;?>scripts/jquery.cookie.js"></script>
+	<script type="text/javascript">
+		(function($){
+			$(document).ready(function(){
+				$('#nivoslider').nivoSlider();
+				
+				$("#theme-switcher li a").each(function(){
+					$(this).click(function(){
+						var theme = $(this).attr("rel");
+						$("#active-stylesheet").remove();
+						var $css = $("<link>", {
+							rel: "stylesheet",
+							href :"<?php echo HOST;?>templates/public/css/themes/"+theme+"/style.css",
+							id: "active-stylesheet"
+						});
+						$("head").append($css);
+						
+						$.cookie("selected_theme", theme, {path: "/", expires: 7});
+					});
+				});
+				
+				if($.cookie("selected_theme")){
+					$("#theme-switcher li a[rel="+$.cookie("selected_theme")+"]").trigger('click');		
+				} else {
+					$("#theme-switcher li a:last").trigger('click');
+				}
+			});
+		}(jQuery));
+	</script>
+        
+        <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-3360136-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+        </script>
+        
+        <!-- SiteCatalyst code version: H.19.3. Copyright 1997-2009 Omniture, Inc. More info available at http://www.omniture.com -->
+        <script language="JavaScript" type="text/javascript" src="http://me.jsuol.com/omtr/adoteumgatinho.js"></script>
+        <script language="JavaScript" type="text/javascript"><!--
+        /************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+        var s_code=uol_sc.t();if(s_code)document.write(s_code)//--></script>
+        <!-- End SiteCatalyst code version: H.19.3. --> 
+
+</body>
+</html>

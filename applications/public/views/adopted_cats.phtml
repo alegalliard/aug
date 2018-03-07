@@ -1,0 +1,99 @@
+<style>
+    .title-cats{
+        display: none;
+    }
+</style>
+
+<?php 
+$breadColor = 'purple';
+$breadPaths = array();
+$lastPath = 'Gatos adotados';
+include('top.phtml'); 
+
+?>
+
+<!-- <h1 class="h1 bold upper aug_purple">Gatos adotados</h1> -->
+<div class="items"></div>
+<div id="loadmoreajaxloader"></div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    
+    var page = 0;
+    var opened = false;
+    
+    $(window).scroll(function()
+    {
+	var wintop = $(window).scrollTop(), docheight = $(document).height(), winheight = $(window).height();
+        var scrolltrigger = 0.996;
+        
+        if ((wintop/(docheight-winheight)) > scrolltrigger)
+        {
+           
+           call();
+        }
+    });
+    
+    
+    
+    function call()
+    {
+        
+        if(!opened)
+        {
+            opened = true;
+
+            $('div#loadmoreajaxloader').show();
+
+            $.ajax({
+                cache: false,
+                async: false,
+                url: "adopted?page="+page,
+                success: function(data)
+                {
+                    opened = false;
+
+                    page = eval(page + 1);
+
+                    if(data)
+                    {
+                        $(".items").append(data);
+                    }
+		    else
+		    {
+			
+		    }
+
+                    $('div#loadmoreajaxloader').hide();
+                }
+            });
+        }
+    }
+    
+    call();
+    
+    
+    $('#loadmore').on('click', function(){
+
+        var finalPos = document.body.scrollHeight;
+        $(document).animate
+        
+        var body = $("html, body");
+        body.stop().animate({scrollTop:finalPos}, '1500');
+        
+    });
+    
+});
+</script>
+
+<style>
+    .bottom-msg{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        padding: 5px 10px;
+    }
+</style>
+
+
+<a class="aug_purple_bg bold upper white-text" id="loadmore"><i class="icon-white ic-refresh"></i><br>Mais</a>

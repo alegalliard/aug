@@ -1,0 +1,134 @@
+@import "custom/vars";
+@import "components/variables";
+
+.meio_mural{
+    li{
+        float: left;
+        position: relative;
+        
+        @media #{$large-and-up}{
+            width: 25%;
+            height: 25vw;         }
+
+        @media only screen and (min-width: $small-screen) and (max-width: $medium-screen) {
+            width: 50%;
+            height: 50vw;
+        }
+
+        @media #{$small-and-down}{
+            width: 100%;
+            height: 100vw;
+        }
+        
+        // &:hover{
+        //     img{
+        //         animation-name: go-grey;
+        //         animation-duration: 1s;
+        //         animation-fill-mode: both;
+               
+        //     }
+            
+            .shadow{
+                height:100%;
+                width: 100%;
+                background-color: $aug_purple;
+                animation-name: go-shadow;
+                animation-duration: 0.2s;
+                animation-fill-mode: both;
+                display: none;
+                
+            }
+        // }
+    }
+
+    .texto{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        padding: 10% 10% 0% 10%;
+        opacity: 0;
+        height: 90%;
+        width: 80%;
+
+        &:hover{
+            animation-name: showup;
+            animation-duration: 0.5s;
+            animation-fill-mode: both;
+        }
+
+        &-mobile{
+            padding: 10%;
+            padding-top: 0%;
+            overflow-y: scroll;
+            height: 75%;
+        }
+    }
+    
+    .text-small-complete{
+        @media #{$small-and-down}{
+            height: 100%;
+        } 
+    }
+
+    .cat_desc{
+        height: 10vw;
+        overflow: hidden;
+        display: block;
+        margin-top: 1.0rem;
+        color:#fff;
+        overflow: hidden;
+    }
+    
+    // .cat_name{
+    //     font-size: 1.2rem;
+    //     line-height: 2.0rem;
+        
+    // }
+    .more{
+        color:$aug_purple;
+        background: #fff;
+        padding:0.8rem 1.5rem;
+        display: inline-block;
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+    }
+    p{
+        //color:#fff;
+    }
+    img{
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+    a{
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        background-color: rgba(185, 43, 141, 0);
+        
+        @media #{$large-and-up}{
+            -webkit-background-blend-mode: multiply;
+            -moz-background-blend-mode: multiply;
+            -ms-background-blend-mode: multiply;
+            background-blend-mode: multiply;
+        }
+        
+        &:hover{
+        animation-name: go-purple;
+        animation-duration: 0.2s;
+        animation-fill-mode: both;
+        }
+
+    }
+}
+
+.truncate {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

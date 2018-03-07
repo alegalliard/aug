@@ -1,0 +1,85 @@
+<nav class="row m-b-0 border_b_<?php echo $breadColor;?> white">
+        <ul class="col s7 offset-s1 hide-on-med-and-down" id="breadcrumb">
+            <li><a href="<?php echo HOST;?>">Home</a></li>
+            <?php 
+                $I = -1;
+                foreach($breadPaths as $key=>$val){
+                    echo '<li><a href="#" onclick="history.go('.($I).')">'.$key.'</a></li>';
+                    $I--;
+                }
+            ?>
+            
+            <li class="aug_<?php echo $breadColor;?>"><?php echo $lastPath;?></li>
+        </ul>
+        <form class="col s12 m6 l3 relative" action="<?php echo HOST;?>gato-busca" method="get" id="fixed_search">
+                <a href="#" class="select action aug_<?php echo $breadColor;?>_bg" data-id="open-sub"><span>Encontre seu gatinho</span> 
+                    <div class="arrow"><i class="icon-white ic-down"></i></div>
+                </a>
+                
+                <div class="filter hide target" data-target="open-sub">
+                <fieldset>
+                   <small class="col s12">Marque 0 se for indiferente</small>
+                    <div class="stars col s8">
+                        <input type="range" class="range" name="social" id="range_sociavel" min="0" max="3" step="1" value="3">
+                        <i class="sociavel icon-grey ic-hank zero"></i>
+                        <i class="sociavel icon-purple ic-hank"></i>
+                        <i class="sociavel icon-purple ic-hank"></i>
+                        <i class="sociavel icon-purple ic-hank"></i>
+                        
+                    </div>
+                    <div class="stars col s4">Sociável</div>
+                    
+                    <div class="stars col s8">
+                        <input type="range" class="range" name="playful" id="range_brincalhao" min="0" max="3" step="1" value="3">
+                        <i class="sociavel icon-grey ic-happy zero"></i>
+                        <i class="sociavel icon-purple ic-happy"></i>
+                        <i class="sociavel icon-purple ic-happy"></i>
+                        <i class="sociavel icon-purple ic-happy"></i>
+                    </div>
+                    <div class="stars col s4">Brincalhão</div>
+                    
+                    <div class="stars col s8">
+                        <input type="range" class="range" name="lovely" id="range_brincalhao" min="0" max="3" step="1" value="3">
+                        <i class="sociavel icon-grey ic-heart zero"></i>
+                        <i class="sociavel icon-purple ic-heart"></i>
+                        <i class="sociavel icon-purple ic-heart"></i>
+                        <i class="sociavel icon-purple ic-heart"></i>
+                    </div>
+                    <div class="stars col s4">Carinhoso</div>
+                    
+                    <hr class="row clear m-t-20" style="opacity:0.5">
+                    
+                    <div class="row clear m-b-0">
+                      <div class="col s3 m-t-10">
+                          <label for="age">Idade:</label>
+                      </div>
+                      <div class="col s9 block_form m-t-10">
+                        <select name="age" id="age" class="mid_select">
+                            <option value="0">Indiferente</option>
+                            <option value="A">Adulto</option>
+                            <option value="F">Filhote</option>
+                            <option value="D">Adulto + filhote</option>
+                        </select>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="row clear">
+                        <div class="col s4 text-center m-t-20">
+                            <label class="label_gender"><i class="icon-purple ic-male"></i><input type="checkbox" name="" id="macho" class="ghost sexo" checked="checked" value="M"><span>Macho(s)</span></label>
+                        </div>
+                        <div class="col s4 text-center m-t-20">
+                            <label class="label_gender"><i class="icon-grey ic-female"></i><input type="checkbox" name="" id="femea" class="ghost sexo" value="F"><span>Fêmea(s)</span></label>
+                        </div>
+                        <div class="col s4 text-center m-t-20">
+                            <label class="label_gender"><i class="icon-grey ic-male-female"></i><input type="checkbox" name="" id="femea" class="ghost sexo" value="B"><span>Macho + Fêmea</span></label>
+                            <input type="hidden" name="gender" id="gender" value="M">
+                        </div>
+                    </div>
+                    
+                    
+                </fieldset>
+                <button class="filter_btn aug_<?php echo $breadColor;?>_bg">Buscar</button>
+                </div>
+            </form>
+        </nav>

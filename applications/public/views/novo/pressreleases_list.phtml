@@ -1,0 +1,76 @@
+<?php 
+$breadColor = 'orange';
+$breadPaths = array('AUG na mídia'=>'aug-na-midia2');
+$lastPath = 'AUG na mídia';
+include('top.phtml'); 
+
+?>
+
+
+<section class="row container-large m-b-0">
+<header>
+    <h1 class="h1 aug_orange bold upper">AUG na mídia</h1>
+</header>
+<ul class="col s12">
+<?php foreach($this->data as $row):?>
+    <li class="col s12 m6 l4">
+        <div class="medium card card-wrapper">
+            <div class="card-image waves-effect waves-block waves-light">
+               <div class="fix_image_card">
+               <a class="aug_orange" href="<?php echo HOST;?>aug-na-midia2/<?php echo $row->id;?>/<?php echo str_replace(' ', '-', $row->title);?>">
+                <?php if($row->picture == ''):?>
+                    <img src="<?php echo MEDIA_DIR;?>img_cat_not_found.png" alt="" />
+                <?php else:?>
+                    <img src="<?php echo MEDIA_DIR.'uploads/pressreleases/'.$row->picture;?>" alt="" />
+                <?php endif;?>
+                   </a>   
+                </div>
+            </div>
+            <div class="col s12 card-content bold m-t-10">
+                <span class="col s11 truncate"><?php echo $row->title;?></span>
+
+                <i class="col s1 material-icons right">more_vert</i>
+                
+                <div class="card-action border_b_orange">
+                    <a class="col s12 bold text_13 text-right aug_orange_btn" href="<?php echo HOST;?>aug-na-midia2/<?php echo $row->id;?>/<?php echo str_replace(' ', '-', $row->title);?>">Ler matéria</a>
+                </div>
+            </div>
+            <div class="card-reveal">
+                <span class="card-title activator white"><?php echo $row->title;?><i class="material-icons right">close</i></span>
+                <br>
+                <p style="width:90%;"><?php
+				if(strlen( $row->heading) > 120)
+					 $row->heading = substr($row->heading, 0, 120) . '...';
+				echo $row->heading
+			?></p>
+            </div>
+        </div>
+    </li>
+
+
+
+
+<!--
+
+	<div class="sub-section new">
+		<h4><?php echo $row->title;?></h4>
+		<?php if($row->picture == ''):?>
+			<img src="<?php echo MEDIA_DIR;?>img_cat_not_found.png" alt="" />
+		<?php else:?>
+			<img src="<?php echo MEDIA_DIR.'uploads/pressreleases/'.$row->picture;?>" alt="" />
+		<?php endif;?>
+		<span>
+			<?php
+				if(strlen( $row->heading) > 120)
+					 $row->heading = substr($row->heading, 0, 120) . '...';
+				echo $row->heading
+			?>
+		</span>
+		<a class="more" href="<?php echo HOST;?>aug-na-midia/<?php echo $row->id;?>/<?php echo str_replace(' ', '-', $row->title);?>">Ler matéria</a>
+	</div>
+-->
+<?php endforeach;?>
+</ul>
+</section>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>   

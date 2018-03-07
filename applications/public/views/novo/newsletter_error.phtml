@@ -1,0 +1,21 @@
+<?php 
+$breadColor = 'blue';
+$breadPaths = array('Cadastre-se'=>'cadastre-se2');
+$lastPath = 'Erro no cadastro';
+include('top.phtml'); 
+
+?>
+<section class="row m-b-0">
+    <div class="col s12 m10 l10 offset-m1 offset-l1" id="dynamic-content">
+
+    <h1 class="h1 aug_blue">Ooops! Ocorreu um erro ao realizar o seu cadastro</h1>
+    <br>
+    <p>Lamentamos o inconveniente, porém não foi possível realizar o seu cadastramento.</p>
+    <p>Talvez o email escolhido já esteja em nossa base de dados.</p>
+    <p>Se você tem certeza que não está cadastrado, entre em    <a href="mailto:informacoes@adoteumgatinho.org.br" class="aug_blue">contato conosco</a>.</p>
+
+    </div>
+    <div class="col s12 m10 l10 offset-m1 offset-l1"><br><br><br><br>
+            <a class="perfil left bt bt_gray" href="<?php echo HOST;?>index2">Voltar</a>
+        </div>
+</section>

@@ -1,0 +1,59 @@
+@import "custom/vars";
+
+/*Texts*/
+.aug_orange{
+    color: #fa9319!important;
+}
+    
+.aug_blue{
+    color: #09a0b6!important;
+}
+.aug_purple{
+    color: #b92b93!important;
+}
+.aug_black{
+    color: $aug_black!important;
+}
+
+.aug_purple_btn{
+    color: $aug_purple!important;
+    @include transition(color .3s ease);
+    &:hover { color: tint($aug_purple, 40%)!important;}
+}
+
+.aug_orange_btn{
+    color: $aug_orange!important;
+    @include transition(color .3s ease);
+    &:hover { color: tint($aug_orange, 40%)!important;}
+}
+
+.aug_blue_btn{
+    color: $aug_blue!important;
+    @include transition(color .3s ease);
+    &:hover { color: tint($aug_blue, 40%)!important;}
+}
+
+/*Backgrounds */
+.aug_orange_bg{
+    background-color: #fa9319!important;
+}
+    
+.aug_blue_bg{
+    background-color: #09a0b6!important;
+}
+
+.aug_blue_bg-dark {
+    background: shade($aug_blue, 20%)!important;
+}
+
+.aug_purple_bg{
+    background-color: #b92b93!important;
+}
+
+.aug_grey_bg{
+    background-color: $aug_grey!important;
+}
+
+.white-on-dark-bg{
+    transition: 1s;
+}

@@ -1,0 +1,82 @@
+<h2>Newsletter</h2>
+<p>
+	<a href="<?php echo HOST;?>adm/newsletter/adicionar-usuario/">Adicionar usuário</a>&nbsp;&nbsp;|&nbsp;
+	<a href="<?php echo HOST;?>adm/newsletter/extrair-relatorio/">Exportar em excel</a>
+</p>
+
+
+<fieldset>
+	<legend>Filtrar resultados</legend>
+	<form action="<?php echo HOST;?>adm/newsletter" method="post">
+		<label for="field">Nome ou email:</label>
+		<input type="text" id="field" name="field" value="<?php echo $this->search_params;?>" />
+		<button>Buscar</button>
+	</form>
+</fieldset>
+
+<table width="100%" border="1">
+	<thead>
+		<tr>
+			<th width="5%">&nbsp;</th>
+			<th>Nome</th>
+			<th>Email</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php foreach($this->data as $row):?>
+			<tr>
+				<td>
+					<a href="<?php echo HOST;?>adm/newsletter/remover/<?php echo $row->id;?>" class="remove-item">REMOVER</a>
+				</td>
+				<td><?php echo $row->name;?></td>
+				<td><?php echo $row->email;?></td>
+			</tr>
+		<?php endforeach;?>
+	</tbody>
+</table>
+
+<?php if($this->show_page_selector == true):?>
+	<div style="padding:15px 0px;">
+		<label for="current_page" style="width:40px;">Página</label>
+		<input type="text" name="current_page" id="current_page" value="<?php echo $this->current_page;?>" style="text-align:center;width:35px;" />
+		<input type="hidden" name="total_page" id="total_pages" value="<?php echo $this->total_pages;?>" />
+		<label style="width:auto;text-indent:0px;">de <?php echo $this->total_pages;?></label>
+		<button id="gotopage">IR</button>
+	</div>
+<?php endif;?>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$("#current_page").keyup(function(e){
+			if(e.keyCode == 13)
+				$("#gotopage").trigger("click");
+			
+			if(e.keyCode == 38){
+				if(( parseInt($("#current_page").val()) + 1) <= $("#total_pages").val()){
+					$("#current_page").val(parseInt($("#current_page").val()) + 1);
+					e.preventDefault();
+				}
+			}
+				
+			if(e.keyCode == 40){
+				if(( parseInt($("#current_page").val()) - 1) > 0){
+					$("#current_page").val(parseInt($("#current_page").val()) - 1);
+					e.preventDefault();
+				}
+			}		
+			
+		});
+		
+		$("#gotopage").click(function(){
+			if(($("#current_page").val() > 0) && ($("#current_page").val() <= $("#total_pages").val())){
+				window.location.href = "<?php echo HOST;?>adm/newsletter/pagina-" + $.trim($("#current_page").val());
+			} else {
+				$("#current_page").css({
+					"border": "1px solid #C00",
+					"box-shadow": ""
+				});
+			}
+		});
+	});
+</script>

@@ -1,0 +1,19 @@
+<?php 
+$breadColor = 'orange';
+$breadPaths = array();
+$lastPath = '';
+include('top.phtml'); 
+
+?>
+     
+   <section class="row container-large m-b-0">
+    <article class="col s12" id="materias">
+        <div id="dynamic-content">
+
+            <h1 class="h1 bold upper aug_orange">
+            <?php echo $this->data->name;?>
+            </h1>
+            <?php echo stripslashes($this->data->content);?>
+        </div>
+    </article>
+</section>

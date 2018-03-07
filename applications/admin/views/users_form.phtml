@@ -1,0 +1,45 @@
+<h2><?php echo $this->title;?></h2>
+
+<form action="<?php echo HOST;?>adm/usuarios/salvar" method="post">
+    <?php if(isset($this->data->id)):?>
+        <input type="hidden" name="id" value="<?php echo $this->data->id;?>" />
+    <?php endif;?>
+    <div>
+        <label for="login">Usuário:</label>
+        <input type="text" id="login" name="login" value="<?php echo @$this->data->login;?>" class="required" maxlength="20" />
+    </div>
+    <?php
+        if(@$this->data->level == 0 && @$this->data->id < 3){
+    ?>
+     <div>
+        <label for="login">Nível:</label>
+        <select id="level" name="level">
+            <option value="0">Administrador</option>
+            <option value="1">Apadrinhamento</option>
+            <option value="2">Prestação de contas</option>
+            <option value="3">Sem permissões</option>
+        </select>
+    </div>
+       <?php
+        }
+    ?> 
+    <div>
+        <label for="login">E-Mail:</label>
+        <input type="text" id="email" name="email" value="<?php echo @$this->data->email;?>" class="required" />
+    </div>
+        
+    <?php if(isset($this->data->id)):?>
+    <div>Se quiser alterar a senha deste voluntário, preencha os dois campos abaixo</div>
+    <?php endif;?>
+    <div>
+        <label for="new_password">Senha:</label>
+        <input type="password" name="new_password" id="new_password" class="required" />
+    </div>
+    <div>
+        <label for="new_password_confirm">Confirme a senha:</label>
+        <input type="password" name="new_password_confirm" id="new_password_confirm" class="required" />
+    </div>
+    <div>
+        <input type="submit" value="Salvar" />
+    </div>
+</form>

@@ -1,0 +1,38 @@
+<?php 
+$breadColor = 'blue';
+$breadPaths = array();
+$lastPath = 'Cadastro de newsletter';
+include('top.phtml'); 
+
+?>
+   <section class="row m-b-0">
+    <article id="dynamic-content" class="col s12 m10 l10 offset-m1 offset-l1">
+        <h1 class="h1 aug_blue">Cadastre-se</h1>
+        <p>Receba todas as novidades da AuG no seu email. Se não quiser mais receber nossos emails, você poderá se descadastrar posteriormente.<br><br><br></p>
+
+        <p>Para isso, precisamos de alguns dados seus:</p>
+        <br>
+        <br>
+        <form method="post" id="newsletter-signup-form" action="<?php echo HOST;?>cadastre-se/confirmar" class="row block_form">
+           
+            
+            <div class="col s6">
+                <label for="name" class="aug_blue">Nome completo:</label>
+                <input type="text" name="name" id="name" class="required" autocomplete="off" placeholder="Seu nome" />
+            </div>
+            <div class="col s6">
+                <label for="email" class="aug_blue">Email:</label>
+                <input type="text" name="email" id="email" class="required email" autocomplete="off" placeholder="seu@email.com.br" />
+            </div>
+           
+
+            <input type="submit" value="Confirmar cadastro" class="bt bt_blue right" />
+        </form>
+    </article>
+</section>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#newsletter-signup-form").validate();
+	});
+</script>

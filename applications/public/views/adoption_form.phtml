@@ -1,0 +1,790 @@
+
+<script src="<?php echo HOST;?>js/jquery.validate.min.js"></script>
+<style>
+    .error{
+        color:red;
+        float: left;
+        clear: both;
+        margin-top: 5px!important;
+        font-size: 0.8rem;
+    }
+    fieldset .col{
+        position: relative
+    }
+</style>
+           
+<?php 
+$breadColor = 'blue';
+$breadPaths = array('Gatinhos para adoção'=>'#', 'Perfil'=>'#');
+$lastPath = 'Formulário';
+include('top.phtml'); 
+
+?>
+
+<section class="row container-large m-b-0">
+<article class="col s12" id="adoption-form">
+        
+<h1  class="aug_blue h1 upper bold">Formulário de adoção</h1>
+
+<form action="<?php echo HOST;?>finalizar-processo-de-adocao?cat_id=<?php echo $this->cat_id;?>" method="post" class="block_form" id="adopt">
+    <input type="hidden" name="cat_id" value="<?php echo $this->cat_id;?>" />
+    <p class="msg-erro" style="padding-left: 10px; margin: 10px 0 10px 0;"><img src="<?php echo HOST . 'templates/public/css/images/redpaw.png'?>" align="middle"> Campos de preenchimento obrigatório.</p>
+    
+    <fieldset class="row aug_blue bold upper">
+        <legend class="upper aug_blue_bg white-text bold m-t-20" style="padding: 2px 15px; display: inline-block;">Sobre você e sua família</legend>
+        <div class="col s12">
+            <label for="name" class="first-column"><img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png"> Nome completo:</label>
+            <input type="text" name="name" id="name" class="required" />
+        </div>
+    
+        <div class="col s12">
+            <label for="Email">
+            <img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png"> Email:</label>
+            <input type="text" name="email" id="email" class="required email" />
+        </div>
+            
+        <div class="col s12 m6">
+            <label for="age">
+            <img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png"> Idade:</label>
+            <input type="text" name="age" id="age" class="required number"  />
+        </div>
+    
+        <div class="col s12 m6">
+            <label for="telephone">
+            <img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png"> Telefone:</label>
+            <input type="text" name="telephone" id="telephone" class="required telephone" />            
+        </div>
+    
+        <div class="col s12 m10">
+            <label for="address">
+            <img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png"> Endereço:</label>
+            <input type="text" name="address" id="address" class="required"/>
+        </div>
+           
+        <div class="col s12 m2">
+            <label for="address_number">
+            <img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png"> Número:</label>
+            <input type="text" name="address_number" id="address_number" class="required" />
+        </div>
+    
+        <div class="col s12 m6">
+            <label for="address_complement">Complemento:</label>
+            <input type="text" name="address_complement" id="address_complement" />
+        </div>
+           
+        <div class="col s12 m6">
+            <label for="address_neighborhood">
+            <img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png"> Bairro:</label>
+            <input type="text" name="address_neighborhood" id="address_neighborhood" class="required"/>
+        </div>
+    
+        <div class="col s12 m10">
+            <label for="address_city">
+            <img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png"> Cidade:</label>
+<!--            <input type="text" name="address_city" id="address_city" class="required"/>-->
+            <select name="address_city" id="address_city" class="required">
+                <option value="Sao Paulo" selected>São Paulo</option>
+                <option value="Santo Andre">Santo André</option>
+                <option value="Sao Bernardo do Campo">São Bernardo do Campo</option>
+                <option value="Sao Caetano do Sul">São Caetano do Sul</option>
+            </select>
+        </div>
+            
+        <div class="col s12 m2 l2">   
+             <label for="address_state">
+             <img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png"> Estado:</label>
+            <input type="text" name="address_state" id="address_state" value="SP" class="required" readonly />
+        </div>        
+        
+        <div class="col s12" style="margin-bottom: 0;">
+            <p><img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png"> Número de crianças na casa e idades:</p>
+            <label>
+                    <input type="checkbox" id="do_not_have_children" name="do_not_have_children" value="1" /> Não tenho crianças em casa</label>
+            <div class="row hide-on-med-and-up">
+                <div class="col s12 m4" style="margin-bottom: 10px; height: 5rem;">
+                    <label for="number_of_kids_at_home" class="kids-home" style="width: 96px; display: inline-block;">Tenho</label>
+                    <input type="text" id="number_of_kids_at_home" name="number_of_kids_at_home" class="text-center kids-input" style="margin-bottom: 0px; display: inline-block;" />
+                </div>
+                
+                <div class="col s12 m8">
+                    <label for="kids_age" class="kids-home" style="width: 175px; display: inline-block;">crianças de</label>
+                    <input type="text" id="kids_age" name="kids_age" class="kids-input text-center" style="display: inline-block;" />
+                    <div class="kids-home" style="margin-top: 66px;">anos</div>
+                </div>
+            </div>
+            <div class="row hide-on-small-only">
+                <div style="height: 5rem;">
+                    <label for="number_of_kids_at_home" class="kids-home" style="width: 96px; display: inline-block;">Tenho</label>
+                    <input type="text" id="number_of_kids_at_home" name="number_of_kids_at_home" class="text-center kids-input" style="margin-bottom: 0px; display: inline-block; width: 60px; margin-right: 20px;" />
+                    <label for="kids_age" class="kids-home" style="width: 175px; display: inline-block;">crianças de</label>
+                    <input type="text" id="kids_age" name="kids_age" class="kids-input text-center" style="display: inline-block; width: 100px; margin-right: 20px;" />
+                    <div class="kids-home" style="display: inline-block;">anos</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col s12">
+            <label for="number_of_adults_at_home">
+            <img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png"> Número de adultos na casa:</label>
+            <input type="text" name="number_of_adults_at_home" id="number_of_adults_at_home" class="number" class="required" />
+        </div>
+    
+        <div  class="col s12">
+            <p><img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png"> Por que adotar um gatinho?</p>
+            <textarea name="why_adopt_a_cat" id="why_adopt_a_cat" class="required card-wrapper m-t-10 white" style="height: 12rem;"></textarea>
+        </div>
+    </fieldset>
+    
+    
+    
+    
+    <style>
+        .inblock{
+            display:inline-block!important;
+            padding-left:15px;
+            width: auto;
+
+        }
+    </style>
+    <fieldset class="row">
+    <legend class="upper aug_blue_bg white-text bold m-t-20" style="padding: 2px 15px; display: inline-block;">Sobre a sua casa</legend>
+
+        <p class="bold upper aug_blue m-t-10"><img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png"> Se sua casa é alugada, o proprietário permite animais?</p>
+        <div class="col s12">
+                <label class="inblock col s12" style="margin-bottom: 0px;">
+                <input type="radio" value="SIM" name="owner_accept_pets" id="owner_accept_pets_yes" class="required" /> Sim</label>
+                
+                <label class="inblock col s12" style="margin-bottom: 0px;">
+                <input type="radio" value="NAO" name="owner_accept_pets" id="owner_accept_pets_no" class="required" /> Não</label>
+                
+                <label class="inblock col s12" style="margin-bottom: 0px;">
+                <input type="radio" value="NAO SEI" name="owner_accept_pets" id="owner_accept_pets_dont_know" class="required" />
+                Não sei</label>
+                
+                <label class="inblock col s12" style="margin-bottom: 0px;">
+                <input type="radio" value="SOU PROPRIETARIO" name="owner_accept_pets" id="owner_accept_pets_own_house" class="required" />
+                Minha casa é própria</label>
+            </div>
+            
+            
+        <div class="col s12">
+            <p class="aug_blue bold upper"><img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png"> Você mora em:</p>
+          
+                <label class="inblock col s12" style="margin-bottom: 0px;">
+                <input type="radio" value="CASA ABERTA" name="lives_in" id="lives_in_open_house" class="required" />
+                Casa aberta (o gatinho poderá entrar e sair livremente para passear)</label>
+                
+                <label class="inblock col s12" style="margin-bottom: 0px;">
+                <input type="radio" value="CASA FECHADA" name="lives_in" id="lives_in_closed_house" class="required" />
+                Casa fechada (não vou deixar meu gato sair)</label>
+                
+                <label class="inblock col s12" style="margin-bottom: 0px;">
+                <input type="radio" value="APARTAMENTO COM TELAS" name="lives_in" id="lives_in_apartment_with_grille" class="required" />
+                Apartamento com telas</label>
+                
+                <label class="inblock col s12" style="margin-bottom: 0px;">
+                <input type="radio" value="APARTAMENTO SEM TELAS" name="lives_in" id="lives_in_apartment_without_grille" class="required" />
+                Apartamento sem telas</label>
+                
+                <label class="inblock col s12" style="margin-bottom: 0px;">
+                <input type="radio" value="COBERTURA COM TELAS" name="lives_in" id="lives_in_penthouse_with_grille" class="required" />
+                Apartamento tipo cobertura com telas </label>
+                
+                <label class="inblock col s12" style="margin-bottom: 0px;">
+                <input type="radio" value="COBERTURA SEM TELAS" name="lives_in" id="lives_in_penthouse_without_grille" class="required" />
+                Apartamento tipo cobertura sem telas </label>
+                
+                <label class="inblock col s12" style="margin-bottom: 0px;">
+                <input type="radio" value="APARTAMENTO TERREO COM QUINTAL" name="lives_in" id="lives_in_ground_floor_apartment_with_yard" class="required" />
+                Apartamento no andar térreo com área externa (quintal)</label>
+                
+                <label class="inblock col s12" style="margin-bottom: 0px;">
+                <input type="radio" value="APARTAMENTO TERREO SEM QUINTAL" name="lives_in" id="lives_in_ground_floor_apartment_without_yard" class="required" />
+                Apartamento no andar térreo sem área externa (quintal)</label>
+        </div>
+    
+        <div id="lives_in_closed_house_container" class="col s12">
+        <p class="bold upper aug_blue"><img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png"> Se você assinalou <strong class="aug_orange">"Casa Fechada"</strong>, assinale os itens que impedem o gatinho de sair para rua e telhados:</p>
+
+                <label><input type="checkbox" id="items_that_block_your_cat_high_walls" name="items_that_block_your_cat[]" value="MURO ALTO" />
+                Muros altos</label>
+                
+                <label><input type="checkbox" id="items_that_block_your_cat_grilles_at_windows" name="items_that_block_your_cat[]" value="TELAS NAS JANELAS" />
+                Telas nas janelas</label>
+                
+                <label><input type="checkbox" id="items_that_block_your_cat_grilles_at_gate" name="items_that_block_your_cat[]" value="TELAS NO PORTAO" />
+                Telas no portão ou portão totalmente fechado </label>
+                
+                <label><input type="checkbox" id="items_that_block_your_cat_everything_will_be_locked" name="items_that_block_your_cat[]" value="DEIXAREI TUDO FECHADO" />
+                Não tenho muros altos nem telas mas vou deixar tudo fechado para ele não sair</label>
+        </div>
+        
+    
+        <div id="lives_in_apartment_with_grille_container"  class="col s12">
+        <p class="bold upper aug_blue"><img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png"> Se você assinalou <strong class="aug_orange">"Apartamento com telas"</strong>, responda:</p>
+
+                <label><input type="radio" id="items_that_block_your_cat_all_windows_are_blocked" name="items_that_block_your_cat[]" value="TODAS AS JANELAS TEM TELA" />
+                Todas as janelas/sacadas/vitrôs e basculantes têm tela, sem exceção</label>
+
+                <label><input type="radio" id="items_that_block_your_cat_only_the_cats_space_windows_are_blocked" name="items_that_block_your_cat[]" value="NAO TENHO TELAS EM TODAS AS JANELAS, SOMENTE ONDE O GATO CIRCULAR" />
+                Não tenho telas em todas as janelas/sacadas/vitrôs/basculantes, somente onde o gato irá circular</label>
+
+                <label><input type="radio" id="items_that_block_your_cat_not_all_windows_are_blocked" name="items_that_block_your_cat[]" value="NAO TENHO TELAS EM JANELAS" />
+                Só não tenho telas nas janelas basculantes/vitrôs</label>
+
+                <label><input type="radio" id="items_that_block_your_cat_not_all_windows_are_blocked_but_i_have_chains" name="items_that_block_your_cat[]" value="NAO TENHO TELAS EM JANELAS, MAS POSSUO CORRENTES LIMITADORAS" /> Não tenho telas nas janelas basculantes/vitrôs, mas possuo correntes limitadoras de abertura</label>
+
+
+        </div>
+    
+        <div id="lives_in_apartment_without_grille_container" class="col s12">
+        <p class="aug_blue bold upper"><img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png"> Se você assinalou <strong class="aug_orange">"Apartamento sem telas"</strong>, responda:</p>
+            <div>
+                <label><input type="radio" id="items_that_block_your_cat_i_will_install_grilles" name="items_that_block_your_cat[]" value="POSSO COLOCAR AS TELAS EM TODAS AS JANELAS" />
+                Posso colocar as telas em todas as janelas/sacadas/vitrôs/basculantes antes da chegada do gatinho</label>
+                
+                <label><input type="radio" id="items_that_block_your_cat_i_wont_install_grilles" name="items_that_block_your_cat[]" value="NAO VOU COLOCAR TELAS" />
+                Não vou colocar as telas</label>
+            </div>
+        </div>
+        
+        
+        <div id="items_that_your_house_have_container" class="col s12">
+        <p class="aug_blue bold upper"><img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png"> Para qualquer tipo de casa ou apartamento, responda se você possui:</p>
+            <div>
+                <label><input type="checkbox" id="items_that_your_house_have_swimming_pool" name="items_that_your_house_have[]" value="PISCINA" />
+                Piscina</label>
+                
+                <label><input type="checkbox" id="items_that_your_house_have_fireplace" name="items_that_your_house_have[]" value="LAREIRA, CHURRASQUEIRA OU FORNO DE PIZZA" />
+                Lareira, churrasqueira ou forno de pizza</label>
+                
+                <label><input type="checkbox" id="items_that_your_house_have_any_place_that_wont_be_grilled" name="items_that_your_house_have[]" value="ALGUMA PARTE QUE NAO POSSA SER TELADA" />
+                Alguma parte que não possa ser telada como, por exemplo, respiro do aquecedor a gás</label>
+            </div>
+        </div>
+        <div id="house_window_types_container" class="col s12">
+        <p class="aug_blue bold upper"><img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png"> E sobre as basculantes, elas são de que tipo:</p>
+           
+                <label class="inblock col s4 m3 l2">
+                    <img src="http://www.adoteumgatinho.com.br/media/images/window_simple.png" class="col s12">
+                    <input type="radio" id="house_window_types_simple" name="house_window_types[]" value="SIMPLES" />
+                Simples </label>
+                
+                <label class="inblock col s4 m3 l2">
+                    <img src="http://www.adoteumgatinho.com.br/media/images/window_double_multiple.png" class="col s12">
+                    <input type="radio" id="house_window_types_double_multiple" name="house_window_types[]" value="DUPLA OU MULTIPLA" />
+                Dupla ou múltipla </label>
+                
+                <label class="inblock col s4 m3 l2">
+                    <img src="http://www.adoteumgatinho.com.br/media/images/sem_basculantes.png" class="col s12">
+                    <input type="radio" id="house_window_types_neither" name="house_window_types[]" value="NAO TENHO BASCULANTES" />
+                Não tenho basculantes</label>
+            
+        </div>
+    </fieldset>
+    
+    <fieldset class="row">
+    <legend class="upper aug_blue_bg white-text bold m-t-20" style="padding: 2px 15px; display: inline-block;">Seus animais</legend>
+        <div class="col s12 m-t-10">
+        <p class="aug_blue bold upper"><img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png"> Já teve gatos?</p>
+            <label class="inblock"><input type="radio" name="already_had_a_cat" id="already_had_a_cat_yes" value="SIM" class="required" /> Sim</label>
+                
+            <label class="inblock"><input type="radio" name="already_had_a_cat" id="already_had_a_cat_no" value="NAO" class="required" /> Não</label>
+        </div>
+    
+        <div id="already_had_a_cat_container" class="col s12">
+            <p class="aug_blue bold upper"><img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png"> Se você já teve gatos, o que aconteceu com eles?</p>
+            <textarea name="what_happened_to_your_cats" class="card-wrapper m-t-10 white" style="height: 12rem;"></textarea>
+        </div>
+        
+        
+        <div class="col s12">
+        <p class="aug_blue bold upper"><img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png"> Tem outros animais em casa?:</p>
+       
+            <label><input type="checkbox" name="have_other_pets[]" id="have_other_pets_yes_cats" value="SIM GATO" class="required" />
+            Sim, gato(s)</label>
+            
+            <label><input type="checkbox" name="have_other_pets[]" id="have_other_pets_yes_dogs" value="SIM CACHORRO" class="required" />
+            Sim, cachorro(s)</label>
+            
+            <label><input type="checkbox" name="have_other_pets[]" id="have_other_pets_yes_birds" value="SIM PASSARO" class="required" />
+            Sim, pássaro(s)</label>
+            
+            <label><input type="checkbox" name="have_other_pets[]" id="have_other_pets_yes_others" value="SIM OUTROS" class="required" />
+            Sim, outro(s)</label>
+           
+            <label><input type="checkbox" name="have_other_pets[]" id="have_other_pets_no" value="NAO" class="required" />
+            Não</label>
+        </div>
+        
+        
+        <div id="cat_qtty_container"  class="col s12">
+            <label for="cat_qtty"><p class="aug_blue bold upper"><img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png"> Quantos gatos você tem?</p></label>
+            <input type="text" name="cat_qtty" id="cat_qtty" value="" class="number" />
+        </div>
+    </fieldset>
+    
+    
+    
+    <fieldset class="row">
+    <legend class="upper aug_blue_bg white-text bold m-t-20" style="padding: 2px 15px; display: inline-block;">Adoção é compromisso e responsabilidade</legend>
+        <div class="col s12 m-t-10">
+        <p class="bold upper aug_blue"><img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png">Você tem condições de acrescentar no seu orçamento os gastos que terá com alimentação de boa qualidade (aproximadamente R$ 100 por mês), vacinas e atendimento veterinário (aproximadamente R$ 200 anualmente)?</p>
+            <label class="inblock"><input type="radio" name="have_monetary_conditions" id="have_monetary_conditions_yes" value="SIM" class="required" />
+            Sim</label>
+            <label class="inblock"><input type="radio" name="have_monetary_conditions" id="have_monetary_conditions_no" value="NAO" class="required" />
+            Não</label>
+        </div>
+    
+        <div class="col s12">
+            <p class="bold upper aug_blue"><img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png"> Alguém em casa tem alergia?</p>
+       
+                <label class="inblock"><input type="radio" name="someone_has_allergy" id="someone_has_allergy_yes" value="SIM" class="required" />
+                Sim</label>
+                <label class="inblock"><input type="radio" name="someone_has_allergy" id="someone_has_allergy_no" value="NAO" class="required" />Não</label>
+                <label class="inblock"><input type="radio" name="someone_has_allergy" id="someone_has_allergy_dont_know" value="NAO SEI" class="required" />
+                Não sei</label>
+
+        </div>
+    
+        <div class="col s12">
+            <p class="bold upper aug_blue"><img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png"> O que fará com o gatinho se alguém na casa engravidar?</p>
+            <textarea name="what_youll_do_when_someone_gets_pregnant" id="what_youll_do_when_someone_gets_pregnant" class="required card-wrapper m-t-10 white" style="height: 12rem;"></textarea>
+        </div>
+    
+        <div class="col s12">
+            <p class="bold upper aug_blue"><img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png"> O que fará se o gato arranhar o seu filho?</p>
+            <textarea name="what_youll_do_if_the_cat_scratches_your_son" id="what_youll_do_if_the_cat_scratches_your_son" class="required card-wrapper m-t-10 white" style="height: 12rem;"></textarea>
+        </div>
+    
+        <div class="col s12">
+            <p class="bold upper aug_blue"><img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png"> O que fará se perder o gatinho?</p>
+            <textarea name="what_youll_do_if_you_lose_your_cat" id="what_youll_do_if_you_lose_your_cat" class="required card-wrapper m-t-10 white" style="height: 12rem;" ></textarea>
+        </div>
+        
+        <div class="col s12">
+            <p class="bold upper aug_blue"><img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png"> O que fará se não puder cuidar mais do gatinho?</p>
+            <textarea name="what_youll_do_if_you_cant_take_care_of_the_cat_anymore" id="what_youll_do_if_you_cant_take_care_of_the_cat_anymore" class="required card-wrapper m-t-10 white" style="height: 12rem;"></textarea>
+        </div>
+        
+        <div class="col s12">
+            <p class="bold upper aug_blue"><img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png"> O que fará se tiver que mudar de cidade ou país?</p>
+            <textarea name="what_youll_do_if_you_move_from_city_or_country" id="what_youll_do_if_you_move_from_city_or_country" class="required card-wrapper m-t-10 white" style="height: 12rem;"></textarea>
+        </div>
+    
+        <div class="col s12">
+            <p class="bold upper aug_blue"><img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png"> Gatos podem viver 15 anos ou mais. Você está preparado para este compromisso?</p>
+           
+            <label class="inblock"><input type="radio" id="cats_can_live_more_than_fifteen_years_yes" name="cats_can_live_more_than_fifteen_years" value="SIM" class="required" />
+            Sim</label>
+           
+            <label class="inblock"><input type="radio" id="cats_can_live_more_than_fifteen_years_no" name="cats_can_live_more_than_fifteen_years" value="NAO" class="required" />
+            Não</label>
+           
+            <label class="inblock"><input type="radio" id="cats_can_live_more_than_fifteen_years_dont_know" name="cats_can_live_more_than_fifteen_years" value="NAO SEI" class="required" />
+            Não sei</label>
+            
+        </div>
+    </fieldset>
+    
+    
+    
+    <fieldset class="row">
+    <legend class="upper aug_blue_bg white-text bold m-t-20" style="padding: 2px 15px; display: inline-block;">Condições</legend>
+       <p class="m-t-10 bold aug_blue upper m-b-10">Você concorda...</p>
+        <div>
+            <div class="col s12">               
+                <p><img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png"> ... que sua casa seja vistoriada para averiguação das respostas acima?</p>
+                <label><input type="radio" name="house_can_be_revisited" id="house_can_be_revisited_yes" value="SIM" class="required" />
+                Sim</label>
+                <label><input type="radio" name="house_can_be_revisited" id="house_can_be_revisited_no" value="NAO" class="required" />
+                Não</label>
+            </div>
+            
+            
+            <div class="col s12">
+               <p><img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png"> ... em nos devolver o gatinho se por qualquer motivo não puder continuar com ele?</p>
+                <label><input type="radio" name="deliver_the_cat_back" id="deliver_the_cat_back_yes" value="SIM" class="required" />
+                Sim</label>
+                <label><input type="radio" name="deliver_the_cat_back" id="deliver_the_cat_back_no" value="NAO" class="required" />Não</label>
+            </div>
+            
+            
+            <div class="col s12">
+               <p><img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png"> ... em não repassar o gatinho a ninguém sem antes nos consultar?</p>
+                <label><input type="radio" name="do_not_repass_the_cat" id="do_not_repass_the_cat_yes" value="SIM" class="required" />
+                Sim</label>
+                <label><input type="radio" name="do_not_repass_the_cat" id="do_not_repass_the_cat_no" value="NAO" class="required" />Não</label>
+            </div>
+            
+            
+            <div class="col s12">
+               <p><img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png"> ... em nos avisar em caso de alteração de endereço, telefone, etc?</p>
+               
+                <label><input type="radio" name="tell_us_about_address_change" id="tell_us_about_address_change_yes" value="SIM" class="required" />
+                Sim</label>
+                <label><input type="radio" name="tell_us_about_address_change" id="tell_us_about_address_change_no" value="NAO" class="required" />
+                Não</label>
+            </div>
+            
+            
+            <div class="col s12">
+               <p><img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png"> ... em assinar um contrato de adoção no ato da entrega, responsabilizando pelos cuidados com o animal e sua segurança?</p>
+                <label><input type="radio" name="sign_an_adoption_contract" id="sign_an_adoption_contract_yes" value="SIM" class="required" />
+                Sim</label>
+                <label><input type="radio" name="sign_an_adoption_contract" id="sign_an_adoption_contract_no" value="NAO" class="required" />
+                Não</label>
+            </div>
+        </div>
+    </fieldset>
+    
+    
+    
+    <fieldset class="row">
+    <legend class="upper aug_blue_bg white-text bold m-t-20" style="padding: 2px 15px; display: inline-block;">Comentários</legend>   
+        <div class="col s12">
+            <p class="aug_blue bold upper m-t-10">Escreva neste espaço tudo o que julgar necessário, inclusive qualquer dúvida que você tiver sobre a adoção.</p>
+            <textarea name="comments" id="comments" class="card-wrapper m-t-10 white" style="height: 12rem;"></textarea>
+        </div>
+    
+        <div class="col s12">
+            <p class="aug_blue bold upper"><img src="http://www.adoteumgatinho.com.br/media/images/red-paw.png"> Como você conheceu o AUG?</p>
+            
+            <div>
+                <label><input type="checkbox" id="how_you_met_aug_friends_family" name="how_you_met_aug[]" value="AMIGO E FAMILIARES" class="required" />
+                indicação de amigos e familiares</label>
+               
+                <label><input type="checkbox" id="how_you_met_aug_vets" name="how_you_met_aug[]" value="VETERINARIOS" class="required" />indicação de veterinários</label>
+                
+                <label><input type="checkbox" id="how_you_met_aug_facebook" name="how_you_met_aug[]" value="FACEBOOK" class="required" />
+                pelo Facebook</label>
+               
+               <label>
+                <input type="checkbox" id="how_you_met_aug_twitter" name="how_you_met_aug[]" value="TWITTER" class="required" />pelo Twitter</label>
+                
+                <label>
+                <input type="checkbox" id="how_you_met_aug_news" name="how_you_met_aug[]" value="JORNAIS" class="required" /> por matérias em jornais, revistas, rádio e TV</label>
+                
+                <label><input type="checkbox" id="how_you_met_aug_search_engines" name="how_you_met_aug[]" value="SITES DE BUSCA" class="required" />
+                sites de busca</label>
+                
+                <label>
+                <input type="checkbox" id="how_you_met_aug_others" name="how_you_met_aug[]" value="OUTROS" class="required" />outros</label>
+            </div>
+        </div>
+    
+        <div>
+        <?php if($this->responsible_email) : ?>
+        <p>Não consegue enviar? Envie as respostas deste formulário para <a href="mailto:<?php echo $this->responsible_email; ?>" class="aug_blue bold"><?php echo $this->responsible_email; ?></a></p>
+        <?php endif; ?>
+        </div>
+        <div><p style="color:#ff0000;"><strong>Este formulário será respondido em até 48hs. Contamos com a sua compreensão em aguardar este prazo. Verifique sua caixa de spam caso não receba a nossa resposta.</strong></p></div>
+    </fieldset>
+    
+        <p class="msg-erro" style="padding-left: 10px; margin: 10px 0 10px 0;"><img src="<?php echo HOST . 'templates/public/css/images/redpaw.png'?>" align="middle"> Campos de preenchimento obrigatório.</p>
+        
+        <div class="row" style="margin-top:50px;">
+            <a class="perfil bt bt_gray upper bold col s12 m4 text-center" href="<?php echo HOST;?>quero-adotar" style="padding: 10px 15px;">Voltar</a>
+            <input type="submit" value="Enviar Formulário" data-block="location" class="bt bt_blue right upper bold col s12 m4" style="padding: 10px 15px; float: right;" />
+        </div>
+    </form>
+
+
+    </article>
+</section>
+
+<script type="text/javascript">
+    
+    $(function(){
+        $("#adopt").validate({
+			rules: {
+				name: {
+					required: true,
+					minlength: 3
+				},
+                email: {
+					required: true,
+                    email:true
+				},
+                age: {
+					required: true,
+                    number: true
+				},
+                address: {
+					required: true
+				},
+                address_number: {
+					required: true,
+                    number: true
+				},
+                address_neighborhood: {
+					required: true
+				},
+                address_city: {
+					required: true
+				},
+                address_state: {
+					required: true
+				},
+                number_of_adults_at_home: {
+					required: true
+				},
+                why_adopt_a_cat: {
+					required: true
+				},
+                owner_accept_pets: {
+					required: true
+				},
+                lives_in: {
+					required: true
+				},
+                items_that_block_your_cat: {
+					required: true
+				},
+                items_that_your_house_have: {
+					required: true
+				},
+                house_window_types: {
+					required: true
+				},
+                already_had_a_cat: {
+					required: true
+				},
+                have_other_pets: {
+					required: true
+				},
+                someone_has_allergy: {
+					required: true
+				},
+                what_youll_do_if_you_lose_your_cat: {
+					required: true
+				},
+                what_youll_do_if_you_cant_take_care_of_the_cat_anymore: {
+					required: true
+				},
+                what_youll_do_if_you_move_from_city_or_country: {
+					required: true
+				},
+                cats_can_live_more_than_fifteen_years_dont_know: {
+					required: true
+				},
+                house_can_be_revisited: {
+					required: true
+				},
+                deliver_the_cat_back: {
+					required: true
+				},
+                do_not_repass_the_cat: {
+					required: true
+				},
+                tell_us_about_address_change: {
+					required: true
+				},
+                sign_an_adoption_contract: {
+					required: true
+				},
+                how_you_met_aug: {
+					required: true
+				}
+			},
+			messages: {
+				name: {
+					required: 'Campo obrigatório',
+					minlength: 'Campo obrigatório'
+				},
+                email: {
+					required: 'Campo obrigatório',
+                    email:'Insira um endereço de e-mail válido'
+				},
+                age: {
+					required: 'Campo obrigatório',
+                    number: 'Campo obrigatório'
+				},
+                address: {
+					required: 'Campo obrigatório'
+				},
+                address_number: {
+					required: 'Campo obrigatório',
+                    number: 'Campo obrigatório'
+				},
+                address_neighborhood: {
+					required: 'Campo obrigatório'
+				},
+                address_city: {
+					required: 'Campo obrigatório'
+				},
+                address_state: {
+					required: 'Campo obrigatório'
+				},
+                number_of_adults_at_home: {
+					required: 'Campo obrigatório'
+				},
+                why_adopt_a_cat: {
+					required: 'Campo obrigatório'
+				},
+                owner_accept_pets: {
+					required: 'Campo obrigatório'
+				},
+                lives_in: {
+					required: 'Campo obrigatório'
+				},
+                items_that_block_your_cat: {
+					required: 'Campo obrigatório'
+				},
+                items_that_your_house_have: {
+					required: 'Campo obrigatório'
+				},
+                house_window_types: {
+					required: 'Campo obrigatório'
+				},
+                already_had_a_cat: {
+					required: 'Campo obrigatório'
+				},
+                have_other_pets: {
+					required: 'Campo obrigatório'
+				},
+                someone_has_allergy: {
+					required: 'Campo obrigatório'
+				},
+                what_youll_do_if_you_lose_your_cat: {
+					required: 'Campo obrigatório'
+				},
+                what_youll_do_if_you_cant_take_care_of_the_cat_anymore: {
+					required: 'Campo obrigatório'
+				},
+                what_youll_do_if_you_move_from_city_or_country: {
+					required: 'Campo obrigatório'
+				},
+                cats_can_live_more_than_fifteen_years_dont_know: {
+					required: 'Campo obrigatório'
+				},
+                house_can_be_revisited: {
+					required: 'Campo obrigatório'
+				},
+                deliver_the_cat_back: {
+					required: 'Campo obrigatório'
+				},
+                do_not_repass_the_cat: {
+					required: 'Campo obrigatório'
+				},
+                tell_us_about_address_change: {
+					required: 'Campo obrigatório'
+				},
+                sign_an_adoption_contract: {
+					required: 'Campo obrigatório'
+				},
+                how_you_met_aug: {
+					required: 'Campo obrigatório'
+				}
+			}
+		});
+        
+        //$("#telephone").mask("(99) 9999-9999?9");
+        
+    });
+
+  /*  $(document).ready(function() {
+        var container = $('.msg-erro');
+        
+        $("#adoption-form form").validate({
+            errorContainer : container,
+            errorPlacement: function(error, element) {
+                return
+            }
+        });
+
+        $("#telephone").mask("(99) 9999-9999?9");
+
+        $("input[name=have_other_pets]").click(function(){
+            switch($(this).val()){
+                case 'SIM GATO':
+                    $("#cat_qtty_container").slideDown();
+                break;
+
+                default:
+                    $("#cat_qtty_container").slideUp();
+                break;
+            }
+        });
+
+        $("input[name=lives_in]").click(function() {
+            switch($(this).val()) {
+                case 'CASA ABERTA':
+                    $("#lives_in_closed_house_container").slideUp();
+                    $("#lives_in_apartment_with_grille_container").slideUp();
+                    $("#lives_in_apartment_without_grille_container").slideUp();
+                break;
+
+                case 'CASA FECHADA':
+                    $("#lives_in_closed_house_container").slideDown();
+                    $("#lives_in_apartment_with_grille_container").slideUp();
+                    $("#lives_in_apartment_without_grille_container").slideUp();
+                break;
+
+                case 'APARTAMENTO COM TELAS':
+                    $("#lives_in_closed_house_container").slideUp();
+                    $("#lives_in_apartment_with_grille_container").slideDown();
+                    $("#lives_in_apartment_without_grille_container").slideUp();
+                break;
+
+                case 'APARTAMENTO SEM TELAS':
+                    $("#lives_in_closed_house_container").slideUp();
+                    $("#lives_in_apartment_with_grille_container").slideUp();
+                    $("#lives_in_apartment_without_grille_container").slideDown();
+                break;
+                case 'COBERTURA COM TELAS':
+                    $("#lives_in_closed_house_container").slideUp();
+                    $("#lives_in_apartment_with_grille_container").slideDown();
+                    $("#lives_in_apartment_without_grille_container").slideUp();
+                break;
+                case 'COBERTURA SEM TELAS':
+                    $("#lives_in_closed_house_container").slideUp();
+                    $("#lives_in_apartment_with_grille_container").slideUp();
+                    $("#lives_in_apartment_without_grille_container").slideDown();
+                break;
+                case 'APARTAMENTO TERREO COM QUINTAL':
+                    $("#lives_in_closed_house_container").slideUp();
+                    $("#lives_in_apartment_with_grille_container").slideUp();
+                    $("#lives_in_apartment_without_grille_container").slideUp();
+                break;
+                case 'APARTAMENTO TERREO SEM QUINTAL':
+                    $("#lives_in_closed_house_container").slideUp();
+                    $("#lives_in_apartment_with_grille_container").slideUp();
+                    $("#lives_in_apartment_without_grille_container").slideUp();
+                break;
+            }
+        });
+
+        $("input[name=already_had_a_cat]").click(function() {
+            switch($(this).val()) {
+                case "NAO":
+                    $("#already_had_a_cat_container").slideUp();
+                break;
+
+                case "SIM":
+                    $("#already_had_a_cat_container").slideDown();
+                break;
+            }
+        });
+
+        $("#items_that_block_your_cat_everything_will_be_locked").click(function() {
+            $(this).siblings("input").removeAttr("checked");
+        });
+
+        $("#items_that_block_your_cat_everything_will_be_locked").siblings("input").bind("click", function() {
+            $("#items_that_block_your_cat_everything_will_be_locked").removeAttr("checked");
+        });
+
+        $("#cat_qtty_container").hide();
+        $("#already_had_a_cat_container").hide();
+        $("#lives_in_closed_house_container").hide();
+        $("#lives_in_apartment_with_grille_container").hide();
+        $("#lives_in_apartment_without_grille_container").hide();
+
+        $("#age").bind('keyup keypress keydown', function() {
+            $(this).val($(this).val().replace(/\D/i, ''));
+        });
+    });
+*/
+
+</script>

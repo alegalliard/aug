@@ -1,0 +1,47 @@
+<style media="screen">
+	.break{
+    word-break: break-all;
+	}
+</style>
+<h2>Páginas</h2>
+<p>
+	<a href="<?php echo HOST;?>adm/paginas/adicionar/">Adicionar página</a>
+</p>
+<table width="100%" border="1">
+	<thead>
+		<tr>
+			<th width="18%"></th>
+			<th>Título</th>
+			<th>URL</th>
+			<th width="18%">Versão estática</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php foreach($this->data as $row):?>
+			<tr>
+				<td align="center">
+					<a href="<?php echo HOST;?>adm/paginas/editar/<?php echo $row->id;?>" class="edit-item" title="editar">EDITAR</a>
+					<a href="<?php echo HOST.$row->slug;?>" class="show-details" title="Visualizar" target="_blank">VISUALIZAR</a>
+					<a href="<?php echo HOST;?>adm/paginas/remover/<?php echo $row->id;?>" class="remove-item" title="editar">REMOVER</a>
+
+					<!-- <?php if($row->inactive === 0) { ?>
+						<a href="<?php echo HOST;?>adm/paginas/ativar/<?php echo $row->id;?>"
+							 class="ative-item" title="ativar">ATIVAR</a>
+					<?php } else { ?>
+						<a href="<?php echo HOST;?>adm/paginas/desativar/<?php echo $row->id;?>"
+							 class="desative-item" title="desativar">DESATIVAR</a>
+					<?php } ?> -->
+				</td>
+				<td><?php echo $row->name;?></td>
+        <td><a href="<?php echo HOST . '/'.$row->slug; ?>" target="_blank"><?php echo $row->slug;?></a></td>
+				<td>
+					<?php if(!empty($row->alias)) { ?>
+							<a class="break" href="<?php echo HOST. $row->alias;?><?php echo $row->id;?>" target="_blank">
+								<?php echo $row->alias ?>
+							</a>
+					<?php } ?>
+				</td>
+			</tr>
+		<?php endforeach;?>
+	</tbody>
+</table>

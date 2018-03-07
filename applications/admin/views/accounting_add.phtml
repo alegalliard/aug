@@ -1,0 +1,90 @@
+<h2>Prestação de Contas :: Adicionar dados</h2>
+<form action="<?php echo HOST;?>adm/prestacao-de-contas/salvar" method="post">
+	<div>
+		<label for="date">Data:</label>
+		<input type="text" name="date" id="date" class="required datepicker" readonly="readonly"/>
+	</div>
+	<div>
+		<label for="description">Descrição:</label>
+		<input type="text" name="description" id="description" value="" class="required" />
+	</div>
+	<div>
+		<label for="value">Valor:</label>
+		<input type="text" name="value" id="value" class="required" />
+	</div>
+	<div>
+		<input type="submit" value="Salvar" />
+	</div>
+</form>
+
+<script type="text/javascript" src="<?php echo HOST;?>media/scripts/jquery.moneymask.js"></script>
+<script type="text/javascript">
+	(function($){
+		$(document).ready(function(){
+			$.datepicker.regional['pt-BR'] = {
+				closeText: 'Fechar',
+				prevText: '&#x3c;Anterior',
+				nextText: 'Pr&oacute;ximo&#x3e;',
+				currentText: 'Hoje',
+				monthNames: ['Janeiro', 'Fevereiro', 'Mar&ccedil;o', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+				monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+				dayNames: ['Domingo', 'Segunda-feira', 'Ter&ccedil;a-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sabado'],
+				dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+				dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'],
+				weekHeader: 'Sm',
+				dateFormat: 'dd/mm/yy',
+				firstDay: 0,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: ''
+			};
+			$.datepicker.setDefaults($.datepicker.regional['pt-BR']);
+
+			$("#date").datepicker();
+			
+			$("#value").maskMoney({
+				symbol:'R$ ',
+				showSymbol:true,
+				thousands:'.',
+				decimal:',',
+				symbolStay: true,
+				allowNegative:true
+			});
+			
+			isOverlayOpened = false;
+			$("form").submit(function(e){
+				
+				
+				if(isOverlayOpened == false){
+					e.preventDefault();
+					e.stopPropagation();
+				
+					isOverlayOpened = true;
+				
+					$("<div><p>Uma vez salvos, esses dados <b>NÃO PODERÃO</b> ser alterados.</p><p>Tem certeza que deseja continuar?</p></div>").dialog({
+						modal: true,
+						title: 'Atenção',
+						buttons: {
+							Ok: function(){
+								$("form").trigger("submit");
+							},
+							Cancelar: function(){
+								isOverlayOpened = false;
+								$(this).dialog('close');
+							}
+						},
+						close: function(){
+							isOverlayOpened = false;
+						},
+						resizable: false
+					});
+				
+				}
+				
+				
+			});
+			
+			
+		});
+	}(jQuery));
+</script>

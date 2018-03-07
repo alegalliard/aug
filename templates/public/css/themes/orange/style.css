@@ -1,0 +1,20 @@
+body{background: url(./images/background_new.jpg) center top repeat-x #dc9c17;}
+#main-menu{background: url(./images/menu.png) no-repeat;}
+#footer{background: url(./images/footer.png) no-repeat bottom center;}
+#header div.rounded span a:hover{color: #DC9C18;text-shadow:0px 0px 2px #999;}
+
+#dynamic-content h2{color:#dc9619;background:url(./images/cat.png) no-repeat !important;}
+#dynamic-content h3{background:url(./images/cat.png) no-repeat !important;height:53px;line-height:60px;font-weight:bold;}
+#dynamic-content a{color:#dc9619;}
+
+#adoption-form input[type=text]:focus, #adoption-form textarea:focus{border:1px solid #dc9619;box-shadow:0px 0px 3px #dc9619;}
+#pages a:hover, #pages .current_page {color: #dc9619;}
+
+.tipsy { line-height: 1.3em; font-family: Verdana; padding: 8px; font-size: 12px; background-repeat: no-repeat;  background-image: url(./images/tipsy.png); }
+.tipsy h6{color: #dc9619; font-size: 15px; margin-bottom: 3px;padding-bottom: 3px;border-bottom:1px solid #333;}
+.tipsy ul{list-style:disc;padding-left:20px;}
+.tipsy ul li{margin:2px 0px;}
+
+#dynamic-content table tr td h4{color:#dc9619;background:none !important;text-indent:0px !important;padding:5px 0px !important;}
+
+#content .cat.godfathered h6{color:#dc9619;}

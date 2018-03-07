@@ -1,0 +1,29 @@
+<?php 
+$breadColor = 'orange';
+$breadPaths = array('Prestação de contas'=>'prestacao-de-contas2/contas?year=2015');
+$lastPath = 'Prestação de contas';
+include('top.phtml'); 
+
+?>
+   
+
+   <section class="row m-b-0">
+    <article class="col s12 m10 l10 offset-m1 offset-l1" id="dynamic-content">
+    
+    <h1 class="h1">Prestação de Contas</h1>
+    
+    <p>Todo o dinheiro recebido através de doações é utilizado no tratamento,  vacinação, vermifugação e castrações de gatinhos.
+Sinceros agradecimentos a todos os doadores.</p>
+    
+    <ul class="accounting-list">
+        <li><a href="<?php echo HOST;?>prestacao-de-contas2/contas">Prestação de Contas</a></li>
+        <li><a href="<?php echo HOST;?>prestacao-de-contas2/doacoes">Doações</a></li>
+    </ul>
+    
+    <p>Você também pode nos ajudar, bancando vacinas, castrações, alimentos e tratamentos de gatinhos carentes. </p>
+    
+    <p>E não é só com dinheiro que você pode colaborar. <a href="<?php echo HOST;?>quero-ajudar">Clique aqui para saber como dar sua contribuição.</a>
+Os gatinhos carentes agradecem :)</p>
+
+    </article>
+</section>

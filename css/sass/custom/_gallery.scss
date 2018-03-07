@@ -1,0 +1,64 @@
+@import "custom/vars";
+@import "components/variables";
+
+#adotar_nomodal{
+    zoom: 0.8;
+    @media #{$small-and-down}{
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        z-index: 71;
+    }
+}
+
+#modal1{
+    @media #{$medium-and-down}{
+        position:relative!important;
+        display: block!important;
+        width: 100%;
+        height:auto;
+    }
+
+    > .modal-content{
+        @media #{$medium-and-down}{
+            height: auto;
+            position: relative; 
+        }
+    }
+}
+
+
+.gallery{
+    width: 100%;
+    display: block; 
+    
+    img{
+        width: 100%;
+    }
+}
+
+.thumbline{
+    text-align: center;
+    background: #ddd;
+    
+    li{
+        display: inline-block;
+        vertical-align: middle;
+        cursor: pointer;
+        border: #ddd 4px solid;
+        border-left: #ddd 2px solid;
+        border-right: #ddd 2px solid;
+    }
+}
+
+.thumbline img, .thumbline .vid{
+    width: 80px;
+    height: 65px;                  
+}
+
+
+.vid a.modal-trigger{
+    position: relative; 
+    bottom: 0;
+    margin-top: 14px;
+}

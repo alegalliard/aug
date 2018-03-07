@@ -1,0 +1,124 @@
+<?php
+	function translate($idx){
+		if($idx == "")
+			return;
+		$texts = array();
+		$texts['YES'] = 'Sim';
+		$texts['NO'] = 'Não';
+		$texts['DONT_KNOW'] = 'Não sabe';
+		$texts['OWN_HOUSE'] = 'Casa própria';
+		$texts['OPEN_HOUSE'] = 'Casa aberta (o gatinho poderá entrar e sair livremente para passear)';
+		$texts['CLOSED_HOUSE'] = 'Casa fechada (não vou deixar meu gato sair)';
+		$texts['APARTMENT_WITH_GRILLE'] = 'Apartamento com telas';
+		$texts['APARTMENT_WITHOUT_GRILLE'] = 'Apartamento sem telas';
+		$texts['HIGH_WALLS'] = 'Muros altos';
+		$texts['GRILLES_AT_WINDOWS'] = 'Telas nas janelas';
+		$texts['GRILLES_AT_GATE'] = 'Telas no portão';
+		$texts['EVERYTHING_WILL_BE_LOCKED'] = 'Não tem muros altos nem telas mas vai deixar tudo fechado para ele não sair';
+		$texts['ALL_WINDOWS_ARE_BLOCKED'] = 'Todas as janelas/sacadas/vitrôs basculantes têm tela';
+		$texts['ONLY_THE_CATS_SPACE_WINDOWS_ARE_BLOCKED'] = 'Não tem telas em todas as janelas/sacadas/vitrôs, somente onde o gato irá circular';
+		$texts['NOT_ALL_WINDOWS_ARE_BLOCKED'] = 'Só não tem telas nas janelas basculantes';
+		$texts['I_WILL_INSTALL_ALL_GRILLE'] = 'Pode colocar as telas em todas as janelas/sacadas/vitrôs antes da chegada dos gatinhos';
+		$texts['I_WONT_INSTALL_ANY_GRILLE'] = 'Não vai colocar as telas';
+		$texts['YES_CAT'] = 'Sim, gato(s)';
+		$texts['YES_DOG'] = 'Sim, cachorro(s)';
+		$texts['YES_OTHERS'] = 'Sim, outro(s)';
+		$texts['1'] = 'Sim';
+		$texts['0'] = 'Não';
+		return $texts[$idx];
+	}
+?>
+
+<h2>Querem adotar</h2>
+<table width="100%" border="1">
+	<thead>
+		<tr>
+			<th width="5%"></th>
+			<th>Usuário</th>
+			<th>Contato</th>
+			<th>Interessado no gato</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php if(is_array($this->data) and (sizeof($this->data) > 0)):?>
+			<?php foreach($this->data as $row):?>
+				<tr>
+					<td align="center">
+						<a href="<?php echo HOST;?>adm/querem-adotar/remover/<?php echo $row->id;?>" class="remove-item" title="remover">REMOVER</a>
+						<a href="#interested_details_<?php echo $row->id;?>" class="show-details fancybox"></a>
+					</td>
+					<td>
+						<p><?php echo $row->name;?></p>
+						<?php echo $row->address;?>, <?php echo $row->address_number;?> <br />
+						<?php echo $row->address_city;?> - <?php echo $row->address_state;?>
+					</td>
+					<td>
+						<?php echo $row->email;?>	<br />
+						<?php echo $row->telephone;?>
+					</td>
+					<td align="center">
+						<a href="<?php echo MEDIA_DIR.'uploads/cats/'.$row->image;?>" class="fancybox">
+							<img src="<?php echo MEDIA_DIR.'uploads/cats/'.$row->image;?>"  class="cat_thumb" />
+						</a>
+						<br />
+						<?php echo $row->cat_name;?>
+					</td>
+				</tr>
+			<?php endforeach;?>
+		<?php else:?>	
+			<tr>
+				<td colspan="4" align="center">Não existem dados cadastrados</td>
+			</tr>
+		<?php endif;?>
+	</tbody>
+</table>
+<div style="display:none">
+	<?php foreach($this->data as $data):?>
+		<div id="interested_details_<?php echo $data->id;?>" class="interest_details">
+			<h3><?php echo $data->name;?></h3>
+			<p><b>Email:</b> <?php echo $data->email;?></p>
+			<p><b>Telefone:</b> <?php echo preg_replace('/^(\d{2})(\d{4})(\d{4})$/i', '($1) $2-$3', $data->telephone);?></p>
+			<p><b>Email:</b> <?php echo $data->email;?></p>
+			<p>
+				<b>Endereço:</b> <?php echo $data->address;?>, <?php echo $data->address_number;?> - <?php echo $data->address_complement;?> - <?php echo $data->address_city;?> - <?php echo $data->address_state;?>
+			</p>
+			<p><b>Número de adultos na casa:</b> <?php echo $data->number_of_adults_at_home;?></p>
+			<?php if($data->number_of_kids_at_home > 0):?>
+				<p>
+					<b>Número de crianças na casa:</b> <?php echo $data->number_of_kids_at_home;?>&nbsp;&nbsp;
+					<b>Idade das crianças:</b> <?php echo $data->kids_age;?>
+				</p>
+			<?php endif;?>
+			<p><b>Por que adotar um gatinho?</b><br/><?php echo $data->why_adopt_a_cat;?></p>
+			
+			<h3>Sobre a casa</h3>
+			<p><b>O proprietário da casa permite animais?</b> <?php echo translate($data->owner_accept_pets);?></p>
+			<p><b>Mora em:</b> <?php echo translate($data->lives_in);?></p>
+			<p><b>Items que bloqueiam a saída do gatinho:</b>
+				<ul>
+					<?php $items = explode("\n", $data->items_that_blocks_your_cat);?>
+					<?php foreach($items as $item):?>
+						<li><?php echo translate($item);?></li>
+					<?php endforeach;?>
+				</ul>
+			</p>
+			<p><b>Já teve um gatinho antes? </b> <?php echo translate($data->already_had_a_cat);?></p>
+			<p><b>O que aconteceu com o(s) gato(s)?</b><br/> <?php echo $data->what_happened_to_your_cats;?></p>
+			<p><b>Tem outros animais?</b> <?php echo translate($data->have_other_pets);?></p>
+			<p><b>Tem condições de acrescentar custos no orçamento?</b> <?php echo translate($data->have_monetary_conditions);?></p>
+			<p><b>Alguém na casa tem alergia?</b> <?php echo translate($data->someone_has_allergy);?></p>
+			<p><b>O que fará se alguém ficar grávida?</b><br/> <?php echo $data->what_youll_do_when_someone_gets_pregnant;?></p>
+			<p><b>O que fará se o gato arranhar o filho?</b><br/> <?php echo $data->what_youll_do_if_the_cat_scratches_your_son;?></p>
+			<p><b>O que fará se perder o gato?</b><br/> <?php echo $data->what_youll_do_if_you_lose_your_cat;?></p>
+			<p><b>O que fará se não puder mais tomar conta do gatinho?</b><br/> <?php echo $data->what_youll_do_if_you_cant_take_care_of_the_cat_anymore;?></p>
+			<p><b>Está preparado para o compromisso de cuidar do gato por 15 anos ou mais?</b> <?php echo translate($data->cats_can_live_more_than_fifteen_years);?></p>
+			
+			<h3>Concorda em:</h3>
+			<p><b>A casa pode ser vistoriada?</b> <?php echo translate($data->house_can_be_revisited);?></p>
+			<p><b>Devolver o gatinho se não puder mais tomar conta dele?</b> <?php echo translate($data->deliver_the_cat_back);?></p>
+			<p><b>Não repassar o gatinho sem prévia consulta?</b> <?php echo translate($data->do_not_repass_the_cat);?></p>
+			<p><b>Informar em caso de troca de endereço?</b> <?php echo translate($data->tell_us_about_address_change);?></p>
+			<p><b>Assinar um contrato de adoção:</b> <?php echo translate($data->sign_an_adoption_contract);?></p>
+		</div>
+	<?php endforeach;?>
+</div>

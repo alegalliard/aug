@@ -1,0 +1,50 @@
+<h2>Destaques</h2>
+<p>
+	<a href="<?php echo HOST;?>adm/destaques/adicionar/">Adicionar destaque</a>
+</p>
+<table width="100%" border="1">
+	<thead>
+		<tr>
+			<?php if(sizeof($this->data) > 1):?>
+				<th width="13%"></th>
+			<?php endif;?>
+			<th>Imagem</th>
+			<th>Link</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php foreach($this->data as $row):?>
+			<tr>
+				<?php if(sizeof($this->data) > 1):?>
+					<td align="center">
+						<a href="<?php echo HOST;?>adm/destaques/remover/<?php echo $row->id;?>" class="remove-item" title="remover">REMOVER</a>
+						<?php
+							list($w, $h) = getimagesize(MEDIA_DIR.'uploads/billboards/'.$row->image);
+							if($w != 686 || $h != 212):?>
+								<img src="<?php echo MEDIA_DIR;?>images/adm/icons/warning.png" title="Imagem fora das especificações." />
+						<?php endif;?>
+					</td>
+				<?php endif;?>
+				<td align="center" width="180">
+					<a href="<?php echo MEDIA_DIR.'uploads/billboards/'.$row->image;?>" class="fancybox">
+						<img src="<?php echo MEDIA_DIR.'uploads/billboards/'.$row->image;?>"  class="billboard_thumb" />
+					</a>
+				</td>
+				<td>
+					<?php if($row->link == ''):?>
+						-
+					<?php else:?>
+						<a target="_blank" href="<?php echo $row->link;?>"><?php echo $row->link;?></a>
+					<?php endif;?>
+				</td>
+			</tr>
+		<?php endforeach;?>
+	</tbody>
+</table>
+<script type="text/javascript">
+	(function($){
+		$(document).ready(function(){
+			$(".fancybox").fancybox();
+		});
+	}(jQuery))
+</script>

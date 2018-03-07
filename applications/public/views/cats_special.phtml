@@ -1,0 +1,106 @@
+<?php 
+$breadColor = 'purple';
+$breadPaths = array();
+$lastPath = 'Gatinhos especiais para adoção';
+include('top.phtml'); 
+
+?>
+
+
+<style>
+    .cat_index{
+    position: absolute;
+    z-index: 30;
+    color: #fff;
+    bottom: 10px;
+    right: 50%;
+    font-size: 1.2rem;
+    background: #b92b93 !important;
+    padding: 5px 10px;
+    }
+</style>
+<div class="items"></div>
+<div id="loadmoreajaxloader"></div>
+       <span class="aug_purple_bg title-cats bold upper">Ado&ccedil;&otilde;es Especiais</span>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+    
+    var page = 0;
+    var opened = false;
+    
+    $(window).scroll(function()
+    {
+        var wintop = $(window).scrollTop(), docheight = $(document).height(), winheight = $(window).height();
+        var scrolltrigger = 0.99;
+        
+        if ((wintop/(docheight-winheight)) > scrolltrigger)
+        {
+            call();
+        }
+    });
+    
+    function call()
+    {
+        
+        if(!opened)
+        {
+            opened = true;
+
+            $('div#loadmoreajaxloader').show();
+
+            $.ajax({
+                cache: false,
+                async: false,
+                url: "special?page="+page,
+                success: function(data)
+                {
+                    opened = false;
+
+                    page = eval(page + 1);
+
+                    if(data)
+                    {
+                        $(".items").append(data);
+                        /*var box = $('.box-gatos');
+                        $.each(box, function(index, value){
+                                box.eq(index).find('.cat_index').html((index+1));
+                            }
+                        );*/
+                    }
+
+                    $('div#loadmoreajaxloader').hide();
+                }
+            });
+        }
+    }
+    
+    call();
+
+});
+
+    $(document).ready(function() {
+      $("ul>div:nth-child(4n+1)").hover(function(){
+        $("span.title-cats").css('opacity', '0');},
+        function(){
+          $("span.title-cats").css('opacity', '1'); 
+      });
+      $("div.texto:first").hover(function() {
+        $("span.title-cats").css('opacity', '0');
+      }, function() {
+        $("span.title-cats").css('opacity', '1');
+      });
+    });
+
+    $(window).on('scroll', function() {
+
+     var currentPosition = $(document).scrollTop();
+       if (currentPosition > 50 ) {
+          $('span.title-cats').addClass('go-top');
+        }
+       else {
+          $("span.title-cats").removeClass('go-top');
+       }
+    });
+</script>

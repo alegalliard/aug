@@ -1,0 +1,54 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+@charset "UTF-8";
+@import "compass/reset";
+
+@import "custom/clear";
+
+/* 
+ * Materialize parts
+*/
+   // Mixins
+// Media Query Ranges
+    // Variables;
+    @import "components/color";
+    @import "components/variables";
+    @import "components/zdepths";
+
+    @import "components/prefixer";
+    @import "components/mixins";
+    
+    @import "components/cards";
+    @import "components/tables";
+    @import "components/modal";
+//    @import "components/tabs";
+    
+    // components
+    @import "components/grid";
+    @import "components/collection";
+    @import "components/typography";
+    @import "components/icons-material-design";
+    // @import "components/global";
+
+
+/* 
+ * Adote um Gatinho parts
+*/
+
+    @import "custom/base";
+
+    @import "custom/mural";
+    @import "custom/cards";
+    @import "custom/materias";
+    @import "custom/search";
+    @import "custom/commons";
+    @import "custom/colors";
+    @import "custom/texts";
+    @import "custom/forms";
+    //@import "custom/materias";
+    @import "custom/components";
+    @import "custom/mediaqueries";
+    @import "custom/gallery";
+    @import "custom/about";

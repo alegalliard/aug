@@ -1,0 +1,20 @@
+<?php 
+$breadColor = 'blue';
+$breadPaths = array('Apadrinhamento'=>'apadrinhamento', 'Formulário'=>'apadrinhamento/cadastro');
+$lastPath = 'Sucesso';
+include('top.phtml'); 
+
+?>
+<section class="row container godfather m-b-0" id="adoption-form">
+    <div class="col s12" id="dynamic-content">
+
+	    <h1 class="h1 aug_blue upper bold m-b-20" style="margin-left: 0px">Obrigado!</h1>
+	    
+	    <p>Seu pedido de apadrinhamento foi enviado com sucesso.</p>
+	    <p class="m-b-20">A equipe Adote Um Gatinho entrará em contato em breve</p>
+
+    </div>
+    <div class="col s12">
+            <a class="perfil right bt bt_gray m-b-20 bold upper" href="<?php echo HOST;?>quero-adotar" style="display: inline-block;">Voltar</a>
+        </div>
+</section>

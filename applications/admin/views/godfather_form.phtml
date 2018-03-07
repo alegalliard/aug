@@ -1,0 +1,95 @@
+<h2><?php echo $this->title;?></h2>
+
+<form action="<?php echo HOST;?>adm/padrinhos/salvar" method="post">
+    <?php if($this->data->id != ''):?>
+        <input type="hidden" name="id" value="<?php echo $this->data->id;?>" />
+    <?php endif;?>
+    <div>
+        <label for="name">Nome:</label>
+        <input type="text" name="nome" id="nome" value="<?php echo $this->data->nome;?>" maxlength="120" class="required"  />
+	    <label for="cpf">CPF:</label>
+        <input type="text" name="cpf" id="cpf" value="<?php echo $this->data->cpf;?>"  />
+    </div>
+    <div>
+        <label for="email">eMail</label>
+        <input type="text" name="email" id="email" value="<?php echo $this->data->email;?>" maxlength="110" />
+    </div>
+    <div>
+        <label for="tel_1">Telefone 1:</label>
+        <input type="text" name="tel_1" id="tel_1" value="<?php echo $this->data->tel_1;?>"  />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label for="tel_2">Telefone 2:</label>
+        <input type="text" name="tel_2" id="tel_2" value="<?php echo $this->data->tel_2;?>" />
+    </div>
+    <div>
+        <label for="endereco">Endereço:</label>
+        <input type="text" name="endereco" id="endereco" value="<?php echo $this->data->endereco;?>" maxlength="140" />
+
+        <label for="complemento">Complemento:</label>
+        <input type="text" name="complemento" id="complemento" value="<?php echo $this->data->complemento;?>" maxlength="100"  />
+    </div>
+    <div>
+        <label for="cidade">Cidade:</label>
+        <input type="text" name="cidade" id="cidade" value="<?php echo $this->data->cidade;?>" maxlength="80"  />
+        <label for="estado">Estado:</label>
+        <select name="estado" id="estado" >
+        	<option value="">--</option>
+            <option value="AC" <?php if ($this->data->estado == "AC") echo "selected=\"selected\"";?> >AC</option>
+            <option value="AL" <?php if ($this->data->estado == "AL") echo "selected=\"selected\"";?>>AL</option>
+            <option value="AP" <?php if ($this->data->estado == "AP") echo "selected=\"selected\"";?>>AP</option>
+            <option value="AM" <?php if ($this->data->estado == "AM") echo "selected=\"selected\"";?>>AM</option>
+            <option value="BA" <?php if ($this->data->estado == "BA") echo "selected=\"selected\"";?>>BA</option>
+            <option value="CE" <?php if ($this->data->estado == "CE") echo "selected=\"selected\"";?>>CE</option>
+            <option value="DF" <?php if ($this->data->estado == "DF") echo "selected=\"selected\"";?>>DF</option>
+            <option value="ES" <?php if ($this->data->estado == "ES") echo "selected=\"selected\"";?>>ES</option>
+            <option value="GO" <?php if ($this->data->estado == "GO") echo "selected=\"selected\"";?>>GO</option>
+            <option value="MA" <?php if ($this->data->estado == "MA") echo "selected=\"selected\"";?>>MA</option>
+            <option value="MS" <?php if ($this->data->estado == "MS") echo "selected=\"selected\"";?>>MS</option>
+            <option value="MT" <?php if ($this->data->estado == "MT") echo "selected=\"selected\"";?>>MT</option>
+            <option value="MG" <?php if ($this->data->estado == "MG") echo "selected=\"selected\"";?>>MG</option>
+            <option value="PA" <?php if ($this->data->estado == "PA") echo "selected=\"selected\"";?>>PA</option>
+            <option value="PB" <?php if ($this->data->estado == "PB") echo "selected=\"selected\"";?>>PB</option>
+            <option value="PR" <?php if ($this->data->estado == "PR") echo "selected=\"selected\"";?>>PR</option>
+            <option value="PE" <?php if ($this->data->estado == "PE") echo "selected=\"selected\"";?>>PE</option>
+            <option value="PI" <?php if ($this->data->estado == "PI") echo "selected=\"selected\"";?>>PI</option>
+            <option value="RJ" <?php if ($this->data->estado == "RJ") echo "selected=\"selected\"";?>>RJ</option>
+            <option value="RN" <?php if ($this->data->estado == "RN") echo "selected=\"selected\"";?>>RN</option>
+            <option value="RS" <?php if ($this->data->estado == "RS") echo "selected=\"selected\"";?>>RS</option>
+            <option value="RO" <?php if ($this->data->estado == "RO") echo "selected=\"selected\"";?>>RO</option>
+            <option value="RR" <?php if ($this->data->estado == "RR") echo "selected=\"selected\"";?>>RR</option>
+            <option value="SC" <?php if ($this->data->estado == "SC") echo "selected=\"selected\"";?>>SC</option>
+            <option value="SP" <?php if ($this->data->estado == "SP") echo "selected=\"selected\"";?>>SP</option>
+            <option value="SE" <?php if ($this->data->estado == "SE") echo "selected=\"selected\"";?>>SE</option>
+            <option value="TO" <?php if ($this->data->estado == "TO") echo "selected=\"selected\"";?>>TO</option>
+        </select>
+    </div>
+    <div>
+        <label for="cep">CEP:</label>
+        <input type="text" name="cep" id="cep" value="<?php echo $this->data->cep;?>"  />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label for="valor_medio">Valor Médio:</label>
+        <input type="text" name="valor_medio" id="valor_medio" value="<?php echo $this->data->valor_medio;?>"  />
+    </div>
+    <div>
+        <label for="data_deposito">Dia de depósito:</label>
+        <select name="data_deposito" id="data_deposito" >
+        	<option value="">--</option>
+            <?php for($i=1; $i<=31; $i++):?>
+            	<option value="<?php echo $i; ?>" <?php if ($this->data->data_deposito == $i) echo "selected=\"selected\"";?> ><?php echo $i; ?></option>
+            <?php endfor;?>
+        </select>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label for="data_inicio">Data de início:</label>
+        <input type="text" name="data_inicio" id="data_inicio" value="<?php echo empty($this->data->data_inicio) ? date('d/m/Y') : $this->data->data_inicio;?>" />
+    </div>
+    <div>
+        <input type="submit" value="Salvar" />
+    </div>
+</form>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("input[name=cpf]").mask("999.999.999-99");
+		$("input[name=tel_1], input[name=tel_2]").mask("(99) 9999-9999");
+		$("input[name=cep]").mask("99999-999");
+	});
+</script>

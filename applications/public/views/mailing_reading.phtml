@@ -1,0 +1,23 @@
+<?php 
+$breadColor = 'orange';
+$breadPaths = array('Boletins'=>'boletins');
+$lastPath = $this->data->title;
+include('top.phtml'); 
+
+?>
+<section class="row container-large m-b-0">
+<article class="col s12">
+<div id="dynamic-content">
+	<h1 class="h1 bold upper aug_orange"><?php echo $this->data->title;?></h1>
+	<h2><?php echo $this->data->heading;?></h2>
+	<div>
+		<?php echo stripslashes($this->data->content);?>
+	</div>
+    
+    
+	<div>
+		<a style="float:right; padding: 10px;" class="perfil bold upper bt_orange  m-b-20 m-t-20" href="javascript:history.go(-1);">Voltar</a>
+	</div>
+</div>
+    </article>
+</section>

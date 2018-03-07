@@ -1,0 +1,278 @@
+<h2><?php echo $this->title;?></h2>
+
+<form id="form" name="form" action="<?php echo HOST;?>adm/gatos<?php echo ($this->special) ? '-especiais' : '';?>/salvar" method="post" enctype="multipart/form-data">
+    <?php if(isset($this->data->id)):?>
+    <input type="hidden" name="id" value="<?php echo $this->data->id;?>" />
+    <?php endif;?>
+    
+    <div>
+        <label for="cat_name">Nome:</label>
+        <input type="text" name="cat_name" id="cat_name" value="<?php echo $this->data->name;?>" maxlength="95" class="required" />
+    </div>
+    
+    <div>
+        <label for="cat_age">Idade:</label>
+        <select name="cat_age" id="cat_age" class="mid_select">
+            <option value="" <?php if($this->data->age == '' || $this->data->age == NULL) {echo 'selected';} ?>>Selecione</option>
+            <option value="A" <?php if($this->data->age == 'A') {echo 'selected';} ?>>Adulto</option>
+            <option value="F" <?php if($this->data->age == 'F') {echo 'selected';} ?>>Filhote</option>
+            <option value="D" <?php if($this->data->age == 'D') {echo 'selected';} ?>>Adulto + filhote</option>
+        </select>
+    </div>
+    
+    <div>
+        <label for="cat_gender">Gênero:</label>
+        <select name="cat_gender" id="cat_gender">
+            <option value="" <?php if($this->data->gender == '' || $this->data->gender == NULL) {echo 'selected';} ?>>Selecione</option>
+            <option value="M" <?php if($this->data->gender == 'M') {echo 'selected';} ?>>Macho(s)</option>
+            <option value="F" <?php if($this->data->gender == 'F') {echo 'selected';} ?>>Fêmea(s)</option>
+            <option value="B" <?php if($this->data->gender == 'B') {echo 'selected';} ?>>Macho e fêmea</option>
+        </select>
+    </div>
+    
+    <div>
+        <label for="cat_picture">Foto:</label><input type="file" name="cat_picture" style="width:300px;" />
+        <span style="display: block; font-size: 10px; padding: 5px 0 0 100px;">(Tamanho recomendado: 350x350 <?php if($this->data->id):?>| Para alterar a foto atual, faça o upload de uma nova utilizando o campo acima<?php endif;?>)</span>
+        <?php if(isset($this->data->id) and $this->data->picture != ''):?>
+        <div style="padding-left: 125px;">
+            <img src="<?php echo MEDIA_DIR;?>uploads/cats/<?php echo $this->data->picture;?>" alt="" />
+        </div>
+        <?php endif;?>
+    </div>
+    
+    <div>
+        <label for="cat_picture_2">Foto 2:</label><input type="file" name="cat_picture_2" style="width:300px;" />
+        <span style="display: block; font-size: 10px; padding: 5px 0 0 100px;">(Tamanho recomendado: 320x240 <?php if($this->data->id):?>| Para alterar a foto atual, faça o upload de uma nova utilizando o campo acima<?php endif;?>)</span>
+        <?php if(isset($this->data->id) and $this->data->picture_2 != ''):?>
+        <div style="padding-left: 125px;">
+            <img src="<?php echo MEDIA_DIR;?>uploads/cats/<?php echo $this->data->picture_2;?>" alt="" />
+        </div>
+        <?php endif;?>
+    </div>
+    
+    <div>
+        <label for="cat_picture_3">Foto 2:</label><input type="file" name="cat_picture_3" style="width:300px;" />
+        <span style="display: block; font-size: 10px; padding: 5px 0 0 100px;">(Tamanho recomendado: 320x240 <?php if($this->data->id):?>| Para alterar a foto atual, faça o upload de uma nova utilizando o campo acima<?php endif;?>)</span>
+        <?php if(isset($this->data->id) and $this->data->picture_3 != ''):?>
+        <div style="padding-left: 125px;">
+            <img src="<?php echo MEDIA_DIR;?>uploads/cats/<?php echo $this->data->picture_3;?>" alt="" />
+        </div>
+        <?php endif;?>
+    </div>
+    
+    <div>
+        <label for="cat_picture_4">Foto 4:</label><input type="file" name="cat_picture_4" style="width:300px;" />
+        <span style="display: block; font-size: 10px; padding: 5px 0 0 100px;">(Tamanho recomendado: 320x240 <?php if($this->data->id):?>| Para alterar a foto atual, faça o upload de uma nova utilizando o campo acima<?php endif;?>)</span>
+
+        <?php if(isset($this->data->id) and $this->data->picture_4 != ''):?>
+        <div style="padding-left: 125px;">
+            <img src="<?php echo MEDIA_DIR;?>uploads/cats/<?php echo $this->data->picture_4;?>" alt="" />
+        </div>
+        <?php endif;?>
+    </div>
+    
+    <div>
+        <label for="cat_video" style="width:auto;text-indent:80px">Vídeo:</label>
+        <input type="text" name="video" id="cat_video" value="<?php echo $this->data->video_embed_code;?>" style="width:589px" maxlength="255" />
+        <span style="display: block; font-size: 10px; padding: 5px 0 0 100px;">(Para colocar um vídeo no gatinho, colar a URL do Youtube)</span>
+    </div>
+    
+    <div>
+        <label for="">Sociável:</label>
+        <input type="radio" name="social" value="1" <?php echo $this->data->social == 1 ? 'checked="checked"' : '';?> /> 1 &nbsp;
+        <input type="radio" name="social" value="2" <?php echo $this->data->social == 2 ? 'checked="checked"' : '';?> /> 2 &nbsp;
+        <input type="radio" name="social" value="3" <?php echo $this->data->social == 3 ? 'checked="checked"' : '';?> /> 3 &nbsp;&nbsp;
+
+        <label for="" style="width:65px;">Brincalhão:</label>
+        <input type="radio" name="playful" value="1" <?php echo $this->data->playful == 1 ? 'checked="checked"' : '';?> /> 1 &nbsp;
+        <input type="radio" name="playful" value="2" <?php echo $this->data->playful == 2 ? 'checked="checked"' : '';?> /> 2 &nbsp;
+        <input type="radio" name="playful" value="3" <?php echo $this->data->playful == 3 ? 'checked="checked"' : '';?> /> 3 &nbsp;&nbsp;
+
+        <label for="" style="width:65px;">Carinhoso:</label>
+        <input type="radio" name="lovely" value="1" <?php echo $this->data->lovely == 1 ? 'checked="checked"' : '';?> /> 1 &nbsp;
+        <input type="radio" name="lovely" value="2" <?php echo $this->data->lovely == 2 ? 'checked="checked"' : '';?> /> 2 &nbsp;
+        <input type="radio" name="lovely" value="3" <?php echo $this->data->lovely == 3 ? 'checked="checked"' : '';?> /> 3 &nbsp;&nbsp;
+    </div>
+    
+    <div>
+        <label for="">Gato Especial? </label>
+        <input type="checkbox" <?php if($this->data->special==1) echo "checked=\"checked\"";?> name="special" value="1">
+    </div>
+    <div>
+        <label for="responsible_user_id">Responsável:</label>
+        <select name="responsible_user_id" id="responsible_user_id" >
+            <?php foreach($this->users as $user):?>
+                    <option value="<?php echo $user->id;?>" <?php if($this->data->responsible_user_id == $user->id):?>selected="selected"<?php endif;?>><?php echo $user->login;?> (<?php echo $user->email;?>)</option>
+            <?php endforeach;?>
+        </select>
+    </div>
+    
+    <div>
+        <label for="quantity">Quantidade:</label>
+        <input type="radio" name="quantity" value="1"  <?php if($this->data->quantity == "1" || $this->data->quantity == ""):?>checked="checked"<?php endif;?>/> 1 &nbsp;&nbsp;
+        <input type="radio" name="quantity" value="2"  <?php if($this->data->quantity == "2"):?>checked="checked"<?php endif;?>/> 2 &nbsp;&nbsp;
+    </div>
+    
+    <div>
+        <label for="cat_desc" style="width: 205px;">Descrição curta: (limite 290 char)</label>
+        <textarea id="cat_desc" name="cat_desc" maxlength="300"><?php echo utf8_encode($this->data->description);?></textarea>
+        <!--<input type="text" name="cat_desc" id="cat_desc" value="<?php echo utf8_encode($this->data->description);?>" maxlength="300" style="width: 73%;" class="required" />-->
+        <!--<textarea id="cat_desc" name="cat_desc" class="html"><?php echo utf8_encode($this->data->description);?></textarea>-->
+    </div>
+    
+    <div>
+        <label for="cat_full_desc">Descrição completa:</label>
+        <textarea id="cat_full_desc" name="cat_full_desc" class="html" style="height:300px;"><?php echo utf8_encode($this->data->full_description);?></textarea>
+    </div>
+    
+    <div>
+        <label for="cat_godfather_desc" style="width:170px;">Descrição apadrinhamento:</label>
+        <textarea id="cat_godfather_desc" name="godfather_description" class="html"><?php echo utf8_encode($this->data->godfather_description);?></textarea>
+    </div>
+    
+    
+
+    
+    
+    <div>
+        <label for="registry_date">Data de registro:</label>
+        <input type="text" id="registry_date" name="registry_date" value="<?php echo ($this->data->registry_date) ? date('d/m/Y H:i:s', strtotime($this->data->registry_date)) : date('d/m/Y H:i:s');?>" />
+    </div>
+    
+    <?php if($this->data->status == '2'):?>
+    <div>
+        <label for="adoption_date">Data de adoção:</label>
+        <input type="text" id="adoption_date" name="adoption_date" value="<?php echo ($this->data->adoption_date) ? date('d/m/Y H:i:s', strtotime($this->data->adoption_date)) : date('d/m/Y H:i:s');?>" /> 
+    </div>
+    <?php else:?>
+    <div>
+        <label for="">Disponível para:</label>
+
+        <input type="radio" <?php if($this->data->section==1 || $this->data->section=="") echo "checked=\"checked\"";?> name="section" value="1" id="sec_adocao" />
+        <label for="sec_adocao" style="width:45px;">Adoção</label>
+        &nbsp;&nbsp;
+        <input type="radio" <?php if($this->data->section==2) echo "checked=\"checked\"";?> name="section" value="2" id="sec_apadrinhamento" />
+        <label for="sec_apadrinhamento" style="width:100px;">Apadrinhamento</label>
+    </div>
+    <?php endif;?>
+    
+    <?php if(isset($this->data->id) && $this->data->godfathers_list):?>
+    <div id="mygodfather">
+        <fieldset>
+            <legend>Meus Padrinhos</legend>
+            <div class="godfather_search">
+                <label for="search_godfather">Buscar padrinho:</label>
+                <input type="text" id="search_godfather" style="width: 485px;" />
+                <span id="showallgodfather" class="button_godfather">Ver Todos</span>
+            </div>
+
+            <ul class="godfather_insert" style="overflow:auto; max-height: 320px;">
+            <?php foreach($this->godfathers as $godfather):?>
+                <?php if (in_array($godfather->id, $this->data->godfathers_list)) : ?>
+                <li>
+                    <input type="checkbox" checked="checked" value="<?php echo $godfather->id;?>" id="godfather_<?php echo $godfather->id;?>" name="godfathers[]" />
+                    <label for="godfather_<?php echo $godfather->id;?>" style="text-transform: uppercase;"><?php echo strtoupper($godfather->nome);?> <a href="<?php echo HOST;?>adm/padrinhos/editar/<?php echo $godfather->id;?>">(Editar)</a></label>
+                </li>
+                <?php endif; ?>
+            <?php endforeach;?>
+            </ul>
+        </fieldset>
+    </div>
+    <?php endif;?>
+    
+    <div id="allgodfather" <?php if(isset($this->data->id) && $this->data->godfathers_list):?>style="display: none;"<?php endif;?>>
+        <fieldset>
+            <legend>Padrinhos</legend>
+            <div class="godfather_search">
+                <label for="search_godfather">Buscar padrinho:</label>
+                <input type="text" id="search_godfather" style="width: 485px;" />
+                <?php if(isset($this->data->id) && $this->data->godfathers_list):?><span id="showmygodfather" class="button_godfather">Esconder</span><?php endif;?>
+            </div>
+
+            <ul class="godfather_insert" style="overflow:auto; max-height: 320px;">
+            <?php
+            foreach($this->godfathers as $godfather):?>
+                <li>
+                    <input type="checkbox" <?php if (in_array($godfather->id, $this->data->godfathers_list)) echo "checked=\"checked\"";?> value="<?php echo $godfather->id;?>" id="godfather_<?php echo $godfather->id;?>" name="godfathers[]" />
+                    <label for="godfather_<?php echo $godfather->id;?>" style="text-transform: uppercase;"><?php echo strtoupper($godfather->nome);?> <a href="<?php echo HOST;?>adm/padrinhos/editar/<?php echo $godfather->id;?>">(Editar)</a></label>
+                </li>
+            <?php endforeach;?>
+            </ul>
+        </fieldset>
+    </div>
+    
+    <div>
+        <input type="submit" value="Salvar" />
+    </div>
+</form>
+
+<style type="text/css">
+    ul{list-style: none;}
+    ul li{display: inline-block;float: left;height: 35px;}
+    ul li label{width: 215px;text-align: left;text-indent: 1px;}
+</style>
+
+<script type="text/javascript">
+tinyMCE.init({
+        mode : "textareas",
+        theme : "advanced",
+        theme_advanced_buttons1 : "save,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,formatselect,fontselect,fontsizeselect",
+        theme_advanced_buttons2 : "cut,copy,paste,pastetext,pasteword,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,insertimage,cleanup,|,forecolor,backcolor,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,code",
+        theme_advanced_buttons3 : "",
+        theme_advanced_toolbar_location : "top",
+        theme_advanced_toolbar_align : "left",
+        theme_advanced_statusbar_location : "bottom",
+        content_css : "<?php echo HOST;?>templates/public/css/structure.css",
+        plugins: "imagemanager,inlinepopups,paste",
+        skin: "o2k7",
+    skin_variant: "silver",
+    relative_urls: false,
+    oninit : "setPlainText"
+    });
+
+
+$(document).ready(function(){
+    $("#adoption_date").mask("99/99/9999 99:99:99");
+    $("#registry_date").mask("99/99/9999 99:99:99");
+
+    $("#allgodfather #search_godfather, #mygodfather #search_godfather").bind("keyup", function(e)
+    {
+        $("#allgodfather #search_godfather, #mygodfather #search_godfather").val($(this).val().toString());
+        var GFname = $(this).val().toString().toUpperCase();
+        if(GFname != '')
+        if(GFname.length > 2)
+        {
+            $("#allgodfather .godfather_insert li:not(:contains("+GFname+")), #mygodfather .godfather_insert li:not(:contains("+GFname+"))").hide();
+        }
+        else
+        {
+            $("#allgodfather .godfather_insert li, #mygodfather .godfather_insert li").show();
+        }
+
+    });
+    
+    $("input[id^='godfather_']").click(function(){
+        if($(this).is(':checked') == false)
+        {   
+            $("input[id='"+$(this).attr('id')+"']").removeAttr('checked');
+        } else
+        {
+            $("input[id='"+$(this).attr('id')+"']").attr('checked','checked');
+        }
+    });
+
+
+
+    
+    $("#showallgodfather").click(function(){
+        $("#allgodfather").show();
+        $("#mygodfather").hide();
+    });
+    
+    $("#showmygodfather").click(function(){
+        $("#allgodfather").hide();
+        $("#mygodfather").show();
+    });
+
+});
+</script>

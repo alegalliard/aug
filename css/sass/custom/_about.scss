@@ -1,0 +1,176 @@
+@import "compass/css3";
+@import "compass/utilities";
+
+@import "components/variables";
+@import "custom/vars";
+@import "custom/colors";
+
+// $height-categorias: 45vw;
+
+// .colunas{
+// 	margin: 0.5rem 0 1rem 0;
+// 	position: relative;
+// 	background-size: cover;
+// 	}
+
+// .categoria1{
+// 	// background-color: #d1d1d1;
+// 	@extend .colunas;
+// 	@media #{$large-and-up}{
+// 		height: $height-categorias;
+// 	}
+// 	@media only screen and (min-width: $small-screen) and (max-width: $medium-screen){
+// 		height: $height-categorias + $height-categorias/2;
+// 	}
+// 	@media #{$small-and-down}{
+// 		height: $height-categorias*3;
+// 	}
+// }
+
+// .categoria2{
+// 	@extend .colunas;
+// 	// background-color: #d1d1d1;
+// 	@media #{$large-and-up}{
+// 		height: $height-categorias*0.66666666;
+// 	}
+// 	@media only screen and (min-width: $small-screen) and (max-width: $medium-screen){
+// 		height: $height-categorias;
+// 	}
+// 	@media #{$small-and-down}{
+// 		height: $height-categorias*3;
+// 	}
+// }
+
+// .contato-equipe{
+// 	position: absolute;
+// 	bottom: 15px;
+// 	right: 20px;
+// 	float: right;
+// 	color: #fff;
+// 	width: 85%;
+// }
+
+.gradiente{
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	height: 25%; /* For browsers that do not support gradients */
+  	background: -webkit-linear-gradient(bottom,rgba(0,0,0,0),rgba(0,0,0,0.7)); /*Safari 5.1-6*/
+  	background: -o-linear-gradient(bottom,rgba(0,0,0,0),rgba(0,0,0,0.7)); /*Opera 11.1-12*/
+  	background: -moz-linear-gradient(bottom,rgba(0,0,0,0),rgba(0,0,0,0.7)); /*Fx 3.6-15*/
+  	background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.7)); /*Standard*/
+}
+
+// $height-atendimento: 16vw;
+// .atendimento{
+// 	@media #{$large-and-up}{
+// 		height: $height-atendimento*1;
+// 	}
+// 	@media only screen and (min-width: $small-screen) and (max-width: $medium-screen){
+// 		height: $height-atendimento*2;
+// 	}
+// 	@media #{$small-and-down}{
+// 		height: $height-atendimento*3;
+// 	}
+// }
+
+// .supervisor{
+// 	@media #{$large-and-up}{
+// 		height: calc(32vw + 21px);
+// 	}
+
+// 	@media only screen and (min-width: $small-screen) and (max-width: $medium-screen){
+// 		height: calc(64vw + 21px);
+// 		display: inline-flex;
+// 	}
+// 	@media #{$small-and-down}{
+// 		height: calc(96vw + 21px);
+// 		display: inline-flex;
+// 	}
+// }
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    width: 100%;
+
+    iframe, object, embed {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+}
+
+li.collection-item:hover{
+  animation-name: selecionar-grey;
+  animation-duration: 0.1s;
+  animation-fill-mode: both;
+}
+
+
+@-webkit-keyframes selecionar-grey{
+  0%{
+    background-color: #fff;
+    box-shadow: none;
+    /* style */
+  }
+  100%{
+    background-color: #e9eaed;
+    // box-shadow: 1px 1px 10px $aug_orange;
+    /* style */
+  }
+  }
+
+@-moz-keyframes selecionar-grey{
+  0%{
+    background-color: #fff;
+    box-shadow: none;
+    /* style */
+  }
+  100%{
+    background-color: #e9eaed;
+    // box-shadow: 1px 1px 10px $aug_orange;
+    /* style */
+  }
+  }
+@-ms-keyframes selecionar-grey{
+  0%{
+    background-color: #fff;
+    box-shadow: none;
+    /* style */
+  }
+  100%{
+    background-color: #e9eaed;
+    // box-shadow: 1px 1px 10px $aug_orange;
+    /* style */
+  }
+  }
+@-o-keyframes selecionar-grey{
+  0%{
+    background-color: #fff;
+    box-shadow: none;
+    /* style */
+  }
+  100%{
+    background-color: #e9eaed;
+    // box-shadow: 1px 1px 10px $aug_orange;
+    /* style */
+  }
+  }
+@keyframes selecionar-grey{
+  0%{
+    background-color: #fff;
+    box-shadow: none;
+    /* style */
+  }
+  100%{
+    background-color: #e9eaed;
+    // box-shadow: 1px 1px 10px $aug_orange;
+    /* style */
+  }
+  }
+

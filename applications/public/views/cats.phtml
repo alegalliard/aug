@@ -1,0 +1,132 @@
+           
+<?php 
+$breadColor = 'purple';
+$breadPaths = array();
+$lastPath = 'Gatinhos para adoção';
+include('top.phtml'); 
+
+?>
+
+<style>
+    .cat_index{
+    position: absolute;
+    z-index: 30;
+    color: #fff;
+    bottom: 10px;
+    right: 50%;
+    font-size: 1.2rem;
+    background: #b92b93 !important;
+    padding: 5px 10px;
+    }
+</style>
+<div class="items"></div>
+<div id="loadmoreajaxloader"></div>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+    var page = 0;
+    var opened = false;
+    var num = 0;
+    
+    $(window).scroll(function()
+    {
+        var wintop = $(window).scrollTop(), docheight = $(document).height(), winheight = $(window).height();
+        var scrolltrigger = 0.99;
+        
+        if ((wintop/(docheight-winheight)) > scrolltrigger)
+        {
+            call();
+            oldBrowsers();
+
+        }
+    });
+    
+    
+    
+    function call()
+    {
+        
+        if(!opened)
+        {
+            opened = true;
+
+            $('div#loadmoreajaxloader').show();
+
+            $.ajax({
+                cache: false,
+                async: false,
+                url: "paginated?page="+page,
+                success: function(data)
+                {
+                    opened = false;
+
+                    page = eval(page + 1);
+
+                    if(data)
+                    {
+                        $(".items").append(data);
+                        
+                        /*var box = $('.box-gatos');
+                        $.each(box, function(index, value){
+                                box.eq(index).find('.cat_index').html((index+1));
+                            }
+                        );*/
+                    }
+                    $('div#loadmoreajaxloader').hide();
+                }
+            });
+        }
+    }
+    
+    call();
+    oldBrowsers();
+    
+    
+    $('#loadmore').on('click', function(){
+
+        var finalPos = document.body.scrollHeight;
+        $(document).animate
+        
+        var body = $("html, body");
+        body.stop().animate({scrollTop:finalPos}, '1500');
+        
+    });
+    
+
+});
+
+function oldBrowsers()
+    {
+
+    function isChrome() {
+        var myNavChrome = navigator.userAgent.toLowerCase();
+        return (myNavChrome.indexOf('chrome/') != -1) ? parseInt(myNavChrome.split('chrome/')[1]) : false;
+    }
+
+    function isFirefoxandIE() {
+        var myNavFirefox = navigator.userAgent.toLowerCase();
+        return (myNavFirefox.indexOf('rv:') != -1) ? parseInt(myNavFirefox.split('rv:')[1]) : false;
+    }
+
+    function isSafari() {
+        var myNavSafari = navigator.userAgent.toLowerCase();
+        return (myNavSafari.indexOf('version/') != -1) ? parseInt(myNavSafari.split('version/')[1]) : false;
+    }
+        
+        if (isChrome() <= 35 && isChrome() != false || isFirefoxandIE() <= 30 && isFirefoxandIE() != false || navigator.userAgent.match(/Edge/) == "Edge" || isSafari() <=7 && isSafari() != false) {
+            $(document).ready(function(){
+                $("div.texto").hover(function(){
+                    $(this).prev().css("display", "inline-block");
+                    }, function(){
+                    $(this).prev().css("display", "none");
+                });
+            });
+        }
+    }
+
+</script>
+
+
+<a class="aug_purple_bg bold upper white-text" id="loadmore"><i class="icon-white ic-refresh"></i><br>Mais</a>

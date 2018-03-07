@@ -1,0 +1,88 @@
+<style>
+    .fix_image_card{
+        height: 180px;
+    }
+    .fix_image_card img{
+        vertical-align: middle;
+    }
+</style>
+ <?php 
+$breadColor = 'purple';
+//$breadPaths = array('Busca de gatos'=> 'buscar-gato');
+$breadPaths = array();
+$lastPath = 'Depoimentos';
+include('top.phtml'); 
+
+?> 
+ 
+  
+  
+   <section class="row container-large m-b-0">
+    <ul class="col s12">
+        
+    
+       
+<?php foreach($this->data as $row):?>
+       <li class="col s12 m6 l3">
+        <div class="card card-wrapper">
+            <div class="card-image">
+                <div class="fix_image_card">
+                    <a class="more" href="<?php echo HOST;?>depoimentos/<?php echo $row->id;?>/<?php echo str_replace(' ', '-', $row->title);?>">
+                    <?php if($row->picture == ''):?>
+                        <img src="<?php echo MEDIA_DIR;?>img_cat_not_found.png" alt="" />
+                    <?php else:?>
+                        <img src="<?php echo MEDIA_DIR.'uploads/testimonials/'.$row->picture;?>" alt="" />
+                    <?php endif;?> 
+                    </a>
+                     <span class="card-title"><?php echo $row->title;?></span>
+                </div>
+            </div>
+        
+<!--
+        <div class="card-content">
+
+          <p>
+           <?php
+				if(strlen( $row->heading) > 120)
+					 $row->heading = substr($row->heading, 0, 120) . '...';
+				
+				echo $row->heading
+			?>
+           </p>
+
+        </div>
+-->
+         <div class="card-action border_b_purple text-right">
+              <a class="more bold upper aug_purple_btn" href="<?php echo HOST;?>depoimentos/<?php echo $row->id;?>/<?php echo str_replace(' ', '-', $row->title);?>">Ler depoimento</a>
+            </div>
+      </div>
+      </li>
+
+<?php endforeach;?>
+</ul>
+</section>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+
+<!--
+
+<?php foreach($this->data as $row):?>
+	<div class="sub-section testimonial">
+		<h4><?php echo $row->title;?></h4>
+		<?php if($row->picture == ''):?>
+			<img src="<?php echo MEDIA_DIR;?>img_cat_not_found.png" alt="" />
+		<?php else:?>
+			<img src="<?php echo MEDIA_DIR.'uploads/testimonials/'.$row->picture;?>" alt="" />
+		<?php endif;?>
+		<span>
+			<?php
+				if(strlen( $row->heading) > 120)
+					 $row->heading = substr($row->heading, 0, 120) . '...';
+				
+				echo $row->heading
+			?>
+		</span>
+		<a style="margin-left:25px !important;" class="more" href="<?php echo HOST;?>depoimentos/<?php echo $row->id;?>/<?php echo str_replace(' ', '-', $row->title);?>">Ler depoimento</a>
+	</div>
+<?php endforeach;?>-->

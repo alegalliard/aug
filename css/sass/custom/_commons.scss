@@ -1,0 +1,387 @@
+@import "compass/css3";
+
+@import "compass/utilities";
+@import "custom/vars";
+
+@import "components/variables";
+
+
+.special-cat{
+    margin-top:25px;
+    margin-left:10px;
+    position:absolute;
+    color:#fff;
+    z-index: 9;
+    // -webkit-text-shadow: 0 1px 2px rgba(185,43,147,0.5);
+    // -moz-text-shadow: 0 1px 2px rgba(185,43,147,0.5);
+    // text-shadow: 0 1px 2px rgba(185,43,147,0.5);
+
+}
+.special-cat i{
+    margin-right:5px;
+    // background-color: rgba(185,43,147,0.1);
+    margin-top: -10px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.reserved-cat{
+    margin-top:25px;
+    margin-right:10px;
+    position:absolute;
+    color:#fff;
+    z-index: 9;
+    right:0;
+    background:rgba(185,43,147,0.5);
+    padding:2px 15px 1px 3px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    border-radius: 30px;
+    
+    i{
+        margin-right: 10px
+    }
+}
+
+/*
+CSS3*/
+.circle{
+     @include border-radius(50%);
+     display: inline-block;
+}
+
+.circle_icon{
+    height:90px;
+    width:90px;
+    padding:25px 20px 10px;
+    @include border-radius(50%);
+}
+
+/* Visibility */
+
+.hide{display: none}
+.ghost{
+    position: absolute;
+    opacity: 0!important;
+}
+
+/* Borders */
+.border_b_orange{ border-bottom:$aug_orange 3px solid!important; }
+.border_b_purple{ border-bottom:$aug_purple 3px solid!important; }
+.border_b_blue{ border-bottom:$aug_blue 3px solid!important; }
+.border_t_orange{ border-top:$aug_orange 3px solid; }
+.border_t_purple{ border-top:$aug_purple 3px solid; }
+.border_t_blue{ border-top:$aug_blue 3px solid; }
+
+
+
+/* Positions */
+    .left{float: left}
+    .right{
+        @media #{$large-and-up}
+        {float: right}
+    }
+    .clear{clear: both}
+
+.relative{position: relative;}
+
+.centered{position: relative;margin: 0 auto;}
+
+
+.right-mobile{
+    @media #{$medium-and-down}{float: right;}
+}
+
+
+/* Margins */
+    .m-0{margin: 0}
+
+    .m-t-0{margin-top:0}
+    .m-b-0{margin-bottom:0}
+    .m-l-0{margin-left:0}
+    .m-r-0{margin-right:0}
+
+    .m-tb-0{
+        margin:{
+            top:0;
+            bottom: 0;
+        }
+    }
+    .m-rl-0{
+        margin:{
+            right:0;
+            left:0;
+        }
+    }
+
+    .m-t-3{margin-top: 0.3rem}
+    .m-b-3{margin-left: 0.3rem}
+    .m-t-10{margin-top:1.0rem}
+    .m-t-20{margin-top:2.0rem}
+    
+    .m-b-10{margin-bottom:1.0rem}
+    .m-b-20{margin-bottom:2.0rem}
+    .m-l-10{margin-left: 1.0rem}
+    .m-l-20{margin-left: 2.0rem}
+    .m-r-10{margin-right: 1rem}
+    .m-r-20{margin-right: 2rem}
+
+    .p-t-large-card{
+        @media #{$large-and-up}{
+            padding-top: 15%;
+            height: 12vw; 
+        }
+        @media only screen and (min-width: $small-screen) and (max-width: $medium-screen){
+            padding-top: 10%;
+            height: 30vw;
+        }
+        @media #{$small-and-down}{
+            padding-top: 5%;
+            // height: 40vw;
+        }
+    }
+
+    
+    .cancel-margin-40 {margin-bottom: -40px;}
+    
+    .cancel-margin-20-med-and-down { 
+    @media #{$medium-and-down} {margin-bottom: -20px;}
+    }
+
+
+/* Paddings */
+.p-0 {padding: 0px!important;}
+.p-10{padding: 1.0rem;}
+.p-20{padding: 2.0rem;}
+.p-l-20{padding-left: 2.0rem !important;}
+
+    .p-t-0{padding-top:0}
+    .p-b-0{margin-bottom:0}
+    .p-l-0{padding-left:0}
+    .p-r-0{padding-right:0}
+
+    .p-tb-0{
+        padding:{
+            top:0;
+            bottom: 0;
+        }
+    }
+    .p-rl-0{
+        padding:{
+            right:0;
+            left:0;
+        }
+    }
+
+/* listas */
+.img-desc-list{
+    padding-left:2.0rem;
+    
+    li{
+      float:left;
+        width: 100%;
+        margin-bottom:0.5rem;
+    }
+    img{
+        margin-right:1.5rem;
+        max-width: 30%;
+    }
+    img, p{
+        display: inline-block;
+        vertical-align: middle;
+        
+    }
+    p{
+        max-width: 70%;
+    }
+}
+
+/* container que age em telas desktop */
+.container-large{
+      @media #{$large-and-up}{
+        width: 70%;
+    }
+}
+
+.container-mobile{
+    @media #{$medium-and-down}{
+        margin: 0 auto;
+        width: 90%;
+    }
+}
+
+/* classe para ocupar a área da div */
+.cat-responsive {
+    
+    background-size: cover;
+    background-position-x: center;
+    padding: 0 -0.75rem;
+
+    @media #{$large-and-up} {
+        width: 55vw;
+        height: 1000px;
+    }
+
+    @media only screen and (min-width: $small-screen) and (max-width: $medium-screen){
+        width: 100vw;
+        height: 750px;
+        margin-left: -0.75rem;
+    }
+
+   
+    @media #{$small-and-down}{    
+        height: 420px;
+        width: 100vw;
+        margin-left: -0.75rem;
+    }
+}
+
+.cat-content{
+
+    padding-left: 40px!important;
+    padding-right: 40px!important;
+    position: relative;
+    
+    @media #{$large-and-up}{
+        height: 965px;
+    }
+
+//    @media only screen and (min-width: $small-screen) and (max-width: $medium-screen){
+//        height: 570px;
+//        overflow-y: scroll;
+//    }
+}
+
+.cat-grades{
+    zoom: 84%;
+    max-width: 230px;
+    margin-left: -21px;
+}
+
+a.modal-trigger{
+    position: absolute;
+    bottom: 35px;
+    right: 0px;
+}
+
+//  classe container das fotos dos gatos que fica quadrada
+// na página de detalhes do gato 
+//.square-cat-large {
+//    // width: 500px;
+//    position: relative;
+//    padding: 0;
+//    overflow: hidden;
+//}
+
+.cat-col{
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    // max-height: 100%;
+    @media #{$medium-and-up}{
+        width: 50%;
+        background-color: #d1d1d1;
+        height: 100%;      
+    }
+    @media #{$small-and-down}{
+        display: none;
+    }
+}
+
+.cat-carrousel{
+    width: 100%;
+    height: 15%;
+    background-color: #d1d1d1;
+    position: relative;
+    // bottom: 0;
+    display: inline-flex;
+    margin-top: -150px;
+
+    @media #{$medium-and-down}{
+        display: none;
+    }
+}
+
+.carrousel-container{
+    // position: absolute;
+    // width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.cat-thumb:first-child{
+    margin-left: 0px;
+}
+
+.cat-thumb{
+    margin-left: 5px;
+
+    &:first-child{
+        margin-left: 0px;
+    }
+}
+
+.button-adopt{
+    position: absolute;
+    bottom: 24px;
+    right: 0;
+}
+
+.btn-adotar-small{
+    @media #{$small-and-down}{    
+        top: 373px;
+        zoom: 64%;
+    }
+}
+
+article.m-b-20 {
+    @media #{$large-and-up}{
+        overflow-y: auto;
+        height: 500px;
+    }
+}
+
+.bottom-align {
+    position: absolute;
+    bottom: 15px;
+    max-height: 60%!important;
+}
+
+.card-wrapper{
+    box-shadow: none!important;
+
+    border:{
+        top: #d1d1d1 1px solid!important;
+        left: #d1d1d1 1px solid!important;
+        right: #d1d1d1 1px solid!important;
+        bottom: #d1d1d1 1px solid;
+    }
+}
+
+.plus{
+    height: 560px !important;
+}
+
+.card-image-godfather-large{
+    @media #{$large-and-up}{
+        height: 16vw !important;
+    }
+}
+.max-height-godfather{
+    @media only screen and (min-width: $small-screen) and (max-width: $medium-screen){
+        height: 528px !important;
+    }
+    // @media #{$large-and-up}{
+    //     height: 528px; 
+    // }
+}
+
+
+.card-bottom.multiple-links{
+    position: absolute;
+    bottom: 0;
+    padding: 20px;
+    border-top: 1px solid rgba(160, 160, 160, 0.2);
+}

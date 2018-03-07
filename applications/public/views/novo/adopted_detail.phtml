@@ -1,0 +1,99 @@
+<?php 
+$breadColor = 'purple';
+$breadPaths = array('Gatos adotados'=>'gatos-adotados2');
+$lastPath = $this->data->name;
+include('top.phtml'); 
+
+?>
+<div id="cat-detail">
+	<div id="cat_pictures">
+            <?php if($this->data->picture != ''):?>
+            <a href="<?php echo MEDIA_DIR;?>uploads/cats/<?php echo $this->data->picture;?>" class="cat_picture" title="Clique para ampliar">
+                <img src="<?php echo MEDIA_DIR;?>uploads/cats/<?php echo $this->data->picture;?>" title="Clique para ampliar" alt="Clique para ampliar"/>
+                <cite>Clique para ampliar</cite>
+            </a>
+            <?php endif;?>
+            
+            <?php if($this->data->picture_2 != ''):?>	
+            <a href="<?php echo MEDIA_DIR;?>uploads/cats/<?php echo $this->data->picture_2;?>" class="cat_picture">
+                <img src="<?php echo MEDIA_DIR;?>uploads/cats/<?php echo $this->data->picture_2;?>" alt="" />
+                <cite>Clique para ampliar</cite>
+            </a>
+            <?php endif;?>
+            
+            <?php if($this->data->picture_3 != ''):?>	
+            <a href="<?php echo MEDIA_DIR;?>uploads/cats/<?php echo $this->data->picture_3;?>" class="cat_picture">
+                <img src="<?php echo MEDIA_DIR;?>uploads/cats/<?php echo $this->data->picture_3;?>" alt="" />
+                <cite>Clique para ampliar</cite>
+            </a>
+            <?php endif;?>
+            
+            <?php if($this->data->picture_4 != ''):?>	
+            <a href="<?php echo MEDIA_DIR;?>uploads/cats/<?php echo $this->data->picture_4;?>" class="cat_picture">
+                <img src="<?php echo MEDIA_DIR;?>uploads/cats/<?php echo $this->data->picture_4;?>" alt="" />
+                <cite>Clique para ampliar</cite>
+            </a>
+            <?php endif;?>
+	</div>
+
+		<div id="cat-description">
+			<?php echo $this->data->full_description;?>
+		</div>
+		<?php if($this->data->video_embedcode != ''):?>
+		<div id="cat_video">
+			<?php echo stripslashes($this->data->video_embedcode);?>
+		</div>
+	<?php endif;?>
+
+	<div class="clear"></div>
+	</div>
+</div>
+
+
+<div style="display:none">
+	<div id="criterios-de-adocao">
+		<h2>CRITÉRIOS DE ADOÇÃO</h2>
+		<div>
+			<p>Por favor, observe o quadro abaixo para saber se você está preparado para adotar o gatinho escolhido.</p>
+			<h4>PARA ADOTAR:</h4>
+			<ul class="green">
+				<li>apartamentos precisam ter telas em TODAS as janelas/sacadas (antes da chegada do gatinho).</li>
+				<li>casas precisam ser seguras (com muros bem altos, telas ou alguma barreira física que impeça a saída do gatinho para o telhado/rua).<br/>Não basta fechar as portas ou janelas, essa barreira física a mais precisa existir ou ser instalada.</li>
+				<li>é preciso ter condições financeiras para arcar com ração de boa qualidade e idas ao veterinário (vacinas/tratamento de doenças que possam surgir).</li>
+				<li>é preciso morar dentro da Cidade de São Paulo, pois as entregas são feitas pessoalmente nas casas dos adotantes.</li>
+				<li>não é preciso pagar nada, mas você terá que assinar um termo de responsabilidade, comprometendo-se a não repassá-lo a terceiros sem nosso consentimento e zelar por sua saúde e segurança.</li>
+			</ul>
+			
+			<h4>NÃO DOAMOS PARA:</h4>
+			<ul class="red">
+				<li>apartamentos sem telas de proteção em TODAS as janelas/sacadas.</li>
+				<li>casas com janelas ou muros baixos, por onde o gatinho possa sair para passear em telhados ou na rua.</li>
+				<li>pessoas que não tenham condições financeiras mínimas de alimentar e cuidar da saúde do gato.</li>
+				<li>quem mora fora da Cidade de São Paulo.</li>
+				<li>pessoas que não concordem com nossa entrada em suas casas para entrega dos gatinhos e averiguação dos itens exigidos.</li>
+			</ul>
+			<p>Estes são critérios do Adote um Gatinho e não são abertas exceções.<br/>Outras questões podem ser levadas em consideração no ato da adoção como alergia, gravidez, crianças e idosos em casa, a existência de outros animais em casa e a personalidade de cada gato.</p> 
+			<p>A segurança da casa é avaliada no dia da entrega do gatinho, que é feita pessoalmente.<br/>Caso o adotante não se encaixe no perfil (quadro verde), a adoção não é realizada e o gatinho escolhido volta com a gente.</p>
+			<p>Caso a entrega seja feita e posteriormente constatado que o adotante está incapacitado de cuidar do gatinho ocorrerá a retirada do animal nas penalidades previstas pela Lei Federal 9.605 de Proteção Animal contra maus tratos e abandono.</p>
+			<p>Por que somos tão criteriosos? Porque este é um trabalho feito por amor, sem fins lucrativos e nossa única gratificação é saber que o gatinho que cuidamos como filho, como se fosse nosso, vai ser amado e estar seguro, longe dos perigos da rua por ele já vivido.</p>
+			<p>Para saber mais sobre nossa política de adoção, clique aqui.<br/>Para saber mais sobre a importância das telas e empresas que instalam, clique aqui.<br/>Para qualquer dúvida, escreva para informacoes@adoteumgatinho.org.br</p>
+			<p>Agradecemos a compreensão de nossos critérios.<br/>Caso você não se encaixe no perfil, clique na opção em vermelho abaixo e indicaremos outros locais para você adotar um gatinho.</p>
+			<p>Atenciosamente, </p>
+			<p>Adote um Gatinho</p>
+		</div>
+		<p>Agora que você conhece nossos critérios de adoção, você se encaixa no perfil?</p>
+		<p>
+			<a id="nao" href="<?php echo HOST;?>fora-do-perfil-de-adocao2?version=2" class="perfil">Eu não me encaixo no perfil</a>
+			<a id="sim" href="<?php echo HOST;?>formulario-de-adocao/<?php echo $this->data->id;?>/<?php echo strtolower(str_replace(' ', '-',$this->data->name));?>" class="perfil">Eu me encaixo no perfil</a>
+		</p>
+	</div>
+</div>
+<script type="text/javascript" src="<?php echo MEDIA_DIR;?>fancybox/jquery.fancybox-1.3.4.js"></script>
+<script type="text/javascript">
+	(function($){
+		$(document).ready(function(){
+			$("#want-to-adopt").fancybox({centerOnScroll: true});
+			$(".cat_picture").fancybox({centerOnScroll: true});
+		});
+	}(jQuery));
+</script>

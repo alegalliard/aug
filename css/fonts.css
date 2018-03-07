@@ -1,0 +1,74 @@
+@charset "iso-8859-1";
+
+.font10Branca{
+	font-family:verdana;
+	font-size:10px;
+	color:#FFFFFF;
+	text-decoration:none;
+	}
+
+.font10Preta{
+	font-family:verdana;
+	font-size:10px;
+	color:#000000;
+	text-decoration:none;
+	}
+
+.font10Vermelha{
+	font-family:verdana;
+	font-size:10px;
+	color:#FF0000;
+	text-decoration:none;
+	}
+	
+.font11Branca{
+	font-family:verdana;
+	font-size:11px;
+	color:#FFFFFF;
+	text-decoration:none;
+	}
+.font11Preta{
+	font-family:verdana;
+	font-size:11px;
+	color:#000000;
+	text-decoration:none;
+	}
+
+.font12Branca{
+	font-family:verdana;
+	font-size:12px;
+	color:#FFFFFF;
+	text-decoration:none;
+	}
+	
+.font12Preta{
+	font-family:verdana;
+	font-size:12px;
+	color:#000000;
+	text-decoration:none;
+	}
+
+.font14Roxa{
+	font-family:verdana;
+	font-size:14px;
+	color:#666699;
+	text-decoration:none;
+	}
+.font14Preta{
+	font-family:verdana;
+	font-size:14px;
+	color:#000000;
+	text-decoration:none;
+	}
+.font30Roxa{
+	font-family:verdana;
+	font-size:30px;
+	color:#666699;
+	text-decoration:none;
+	}
+.font12Roxa{
+	font-family:verdana;
+	font-size:12px;
+	color:#666699;
+	text-decoration:none;
+	}

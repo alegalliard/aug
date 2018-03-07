@@ -1,0 +1,164 @@
+<style>
+    .error{color:red!important}
+</style>
+          
+<?php 
+$breadColor = 'blue';
+$breadPaths = array('Apadrinhamento'=>'apadrinhamento2', 'Formulário'=>'apadrinhamento2/cadastro');
+$lastPath = 'Apadrinhamento';
+include('top.phtml'); 
+
+?>
+   <section class="container-large row m-b-0" id="adoption-form" class="godfather">
+    <div class="col s12 m12 l12">
+    <h1 class="h1 responsive bold upper aug_blue">Formulário de Apadrinhamento</h1>
+
+    <form action="<?php echo HOST;?>apadrinhamento2/cadastro/enviar" method="post" class="block_form">
+
+    <p class="msg-erro" style="padding-left: 10px; margin: 10px 0 10px 0; display: none;"><img src="<?php echo HOST . 'templates/public/css/images/redpaw.png'?>" align="middle"> Campos de preenchimento obrigatório.</p>
+
+    <fieldset class="row">
+    <div class="col s12 m6 l6">
+        <label for="nome" class="first-column aug_blue bold">
+            <img src="<?php echo HOST . 'templates/public/css/images/redpaw.png'?>" align="middle">
+            Seu Nome:</label>
+        <input type="text" name="nome" id="nome" class="required" />
+    </div>
+
+    <div class="col s12 m6 l6">
+        <label for="email" class="aug_blue bold">
+            <img src="<?php echo HOST . 'templates/public/css/images/redpaw.png'?>" align="middle">
+            E-mail:</label>
+        <input type="text" name="email" id="email" class="required email" />
+    </div>
+
+    <div class="col s12">
+        <label for="endereco" class="aug_blue bold">Endereço Completo:</label>
+        <input type="text" name="endereco" id="endereco" />
+    </div>
+
+    <div class="col s12 m8 l8">
+        <label for="cidade" class="aug_blue bold">Cidade:</label>
+        <input type="text" name="cidade" id="cidade" />
+    </div>
+
+    <div class="col s12 m4 l4">
+        <label for="name" class="aug_blue bold">Estado:</label>
+
+        <select name="estado" id="estado">
+            <option value="AC">Acre</option>
+            <option value="AL">Alagoas</option>
+            <option value="AM">Amazonas</option>
+            <option value="AP">Amapá</option>
+            <option value="BA">Bahia</option>
+            <option value="CE">Ceará</option>
+            <option value="DF">Distrito Federal</option>
+            <option value="ES">Espirito Santo</option>
+            <option value="GO">Goiás</option>
+            <option value="MA">Maranhão</option>
+            <option value="MG">Minas Gerais</option>
+            <option value="MS">Mato Grosso do Sul</option>
+            <option value="MT">Mato Grosso</option>
+            <option value="PA">Pará</option>
+            <option value="PB">Paraíba</option>
+            <option value="PE">Pernambuco</option>
+            <option value="PI">Piauí</option>
+            <option value="PR">Paraná</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="RN">Rio Grande do Norte</option>
+            <option value="RO">Rondônia</option>
+            <option value="RR">Roraima</option>
+            <option value="RS">Rio Grande do Sul</option>
+            <option value="SC">Santa Catarina</option>
+            <option value="SE">Sergipe</option>
+            <option value="SP">São Paulo</option>
+            <option value="TO">Tocantins</option>
+        </select>
+    </div>
+
+    <div class="col s12">
+        <label for="gatos" class="aug_blue bold">
+           <img src="<?php echo HOST . 'templates/public/css/images/redpaw.png'?>" align="middle">
+            Gato(s) escolhido(s): </label>
+        <input type="text" name="gatos" id="gatos" class="required" />
+    </div>
+    
+    <div class="col s12 m6 l6">
+        <label for="valor" class="aug_blue bold">
+            <img src="<?php echo HOST . 'templates/public/css/images/redpaw.png'?>" align="middle">
+            Valor da doação mensal:</label>
+        <input type="text" name="valor" id="valor" class="required" />
+    </div>
+
+    <div class="col s12 m6 l6">
+        <label for="dia" class="aug_blue bold">Dia da doação:</label>
+        <input type="text" name="dia" id="dia" class="required"  />
+    </div>
+
+    <div class="col s12 m6 l6">
+        <label for="name" class="aug_blue bold">Forma de pagamento:</label>
+        <select id="pagamento" name="pagamento">
+            <option value="Depósito">Depósito</option>
+            <option value="Boleto">Boleto</option>
+            <option value="Pagseguro">Pagseguro</option>
+        </select>
+    </div>
+
+    <div class="col s12 m6 l6">
+        <label for="deposito_programado" class="aug_blue bold">No caso de depósito programado, informe o período:</label>
+        <input type="text" name="deposito_programado" id="deposito_programado" />
+    </div>
+
+    <div class="col s12">
+        <label class="aug_blue bold">Comentários:</label>
+        <textarea name="comentarios" id="comentarios"></textarea>
+    </div>
+
+
+    </fieldset>
+    <div class="row">
+        <p class="msg-erro" style="padding-left: 10px; margin: 10px 0 10px 0; display: none; color: red;"><img src="<?php echo HOST . 'templates/public/css/images/redpaw.png'?>" align="middle"> Campos de preenchimento obrigatório.</p>
+
+        <div class="col s12">
+            <a class="col s12 m4 perfil left bt bt_gray bold upper text-center" href="<?php echo HOST;?>quero-adotar2?version=2" style="padding: 12px 15px;">Voltar</a>
+            <input type="submit" value="Enviar Formulário" class="col s12 m4 bt bt_blue bold upper m-l-10" style="float: right; padding: 10px 15px;" />
+        </div>
+    </div>
+    </form>
+
+    </div>
+</section>
+<script src="<?php echo HOST;?>js/jquery.validate.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $(".block_form").validate({
+			rules: {
+				nome: {
+					required: true,
+					minlength: 3
+				},
+                email: {
+					required: true,
+                    email:true
+				},
+                gatos: {
+					required: true
+				}
+			},
+			messages: {
+				nome: {
+					required: 'Campo obrigatório',
+					minlength: 'Campo obrigatório'
+				},
+                email: {
+					required: 'Campo obrigatório',
+                    email:'Insira um endereço de e-mail válido'
+				},
+                gatos: {
+					required: 'Campo obrigatório'
+				}
+			}
+		});        
+    });
+
+</script>

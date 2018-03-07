@@ -1,0 +1,48 @@
+<?php 
+$breadColor = 'orange';
+$breadPaths = array();
+$lastPath = 'Boletins';
+include('top.phtml'); 
+
+?>
+    <section class="row container-large m-b-0">
+        <article class="col s12 m12">
+           <h1 class="aug_orange h1 bold upper">Boletins</h1>
+           
+            <ul>
+                <?php foreach($this->data as $row):?>
+                <li class="col s12 m6 l6">
+                   <div class="card-panel white z-depth-1 border_b_orange card-wrapper">
+                    <div class="row valign-wrapper m-b-0">
+                       <div class="col s3">
+                        <?php if($row->picture == ''):?>                
+                            <img src="<?php echo MEDIA_DIR;?>img_cat_not_found.png" alt=""  class="circle responsive-img"  />
+                            <?php else:?>
+                            <img src="<?php echo MEDIA_DIR.'uploads/news/'.$row->picture;?>"  class="circle responsive-img" alt=""  />
+                        
+                        <?php endif;?>
+                        </div>
+                       <div class="col s9">
+                            <strong class="title"><?php echo $row->title;?></strong>
+                            <p>
+                            <?php
+                            if(strlen( $row->heading) > 120)
+                            $row->heading = substr($row->heading, 0, 120) . '...';
+                            echo $row->heading;
+                            ?>
+                            </p><br>
+                            <a class="more col s12 bold text_13 text-right aug_orange_btn upper" href="<?php echo HOST;?>boletins/<?php echo $row->id;?>/<?php echo str_replace(' ', '-', $row->title);?>">Ler boletim</a>
+                        </div>
+                        </div>
+                    </div>
+                </li>
+                <?php endforeach;?>
+            </ul>
+        </article>
+    </section>
+
+
+
+
+
+

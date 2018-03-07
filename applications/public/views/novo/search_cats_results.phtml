@@ -1,0 +1,108 @@
+<?php
+	function highlight($text_to_highlight, $in_string){
+		return preg_replace('/('.$in_string.')/i', '<span class="highlight">$1</span>', $text_to_highlight);
+	}
+?>
+
+<!--    /* .texto-mobile{
+        padding: 10%;
+        padding-top: 0%;
+        overflow-y: scroll;
+        height: 90%;
+
+    }*/ -->
+    
+<style>
+    .meio_mural li{
+        padding: 0!important;
+        margin: 0!important
+    }
+</style>
+
+
+
+<?php 
+$breadColor = 'purple';
+//$breadPaths = array('Busca de gatos'=> 'buscar-gato');
+$breadPaths = array();
+$lastPath = 'Busca de gatinhos';
+include('top.phtml'); 
+
+?>
+
+<section class="row m-b-0">
+        <article class="s12 m6 l6">
+        		<h2 class="aug_purple h1 bold upper">Gatos</h2> 
+        		<?php if(is_array($this->data->cats) and sizeof($this->data->cats) > 0):?>
+        		<ul class="meio_mural">
+
+        			<?php foreach($this->data->cats as $cat):?>
+                    <li class="col s12 m6 l3">
+                        <a class="perfil" href="<?php echo HOST;?>detalhes-gato2/<?php echo $cat->id;?>/<?php echo strtolower(str_replace(' ', '-', $cat->name));?>" style="background-image: url('<?php echo MEDIA_DIR;?>uploads/cats/<?php echo $cat->picture;?>');">
+                            <div class="shadow hide-on-med-and-down"></div>      
+                            <div class="texto hide-on-med-and-down">
+                                <h1 class="cat_name text_13 bold upper" style="color: white;">
+                                <?php 
+                                    echo highlight($cat->name, $this->data->query);
+                                   
+                                    
+                                ?></h1>
+       
+                                <div class="cat_desc text_10">
+                                   <?php 
+                                    echo strip_tags(highlight($cat->description, $this->data->query));
+//                                    echo highlight($cat->description, $this->data->query);
+                                    
+                                    ?></div>
+                                <div class="more upper bold text_20">+</div>
+                            </div>
+                            <div class="more upper bold text_20 hide-on-large-only aug_purple_bg" style="color: white;">+</div>
+                            <div class="hide-on-large-only border_b_purple" style="width: 100%; position: absolute; bottom: 0px;"></div>                  
+                        </a>
+                    </li>
+                    <li class="container-large col s12 m6 l3 hide-on-large-only text-small-complete">
+                        <div class="col s12 texto-mobile">
+                                <h1 class="cat_name pop_title bold upper"><?php echo highlight($cat->name, $this->data->query);?></h1>
+       
+                                <div class="text_10"><?php echo highlight($cat->description, $this->data->query);?></div>
+                        </div>
+                    </li>
+
+        						
+        			<?php endforeach;?>
+        			
+        		</ul>
+        		<?php else:?>
+                    <div class="row container-large">
+        			     <p>Não encontramos nenhum gatinho com esses parâmetros. Por favor, tente outros.</p>
+                    </div>
+        		<?php endif;?>
+        </article>
+</section>
+<script>
+    function isChrome() {
+        var myNavChrome = navigator.userAgent.toLowerCase();
+        return (myNavChrome.indexOf('chrome/') != -1) ? parseInt(myNavChrome.split('chrome/')[1]) : false;
+    }
+
+    function isFirefoxandIE() {
+        var myNavFirefox = navigator.userAgent.toLowerCase();
+        return (myNavFirefox.indexOf('rv:') != -1) ? parseInt(myNavFirefox.split('rv:')[1]) : false;
+    }
+
+    function isSafari() {
+        var myNavSafari = navigator.userAgent.toLowerCase();
+        return (myNavSafari.indexOf('version/') != -1) ? parseInt(myNavSafari.split('version/')[1]) : false;
+    }
+        
+        if (isChrome() <= 35 && isChrome() != false || isFirefoxandIE() <= 30 && isFirefoxandIE() != false || navigator.userAgent.match(/Edge/) == "Edge" || isSafari() <=7 && isSafari() != false) {
+            $(document).ready(function(){
+                $("div.texto").hover(function(){
+                    $(this).prev().css("display", "inline-block");
+                    }, function(){
+                    $(this).prev().css("display", "none");
+                });
+            });
+        }
+
+    </script>

@@ -1,0 +1,910 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="pt-br">
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>www.adoteumgatinho.org.br</title>
+<!-- TemplateEndEditable -->
+
+<style type="text/css">
+<!--
+.style1 {color: #FFFFFF}
+-->
+</style>
+<!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link href="../styles/mix.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.style2 {
+	font-size: 10px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+.style6 {
+	color: #FFCC00;
+	font-weight: bold;
+}
+.style7 {
+	color: #FFCC33;
+	font-size: 10px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.style8 {font-size: 10px}
+.style12 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+.style13 {font-family: Verdana, Arial, Helvetica, sans-serif}
+.style14 {
+	font-size: 10px;
+	color: #FFFFFF;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.style17 {color: #FFCC00; font-size: 9px; font-family: Verdana, Arial, Helvetica, sans-serif;}
+.style18 {
+	color: #FFCC33;
+	font-style: italic;
+}
+.style20 {color: #FFCC33}
+.style24 {color: #FF0000}
+.style27 {font-size: 12px; font-weight: bold; font-family: Verdana, Arial, Helvetica, sans-serif; color: #CC3366; }
+-->
+</style>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+
+
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+//-->
+</script>
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+</head>
+
+<body link="#000000" vlink="#000000" alink="#000000" class="tiny" onLoad="MM_preloadImages('../images/queroadotar2.jpg','../images/queroajudar2.jpg','../images/prestacao2.jpg','../images/lojinha2.jpg','../images/parceiros2.jpg','../images/somos2.jpg','../images/mapa2.jpg','../images/imprensa2.jpg','../images/materias2.jpg','../images/vetresponde2.jpg','../images/adotados2.jpg','../images/blog2.jpg','../images/boletins2.jpg','../images/faq2.jpg','../images/apadrinhamento2.jpg')">
+<center><script src="http://barra.uol.com.br/b/parceiro.js"></script>
+
+<script>
+
+// Variaveis de configuracao
+
+var DEaff="paradoteumgatinho"; // Affiliate
+
+var DEchan=""; // Canal quando existe
+
+var DEsubc="outros"; // Subcanal capa ou outros.
+
+var Expble=1; // Alterar para 0 se não houver espaço para banner expansível
+
+var DEcmpng=1; // Alterar para 1 se participa da Campanha por Clique
+
+var DEGroup=6; // Grupo de afinidade "group"
+
+// Fim da configuracao 
+
+ 
+
+/* NAO ALTERAR DAQUI PARA BAIXO, apenas remova os comentarios se precisar.
+
+A linha abaixo deve obrigatoriamente ficar fora da função o valor de 
+
+"DErand" nao pode ser diferente para os banners de uma mesma pagina */
+
+d=document; var DEt=new Date(); DEt=DEt.getTime(); DErand=Math.floor(DEt*1000*Math.random());
+
+ 
+
+// Verifica tipo de conexao do usuario
+
+var DEconn=d.body; DEconn.style.behavior='url(#default#clientCaps)'; DEconn=(DEconn.connectionType=='lan')?1:0;
+
+ 
+
+// Verifica resolucao de tela
+
+var scw=0,sch=0; if(screen.height){scw=screen.width;sch=screen.height;}
+
+ 
+
+// Funcao que exibe o banner
+
+function DEshow(ad,pos){
+
+d.write('<scr'+'ipt language="JavaScript1.1" src="http://bn.uol.com.br/js.ng/site=par&chan='+DEchan+'&subchan='+DEsubc+'&affiliate='+DEaff+'&size='+ad+'&page='+pos+'&conntype='+DEconn+'&expble='+Expble+'&reso='+scw+'x'+sch+'&cmpng='+DEcmpng+'&group='+DEGroup+'&tile='+DErand+'?"></scr'+'ipt>');
+
+}
+
+</script>
+
+
+
+</center>
+<div align="center">
+  <center>
+    <table border="0" bordercolor="#9900FF" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="770" id="AutoNumber1" height="500">
+      <tr>
+        <td width="100%" valign="top">
+          <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%" id="AutoNumber2">
+            <tr>
+              <td width="19%" bgcolor="#F9F9F9">
+                <p class="tiny"> <a href="http://www.adoteumgatinho.org.br"> <img border="0" src="../images/logo.jpg"></a></td>
+              <td width="60%" bgcolor="#F9F9F9"> <div align="center">
+			  
+<script type="text/javascript">
+// Exibe Full 468x60
+DEshow('468x60',1);
+</script>
+
+</div></td>
+              <td width="21%" bgcolor="#F9F9F9">
+                <p align="center">
+
+<script type="text/javascript">
+// Exibe Botao 120x60
+DEshow('120x60',3);
+</script>				
+			  </td>
+            </tr>
+            <tr>
+              <td height="35" colspan="3" nowrap bgcolor="#9900FF"><div align="center">
+                                 <table width="100%"  border="0" cellspacing="2" cellpadding="0">
+                                   <tr>
+                                     <td><div align="center">
+                                       <p><img src="../images/bolinha.jpg" width="10" height="17" align="middle"><a href="../queroadotar.htm" onMouseOver="MM_swapImage('Image7','','../images/queroadotar2.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="../images/queroadotar1.jpg" name="Image7" width="94" height="19" border="0" align="middle" id="Image7"></a><img src="../images/bolinha.jpg" width="10" height="17" align="middle"><a href="../ajuda.htm" onMouseOver="MM_swapImage('Image8','','../images/queroajudar2.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="../images/queroajudar1.jpg" name="Image8" width="92" height="19" border="0" align="middle" id="Image8"></a><img src="../images/bolinha.jpg" width="10" height="17" align="middle"><a href="../prestacao.htm" onMouseOver="MM_swapImage('Image9','','../images/prestacao2.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="../images/prestacao1.jpg" name="Image9" width="140" height="19" border="0" align="middle" id="Image9"></a><img src="../images/bolinha.jpg" width="10" height="17" align="middle"><a href="../lojinha" onMouseOver="MM_swapImage('Image10','','../images/lojinha2.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="../images/lojinha1.jpg" name="Image10" width="57" height="19" border="0" align="middle" id="Image10"></a><img src="../images/bolinha.jpg" width="10" height="17" align="middle"><a href="../materias" onMouseOver="MM_swapImage('Image11','','../images/materias2.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="../images/materias1.jpg" name="Image11" width="64" height="19" border="0" align="middle" id="Image11"></a><img src="../images/bolinha.jpg" width="10" height="17" align="middle"><a href="../maustratos.htm" onMouseOver="MM_swapImage('Image12','','../images/denuncie2.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="../images/denuncie1.jpg" name="Image12" border="0" align="middle" id="Image12"></a><img src="../images/bolinha.jpg" width="10" height="17" align="middle"><a href="../adotados.htm" onMouseOver="MM_swapImage('Image13','','../images/adotados2.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="../images/adotados1.jpg" name="Image13" width="69" height="19" border="0" align="middle" id="Image13"><br>
+                                       </a><img src="../images/bolinha.jpg" width="10" height="17" align="middle"><a href="../madrinhas.htm" onMouseOver="MM_swapImage('Image131','','../images/apadrinhamento2.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="../images/apadrinhamento1.jpg" name="Image131" width="107" height="19" border="0" align="middle" id="Image131"></a><a href="../adotados.htm" onMouseOver="MM_swapImage('Image131','','../images/adotados2.jpg',1)" onMouseOut="MM_swapImgRestore()"></a><img src="../images/bolinha.jpg" width="10" height="17" align="middle"><a href="../faq.htm" onMouseOver="MM_swapImage('Image17','','../images/faq2.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="../images/faq1.jpg" name="Image17" border="0" align="middle" id="Image17"></a><img src="../images/bolinha.jpg" width="10" height="17" align="middle"><a href="../blog.htm" onMouseOver="MM_swapImage('Image16','','../images/blog2.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="../images/blog1.jpg" name="Image16" width="35" height="19" border="0" align="middle" id="Image1"></a><img src="../images/bolinha.jpg" width="10" height="17" align="middle"><a href="../boletins.htm" onMouseOver="MM_swapImage('Image21','','../images/boletins2.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="../images/boletins1.jpg" name="Image21" width="58" height="19" border="0" align="middle" id="Image2"></a><img src="../images/bolinha.jpg" width="10" height="17" align="middle"><a href="../rifas.htm" onMouseOver="MM_swapImage('Image22','','../images/rifas2.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="../images/rifas.jpg" name="Image22" width="38" height="19" border="0" align="middle" id="Image23"></a><img src="../images/bolinha.jpg" width="10" height="17" align="middle"><a href="../midia.htm" onMouseOver="MM_swapImage('Image31','','../images/imprensa2.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="../images/imprensa1.jpg" name="Image31" width="63" height="19" border="0" align="middle" id="Image3"></a><img src="../images/bolinha.jpg" width="10" height="17" align="middle"><a href="../parceiros.htm" onMouseOver="MM_swapImage('Image41','','../images/parceiros2.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="../images/parceiros1.jpg" name="Image41" width="117" height="19" border="0" align="middle" id="Image4"></a><img src="../images/bolinha.jpg" width="10" height="17" align="middle"><a href="../somos.htm" onMouseOver="MM_swapImage('Image141','','../images/somos2.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="../images/somos1.jpg" name="Image141" width="82" height="19" border="0" align="middle" id="Image14"></a><img src="../images/bolinha.jpg" width="10" height="17" align="middle"><a href="../mapa.htm" onMouseOver="MM_swapImage('Image151','','../images/mapa2.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="../images/mapa1.jpg" name="Image151" width="82" height="19" border="0" align="middle" id="Image15"></a><img src="../images/bolinha.jpg" width="10" height="17" align="middle"><a href="http://www.adoteumgatinho.org.br"><img src="../images/home5.jpg" border="0" align="middle"></a>                                       </p>
+                                       </div></td>
+                                   </tr>
+                                 </table>
+              </div></td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber3">
+                  <tr>
+                    <td width="79%" bgcolor="#F4F4F4" valign="top">
+                      <p align="center" class="tiny"><span class="style24"><br>
+                        </span><a href="../boletins.htm" class="style27">CONFIRA 
+                        O BOLETIM DE MAIO, CLIQUE AQUI</a></p>
+                      <p align="left" class="tiny"><b class="style2">                        GATINHOS PARA ADOÇÃO EM SÃO PAULO<br>
+                        Todos os gatinhos deste site foram abandonados e agora est&atilde;o sob os cuidados do Adote um Gatinho.</b></p>
+                      <!-- TemplateBeginEditable name="miolinho" -->
+                      <table border="0" cellpadding="0" cellspacing="10" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber5">
+                        <tr>
+                          <td width="25%" height="250" valign="top" bgcolor="#FDFDFD" class="style2">
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber7">
+                              <tr>
+                                <td width="100%" class="style2">
+                                  <p align="center" class="style6"> DOCINHO</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2">
+                                  <p align="center"> <img border="0" src="susan/docinho1p.jpg" style="border-style: solid; border-color: #9900CC" width="144" height="108"></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" height="120">
+                                  <p align="center">Sou uma gatinha medrosa, muuuuito medrosa. Cheguei a ser adotada aqui no site, mas a adoção não deu certo e eu estou novamente a espera de um lar.&nbsp; Ai meu Deus, será que um dia eu consigo ? :(<br>
+              Tenho 6 meses e estou castrada e vacinada.</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2">
+                                  <p align="center"> <b> <a href="susan_poderosas.htm">Saiba mais sobre mim</a></b></td>
+                              </tr>
+                          </table></td>
+                          <td width="25%" height="250" valign="top" bgcolor="#FDFDFD" class="style2">
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber8">
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <span class="style17"> LINDINHA</span></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <img border="0" src="susan/lindinha1p.jpg" style="border-style: solid; border-color: #9900CC" width="144" height="108"></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" height="120" class="style2" align="center">Das meninas superpoderosas eu sou a Lindinha. Sou meiga e tímida, tenho pêlo semi longo, uma graça. <br>
+            Tenho 6 meses, estou castrada e vacinada. Sou medrosa, por isso preciso ser adotada por alguém que tenha paciência para me conquistar.</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <b> <a href="susan_poderosas.htm">Saiba mais sobre mim</a></b></td>
+                              </tr>
+                          </table></td>
+                          <td width="25%" height="250" valign="top" bgcolor="#FDFDFD">
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber9">
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <span class="style17"> FLORZINHA</span></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <img border="0" src="susan/florzinha1p.jpg" style="border-style: solid; border-color: #9900CC" width="144" height="108"></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" height="120" class="style2" align="center">Sou uma superpoderosa também, a Florzinha. Tenho uma cor maravilhosa, sou azul-creme , coisa fina! Sou medrosinha, tímida, reservada, mas eu sei que com o tempo eu vou me soltar. Tenho 6 meses, estou castrada e vacinada.</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <b> <a href="susan_poderosas.htm">Saiba mais sobre mim</a></b></td>
+                              </tr>
+                          </table></td>
+                        </tr>
+                        <tr>
+                          <td width="25%" height="250" valign="top" bgcolor="#FDFDFD" class="style2">
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber7">
+                              <tr>
+                                <td width="100%" class="style2">
+                                  <p align="center" class="style6"> DOCINHO</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2">
+                                  <p align="center"> <img border="0" src="susan/docinho1p.jpg" style="border-style: solid; border-color: #9900CC" width="144" height="108"></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" height="120">
+                                  <p align="center">Sou uma gatinha medrosa, muuuuito medrosa. Cheguei a ser adotada aqui no site, mas a adoção não deu certo e eu estou novamente a espera de um lar.&nbsp; Ai meu Deus, será que um dia eu consigo ? :(<br>
+              Tenho 6 meses e estou castrada e vacinada.</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2">
+                                  <p align="center"> <b> <a href="susan_poderosas.htm">Saiba mais sobre mim</a></b></td>
+                              </tr>
+                          </table></td>
+                          <td width="25%" height="250" valign="top" bgcolor="#FDFDFD" class="style2">
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber8">
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <span class="style17"> LINDINHA</span></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <img border="0" src="susan/lindinha1p.jpg" style="border-style: solid; border-color: #9900CC" width="144" height="108"></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" height="120" class="style2" align="center">Das meninas superpoderosas eu sou a Lindinha. Sou meiga e tímida, tenho pêlo semi longo, uma graça. <br>
+            Tenho 6 meses, estou castrada e vacinada. Sou medrosa, por isso preciso ser adotada por alguém que tenha paciência para me conquistar.</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <b> <a href="susan_poderosas.htm">Saiba mais sobre mim</a></b></td>
+                              </tr>
+                          </table></td>
+                          <td width="25%" height="250" valign="top" bgcolor="#FDFDFD">
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber9">
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <span class="style17"> FLORZINHA</span></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <img border="0" src="susan/florzinha1p.jpg" style="border-style: solid; border-color: #9900CC" width="144" height="108"></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" height="120" class="style2" align="center">Sou uma superpoderosa também, a Florzinha. Tenho uma cor maravilhosa, sou azul-creme , coisa fina! Sou medrosinha, tímida, reservada, mas eu sei que com o tempo eu vou me soltar. Tenho 6 meses, estou castrada e vacinada.</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <b> <a href="susan_poderosas.htm">Saiba mais sobre mim</a></b></td>
+                              </tr>
+                          </table></td>
+                        </tr>
+                        <tr>
+                          <td width="25%" height="250" valign="top" bgcolor="#FDFDFD" class="style2">
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber7">
+                              <tr>
+                                <td width="100%" class="style2">
+                                  <p align="center" class="style6"> DOCINHO</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2">
+                                  <p align="center"> <img border="0" src="susan/docinho1p.jpg" style="border-style: solid; border-color: #9900CC" width="144" height="108"></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" height="120">
+                                  <p align="center">Sou uma gatinha medrosa, muuuuito medrosa. Cheguei a ser adotada aqui no site, mas a adoção não deu certo e eu estou novamente a espera de um lar.&nbsp; Ai meu Deus, será que um dia eu consigo ? :(<br>
+              Tenho 6 meses e estou castrada e vacinada.</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2">
+                                  <p align="center"> <b> <a href="susan_poderosas.htm">Saiba mais sobre mim</a></b></td>
+                              </tr>
+                          </table></td>
+                          <td width="25%" height="250" valign="top" bgcolor="#FDFDFD" class="style2">
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber8">
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <span class="style17"> LINDINHA</span></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <img border="0" src="susan/lindinha1p.jpg" style="border-style: solid; border-color: #9900CC" width="144" height="108"></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" height="120" class="style2" align="center">Das meninas superpoderosas eu sou a Lindinha. Sou meiga e tímida, tenho pêlo semi longo, uma graça. <br>
+            Tenho 6 meses, estou castrada e vacinada. Sou medrosa, por isso preciso ser adotada por alguém que tenha paciência para me conquistar.</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <b> <a href="susan_poderosas.htm">Saiba mais sobre mim</a></b></td>
+                              </tr>
+                          </table></td>
+                          <td width="25%" height="250" valign="top" bgcolor="#FDFDFD">
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber9">
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <span class="style17"> FLORZINHA</span></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <img border="0" src="susan/florzinha1p.jpg" style="border-style: solid; border-color: #9900CC" width="144" height="108"></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" height="120" class="style2" align="center">Sou uma superpoderosa também, a Florzinha. Tenho uma cor maravilhosa, sou azul-creme , coisa fina! Sou medrosinha, tímida, reservada, mas eu sei que com o tempo eu vou me soltar. Tenho 6 meses, estou castrada e vacinada.</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <b> <a href="susan_poderosas.htm">Saiba mais sobre mim</a></b></td>
+                              </tr>
+                          </table></td>
+                        </tr>
+                        <tr>
+                          <td width="25%" height="250" valign="top" bgcolor="#FDFDFD" class="style2">
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber7">
+                              <tr>
+                                <td width="100%" class="style2">
+                                  <p align="center" class="style6"> DOCINHO</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2">
+                                  <p align="center"> <img border="0" src="susan/docinho1p.jpg" style="border-style: solid; border-color: #9900CC" width="144" height="108"></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" height="120">
+                                  <p align="center">Sou uma gatinha medrosa, muuuuito medrosa. Cheguei a ser adotada aqui no site, mas a adoção não deu certo e eu estou novamente a espera de um lar.&nbsp; Ai meu Deus, será que um dia eu consigo ? :(<br>
+              Tenho 6 meses e estou castrada e vacinada.</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2">
+                                  <p align="center"> <b> <a href="susan_poderosas.htm">Saiba mais sobre mim</a></b></td>
+                              </tr>
+                          </table></td>
+                          <td width="25%" height="250" valign="top" bgcolor="#FDFDFD" class="style2">
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber8">
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <span class="style17"> LINDINHA</span></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <img border="0" src="susan/lindinha1p.jpg" style="border-style: solid; border-color: #9900CC" width="144" height="108"></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" height="120" class="style2" align="center">Das meninas superpoderosas eu sou a Lindinha. Sou meiga e tímida, tenho pêlo semi longo, uma graça. <br>
+            Tenho 6 meses, estou castrada e vacinada. Sou medrosa, por isso preciso ser adotada por alguém que tenha paciência para me conquistar.</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <b> <a href="susan_poderosas.htm">Saiba mais sobre mim</a></b></td>
+                              </tr>
+                          </table></td>
+                          <td width="25%" height="250" valign="top" bgcolor="#FDFDFD">
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber9">
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <span class="style17"> FLORZINHA</span></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <img border="0" src="susan/florzinha1p.jpg" style="border-style: solid; border-color: #9900CC" width="144" height="108"></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" height="120" class="style2" align="center">Sou uma superpoderosa também, a Florzinha. Tenho uma cor maravilhosa, sou azul-creme , coisa fina! Sou medrosinha, tímida, reservada, mas eu sei que com o tempo eu vou me soltar. Tenho 6 meses, estou castrada e vacinada.</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <b> <a href="susan_poderosas.htm">Saiba mais sobre mim</a></b></td>
+                              </tr>
+                          </table></td>
+                        </tr>
+                        <tr>
+                          <td width="25%" height="250" valign="top" bgcolor="#FDFDFD" class="style2">
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber7">
+                              <tr>
+                                <td width="100%" class="style2">
+                                  <p align="center" class="style6"> DOCINHO</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2">
+                                  <p align="center"> <img border="0" src="susan/docinho1p.jpg" style="border-style: solid; border-color: #9900CC" width="144" height="108"></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" height="120">
+                                  <p align="center">Sou uma gatinha medrosa, muuuuito medrosa. Cheguei a ser adotada aqui no site, mas a adoção não deu certo e eu estou novamente a espera de um lar.&nbsp; Ai meu Deus, será que um dia eu consigo ? :(<br>
+              Tenho 6 meses e estou castrada e vacinada.</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2">
+                                  <p align="center"> <b> <a href="susan_poderosas.htm">Saiba mais sobre mim</a></b></td>
+                              </tr>
+                          </table></td>
+                          <td width="25%" height="250" valign="top" bgcolor="#FDFDFD" class="style2">
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber8">
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <span class="style17"> LINDINHA</span></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <img border="0" src="susan/lindinha1p.jpg" style="border-style: solid; border-color: #9900CC" width="144" height="108"></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" height="120" class="style2" align="center">Das meninas superpoderosas eu sou a Lindinha. Sou meiga e tímida, tenho pêlo semi longo, uma graça. <br>
+            Tenho 6 meses, estou castrada e vacinada. Sou medrosa, por isso preciso ser adotada por alguém que tenha paciência para me conquistar.</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <b> <a href="susan_poderosas.htm">Saiba mais sobre mim</a></b></td>
+                              </tr>
+                          </table></td>
+                          <td width="25%" height="250" valign="top" bgcolor="#FDFDFD">
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber9">
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <span class="style17"> FLORZINHA</span></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"><img border="0" src="susan/florzinha1p.jpg" style="border-style: solid; border-color: #9900CC" width="144" height="108"></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" height="120" class="style2" align="center">Sou uma superpoderosa também, a Florzinha. Tenho uma cor maravilhosa, sou azul-creme , coisa fina! Sou medrosinha, tímida, reservada, mas eu sei que com o tempo eu vou me soltar. Tenho 6 meses, estou castrada e vacinada.</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <b> <a href="susan_poderosas.htm">Saiba mais sobre mim</a></b></td>
+                              </tr>
+                          </table></td>
+                        </tr>
+                        <tr>
+                          <td width="25%" height="250" valign="top" bgcolor="#FDFDFD" class="style2">
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber7">
+                              <tr>
+                                <td width="100%" class="style2">
+                                  <p align="center" class="style6"> DOCINHO</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2">
+                                  <p align="center"> <img border="0" src="susan/docinho1p.jpg" style="border-style: solid; border-color: #9900CC" width="144" height="108"></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" height="120">
+                                  <p align="center">Sou uma gatinha medrosa, muuuuito medrosa. Cheguei a ser adotada aqui no site, mas a adoção não deu certo e eu estou novamente a espera de um lar.&nbsp; Ai meu Deus, será que um dia eu consigo ? :(<br>
+              Tenho 6 meses e estou castrada e vacinada.</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2">
+                                  <p align="center"> <b> <a href="susan_poderosas.htm">Saiba mais sobre mim</a></b></td>
+                              </tr>
+                          </table></td>
+                          <td width="25%" height="250" valign="top" bgcolor="#FDFDFD" class="style2">
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber8">
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <span class="style17"> LINDINHA</span></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <img border="0" src="susan/lindinha1p.jpg" style="border-style: solid; border-color: #9900CC" width="144" height="108"></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" height="120" class="style2" align="center">Das meninas superpoderosas eu sou a Lindinha. Sou meiga e tímida, tenho pêlo semi longo, uma graça. <br>
+            Tenho 6 meses, estou castrada e vacinada. Sou medrosa, por isso preciso ser adotada por alguém que tenha paciência para me conquistar.</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <b> <a href="susan_poderosas.htm">Saiba mais sobre mim</a></b></td>
+                              </tr>
+                          </table></td>
+                          <td width="25%" height="250" valign="top" bgcolor="#FDFDFD">
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber9">
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <span class="style17"> FLORZINHA</span></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <img border="0" src="susan/florzinha1p.jpg" style="border-style: solid; border-color: #9900CC" width="144" height="108"></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" height="120" class="style2" align="center">Sou uma superpoderosa também, a Florzinha. Tenho uma cor maravilhosa, sou azul-creme , coisa fina! Sou medrosinha, tímida, reservada, mas eu sei que com o tempo eu vou me soltar. Tenho 6 meses, estou castrada e vacinada.</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <b> <a href="susan_poderosas.htm">Saiba mais sobre mim</a></b></td>
+                              </tr>
+                          </table></td>
+                        </tr>
+                        <tr>
+                          <td width="25%" height="250" valign="top" bgcolor="#FDFDFD" class="style2">
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber7">
+                              <tr>
+                                <td width="100%" class="style2">
+                                  <p align="center" class="style6"> DOCINHO</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2">
+                                  <p align="center"> <img border="0" src="susan/docinho1p.jpg" style="border-style: solid; border-color: #9900CC" width="144" height="108"></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" height="120">
+                                  <p align="center">Sou uma gatinha medrosa, muuuuito medrosa. Cheguei a ser adotada aqui no site, mas a adoção não deu certo e eu estou novamente a espera de um lar.&nbsp; Ai meu Deus, será que um dia eu consigo ? :(<br>
+              Tenho 6 meses e estou castrada e vacinada.</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2">
+                                  <p align="center"> <b> <a href="susan_poderosas.htm">Saiba mais sobre mim</a></b></td>
+                              </tr>
+                          </table></td>
+                          <td width="25%" height="250" valign="top" bgcolor="#FDFDFD" class="style2">
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber8">
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <span class="style17"> LINDINHA</span></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <img border="0" src="susan/lindinha1p.jpg" style="border-style: solid; border-color: #9900CC" width="144" height="108"></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" height="120" class="style2" align="center">Das meninas superpoderosas eu sou a Lindinha. Sou meiga e tímida, tenho pêlo semi longo, uma graça. <br>
+            Tenho 6 meses, estou castrada e vacinada. Sou medrosa, por isso preciso ser adotada por alguém que tenha paciência para me conquistar.</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <b> <a href="susan_poderosas.htm">Saiba mais sobre mim</a></b></td>
+                              </tr>
+                          </table></td>
+                          <td width="25%" height="250" valign="top" bgcolor="#FDFDFD">
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber9">
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <span class="style17"> FLORZINHA</span></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <img border="0" src="susan/florzinha1p.jpg" style="border-style: solid; border-color: #9900CC" width="144" height="108"></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" height="120" class="style2" align="center">Sou uma superpoderosa também, a Florzinha. Tenho uma cor maravilhosa, sou azul-creme , coisa fina! Sou medrosinha, tímida, reservada, mas eu sei que com o tempo eu vou me soltar. Tenho 6 meses, estou castrada e vacinada.</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <b> <a href="susan_poderosas.htm">Saiba mais sobre mim</a></b></td>
+                              </tr>
+                          </table></td>
+                        </tr>
+                        <tr>
+                          <td width="25%" height="250" valign="top" bgcolor="#FDFDFD" class="style2">
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber7">
+                              <tr>
+                                <td width="100%" class="style2">
+                                  <p align="center" class="style6"> DOCINHO</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2">
+                                  <p align="center"> <img border="0" src="susan/docinho1p.jpg" style="border-style: solid; border-color: #9900CC" width="144" height="108"></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" height="120">
+                                  <p align="center">Sou uma gatinha medrosa, muuuuito medrosa. Cheguei a ser adotada aqui no site, mas a adoção não deu certo e eu estou novamente a espera de um lar.&nbsp; Ai meu Deus, será que um dia eu consigo ? :(<br>
+              Tenho 6 meses e estou castrada e vacinada.</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2">
+                                  <p align="center"> <b> <a href="susan_poderosas.htm">Saiba mais sobre mim</a></b></td>
+                              </tr>
+                          </table></td>
+                          <td width="25%" height="250" valign="top" bgcolor="#FDFDFD" class="style2">
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber8">
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <span class="style17"> LINDINHA</span></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <img border="0" src="susan/lindinha1p.jpg" style="border-style: solid; border-color: #9900CC" width="144" height="108"></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" height="120" class="style2" align="center">Das meninas superpoderosas eu sou a Lindinha. Sou meiga e tímida, tenho pêlo semi longo, uma graça. <br>
+            Tenho 6 meses, estou castrada e vacinada. Sou medrosa, por isso preciso ser adotada por alguém que tenha paciência para me conquistar.</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <b> <a href="susan_poderosas.htm">Saiba mais sobre mim</a></b></td>
+                              </tr>
+                          </table></td>
+                          <td width="25%" height="250" valign="top" bgcolor="#FDFDFD">
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber9">
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <span class="style17"> FLORZINHA</span></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <img border="0" src="susan/florzinha1p.jpg" style="border-style: solid; border-color: #9900CC" width="144" height="108"></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" height="120" class="style2" align="center">Sou uma superpoderosa também, a Florzinha. Tenho uma cor maravilhosa, sou azul-creme , coisa fina! Sou medrosinha, tímida, reservada, mas eu sei que com o tempo eu vou me soltar. Tenho 6 meses, estou castrada e vacinada.</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <b> <a href="susan_poderosas.htm">Saiba mais sobre mim</a></b></td>
+                              </tr>
+                          </table></td>
+                        </tr>
+                        <tr>
+                          <td width="25%" height="250" valign="top" bgcolor="#FDFDFD" class="style2">
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber7">
+                              <tr>
+                                <td width="100%" class="style2">
+                                  <p align="center" class="style6"> DOCINHO</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2">
+                                  <p align="center"> <img border="0" src="susan/docinho1p.jpg" style="border-style: solid; border-color: #9900CC" width="144" height="108"></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" height="120">
+                                  <p align="center">Sou uma gatinha medrosa, muuuuito medrosa. Cheguei a ser adotada aqui no site, mas a adoção não deu certo e eu estou novamente a espera de um lar.&nbsp; Ai meu Deus, será que um dia eu consigo ? :(<br>
+              Tenho 6 meses e estou castrada e vacinada.</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2">
+                                  <p align="center"> <b> <a href="susan_poderosas.htm">Saiba mais sobre mim</a></b></td>
+                              </tr>
+                          </table></td>
+                          <td width="25%" height="250" valign="top" bgcolor="#FDFDFD" class="style2">
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber8">
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <span class="style17"> LINDINHA</span></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <img border="0" src="susan/lindinha1p.jpg" style="border-style: solid; border-color: #9900CC" width="144" height="108"></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" height="120" class="style2" align="center">Das meninas superpoderosas eu sou a Lindinha. Sou meiga e tímida, tenho pêlo semi longo, uma graça. <br>
+            Tenho 6 meses, estou castrada e vacinada. Sou medrosa, por isso preciso ser adotada por alguém que tenha paciência para me conquistar.</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <b> <a href="susan_poderosas.htm">Saiba mais sobre mim</a></b></td>
+                              </tr>
+                          </table></td>
+                          <td width="25%" height="250" valign="top" bgcolor="#FDFDFD">
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber9">
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <span class="style17"> FLORZINHA</span></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <img border="0" src="susan/florzinha1p.jpg" style="border-style: solid; border-color: #9900CC" width="144" height="108"></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" height="120" class="style2" align="center">Sou uma superpoderosa também, a Florzinha. Tenho uma cor maravilhosa, sou azul-creme , coisa fina! Sou medrosinha, tímida, reservada, mas eu sei que com o tempo eu vou me soltar. Tenho 6 meses, estou castrada e vacinada.</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <b> <a href="susan_poderosas.htm">Saiba mais sobre mim</a></b></td>
+                              </tr>
+                          </table></td>
+                        </tr>
+                        <tr>
+                          <td width="25%" height="250" valign="top" bgcolor="#FDFDFD" class="style2">
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber7">
+                              <tr>
+                                <td width="100%" class="style2">
+                                  <p align="center" class="style6"> DOCINHO</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2">
+                                  <p align="center"> <img border="0" src="susan/docinho1p.jpg" style="border-style: solid; border-color: #9900CC" width="144" height="108"></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" height="120">
+                                  <p align="center">Sou uma gatinha medrosa, muuuuito medrosa. Cheguei a ser adotada aqui no site, mas a adoção não deu certo e eu estou novamente a espera de um lar.&nbsp; Ai meu Deus, será que um dia eu consigo ? :(<br>
+              Tenho 6 meses e estou castrada e vacinada.</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2">
+                                  <p align="center"> <b> <a href="susan_poderosas.htm">Saiba mais sobre mim</a></b></td>
+                              </tr>
+                          </table></td>
+                          <td width="25%" height="250" valign="top" bgcolor="#FDFDFD" class="style2">
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber8">
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <span class="style17"> LINDINHA</span></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <img border="0" src="susan/lindinha1p.jpg" style="border-style: solid; border-color: #9900CC" width="144" height="108"></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" height="120" class="style2" align="center">Das meninas superpoderosas eu sou a Lindinha. Sou meiga e tímida, tenho pêlo semi longo, uma graça. <br>
+            Tenho 6 meses, estou castrada e vacinada. Sou medrosa, por isso preciso ser adotada por alguém que tenha paciência para me conquistar.</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <b> <a href="susan_poderosas.htm">Saiba mais sobre mim</a></b></td>
+                              </tr>
+                          </table></td>
+                          <td width="25%" height="250" valign="top" bgcolor="#FDFDFD">
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber9">
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <span class="style17"> FLORZINHA</span></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <img border="0" src="susan/florzinha1p.jpg" style="border-style: solid; border-color: #9900CC" width="144" height="108"></td>
+                              </tr>
+                              <tr>
+                                <td width="100%" height="120" class="style2" align="center">Sou uma superpoderosa também, a Florzinha. Tenho uma cor maravilhosa, sou azul-creme , coisa fina! Sou medrosinha, tímida, reservada, mas eu sei que com o tempo eu vou me soltar. Tenho 6 meses, estou castrada e vacinada.</td>
+                              </tr>
+                              <tr>
+                                <td width="100%" class="style2" align="center"> <b> <a href="susan_poderosas.htm">Saiba mais sobre mim</a></b></td>
+                              </tr>
+                          </table></td>
+                        </tr>
+                      </table>
+                      <!-- TemplateEndEditable --></td>
+                    <td width="21%" bgcolor="#666699" valign="top">
+                      <div align="center">
+                        <center>
+                          <table border="0" cellpadding="0" cellspacing="5" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber4">
+                            <tr>
+                              <td width="100%" valign="top" class="style6"><p align="center"><span class="style7">AJUDE UM 
+                                  GATINHO </span> <br>
+                                  <span class=""><span class="style14">Existem 
+                                  v&aacute;rias maneiras de ajudar os gatinhos 
+                                  deste site:</span></span><br>
+                                  <br>
+                                  <span class="style1 style13  style8">. CONTRIBUI&Ccedil;&Otilde;ES 
+                                  EM DINHEIRO <br>
+                                  <br>
+                                  <span class="style18">Adote um Gatinho<br>
+                                  CNPJ 08858329/0001-08<br>
+                                  <br>
+                                  Itau 0341<br>
+                                  Ag&ecirc;ncia 2970<br>
+                                  C/C 12869-6</span></span></p>
+                                <p align="center"> <span class="style1 style13  style8">Se 
+                                  voc&ecirc; prefere doar por meio de boleto banc&aacute;rio 
+                                  ou cart&atilde;o de cr&eacute;dito, clique no 
+                                  selo abaixo:<br>
+                                  <br>
+                                  <a href="../doe.htm"><img src="../images/Pagseguro.gif" width="108" height="38" border="0"></a> 
+                                  <br>
+                                  <br>
+                                  . CONTRIBUI&Ccedil;&Otilde;ES EM PRODUTOS (ra&ccedil;&atilde;o, 
+                                  latinhas, rem&eacute;dios, caminhas, caixinhas 
+                                  de transporte, etc) </span></p>
+                                <p align="center"><span class="style1 style13  style8">                                  <br>
+                                  . 
+                                  COMPRANDO NA NOSSA LOJINHA: </span><br>
+                                  <a href="../lojinha/index.htm"><img src="../images/bazar.jpg" width="136" height="320" border="0"></a><a href="../lojinha/salete.htm"><br>
+                                </a> </p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td valign="top"><div align="center" class="style12">
+                                  <div align="center"><strong><span class="style20">mais informa&ccedil;&otilde;es sobre 
+                                    como ajudar: </span><br>
+                                              <br>
+                                              <a href="mailto:informacoes@adoteumgatinho.org.br"><span class="style1">informacoes@<br>
+                                  adoteumgatinho.org.br</span></a><span class="style1"></font></span></strong></div>
+                              </div></td>
+                            </tr>
+                            <tr>
+                              <td valign="top" class="style6"><hr align="center" size="1" noshade class="style6"></td>
+                            </tr>
+                         
+                            <tr>
+                              <td valign="top" class="style6"><p align="center"><span class="style7"><span class="style20"> GATINHOS ADOTADOS </span><br>
+                                      <br>
+                                      <a href="../adotados.htm"><img src="../images/lateral_adotados.jpg" width="144" height="108" border="0"></a> <br>
+                                    <a href="../adotados.htm"><font color="FFFFFF">Mais de 2000 gatinhos j&aacute; ganharam um lar. Conhe&ccedil;a os sortudos</font></a></span></p>
+                                <hr align="center" size="1" noshade class="style6"></td>
+                            </tr>
+                            <tr>
+                              <td height="193" valign="top" class="style6"><div align="center">
+                                <p><span class="style14"><span class="style7"><span class="style20">VIDEOS<br>
+                                    <a href="../videos.htm"><img src="../images/videos.jpg" width="144" height="108" border="0"></a> <br>
+                                </span></span></span><span class="style12"><span class="style12"><a href="../videos.htm"><font color="FFFFFF">Videos para voc&ecirc;s conhecerem melhor os nossos gatinhos</font></a></span></span></p>
+                                </div></td>
+                            </tr>
+                            <tr>
+                              <td valign="top" class="style6"><hr align="center" size="1" noshade class="style6"></td>
+                            </tr>
+                            <tr>
+                              <td valign="top" class="style6"><div align="center" class="style2"><span class="style20">BLOG DO AUG</span> <br>
+                                  <span class="style7"><a href="../blog.htm"><img src="../images/blog.jpg" width="144" height="108" border="0"></a></span>                                <br>
+                                  <span class="style7"><a href="../blog.htm"><font color="FFFFFF">Acompanhe o dia-a-dia d</font></a></span><span class="style12"><a href="../blog.htm"><font color="FFFFFF">o Adote um Gatinho e deixe seu coment&aacute;rio!</font></a></span></div></td>
+                            </tr>
+                            <tr>
+                              <td valign="top" class="style6"><hr align="center" size="1" noshade class="style6"></td>
+                            </tr>
+                      
+                            <tr>
+                              <th valign="top" class="style14"><div align="center"><span class="style20">NOT&Iacute;CIAS</span><br>
+                                  <br>
+                                  <a href="../boletins.htm" class="style14">Confira o mais recente boletim do Adote um Gatinho</a><br>                                
+                                  <br>
+                                  <a href="../boletins.htm"><img src="../images/lateral_boletim.jpg" width="144" height="108" border="0"></a>                                  <br>
+                                  <br>
+                                  Quer receber as not&iacute;cias por email ? Preencha os campos abaixo: </div>                             
+                                    
+                                  <div align="center">
+<form method="post" action="http://www18.locaweb.com.br/scripts/FormMail.pl">       <input type=HIDDEN name="recipient" value="newsletter@adoteumgatinho.org.br">
+       <input type=HIDDEN name="redirect" value="http://www.adoteumgatinho.org.br/ok.htm">
+       <input type=HIDDEN name="subject" value="Newsletter">
+        <table width="135" border="0" cellpadding="0" cellspacing="5">
+           <tr class="style2">
+            <td height="19" width="48%" valign="top" class="style14"><b>Nome: </b>            </td>
+            <td height="19" width="52%" valign="top" class="tiny">
+            <input type="text" name="nome" size="10">            </td>
+           </tr>
+           <tr class="style2">
+            <td height="19" width="48%" valign="top" class="style14"><b>E-mail: </b>            </td>
+            <td height="19" width="52%" valign="top" class="tiny">
+            <input type="text" name="email" size="10">            </td>
+           </tr>
+           <tr class="style2">
+            <td height="19" colspan="2" valign="top" class="tiny"><b>&nbsp; </b> 
+              <input name="Submit" type="submit" class="style12" 
+  value="Enviar">
+              <input name="Reset" type="reset" class="style12" value="Limpar">            </td>
+            </tr>
+              </table>
+                              </form></th>
+                            </tr>
+                            <tr>
+                              <th valign="top" class="style14"><hr align="center" size="1" noshade class="style6"></th>
+                            </tr>
+                            <tr>
+                              <th valign="top" class="style14"><div align="center"><span class="style20"><br>
+                                  M&Iacute;DIA</span><br>
+                                      <a href="../midia.htm"><img src="../images/lateral_midia.jpg" width="144" height="108" border="0"></a>                                <br>
+                                      <a href="../midia.htm"><font color=#FFFFFF>Confira as mat&eacute;rias j&aacute; publicadas sobre o Adote um Gatinho</font> </a></div></th>
+                            </tr>
+                            <tr>
+                              <th valign="top" class="style14"><hr align="center" size="1" noshade class="style6"></th>
+                            </tr>
+                            <tr>
+                              <th valign="top" class="style14"><div align="center"><span class="style20"><br>
+                                  ORKUT</span><br>
+                                  <a href="http://www.orkut.com/Community.aspx?cmm=55124" target="_blank"><img src="../images/lateral_orkut.jpg" width="144" height="108" border="0"></a>                                <br>
+                                    <a href="http://www.orkut.com/Community.aspx?cmm=55124" target="_blank"><font color="FFFFFF">Nossa comunidade no Orkut n&atilde;o p&aacute;ra de crescer. Voc&ecirc; ainda n&atilde;o faz parte?</font> </a></div></th>
+                            </tr>
+                            <tr>
+                              <th valign="top" class="style14"><hr align="center" size="1" noshade class="style6"></th>
+                            </tr>
+                            <tr>
+                              <th height="196" valign="top" class="style14"><div align="center"><span class="style20"><br>
+                                  QUEM SOMOS</span><br>
+                                    <a href="../somos.htm"><img src="../images/lateral_somos.jpg" width="144" height="108" border="0"></a>                                <a href="../somos.htm"><font color="FFFFFF">Conhe&ccedil;a a hist&oacute;ria do Adote um Gatinho e quem est&aacute; por tr&aacute;s deste trabalho </font></a></div></th>
+                            </tr>
+                         
+                            <tr>
+                              <th valign="top" class="style14"><hr align="center" size="1" noshade class="style6"></th>
+                            </tr>
+                          </table>
+                        </center>
+                    </div></td>
+                  </tr>
+                  <tr>
+                    <td width="79%" bgcolor="#F4F4F4" valign="top">                      <p align="left" class="tiny"><br>
+                          <br>
+                          </p></td>
+                    <td width="21%" bgcolor="#F4F4F4">&nbsp; </td>
+                  </tr>
+
+                </table></td>
+            </tr>
+            <tr>
+              <td colspan="3"><hr color="#9900FF" size="1"></td>
+            </tr>
+            <tr>
+              <td colspan="3" bgcolor="#9900FF">
+                <p class="tinywhite" align="center"><b><br>
+                    <span class="style1 style12">© Adote um Gatinho - 2003/2007 - Todos os Direitos Reservados</span><br>
+&nbsp;</b></td>
+            </tr>
+        </table></td>
+      </tr>
+    </table>
+  </center>
+</div>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-3360136-1";
+urchinTracker();
+</script>
+
+</body>
+
+</html>

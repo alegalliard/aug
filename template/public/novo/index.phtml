@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="pt">
+<!-- # # # # # # # # # # # #
+    NOVO INDEX
+ # # # # # # # # # # # # # # # #-->
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+		<link rel="shortcut icon" href="<?php echo HOST;?>favicon.png" type="image/png" />
+        <meta name="theme-color" content="#fa9319">
+		<title><?php echo SITE_NAME;?></title>
+		
+
+		<?php if($this->og):?>
+			<meta property="og:title" content="<?php echo $this->og->title;?>" />
+			<meta property="og:description" content="<?php echo strip_tags($this->og->description);?>" />
+			<meta property="og:image" content="<?php echo $this->og->img;?>" />
+			<meta property="og:url" content="<?php echo HOST.URI;?>" />
+			<meta property="og:type" content="website" />
+		<?php endif;?>
+        <link rel="stylesheet" href="<?php echo HOST;?>__novo/css/stylesheets/screen.css" />
+       <script src="<?php echo HOST;?>js/jquery.min.js"></script>
+	</head>
+	<body>
+<!--
+    
+		<div id="fb-root"></div>
+                <script>(function(d, s, id) {
+                  var js, fjs = d.getElementsByTagName(s)[0];
+                  if (d.getElementById(id)) return;
+                  js = d.createElement(s); js.id = id;
+                  js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=281099021901939";
+                  fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script>
+-->
+                
+                
+            <!-- # # # # # # # # # # # # # # 
+    Header
+# # # # # # # # # # # # # # -->
+    <header class="row m-b-0 border_b_orange" id="head">
+        <div class="col s4 m6 l7 offset-l1">
+            <a id="logo" href="<?php echo HOST;?>index2">
+                <div class="logo-icon"></div>
+                <div class="logotype hide-on-small-and-down" title="<?php echo SITE_NAME;?>"></div>
+            </a>
+        </div>
+        
+        <div class="col s8 m6 l4">
+<!--           Ícones-->
+            <ul class="col s10 nav right upper" id="nav-menu">
+               <li class="hide-on-large-only top_search" id="top_search">
+                   <form class="relative search_container"  action="<?php echo HOST;?>buscar2" method="get">
+                    <input type="search" name="q" id="busca" class="col s9 search_field">
+                    <button type="submit" class="col s3 float_submit" id="botao_busca"><i class="icon-grey ic-zoom m-l-10"></i></button>
+                </form>
+               </li>
+               
+                <li class="relative right m-t-3" id="open_menu"><a href="#" class="grey-text"><i class="icon-grey ic-list"></i> <span class="hide-on-med-and-down">Menu</span></a>
+                    <menu id="menu" class="right">
+                        <ul>
+                            <li><a href="<?php echo HOST;?>sobre">A ONG</a></li>
+                            <li><a href="<?php echo HOST;?>quero-adotar2?version=2">Quero adotar</a></li>
+                            <li><a href="<?php echo HOST;?>adocoes-especiais2">Adoções especiais</a></li>
+                            <li><a href="<?php echo HOST;?>quero-ajudar-a-aug">Quero ajudar</a></li>
+                            <li><a href="<?php echo HOST;?>apadrinhamento2">Apadrinhamento</a></li>
+                            <li><a href="<?php echo HOST;?>resgate">Resgate</a></li>
+                            <li><a href="<?php echo HOST;?>gatos-adotados2">Gatos adotados</a></li>
+                            <li><a href="<?php echo HOST;?>prestacao-de-contas2/contas?year=2016">Prestação de contas</a></li>
+                            <li><a href="<?php echo HOST;?>aug-na-midia2">Na mídia</a></li>
+                            <li><a href="<?php echo HOST;?>boletins2">Boletim AUG</a></li>
+                            <li><a href="http://www.auglojinha.com.br/" target="_blank">Lojinha</a></li>
+                            <li><a href="<?php echo HOST;?>faq?version=2">FAQ</a></li>
+                            <li><a href="<?php echo HOST;?>parceiros-e-links?version=2">Parceiros</a></li>
+                            <li><a href="<?php echo HOST;?>contato?version=2">Contato</a></li>
+                          </ul> 
+                      </menu> 
+                </li>
+                <li class="hide-on-med-and-down right"><a href="<?php echo HOST;?>contato?version=2" class="icon-grey ic-email"></a></li>
+                <li class="hide-on-med-and-down right"><a href="#top_search" class="icon-grey ic-zoom" id="open_search"></a></li>
+            </ul>
+            <ul class="col s1 push-s1 nav m-t-3 m-b-3 hide-on-med-and-down" style="zoom: 80%;">
+                <li class="right">
+                <a href="http://www.facebook.com/adoteumgatinho" target="_blank" class="icon-grey ic-facebook"></a></li>
+                <li class="right">
+                <a href="https://www.instagram.com/adoteumgatinho/?hl=pt-br" target="_blank" class="icon-grey ic-instagram"></a></li>
+                <li class="right">
+                <a href="http://www.twitter.com/adoteumgatinho" class="icon-grey ic-twitter" target="_blank"></a> </li>
+            </ul>
+        </div>
+    </header>   
+
+               
+        
+                
+                
+    <!-- # # # # # # # # # # # # # # 
+    Content
+# # # # # # # # # # # # # # -->
+
+    <section class="home">
+        <div class="row">
+           <div class="col s10 offset-s1 offset-l6 l5 hide-on-med-and-down">
+                <h1 class="text-right h1">
+                    <span class="aug_blue">Nos ajude</span><br>
+                    <span class="aug_purple">a continuar ajudando ;-)</span>
+                    <span class="col s8 offset-s4 aug_purple text_13 text-right m-t-20" style="display:block; font-weight: 100;">Adoções somente para São Paulo e ABC (Santo André, São Bernardo e São Caetano do Sul)</span>                  
+                </h1><br>
+               
+            </div>
+            <menu class="col s9 m6 l6 offset-s2 offset-m5 offset-l5 upper">
+                <ul id="main-links">
+                    <span class="col s5 m5 offset-m1 bold hide-on-large-only aug_purple medium-title-home">Quero adotar</span>
+                    <li class="col s5 m5 l4">
+                        <a href="#call-quero-adotar" class="aug_purple" id="call-quero-adotar">
+                           <div class="container circle aug_purple_bg"><i class="icon-white ic-footprint"></i></div>
+                           <span class="flow-text bold hide-on-med-and-down" style="display: inline-block;">Quero adotar</span>
+                       </a>
+                       <ul class="links_box hide" id="call-quero-adotar">
+                            <li><a href="<?php echo HOST;?>gatinhos-para-adocao" class="aug_purple"><i class="icon-purple ic-cat-tooth"></i>Gatinhos para adoção</a></li>
+                            <li><a href="<?php echo HOST;?>adocoes-especiais2" class="aug_purple"><i class="icon-purple ic-looking-cat"></i>Adoções especiais</a></li>
+                            <li><a href="<?php echo HOST;?>como-adotar-um-gatinho" class="aug_purple"><i class="icone-adocao icon-purple icone-home"></i>Como adotar um gatinho?</a></li>
+                            <li><a href="<?php echo HOST;?>
+__novo/politica-de-adocao.html" class="aug_purple"><i class="icon-purple ic-ok-doc"></i>Política de adoção</a></li>
+                            <li><a href="<?php echo HOST;?>depoimentos2" class="aug_purple"><i class="icon-purple ic-letter"></i>Cartinhas</a></li>
+                            <li><a href="<?php echo HOST;?>quero-adotar2?version=2#Informacoes-importantes" class="aug_purple"><i class="icon-purple ic-info"></i>Informações importantes</a></li>
+                            
+                            <li class="hide-on-large-only">
+                                <button id="hide-sub" class="aug_purple_bg"><i class="icon-white ic-down"></i></button>
+                            </li>
+                        </ul>
+                    </li>
+                    <span class="col s5 m5 offset-m1 bold hide-on-large-only aug_blue medium-title-home" style="display: inline-block;">Quero ajudar</span>
+                    <li class="col s5 m5 l4">
+                      <a href="<?php echo HOST;?>quero-ajudar-a-aug" class="aug_blue">
+                           <div class="container circle aug_blue_bg"><i class="icon-white ic-heart-bigger"></i></div>
+                            <span class="flow-text bold hide-on-med-and-down" style="display: inline-block;">Quero ajudar</span>
+                        </a>
+                    </li>
+                    <span class="col s5 m5 offset-m1 bold hide-on-large-only aug_orange medium-title-home" style="display: inline-block;">Resgate</span>
+                    <li class="col s5 m5 l4 ">
+                      <a href="<?php echo HOST;?>resgate" class="aug_orange">
+                           <div class="container circle aug_orange_bg" style="display: block;"><i class="icon-white ic-question-big"></i></div>
+                            <span class="flow-text bold hide-on-med-and-down" style="display: inline-block;">Resgate</span>
+                        </a>
+                    </li>
+                </ul>
+            </menu>
+        </div>
+        
+        
+    </section>
+
+<!-- # # # # # # # # # # # # # # 
+    Elementos mobile
+# # # # # # # # # # # # # # -->         
+<nav class="hidden_menu hide-on-med-and-up">
+  
+   <form class="row relative" action="<?php echo HOST;?>buscar2" method="get">
+     <div class="col s12">
+         <button type="button" id="hide_menu"><i class="icon-white ic-arrow-right"></i></button>
+     </div>
+      <fieldset class="mob_search col s12">
+                <input type="search" name="q" placeholder="busca por termo" class="search_field">
+                <button type="submit"><i class="icon-white ic-zoom"></i></button>
+        </fieldset>
+   </form>
+    <ul>
+        <li><a href="<?php echo HOST;?>sobre">A ONG</a></li>
+        <li><a href="#">Quero adotar</a>
+            <ul>
+              <li><a href="<?php echo HOST;?>gatinhos-para-adocao" class="aug_blue">Gatinhos para adoção</a></li>
+                <li><a href="<?php echo HOST;?>adocoes-especiais2" class="aug_blue">Adoções especiais</a></li>
+                <li><a href="<?php echo HOST;?>como-adotar-um-gatinho" class="aug_blue">Como faço para adotar um gatinho?</a></li>
+                <li><a href="<?php echo HOST;?>
+__novo/politica-de-adocao.html" class="aug_blue">Política de adoção</a></li>
+                <li><a href="<?php echo HOST;?>cartinhas2" class="aug_blue">Cartinhas</a></li>
+                <li><a href="<?php echo HOST;?>quero-adotar2?version=2#Informacoes-importantes" class="aug_blue">Informações importantes</a></li>
+            </ul>
+        </li>
+        <li><a href="<?php echo HOST;?>quero-ajudar-a-aug">Quero ajudar</a></li>
+        <li><a href="<?php echo HOST;?>apadrinhamento2">Apadrinhamento</a></li>
+        <li><a href="<?php echo HOST;?>rescue">Resgate</a></li>
+        <li><a href="<?php echo HOST;?>gatos-adotados2">Gatos adotados</a></li>
+        <li><a href="<?php echo HOST;?>prestacao-de-contas2/contas?year=2016">Prestação de contas</a></li>
+        <li><a href="<?php echo HOST;?>aug-na-midia2">Na mídia</a></li>
+        <li><a href="<?php echo HOST;?>boletins2">Boletim AUG</a></li>
+        <li><a href="http://www.auglojinha.com.br/" target="_blank">Lojinha</a></li>
+        <li><a href="<?php echo HOST;?>faq?version=2">FAQ</a></li>
+        <li><a href="<?php echo HOST;?>parceiros-e-links?version=2">Parceiros</a></li>
+        <li><a href="<?php echo HOST;?>contato?version=2">Contato</a></li>
+    </ul>
+</nav> 
+   
+   <style>
+       #breadcrumb, .row.border_b_purple{
+           display: none
+       }
+        
+    </style>
+
+<!--      Carrega os gatos-->
+       <?php //$this->loadViewContent(); ?>
+  
+    
+
+<!-- # # # # # # # # # # # # # # 
+    Footer
+# # # # # # # # # # # # # # -->
+<footer id="footer">
+   <section class="row grey m-b-0">
+<!--       bloco 1-->
+        <div class="col s12 m6 l3 offset-l1 hide-on-small-only">
+            <strong>Adote um gatinho</strong>
+            <p class="block-box">O Adote um Gatinho busca lares para gatos encontrados abandonados na Grande São Paulo e também trabalha para conscientizar as pessoas sobre a importância da castração e posse responsável.</p>
+        </div>
+
+
+<!--bloco 2-->
+       <menu class="col s12 m6 l4 hide-on-small-only">
+            <strong>Menu</strong>
+            <div class="col s6">
+                <ul class="block-box">
+                    <li><a href="<?php echo HOST;?>sobre">A ONG</a></li>
+                    <li><a href="<?php echo HOST;?>quero-adotar2?version=2">Quero adotar</a></li>
+                    <li><a href="<?php echo HOST;?>quero-ajudar-a-aug">Quero ajudar</a></li>
+                    <li><a href="<?php echo HOST;?>resgate">Resgate</a></li>
+                    <li><a href="<?php echo HOST;?>gatos-adotados2">Gatos adotados</a></li>
+                    <li><a href="<?php echo HOST;?>prestacao-de-contas2/contas?year=2016">Prestação de contas</a></li>
+                </ul>
+            </div>
+            
+            <div class="col s4">
+                <ul class="block-box">
+                    <li><a href="<?php echo HOST;?>aug-na-midia2">Na mídia</a></li>
+                    <li><a href="<?php echo HOST;?>boletins2">Boletim AUG</a></li>
+                    <li><a href="http://www.auglojinha.com.br/" target="_blank">Lojinha</a></li>
+                    <li><a href="<?php echo HOST;?>faq?version=2">FAQ</a></li>
+                    <li><a href="<?php echo HOST;?>parceiros-e-links?version=2">Parceiros</a></li>
+                    <li><a href="<?php echo HOST;?>contato?version=2">Contato</a></li>
+                </ul>
+            </div>
+        </menu>
+
+
+<!--Bloco 3-->
+        <fieldset class="col s12 m12 l4">
+           <strong class="hide-on-small-only">Siga o AUG</strong>
+            <nav id="redes" class="col s12">
+                <a href="http://www.facebook.com/adoteumgatinho" target="_blank" class="icon-white ic-facebook"></a>
+                <a href="https://www.instagram.com/adoteumgatinho/?hl=pt-br" target="_blank" class="icon-white ic-instagram"></a>
+                <a href="http://www.twitter.com/adoteumgatinho" class="icon-white ic-twitter" target="_blank"></a>
+            </nav>
+
+            <strong>Receba nossa newsletter</strong>
+            <form class="block-box" method="post" id="newsletter-signup-form" action="<?php echo HOST;?>cadastre-se2/confirmar">
+                <div class="col s12 clear">
+                    <input type="text" name="name" id="name" placeholder="Nome">
+                    <input type="email"  name="email" id="email" placeholder="E-mail">
+                    <button type="submit" class="icon-white ic-arrow-right"></button>
+                </div>
+            </form>            
+        </fieldset>
+    </section>
+
+
+
+    <div class="row upper grey darken-2 m-b-0 cancel-margin-40">
+        <div class="col s8">
+            2013 ~ 2015 - Adote um gatinho. Todos os direitos reservados.
+        </div>
+        <div class="col s4">
+            Design by Elemento
+        </div>
+    </div>
+</footer>      
+                
+                
+<!--
+                
+<div class="fb-like" data-href="<?php echo HOST;?>" data-layout="button_count" data-send="false" data-width="120" data-show-faces="false"></div>
+                                                       
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="<?php echo HOST;?>" data-count="horizontal">Tweet</a>
+                                                        
+							<form method="get" action="<?php echo HOST;?>buscar">
+								<input type="text" name="q" />
+								<button>Buscar</button>
+							</form>
+						</div>
+
+				<div id="slider-wrapper" style="margin-left: 15px;">
+					<div id="nivoslider">
+
+
+						<?php
+							Phalanx::loadClasses('BillBoard');
+							$billboards = BillBoard::get();
+							foreach($billboards as $billboard):?>
+							<?php if($billboard->link != ''):?><a href="<?php echo $billboard->link;?>" target="_blank"><?php endif;?>
+								<img src="<?php echo MEDIA_DIR.'uploads/billboards/'.$billboard->image;?>" />
+							<?php if($billboard->link != ''):?></a><?php endif;?>	
+						<?php endforeach;?>
+					</div>
+				</div>
+				<div class="rounded"  style="margin-left: 15px;">
+					<span><a href="<?php echo HOST;?>cadastre-se">ACOMPANHE O NOSSO TRABALHO: Receba os boletins do AUG no seu email</a></span>
+				</div>
+				
+					<div class="fb-send" data-href="<?php echo HOST;?>"></div>
+					<iframe allowtransparency="true" frameborder="0" scrolling="no" src="//platform.twitter.com/widgets/tweet_button.html" style="background:#C00; width:100px; height:21px; margin: 0 0 -5px 5px;"></iframe>
+				</div>
+				<div class="clear"></div>
+				<?php //$this->loadViewContent();?>
+			</div>
+                        <style>
+                            .connect_widget_not_connected_text { display: none !important; }
+                        </style>
+				<div class="clear"></div>
+				<?php //$this->loadViewContent();?>
+			</div>
+		</div>
+		<div id="footer">
+			<div>
+				<ul id="theme-switcher">
+					<li><a href="javascript:void(0);" rel="orange">Laranja</a></li>
+					<li><a href="javascript:void(0);" rel="green" style="background-position: -20px 0px;">Verde</a></li>
+					<li><a href="javascript:void(0);" rel="purple" style="background-position: -39px 0px;">Roxo</a></li>
+				</ul>
+				<ul id="social-networks">
+					<li><a href="http://www.orkut.com.br/Community?cmm=55124">Orkut</a></li>
+					<li><a href="http://www.twitter.com/adoteumgatinho" style="background-position: -30px -1px;">Twitter</a></li>
+					<li><a href="http://www.facebook.com/adoteumgatinho" style="background-position: -59px -1px;">Facebook</a></li>
+				</ul>
+			</div>
+			<div>
+				<ul id="footer-links">
+					<li><a href="<?php echo HOST;?>quem-somos">Quem somos</a></li>
+					<li><a href="<?php echo HOST;?>aug-na-midia">AUG na mídia</a></li>
+					<li><a href="<?php echo HOST;?>parceiros-e-links">Parceiros e Links</a></li>
+					<li><a href="<?php echo HOST;?>contato">Contato</a></li>
+					<li><a href="<?php echo HOST;?>faq">Faq</a></li>
+					<li><a href="<?php echo HOST;?>english-version">English Version</a></li>
+				</ul>
+			</div>
+			<div style="font-size: 10px !important;">&copy; 2003 ~ <?php echo date('Y');?> Adote um Gatinho. Todos os Direitos Reservados.</div>
+		</div>
+
+	
+-->
+        
+        <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-3360136-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+        </script>
+        
+
+<!--<script src="<?php echo HOST;?>__novo/bower_components\materialize\dist\js/materialize.min.js"></script>-->
+   <script src="<?php echo HOST;?>__novo/bower_components/materialize/js/collapsible.js"></script>
+    <script src="<?php echo HOST;?>__novo/js/_main.js"></script>
+</body>
+</html>

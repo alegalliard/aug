@@ -1,0 +1,45 @@
+<h2>Voluntários</h2>
+
+<p><a href="<?php echo HOST;?>adm/usuarios/adicionar/">Adicionar voluntário</a></p>
+
+<table width="100%" border="1">
+    <thead>
+        <tr>
+            <th width="12%"></th>
+            <th>Nome</th>
+            <th width="18%">Qtde de Gatos</th>
+            <th>Nível</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($this->data as $row):?>
+        <tr>
+            <td align="center">
+                <?php if($row->login != 'SysAdmin'):?>
+                <a href="<?php echo HOST;?>adm/usuarios/editar/<?php echo $row->id;?>" class="edit-item" title="editar">EDITAR</a>
+                <?php endif;?>
+                <?php if(sizeof($this->data) > 1 and $row->login != 'SysAdmin'):?>
+                <a href="<?php echo HOST;?>adm/usuarios/remover/<?php echo $row->id;?>" class="remove-item" title="remover">REMOVER</a>
+                <?php endif;?>
+            </td>
+            <td><?php echo $row->login;?></td>
+            <td align="right"><?php echo $row->cat_qtty;?></td>
+            <td align="right"><?php 
+                switch($row->level){
+                    case 0:
+                        echo "Administrador";
+                    break;
+                    case 1:
+                        echo "Apadrinhamento";
+                    break;
+                    case 2:
+                        echo "Apadrinhamento";
+                    break;
+                    default: echo "Sem permissões";
+                }
+                
+                ?></td>
+        </tr>
+        <?php endforeach;?>
+    </tbody>
+</table>

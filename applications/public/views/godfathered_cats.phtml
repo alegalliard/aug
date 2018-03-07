@@ -1,0 +1,127 @@
+<?php 
+$breadColor = 'blue';
+$breadPaths = array();
+$lastPath = 'Apadrinhamento';
+include('top.phtml'); 
+
+?>
+   
+
+   <section class="row container" id="news">
+    <article id="dynamic-content" class="col s12">
+        
+    <h1 class="h1 bold aug_blue upper m-b-0">Apadrinhamento</h1>
+  
+        <h2 class="italic aug_blue text-center bold">Há dezenas de gatos no Adote um Gatinho com poucas ou nenhuma chance de adoção. Ao se tornar madrinha ou padrinho de um desses gatinhos, você ajudará a sustenta-los e permitirá que a ONG continue resgatando novos animais das ruas.</h2>
+
+    <article class="col s12 l4">
+        <div class="heading upper aug_blue_bg white-text bold m-t-20" style="padding: 2px 15px; display: inline-block;">Passo 1</div>
+        <h2 class="bold" style="margin-top: 13px;">ESCOLHER O SEU AFILHADO</h2>
+
+        <p>Alguns gatinhos da ONG podem ser apadrinhados, ou seja, terem madrinhas e padrinhos que os sustentem, arquem com sua ração, areia, remédios, vacinas anuais e eventuais tratamentos/internações. Você pode escolher um ou mais deles no final desta página e nas páginas a seguir.</p>
+    </article>
+
+    <article class="col s12 l5">
+        <div class="heading upper aug_blue_bg white-text bold m-t-20" style="padding: 2px 15px; display: inline-block;">Passo 2</div>
+        <h2 class="bold"  style="margin-top: 13px;">DEFINIR O ORÇAMENTO</h2>
+        <ul>
+            <li>O valor mínimo da doação mensal é de R$ 40.</li>
+            <li>Doando R$ 40 por mês você apadrinha 1 gatinho;</li>
+            <li>Doando de R$ 75 ou R$ 90 por mês você apadrinha 2 gatinhos;</li>
+            <li>Doando R$ 120 ou qualquer valor acima,você apadrinha 3 gatinhos.</li>
+            <li>Atenção: o número máximo de gatinhos apadrinhados por pessoa é de 3!</li>
+        </ul>
+    </article>
+    <article class="col s12 l3 m-b-10">
+        <div class="heading upper aug_blue_bg white-text bold m-t-20" style="padding: 2px 15px; display: inline-block;">Passo 3</div>
+        <h2 class="bold"  style="margin-top: 13px;">PREENCHER O FORMULÁRIO MANIFESTANDO INTERESSE</h2>
+        <p>Preencha o formulário a seguir caso você deseje se tornar madrinha ou padrinho de um ou mais gatinhos. Entre em contato com você ao recebermos as suas respostas.</p>
+    </article>
+    
+        <div class="col s12 m5 m-t-0">
+            <h3 class="bold">Os depósitos podem ser feitos:</h3>
+            <ul>
+                <li>
+                    <strong>Em uma das contas do Adote um Gatinho:</strong> <br>
+
+                    Itaú (341) - agência 2970- conta corrente 12869-6 <br>
+                    Bradesco (237) - agência 3334 - conta corrente 6253-7 <br>
+                    Razão Social: Adote um Gatinho <br>
+                    CNPJ: 08.858.329/0001-08
+                </li>
+                <li>
+                    <strong>Pelo Pag Seguro do UOL (pagamentos com cartão de crédito, transferências bancárias para outros bancos e emissão de boletos)</strong>
+                    <form action="https://pagseguro.uol.com.br/checkout/v2/donation.html" method="post" target="pagseguro">
+                    <input type="hidden" name="receiverEmail" value="susan@adoteumgatinho.org.br" /> 
+                    <input type="hidden" name="currency" value="BRL" /> 
+                    <input type="image" name="submit" src="https://p.simg.uol.com.br/out/pagseguro/i/botoes/doacoes/94x52-doar-assina.gif" alt="Pague com PagSeguro - &eacute; r&aacute;pido, gr&aacute;tis e seguro!" />
+                </form>
+                </li>
+                <li>
+                   <strong>Por boleto bancário (solicite o seu para valores acima de R$150,00)</strong>
+                </li>
+            </ul>
+
+           
+        </div>
+   
+       <div class="card white card-wrapper m-b-20 m-t-10 col s12 m6 offset-m1" align="center" style="padding: 3rem;">
+            <span class="card-title aug_blue bold text_15 m-b-10 upper" style="background-color: transparent; text-shadow: none;">Importante</span>
+            <p class="m-t-10">Os depósitos não vêm identificados com nome do depositante e nós não conseguimos indentificar o doador. Para que possamos identificar a sua doação é preciso que informe para <a class="aug_blue truncate" href="mailto:apadrinhamento@adoteumgatinho.org.br">apadrinhamento@adoteumgatinho.org.br</a> o valor, data e hora que em fez o depósito, ou então, nos enviar uma cópia do comprovante. Assim que você fizer a sua primeira doação, seu nome aparecerá no site, como madrinha ou padrinho do gato escolhido.</p>
+            <p>Mandamos cartinhas dos afilhados com fotos a cada 2 meses, assim você acompanha a vida do seu gatinho!</p>
+
+            <p class="bold aug_blue m-t-10">POR FAVOR: SÓ VIRE MADRINHA OU PADRINHO SE PUDER CONTRIBUIR COM REGULARIDADE.</p>
+
+        </div>
+
+        <div class="col s12 text-right"><a class="bt bt_blue right bold upper m-t-10" style="color:white!important; display: inline-block;" href="<?php echo HOST;?>apadrinhamento/cadastro">Preencher Cadastro</a></div>
+    <!-- </article> -->
+</section>    
+
+
+
+<div class="itens row container-large m-b-0"></div>
+<div id="loadmoreajaxloader"></div>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    
+    var opened = false;
+
+    call();
+    
+    function call()
+    {
+        
+        if(!opened)
+        {
+            opened = true;
+
+            $('div#loadmoreajaxloader').show();
+
+            $.ajax({
+                cache: false,
+                async: false,
+                url: "godfathered",
+                success: function(data)
+                {
+                    if(data)
+                    {
+                        $(".itens").append(data);
+                    }
+
+                    $('div#loadmoreajaxloader').hide();
+            
+                    
+                }
+            });
+        }
+    }
+    
+    call();
+    
+    $('.modal-trigger').leanModal();
+
+});
+</script>
