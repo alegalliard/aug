@@ -21,7 +21,12 @@
 			<tr>
 				<td align="center">
 					<a href="<?php echo HOST;?>adm/paginas/editar/<?php echo $row->id;?>" class="edit-item" title="editar">EDITAR</a>
-					<a href="<?php echo HOST.$row->slug;?>" class="show-details" title="Visualizar" target="_blank">VISUALIZAR</a>
+					<?php if(!empty($row->alias)) { ?>
+							<a href="<?php echo HOST. $row->alias;?>" class="show-details" title="Visualizar" target="_blank">VISUALIZAR</a>
+					<?php } else { ?>
+						<a href="<?php echo HOST.$row->slug;?>" class="show-details" title="Visualizar" target="_blank">VISUALIZAR</a>
+					<?php } ?>
+
 					<a href="<?php echo HOST;?>adm/paginas/remover/<?php echo $row->id;?>" class="remove-item" title="editar">REMOVER</a>
 
 					<!-- <?php if($row->inactive === 0) { ?>
@@ -36,7 +41,7 @@
         <td><a href="<?php echo HOST . '/'.$row->slug; ?>" target="_blank"><?php echo $row->slug;?></a></td>
 				<td>
 					<?php if(!empty($row->alias)) { ?>
-							<a class="break" href="<?php echo HOST. $row->alias;?><?php echo $row->id;?>" target="_blank">
+							<a class="break" href="<?php echo HOST. $row->alias;?>" target="_blank">
 								<?php echo $row->alias ?>
 							</a>
 					<?php } ?>
