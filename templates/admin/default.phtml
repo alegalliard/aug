@@ -1,11 +1,11 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
     <head>
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-        
+
         <title><?php echo SITE_NAME;?></title>
-        
+
         <script type="text/javascript">var HOST="<?php echo HOST;?>";</script>
         <script type="text/javascript" src="<?php echo MEDIA_DIR;?>tiny_mce/tiny_mce.js"></script>
         <script type="text/javascript" src="<?php echo MEDIA_DIR;?>tiny_mce/langs/pt.js"></script>
@@ -15,7 +15,7 @@
         <script type="text/javascript" src="<?php echo MEDIA_DIR;?>scripts/jquery.mask.js"></script>
         <script type="text/javascript" src="<?php echo MEDIA_DIR;?>scripts/jquery.validate.js"></script>
         <script type="text/javascript" src="<?php echo MEDIA_DIR;?>fancybox/jquery.fancybox-1.3.4.js"></script>
-        
+
         <link href="<?php echo MEDIA_DIR;?>styles/adm/admin.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo MEDIA_DIR;?>styles/adm/jquery.tipsy.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo MEDIA_DIR;?>styles/jquery-ui/jquery-ui-1.8.17.custom.css" rel="stylesheet" type="text/css" />
@@ -23,7 +23,7 @@
     </head>
 
 <body>
-        
+
     <div id="loading-screen">
         <div id="loader-background"></div>
         <div id="loader-message">
@@ -32,7 +32,7 @@
             <img src="<?php echo MEDIA_DIR;?>images/adm/loading.gif" alt="Carregando..." />
         </div>
     </div>
-        
+
     <div id="_container">
         <div id="_topo">
             <div id="_titulo">
@@ -48,17 +48,22 @@
                 <div class="menu_icon" id="home_menu"></div>
                 <span>Home</span>
             </a>
-            
+
             <a class="menu_item" href="<?php echo HOST;?>adm/padrinhos/all">
                 <div class="menu_icon" id="godfather_menu"></div>
                 <span>Padrinhos</span>
             </a>
-            
+
+            <a class="menu_item" href="<?php echo HOST;?>adm/empresas">
+                <div class="menu_icon" id="company_menu"></div>
+                <span>Empresas parceiras</span>
+            </a>
+
             <a class="menu_item" href="<?php echo HOST;?>adm/gatos/all">
                 <div class="menu_icon" id="cats_menu"></div>
                 <span>Gatos</span>
             </a>
-            
+
             <a class="menu_item" href="<?php echo HOST;?>adm/gatos/adicionar">
                 <div class="sub_menu_icon"></div>
                 <span>Adicionar</span>
@@ -68,12 +73,12 @@
                 <div class="sub_menu_icon"></div>
                 <span>P/ Adoção</span>
             </a>
-            
+
             <a class="menu_item" href="<?php echo HOST;?>adm/gatos/adotados">
                 <div class="sub_menu_icon"></div>
                 <span>Adotados</span>
             </a>
-            
+
             <a class="menu_item" href="<?php echo HOST;?>adm/gatos/reservas">
                 <div class="sub_menu_icon"></div>
                 <span>Reservados</span>
@@ -88,93 +93,93 @@
                 <div class="sub_menu_icon" id="reorder-cats-menu"></div>
                 <span>Gatos</span>
             </a>
-            
+
             <a class="menu_item" href="<?php echo HOST;?>adm/gatos/reordenar-apadrinhados">
                 <div class="sub_menu_icon" id="reorder-cats-menu"></div>
                 <span>Apadrinhados</span>
             </a>
-            
+
             <a class="menu_item" href="<?php echo HOST;?>adm/gatos/desativados">
                 <div class="sub_menu_icon"></div>
                 <span>Desativados</span>
             </a>
-            
+
             <a class="menu_item" href="<?php echo HOST;?>adm/paginas/">
                 <div class="menu_icon" id="pages_menu"></div>
                 <span>Páginas</span>
             </a>
-            
+
             <a class="menu_item" href="<?php echo HOST;?>adm/paginas/adicionar">
                 <div class="sub_menu_icon"></div>
                 <span>Adicionar</span>
             </a>
-            
+
             <a class="menu_item" href="<?php echo HOST;?>adm/destaques/">
                 <div class="menu_icon" id="billboard_menu"></div>
                 <span>Destaques</span>
             </a>
-            
+
             <a class="menu_item" href="<?php echo HOST;?>adm/newsletter/">
                 <div class="menu_icon" id="newsletter_menu"></div>
                 <span>Newsletter</span>
             </a>
-            
+
             <a class="menu_item" href="<?php echo HOST;?>adm/newsletter/extrair-relatorio" target="_blank">
                 <div class="sub_menu_icon"></div>
                 <span>Extrair relatório</span>
             </a>
-            
+
             <a class="menu_item" href="<?php echo HOST;?>adm/depoimentos/">
                 <div class="menu_icon" id="testimonials_menu"></div>
                 <span>Depoimentos</span>
             </a>
-            
+
             <a class="menu_item" href="<?php echo HOST;?>adm/depoimentos/adicionar">
                 <div class="sub_menu_icon"></div>
                 <span>Adicionar</span>
             </a>
-            
+
             <a class="menu_item" href="<?php echo HOST;?>adm/materias/">
                 <div class="menu_icon" id="news_menu"></div>
                 <span>Matérias</span>
             </a>
-            
+
             <a class="menu_item" href="<?php echo HOST;?>adm/materias/adicionar">
                 <div class="sub_menu_icon"></div>
                 <span>Adicionar</span>
             </a>
-            
+
             <a class="menu_item" href="<?php echo HOST;?>adm/aug-na-midia/">
                 <div class="menu_icon" id="aug-na-midia-menu"></div>
                 <span>AUG na Mídia</span>
             </a>
-            
+
             <a class="menu_item" href="<?php echo HOST;?>adm/aug-na-midia/adicionar">
                 <div class="sub_menu_icon"></div>
                 <span>Adicionar</span>
             </a>
-            
+
             <a class="menu_item" href="<?php echo HOST;?>adm/boletins/">
                 <div class="menu_icon" id="boletins-menu"></div>
                 <span>Boletins</span>
             </a>
-            
+
             <a class="menu_item" href="<?php echo HOST;?>adm/boletins/adicionar">
                 <div class="sub_menu_icon"></div>
                 <span>Adicionar</span>
             </a>
-            
+
             <a class="menu_item" href="<?php echo HOST;?>adm/prestacao-de-contas">
                 <div class="menu_icon" id="accounting_menu"></div>
                 <span>Prestação de contas</span>
             </a>
-            
+
             <a class="menu_item" href="<?php echo HOST;?>adm/usuarios/">
                 <div class="menu_icon" id="users_menu"></div>
                 <span>Voluntários</span>
             </a>
         </div>
-            
+
         <div id="content">
             <?php $this->loadViewContent();?>
         </div>

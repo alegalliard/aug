@@ -7,12 +7,12 @@ class CatsController extends Controller {
     * 0 - Disponível
     * 1 - Reservado
     * 2 - Adotado
-    /* 
+    /*
     * Section:
     * 1 - Para adoção
     * 2 - Para apadrinhamento
     */
-    
+
     private $views;
     private $post;
     private $get;
@@ -31,43 +31,43 @@ class CatsController extends Controller {
         define("PERMISSIONS", $this->session->user->level);
 
         Phalanx::loadClasses('Cats');
-        
+
     }
 
     public function show()
     {
         if (!$this->get->page) Request::redirect(HOST . 'adm/gatos/all/1');
-        
-        
 
-        
+
+
+
         $this->views = new Views(new Template("admin"));
         $this->views->total_pages  = Cats::get_pages("cats", "inactive=0");
         $this->views->current_page = isset($this->get->page) ? $this->get->page : 1;
         $this->views->title  = "Gatos (Todos)";
         $this->views->search = $this->post->search;
         $this->views->order  = $this->post->order;
-        
+
         $parameters = "inactive=0 AND (name LIKE '%{$this->post->search}%' OR id LIKE '%{$this->post->search}%')";
-        
+
         $this->views->data = Cats::get($parameters, $this->views->current_page, $this->post->order);
-        
+
         $this->views->display('cats_list.phtml');
     }
 
     public function form()
-    {        
+    {
         Phalanx::loadClasses('Users');
         Phalanx::loadClasses('Godfather');
-        
-        $this->views = new Views(new Template("admin"));     
-        
+
+        $this->views = new Views(new Template("admin"));
+
 
 
         if(isset($this->get->cat_id))
         {
             $this->views->data  = Cats::get_details($this->get->cat_id);
-            $this->views->title = "Gatos (Editando Registro)";	
+            $this->views->title = "Gatos (Editando Registro)";
         } else {
             $this->views->title = "Gatos (Adicionar)";
 
@@ -83,49 +83,49 @@ class CatsController extends Controller {
 
     public function save()
     {
-        
+
         if(isset($this->files->cat_picture->name) and $this->files->cat_picture->name != '')
         {
             $dirname  = UPLOAD_DIR . 'cats' . SEPW;
             $filename = md5(uniqid(rand(), TRUE)).'.'.end(explode('.', $this->files->cat_picture->name));
 
             //if(! is_dir($dirname)) mkdir($dirname, 0777, true);
-            
-            move_uploaded_file($this->files->cat_picture->tmp_name, $dirname.$filename);	
+
+            move_uploaded_file($this->files->cat_picture->tmp_name, $dirname.$filename);
         }
 
         if(isset($this->files->cat_picture_2->name) and $this->files->cat_picture_2->name != '')
         {
             $dirname   = UPLOAD_DIR . 'cats' . SEPW;
             $filename2 = md5(uniqid(rand(), TRUE)).'.'.end(explode('.', $this->files->cat_picture_2->name));
-            
+
             //if(! is_dir($dirname)) mkdir($dirname, 0777, true);
-            
-            move_uploaded_file($this->files->cat_picture_2->tmp_name, $dirname.$filename2);	
+
+            move_uploaded_file($this->files->cat_picture_2->tmp_name, $dirname.$filename2);
         }
 
         if(isset($this->files->cat_picture_3->name) and $this->files->cat_picture_3->name != '')
         {
             $dirname   = UPLOAD_DIR . 'cats' . SEPW;
             $filename3 = md5(uniqid(rand(), TRUE)).'.'.end(explode('.', $this->files->cat_picture_3->name));
-            
+
             //if(! is_dir($dirname)) mkdir($dirname, 0777, true);
-            
-            move_uploaded_file($this->files->cat_picture_3->tmp_name, $dirname.$filename3);	
+
+            move_uploaded_file($this->files->cat_picture_3->tmp_name, $dirname.$filename3);
         }
 
         if(isset($this->files->cat_picture_4->name) and $this->files->cat_picture_4->name != '')
         {
             $dirname   = UPLOAD_DIR . 'cats' . SEPW;
             $filename4 = md5(uniqid(rand(), TRUE)).'.'.end(explode('.', $this->files->cat_picture_4->name));
-            
+
             //if(! is_dir($dirname)) mkdir($dirname, 0777, true);
-            
-            move_uploaded_file($this->files->cat_picture_4->tmp_name, $dirname.$filename4);	
+
+            move_uploaded_file($this->files->cat_picture_4->tmp_name, $dirname.$filename4);
         }
 
         $godfathers = array();
-        
+
         if(is_object($this->post->godfathers))
         {
             foreach($this->post->godfathers as $gf)
@@ -133,9 +133,9 @@ class CatsController extends Controller {
                 $godfathers[] = $gf;
             }
         }
-        
+
         $mdl = Model::Factory('cats');
-        
+
         $mdl->name                  = $this->post->cat_name;
         $mdl->gender                = $this->post->cat_gender;
         $mdl->description           = $this->post->cat_desc;
@@ -143,6 +143,7 @@ class CatsController extends Controller {
         $mdl->godfather_description = $this->post->godfather_description;
         $mdl->quantity              = $this->post->quantity;
         $mdl->age                   = $this->post->cat_age;
+        $mdl->company               = $this->post->cat_company;
         $mdl->social                = $this->post->social;
         $mdl->playful               = $this->post->playful;
         $mdl->lovely                = $this->post->lovely;
@@ -151,7 +152,7 @@ class CatsController extends Controller {
         $mdl->video_embed_code      = $this->post->video;
         //$mdl->inactive              = 0;
         $mdl->responsible_user_id   = $this->post->responsible_user_id;
-        
+
         if($this->post->section) $mdl->section = $this->post->section;
         if($this->post->adoption_date) $mdl->adoption_date = $this->post->adoption_date;
         //if($this->post->registry_date) $mdl->registry_date = $this->post->registry_date;
@@ -165,13 +166,13 @@ class CatsController extends Controller {
         {
             $mdl->where("id='{$this->post->id}'");
             $mdl->update();
-            
+
             $cat_id = $this->post->id;
         }
         else
         {
             $mdl->registry_date = date('Y-m-d H:i:s');
-            
+
             $cat_id = $mdl->insert();
 
             if ($this->post->section==1) $this->promote($cat_id);
@@ -183,133 +184,133 @@ class CatsController extends Controller {
 
     public function reserved()
     {
-        
+
         if (!$this->get->page) Request::redirect(HOST . 'adm/gatos/reservas/1');
-        
+
         $this->views = new Views(new Template("admin"));
         $this->views->total_pages  = Cats::get_pages("cats", "inactive=0 AND status=1");
         $this->views->current_page = isset($this->get->page) ? $this->get->page : 1;
         $this->views->title  = "Gatos (Reservados)";
         $this->views->search = $this->post->search;
         $this->views->order  = $this->post->order;
-        
+
         $parameters = "inactive=0 AND status=1 AND (name LIKE '%{$this->post->search}%' OR id LIKE '%{$this->post->search}%')";
-        
+
         $this->views->data = Cats::get($parameters, $this->views->current_page, $this->post->order);
 
         if($this->post->search) $this->views->total_pages = ceil(count($this->views->data)/100);
-        
+
         $this->views->display('cats_list_reserved.phtml');
     }
-    
+
     public function adopted()
     {
-        
+
         if (!$this->get->page) Request::redirect(HOST . 'adm/gatos/adotados/1');
-        
+
         $this->views = new Views(new Template("admin"));
         $this->views->total_pages  = Cats::get_pages("cats", "status=2 AND inactive=0");
         $this->views->current_page = isset($this->get->page) ? $this->get->page : 1;
         $this->views->title  = "Gatos (Adotados)";
         $this->views->search = $this->post->search;
         $this->views->order  = $this->post->order;
-        
+
         $parameters = "status=2 AND inactive=0 AND (name LIKE '%{$this->post->search}%' OR id LIKE '%{$this->post->search}%')";
-        
+
         $this->views->data = Cats::get($parameters, $this->views->current_page, $this->post->order);
 
         if($this->post->search) $this->views->total_pages = ceil(count($this->views->data)/100);
-        
+
         $this->views->display('cats_list_adopted.phtml');
     }
-    
+
     public function godfathered()
     {
-        
+
         if (!$this->get->page) Request::redirect(HOST . 'adm/gatos/apadrinhados/1');
-        
+
         $this->views = new Views(new Template("admin"));
         $this->views->total_pages  = Cats::get_pages("cats", "inactive=0 AND section=2 AND godfathers_list IS NOT NULL AND godfathers_list <> 'a:0:{}'");
         $this->views->current_page = isset($this->get->page) ? $this->get->page : 1;
         $this->views->title  = "Gatos (Para Apadrinhamento)";
         $this->views->search = $this->post->search;
         $this->views->order  = $this->post->order;
-        
+
         $parameters = "inactive=0 AND section=2 AND godfathers_list IS NOT NULL AND godfathers_list <> 'a:0:{}' AND (name LIKE '%{$this->post->search}%' OR id LIKE '%{$this->post->search}%')";
-        
+
         $this->views->data = Cats::get($parameters, $this->views->current_page, $this->post->order);
 
         if($this->post->search) $this->views->total_pages = ceil(count($this->views->data)/100);
-        
+
         $this->views->display('cats_list_godfathering.phtml');
     }
-    
+
     public function available_adoption()
     {
-        
+
         if (!$this->get->page) Request::redirect(HOST . 'adm/gatos/para-adocao/1');
-        
+
         $this->views = new Views(new Template("admin"));
         $this->views->total_pages  = Cats::get_pages("cats", "inactive=0 AND status!=2 AND section=1");
         $this->views->current_page = isset($this->get->page) ? $this->get->page : 1;
         $this->views->title  = "Gatos (Para Adoção)";
         $this->views->search = $this->post->search;
         $this->views->order  = $this->post->order;
-        
+
         $parameters = "inactive=0 AND status!=2 AND section=1 AND (name LIKE '%{$this->post->search}%' OR id LIKE '%{$this->post->search}%')";
-        
+
         $this->views->data = Cats::get($parameters, $this->views->current_page, $this->post->order);
 
         if($this->post->search) $this->views->total_pages = ceil(count($this->views->data)/100);
-        
+
         $this->views->display('cats_list_for_adoption.phtml');
     }
-    
+
     public function available_godfathering()
     {
-        
+
         if (!$this->get->page) Request::redirect(HOST . 'adm/gatos/para-apadrinhamento/1');
-        
+
         $this->views = new Views(new Template("admin"));
         $this->views->total_pages  = Cats::get_pages("cats", "inactive=0 AND section=2");
         $this->views->current_page = isset($this->get->page) ? $this->get->page : 1;
         $this->views->title  = "Gatos (Para Apadrinhamento)";
         $this->views->search = $this->post->search;
         $this->views->order  = $this->post->order;
-        
+
         $parameters = "inactive=0 AND section=2 AND (name LIKE '%{$this->post->search}%' OR id LIKE '%{$this->post->search}%')";
-        
+
         $this->views->data = Cats::get($parameters, $this->views->current_page, $this->post->order);
 
         if($this->post->search) $this->views->total_pages = ceil(count($this->views->data)/100);
-        
+
         $this->views->display('cats_list_godfathering.phtml');
     }
-    
+
     public function deactivated()
     {
-        
+
         if (!$this->get->page) Request::redirect(HOST . 'adm/gatos/desativados/1');
-        
+
         $this->views = new Views(new Template("admin"));
         $this->views->total_pages  = Cats::get_pages("cats", "inactive=1");
         $this->views->current_page = isset($this->get->page) ? $this->get->page : 1;
         $this->views->title  = "Gatos (Desativados)";
         $this->views->search = $this->post->search;
         $this->views->order  = $this->post->order;
-        
+
         $parameters = "inactive=1 AND (name LIKE '%{$this->post->search}%' OR id LIKE '%{$this->post->search}%')";
-        
+
         $this->views->data = Cats::get($parameters, $this->views->current_page, $this->post->order);
 
         if($this->post->search) $this->views->total_pages = ceil(count($this->views->data)/100);
-        
+
         $this->views->display("cats_list_deactivated.phtml");
     }
-    
+
     public function reservation()
     {
-        
+
         /* muda o estado da reserva */
         $m = Model::Factory('cats');
 
@@ -323,7 +324,7 @@ class CatsController extends Controller {
 
     public function special()
     {
-        
+
         $m = Model::Factory('cats');
 
         $m->special = $this->get->status;
@@ -332,11 +333,11 @@ class CatsController extends Controller {
 
         if ($status) Request::redirect(HOST . 'adm/gatos/all');
     }
-    
+
     public function undo_adoption()
     {
         $m = Model::Factory("cats");
-        
+
         $m->status = "0";
         $m->adoption_date = '0000-00-00 00:00:00';
         $m->where("id='{$this->get->cat_id}'");
@@ -345,25 +346,25 @@ class CatsController extends Controller {
         $a = Model::Factory("cats_adopted");
         $a->where("cat_id={$this->get->cat_id}");
         $a->delete();
-        
+
         $b = Model::Factory("cats_adopted");
         $b->fields("id");
         $b->order("id DESC");
-        
+
         $increment = ($b->get()->id)+1;
 
         $c = Model::ExecuteQuery("ALTER TABLE cats_adopted AUTO_INCREMENT = {$increment};");
 
         Request::redirect(HOST.'adm/gatos/adotados');
     }
-    
+
     public function make_adoption()
     {
-        
+
         $a = Model::Factory("cats_adopted");
         $a->fields("id");
         $a->order("id DESC");
-        
+
         $increment = ($a->get()->id)+1;
 
         $b = Model::ExecuteQuery("ALTER TABLE cats_adopted AUTO_INCREMENT = {$increment};");
@@ -373,23 +374,23 @@ class CatsController extends Controller {
         $m->adoption_date = date("Y-m-d H:i:s");
         $m->where("id='{$this->get->cat_id}'");
         $m->update();
-        
+
         $q = Model::Factory("cats");
         $q->fields("quantity");
         $q->where("id='{$this->get->cat_id}'");
 
         $cats = $q->get()->quantity;
-        
+
         $a = Model::Factory("cats_adopted");
-        
+
         $a->cat_id = $this->get->cat_id;
         $a->insert();
 
         if($cats > 1) $a->insert();
-        
+
         Request::redirect(HOST.'adm/gatos/adotados');
     }
-    
+
     //    public function confirm()
     //    {
     //        $m = Model::Factory("cats");
@@ -425,17 +426,17 @@ class CatsController extends Controller {
 
     public function delete_cat()
     {
-        
+
         $m = Model::Factory('cats');
 
         $m->inactive = 1;
         $m->where("id=".$this->get->cat_id);
         $m->update();
-        
+
         $a = Model::Factory("cats_adopted");
         $a->fields("id");
         $a->order("id DESC");
-        
+
         $increment = ($a->get()->id)+1;
 
         $b = Model::ExecuteQuery("ALTER TABLE cats_adopted AUTO_INCREMENT = {$increment};");
@@ -446,7 +447,7 @@ class CatsController extends Controller {
 
     public function activate()
     {
-        
+
         $m = Model::Factory('cats');
 
         $m->inactive = 0;
@@ -459,17 +460,17 @@ class CatsController extends Controller {
 
     public function promote($id=NULL)
     {
-        
+
         $m = Model::Factory("cats");
-        
+
         #Toggle na flag de featured do gato. Ao marcar como featured, envia o gato no final da ordenação
         if(($this->post->action == 'feature') || ($id))
         {
             $featured = 1;
-            
+
             $m->fields("MAX(position)+1 as position");
             $position = $m->get()->position;
-            
+
             //($id) ? $position = 0 : $position = $position;
         }
         else if(($this->post->action == 'unfeature'))
@@ -479,25 +480,25 @@ class CatsController extends Controller {
 
         $m->featured = $featured;
         $m->position = $position;
-        
+
         ($id) ? $m->where("id='{$id}'") : $m->where("id='{$this->post->cat_id}'");
-        
+
         $m->update();
     }
-    
+
     public function promote_godfathered($id=NULL)
     {
-        
+
         $m = Model::Factory("cats");
-        
+
         #Toggle na flag de featured do gato. Ao marcar como featured, envia o gato no final da ordenação
         if(($this->post->action == 'feature') || ($id))
         {
             $featured = 1;
-            
+
             $m->fields("MAX(position_godfathered)+1 as position_godfathered");
             $position = $m->get()->position_godfathered;
-            
+
             //($id) ? $position = 0 : $position = $position;
         }
         else if(($this->post->action == 'unfeature'))
@@ -507,25 +508,25 @@ class CatsController extends Controller {
 
         $m->featured = $featured;
         $m->position_godfathered = $position;
-        
+
         ($id) ? $m->where("id='{$id}'") : $m->where("id='{$this->post->cat_id}'");
-        
+
         $m->update();
     }
 
 
     public function order_cats()
     {
-        
+
         $this->views = new Views(new Template("admin"));
         $this->views->data = Cats::get_featured_all();
-        
+
         $this->views->display('order_cats.phtml');
     }
 
     public function order_cats_save()
     {
-        
+
         $cats = array_reverse(get_object_vars($this->post->id));
 
         #Coloca nas novas posições
@@ -539,21 +540,21 @@ class CatsController extends Controller {
 
         Request::redirect(HOST.'adm/gatos/reordenar-gatos');
     }
-    
+
     public function order_cats_godfathered()
     {
-        
+
         $this->views = new Views(new Template("admin"));
         $this->views->data = Cats::get_featured_godfathered();
-        
+
         $this->views->display('order_cats_godfathered.phtml');
     }
 
     public function order_cats_godfathered_save()
     {
-        
+
         $cats = array_reverse(get_object_vars($this->post->id));
-        
+
         #Coloca nas novas posições
         foreach($cats as $position => $id)
         {

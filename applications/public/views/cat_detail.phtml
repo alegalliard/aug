@@ -76,6 +76,9 @@ $stats = $this->data->status;
 
 
               <section class="gallery relative">
+                <?php if($this->data->company == 1):?>
+                  <div class="company"></div>
+                <?php endif;?>
                 <?php if($this->data->picture != ''):?>
                         <img data-u="image" src="<?php echo MEDIA_DIR;?>uploads/cats/<?php echo $this->data->picture;?>" />
                 <?php endif;?>
