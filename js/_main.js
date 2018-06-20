@@ -1,5 +1,5 @@
 $(function(){
-    
+
     $('#open_search').on('click touchstart', function(e){
         e.stopPropagation();
         $('#top_search').toggleClass('hide-on-med-and-up');
@@ -11,13 +11,13 @@ $(function(){
         e.stopPropagation();
     }
     });
-    
 
-    
+
+
     /* ========================
-    
-        NEWSLETTER PARTS 
-    
+
+        NEWSLETTER PARTS
+
     ======================== */
     var validateEmail = function (email) {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -28,7 +28,7 @@ $(function(){
         var re = /^[A-Za-z\s]+$/;
         return re.test(name);
     };
-    
+
     $('#newsletter-signup-form').on('submit', function(e){
         var news_name = $(this).find('#name').val();
         var news_mail = $(this).find('#email').val();
@@ -38,7 +38,7 @@ $(function(){
         } else {
             $('.error.err_mail').remove();
         }
-        if(!validateName(news_name) || news_name.length < 5){				
+        if(!validateName(news_name) || news_name.length < 5){
             $('<span class="error err_name">Insira seu nome</span>').insertAfter('#name');
             e.preventDefault();
         } else {
@@ -48,91 +48,91 @@ $(function(){
     $('#name, #email').on('blur', function(){
         $('#newsletter-signup-form').find('.error').remove();
     });
-    
-    
-    
+
+
+
     /* ========================
-    
-        SEARCH PARTS 
-    
+
+        SEARCH PARTS
+
     ======================== */
     $('.hidden_menu form, .search_container, #fixed_search').on('submit', function(e){
         var input = $(this).find('.search_field').val();
-        if(input.length < 4){
+        if(input.length < 3){
             $('.search_field').css('color', 'red');
             e.preventDefault();
         } else {
             $('.search_field').removeAttr('style');
-        }        
+        }
     });
-    
+
     $('.search_field').on({
         'keyup': function(e){
-            if(($(this).val()).length < 4){
+            if(($(this).val()).length < 3){
                 $('.search_field').css('color', 'red');
             } else {
                 $('.search_field').removeAttr('style');
             }
         }
     });
-    
-    
+
+
     $('.collapsible').collapsible();
-    
+
 
     //comportamento do menu
     $('#hide_menu').on('click', function(e){
         e.preventDefault();
-        $('.hidden_menu').removeClass('open_menu active').addClass('hide_menu'); 
+        $('.hidden_menu').removeClass('open_menu active').addClass('hide_menu');
         $('body').css('overflow','auto');
     });
-    
+
      $('#open_menu').on('click', function(){
-        if(window.innerWidth < 993){                    
+        if(window.innerWidth < 993){
             $('.hidden_menu').removeClass('hide_menu').addClass('open_menu active');
             $('body').css('overflow','hidden');
         } else {
             $(this).find('menu').toggle();
         }
     });
-    
+
 
     $('#open_menu').on('mouseenter', function(){
         if(window.innerWidth > 994){
             $(this).find('menu').show();
         }
-        
+
     });
     $('#menu').on('mouseleave', function(){
         $(this).hide();
     });
     //fim do comportamento do menu
-    
+
     $('#call-quero-adotar').on('click', function(e){
         e.preventDefault();
         $('.links_box').toggle();
         $('html, body').animate({scrollTop: $("#call-quero-adotar").offset().top}, 500);
     });
-    
-    $('#hide-sub').on('click touchstart', function(e){        
+
+    $('#hide-sub').on('click touchstart', function(e){
         e.preventDefault();
         $('.links_box').slideUp();
     });
-    
-    
+
+
     /*mural de gatos*/
     // var muralFix = function(){
     //     var mural = $('.mural');
-        
+
     //     if(window.innerWidth > 621){
     //         var muralW = mural.find('li').width();
     //         mural.find('li').height(muralW);
     //     }
     // }
-    
+
     // muralFix();
 
-    
+
     // $( window ).resize(function() {
     //     muralFix();
     //     if(window.innerWidth < 1024) {
@@ -143,14 +143,14 @@ $(function(){
     //     if(window.innerWidth < 621) {
     //         $('#menu').removeAttr('style');
     //     }
-            
+
     // });
-    
-    
-    
-    
-    
-            
+
+
+
+
+
+
             $('.range').on('change', function(){
                 var rangeValue = $(this).val();
                 var icons = $(this).siblings('i');
@@ -158,7 +158,7 @@ $(function(){
                     if(rangeValue <= index){
                          icons.eq(index+1).removeClass('icon-purple icon-grey').addClass('icon-grey');
                     } else {
-                        
+
                         icons.eq(index+1).removeClass('icon-purple icon-grey').addClass('icon-purple');
                     }
                 });
@@ -166,11 +166,11 @@ $(function(){
 //            $('.ghost').css('opacity', 0.5);
             $('.sexo').on('change', function(){
                 $('.sexo').parent().find('i').removeClass('icon-purple').addClass('icon-grey');
-                
+
                 if($('.sexo').is(':checked')){
                     $('.sexo:checked').parent().find('i').removeClass('icon-grey').addClass('icon-purple');
                 }
-                
+
                 switch($('.sexo:checked').size()){
                     case 3:
                         $('#gender').val('M F B');
@@ -182,7 +182,7 @@ $(function(){
                             final += $(value).val()+' ';
                         });
                         $('#gender').val(final);
-                        
+
                     break;
                     case 1:
                         var val = $('.sexo:checked').val();
@@ -190,26 +190,26 @@ $(function(){
                     break;
                     default: $('#gender').val('0');
                 }
-                
-                
-                
+
+
+
             });
-            
-    
+
+
     //comportamento do filtro colapsado no breadcrumb
         $('.select.action').on('click', function(e){
             e.stopPropagation();
             if(window.innerWidth < 621){ //verifica a tela
                 $('.target[data-target=open-sub]').slideToggle();
-                
+
                 //se já estiver aberto, colapsa
-                if($('#fixed_search').hasClass('mobile_open')){ 
-                
+                if($('#fixed_search').hasClass('mobile_open')){
+
                 $('#fixed_search').stop().animate({
                     bottom: "-=390"
                   }, 500, function() {
                      $(this).removeClass('mobile_open');
-                    
+
                   });
                 } else { // se estiver fechado, abre
                     $('#fixed_search').stop().animate({
@@ -222,20 +222,20 @@ $(function(){
                 $('.target[data-target=open-sub]').slideToggle();
             }
         });
-            
+
             $('.mural').find('a').on('click', function(){
                 $('#overlay').fadeIn(300);
                 $('.popover').delay(150).fadeIn(500);
-                
+
             });
-            
+
             $('.close, #overlay').on('click', function(){
                 $('#overlay, .popover').fadeOut(300, function(){
                     $('#overlay, .popover').removeAttr('style');
                 });
             });
-    
-    
+
+
 
     //blend roxo dos gatinhos
     //detecta a versão do navegador chrome
@@ -256,10 +256,10 @@ $(function(){
 			        }, function(){
 			        $(this).prev().css("display", "none");
 			    });
-			
+
 		}
-    
-    
+
+
   //remover acentos
     function removerAcentos( newStringComAcento ) {
   var string = newStringComAcento;
@@ -280,13 +280,13 @@ $(function(){
 
 	return string;
 }
-    
+
     /* ========================
-    
+
         Geolocation por cidade
-    
-    ======================== */    
-    
+
+    ======================== */
+
     function displayLocation(latitude,longitude){
         var request = new XMLHttpRequest();
 
@@ -300,7 +300,7 @@ $(function(){
             var data = JSON.parse(request.responseText);
             var address = data.results[0];
             var city = address.address_components[3].long_name;
-              
+
               switch(removerAcentos(city).toLowerCase()){
                   case 'sao paulo':
                       console.log('Você está em São Paulo');
@@ -308,10 +308,10 @@ $(function(){
                   case 'sao bernardo do campo':
                       console.log('Você está em São Bernardo do Campo');
                   break;
-                  case 'sao caetano do sul': 
+                  case 'sao caetano do sul':
                       console.log('Você está em São Caetano do Sul');
                   break;
-                  case 'santo andre': 
+                  case 'santo andre':
                       console.log('Você está em Santo André');
                   break;
                   default: showLocationMess();
@@ -320,12 +320,12 @@ $(function(){
         };
         request.send();
       };
-    
-      if(!window.localStorage.getItem('showGeoBlock')) 
+
+      if(!window.localStorage.getItem('showGeoBlock'))
       {
-            localStorage.setItem('showGeoBlock', 1); 
-      }     
-      
+            localStorage.setItem('showGeoBlock', 1);
+      }
+
       var showLocationMess = function(){
           var blockMsg = '<div id="nocat" class="geo-block-msg hide-on-small-and-down aug_orange_bg"><h5>O Adote um Gatinho somente doa para as cidades de São Paulo, Santo André, São Bernardo do Campo e São Caetano do Sul.</h5> Procure o Centro de Controle de Zoonoses ou associações na sua região caso esteja fora da nossa área de atuação.<br> Agradecemos a compreensão.</div>';
 
@@ -339,7 +339,7 @@ $(function(){
                 },10000);
             }
       }
-      
+
       var successCallback = function(position){
         var x = position.coords.latitude;
         var y = position.coords.longitude;
@@ -374,21 +374,21 @@ $(function(){
               navigator.geolocation.getCurrentPosition(successCallback,errorCallback,options);
           }
      }
-    
-    
+
+
 $(document).ready(function() {
 
         var galleryIndex = Math.floor((Math.random()*5)+1);
         $(".bg-image" + galleryIndex).css("opacity", "1");
         if (galleryIndex===4 || galleryIndex===5){
             $(".white-on-dark-bg").addClass("white-text");
-            $(".white-on-dark-bg").removeClass("aug_blue aug_purple"); 
+            $(".white-on-dark-bg").removeClass("aug_blue aug_purple");
         }
         else {
             $(".blue-marker").addClass("aug_blue");
             $(".purple-marker").addClass("aug_purple");
         }
-        
+
         setInterval(function(){
             if (galleryIndex===5){
                 $(".bg-image" + galleryIndex).css("opacity", "");
@@ -396,13 +396,13 @@ $(document).ready(function() {
                 $(".bg-image" + galleryIndex).css("opacity", "1");
             }
             else{
-                $(".bg-image" + galleryIndex).css("opacity", "");                
+                $(".bg-image" + galleryIndex).css("opacity", "");
                 galleryIndex++;
                 $(".bg-image" + galleryIndex).css("opacity", "1");
             }
                 if (galleryIndex===4 || galleryIndex===5){
                     $(".white-on-dark-bg").addClass("white-text");
-                    $(".white-on-dark-bg").removeClass("aug_blue aug_purple"); 
+                    $(".white-on-dark-bg").removeClass("aug_blue aug_purple");
                 }
                 else {
                     $(".blue-marker").addClass("aug_blue");
@@ -416,7 +416,7 @@ $(document).ready(function() {
             $(".title-cats").addClass('go-top');
         }
         else {
-            $(".title-cats").removeClass('go-top'); 
-        }               
+            $(".title-cats").removeClass('go-top');
+        }
     })
 });
