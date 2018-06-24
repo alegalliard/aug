@@ -13,7 +13,6 @@ class IndexController extends Controller {
     }
     public function index()
     {
-
         $template = new Template("public");
         $template->og = new stdClass;
         $template->og->img = HOST.'templates/public/css/images/logo.png';
@@ -34,7 +33,7 @@ class IndexController extends Controller {
 
 
         $template = new Template("public", "default.phtml");
-		$this->views = new Views($template);
+		    $this->views = new Views($template);
         $this->views->display('adopt_how.phtml');
 
     }
@@ -47,10 +46,8 @@ class IndexController extends Controller {
         $template->og->img = HOST.'templates/public/css/images/logo.png';
         $template->og->description = 'Vale a pena adotar um ou dois gatos';
         $template->og->title = 'Um ou dois gatinhos';
-
-
         $template = new Template("public", "default.phtml");
-		$this->views = new Views($template);
+		    $this->views = new Views($template);
         $this->views->display('adopt_one_or_two.phtml');
 
     }
@@ -96,7 +93,6 @@ class IndexController extends Controller {
 
     public function felv()
     {
-
         $template = new Template("public");
         $template->og = new stdClass;
         $template->og->img = HOST.'templates/public/css/images/logo.png';
@@ -104,10 +100,10 @@ class IndexController extends Controller {
         $template->og->title = 'FELV - Leucemia felina';
 
         $template = new Template("public", "default.phtml");
-		$this->views = new Views($template);
+		    $this->views = new Views($template);
         $this->views->display('felv.phtml');
-
     }
+
     public function fiv()
     {
         $template = new Template("public");
@@ -123,7 +119,6 @@ class IndexController extends Controller {
 
     public function pif()
     {
-
         $template = new Template("public");
         $template->og = new stdClass;
         $template->og->img = HOST.'templates/public/css/images/logo.png';
@@ -131,14 +126,12 @@ class IndexController extends Controller {
         $template->og->title = 'PIF - Peritonite Infecciosa Felina';
 
         $template = new Template("public", "default.phtml");
-		$this->views = new Views($template);
+		    $this->views = new Views($template);
         $this->views->display('pif.phtml');
-
     }
 
     public function about()
     {
-
         $template = new Template("public");
         $template->og = new stdClass;
         $template->og->img = HOST.'templates/public/css/images/logo.png';
@@ -146,14 +139,12 @@ class IndexController extends Controller {
         $template->og->title = 'Quem somos';
 
         $template = new Template("public", "default.phtml");
-		$this->views = new Views($template);
+		    $this->views = new Views($template);
         $this->views->display('about.phtml');
-
     }
 
     public function ready()
     {
-
         $template = new Template("public");
         $template->og = new stdClass;
         $template->og->img = HOST.'templates/public/css/images/logo.png';
@@ -161,14 +152,12 @@ class IndexController extends Controller {
         $template->og->title = 'Preparado para adotar';
 
         $template = new Template("public", "default.phtml");
-		$this->views = new Views($template);
+		    $this->views = new Views($template);
         $this->views->display('ready.phtml');
-
     }
 
     public function policy()
     {
-
         $template = new Template("public");
         $template->og = new stdClass;
         $template->og->img = HOST.'templates/public/css/images/logo.png';
@@ -176,14 +165,12 @@ class IndexController extends Controller {
         $template->og->title = 'Política de adoção';
 
         $template = new Template("public", "default.phtml");
-		$this->views = new Views($template);
+		    $this->views = new Views($template);
         $this->views->display('policy.phtml');
-
     }
 
     public function help()
     {
-
         $template = new Template("public");
         $template->og = new stdClass;
         $template->og->img = HOST.'templates/public/css/images/logo.png';
@@ -191,27 +178,21 @@ class IndexController extends Controller {
         $template->og->title = 'Quero ajudar';
 
         $template = new Template("public", "default.phtml");
-		$this->views = new Views($template);
+		    $this->views = new Views($template);
         $this->views->display('wanna_help.phtml');
-
     }
+
     public function rescue()
     {
-
         $template = new Template("public");
         $template->og = new stdClass;
         $template->og->img = HOST.'templates/public/css/images/logo.png';
         $template->og->description = 'Resgate';
         $template->og->title = 'Resgate de gatinhos';
-
         $template = new Template("public", "default.phtml");
-		$this->views = new Views($template);
+		    $this->views = new Views($template);
         $this->views->display('rescue.phtml');
-
     }
-
-
-
 
     public function cats_load()
     {
@@ -226,6 +207,21 @@ class IndexController extends Controller {
 
         $this->views->display("cats.phtml");
     }
+
+    public function cats_petz()
+    {
+        Phalanx::loadClasses('Cats');
+        $template = new Template("public", "cats_full_page.phtml");
+        $template->og = new stdClass;
+        $template->og->img = HOST.'templates/public/css/images/logo.png';
+        $template->og->description = 'Adoção de gatinhos para São Paulo e ABC';
+        $template->og->title = 'Adote um Gatinho';
+        $page = (isset($this->get->page)) ? $this->get->page : 0;
+        $this->views = new Views($template);
+        $this->views->display("petz.phtml");
+    }
+
+
     public function cats()
     {
         Phalanx::loadClasses('Cats');
@@ -283,7 +279,6 @@ class IndexController extends Controller {
         $this->session->total_adopted_pages = $total_pages;
         return $total_pages;
     }
-
     private function get_total_special_pages()
     {
         $m = Model::Factory('cats');
@@ -294,5 +289,4 @@ class IndexController extends Controller {
         $this->session->total_adopted_pages = $total_pages;
         return $total_pages;
     }
-
 }

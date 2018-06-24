@@ -6,6 +6,8 @@
     //Sempre que criarmos
         ''			=> 'public.IndexController.cats',
         'gatinhos-para-adocao'			=> 'public.IndexController.cats_load',
+        // 'petz'			=> 'public.IndexController.cats_load',
+        'gatinhos-para-adocao-petz'			=> 'public.IndexController.cats_petz',
 
 
     ///////////
@@ -65,6 +67,7 @@
         'special'     => 'public.AjaxController.special',
         'adopted'     => 'public.AjaxController.adopted',
         'godfathered' => 'public.AjaxController.godfathered',
+        'petz_paginated'   => 'public.AjaxController.petz_paginated',
 
 
         /* páginas novas */

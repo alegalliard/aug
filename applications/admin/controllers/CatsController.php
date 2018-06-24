@@ -38,9 +38,6 @@ class CatsController extends Controller {
     {
         if (!$this->get->page) Request::redirect(HOST . 'adm/gatos/all/1');
 
-
-
-
         $this->views = new Views(new Template("admin"));
         $this->views->total_pages  = Cats::get_pages("cats", "inactive=0");
         $this->views->current_page = isset($this->get->page) ? $this->get->page : 1;

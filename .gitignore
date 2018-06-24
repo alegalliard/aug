@@ -1,5 +1,6 @@
 .DS_Store
 settings.php
+settings-official.php
 __novo/**/*
 _SQL/**/*
 bazar2014/**/*
