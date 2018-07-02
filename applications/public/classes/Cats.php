@@ -14,7 +14,7 @@ class Cats {
             return $mdl->get();
         }
 
-        $mdl->where("status=0 AND section=1 AND inactive=0");
+        $mdl->where("status=0 AND section=1 AND ( inactive=0 OR company=1 )");
         $mdl->order("position DESC");
 
         return $mdl->all();

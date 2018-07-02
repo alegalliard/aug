@@ -19,6 +19,8 @@
         'detalhes-gato/(?P<cat_id>\d+?)/(?P<cat_name>.*)'	 => 'public.CatsController.details',
         'formulario-de-adocao/(?P<cat_id>\d+?)/(?P<cat_name>.*)' => 'public.CatsController.form',
 
+        'candidatos-petz/(?P<cat_id>\d+?)/(?P<cat_name>.*)' => 'public.CatsWaitController.form',
+
         'finalizar-processo-de-adocao'          => 'public.CatsController.proccess',
         'pedido-processado-com-sucesso'			     => 'public.CatsController.success_page',
         'falha-ao-processar-pedido'				 => 'public.CatsController.error_page',
@@ -212,7 +214,14 @@
         'adm/adocao-nao-finalizada'			    	=> 'admin.CatsController.display_error_message',
         'adm/remover-pedido-de-adocao/(?P<cat_id>\d+?)' 	=> 'admin.CatsController.delete_adoption_interest',
         'adm/gatos/apadrinhados'				=> 'admin.CatsController.godfathered',
-        'adm/gatos/apadrinhados/(?P<page>\d+?)' 		=> 'admin.CatsController.godfathered'
+        'adm/gatos/apadrinhados/(?P<page>\d+?)' 		=> 'admin.CatsController.godfathered',
+
+        //petz
+
+        'adm/gatos/fila-de-espera'					    	=> 'admin.CatsWaitController.show',
+        'adm/gatos/fila-de-espera/(?P<page>\d+?)'                    	=> 'admin.CatsWaitController.show',
+
+        // 'adm/gatos/fila-de-espera/(?P<page>\d+?)'    	=> 'admin.CatsWaitController.show',
         )
     );
 

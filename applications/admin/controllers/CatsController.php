@@ -41,11 +41,11 @@ class CatsController extends Controller {
         $this->views = new Views(new Template("admin"));
         $this->views->total_pages  = Cats::get_pages("cats", "inactive=0");
         $this->views->current_page = isset($this->get->page) ? $this->get->page : 1;
-        $this->views->title  = "Gatos (Todos)";
+        $this->views->title  = "Gatos com fila de espera";
         $this->views->search = $this->post->search;
         $this->views->order  = $this->post->order;
 
-        $parameters = "inactive=0 AND (name LIKE '%{$this->post->search}%' OR id LIKE '%{$this->post->search}%')";
+        $parameters = "company=0 AND (name LIKE '%{$this->post->search}%' OR id LIKE '%{$this->post->search}%')";
 
         $this->views->data = Cats::get($parameters, $this->views->current_page, $this->post->order);
 

@@ -266,6 +266,20 @@ $stats = $this->data->status;
                    $p_fim = str_replace('div>', "p>", $p_ini);
                     echo substr($p_fim, $pos, $contador);
                 ?>
+
+                <br><br>
+
+                <?php if( isset($this->data->company) && $this->data->company > 0 ) { ?>
+                  <div class="box-company">
+                    <div class="box-comp-logo">
+                      <img src="http://www.adoteumgatinho.com.br/img/logos/petz-color.png" alt="">
+                    </div>
+                    <div class="box-comp-desc">
+                      <p>Este gatinho está disponível para adoção apenas na loja Petz,
+                        compareça pessoalmente para conhece-lo e adotá-lo!</p>
+                    </div>
+                  </div>
+                 <?php } ?>
                 </article>
 
 
@@ -356,15 +370,14 @@ $stats = $this->data->status;
                         <div class="text-center m-t-20 m-b-20
                         <?php if($stats > 0):?> grayscale <?php endif;?>" >
                            <div class="circle_icon aug_purple_bg centered"><i class="icon-white ic-footprint"></i></div>
-                            <p class="aug_purple text_15 upper bold"><?php echo $statuses[$stats] ?></p>
-                        </div>
+                            <p class="aug_purple text_15 upper bold">Tenho interesse!                     </div>
                 </a>
 
 
                 <a <?php if($this->data->status != 2):?> href="#modal1" id="adotar_nomodal" <?php endif;?> class="hide-on-small-and-down hide-on-large-only">
                 <div class="text-center right-mobile" style="width: 140px;">
                    <div class="circle_icon aug_purple_bg centered"><i class="icon-white ic-footprint"></i></div>
-                    <p class="aug_purple text_15 upper bold"><?php $statuses[$this->data->status] ?></p>
+                    <p class="aug_purple text_15 upper bold">Tenho interesse!</p>
                 </div>
             </a>
 
@@ -525,8 +538,13 @@ $stats = $this->data->status;
 		</section>
 	</div>
 	<footer class="row modal-footer" style="padding-top:15px; padding-bottom: 30px;">
-        <a id="sim" class="col s12 m5 bt bt_orange bold upper right text-center push-m7" style="padding: 15px;" href="<?php echo HOST;?>formulario-de-adocao/<?php echo $this->data->id;?>/<?php echo strtolower(str_replace(' ', '-',$this->data->name));?>">Me encaixo no perfil</a>
-        <a id="nao" class="col s12 m5 bt bt_purple bold upper left pull-m5 text-center" style="padding: 15px;" href="<?php echo HOST;?>fora-do-perfil-de-adocao">Não me encaixo no perfil</a>
+    <?php if($this->data->company == 1) {?>
+      <a id="sim" href="<?php echo HOST;?>candidatos-petz/<?php echo $this->data->id;?>/<?php echo strtolower(str_replace(' ', '-',$this->data->name));?>" class="col s12 m5 bt bt_orange bold upper right text-center push-m7" style="padding: 15px;">Me encaixo no perfil</a>
+    <?php } else { ?>
+      <a id="sim" href="<?php echo HOST;?>formulario-de-adocao/<?php echo $this->data->id;?>/<?php echo strtolower(str_replace(' ', '-',$this->data->name));?>" class="col s12 m5 bt bt_orange bold upper right text-center push-m7" style="padding: 15px;">Me encaixo no perfil</a>
+    <?php }?>
+
+        <a id="nao" href="<?php echo HOST;?>fora-do-perfil-de-adocao" class="col s12 m5 bt bt_purple bold upper left pull-m5 text-center" style="padding: 15px;">Não me encaixo no perfil</a>
     </footer>
 </div>
  <?php endif;?>

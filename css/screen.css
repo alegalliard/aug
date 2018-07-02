@@ -9386,6 +9386,27 @@ li.collection-item:hover {
   animation-fill-mode: both;
 }
 
+
+.box-company {
+	background-color: #fff;
+	padding: 10px 15px;
+	border-radius: 10px;
+	box-shadow: 0 1px 2px 2px rgba(0,0,0,.05);
+}
+
+.box-company .box-comp-logo {
+	display: inline-block;
+	width: 120px;
+	vertical-align: middle
+}
+
+.box-company .box-comp-desc {
+	display: inline-block;
+	width: 70%;
+	vertical-align: middle;
+  color: #01a1da
+}
+
 @-webkit-keyframes selecionar-grey {
   0% {
     background-color: #fff;
