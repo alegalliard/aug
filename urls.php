@@ -8,6 +8,7 @@
         'gatinhos-para-adocao'			=> 'public.IndexController.cats_load',
         // 'petz'			=> 'public.IndexController.cats_load',
         'gatinhos-para-adocao-petz'			=> 'public.IndexController.cats_petz',
+        'finalizar-candidatura'          => 'public.CatsWaitController.proccess',
 
 
     ///////////

@@ -51,6 +51,18 @@ class CatsWaitController extends Controller {
         $this->views->display('adoption_form_petz.phtml');
     }
 
+    private function add_to_queue($cat, $user)
+    {
+      Phalanx::loadClasses('Queue');
+      $m = Model::Factory('adoption_queue');
+
+      $m->cat_id  = $cat;
+      $m->user_id  = $user;
+      $m->company  = 1;
+      $m->register_date = date("Y-m-d H:i:s");
+      $m->insert();
+    }
+
     public function proccess()
     {
         Phalanx::loadClasses('Cats');
@@ -143,9 +155,16 @@ class CatsWaitController extends Controller {
 
         $status = $m->insert();
 
+        // print_r($status);
+
         if($status)
         {
-            $msg = nl2br("Olá! Recebemos um pedido de adoção:
+          //adicionar à fila de espera
+          $this->add_to_queue($cat_id, $status);
+
+            $msg = nl2br("Olá!, <br>
+
+            Recebemos uma candidatura para um gatinho Petz:
 
             Gato: {$gato->name}
 
@@ -242,18 +261,8 @@ class CatsWaitController extends Controller {
             ");
             }
 
-            ////AIEE
-//            $msg .= nl2br("<em>Tem outros animais em casa?</em> {$this->post->have_other_pets}
-//            ");
             $msg .= nl2br("<em>Tem outros animais em casa?</em> {$m->have_other_petss}
             ");
-
-
-
-
-
-
-
 
 
             if($this->post->have_other_pets == "SIM GATO")
@@ -319,13 +328,10 @@ class CatsWaitController extends Controller {
             ".date("d/m/Y H:i")."");
 
 
-//            foreach($this->post->items_that_block_your_cat as $item)
-//        {
-//            $items_that_block_ur_cat[] = $item;
-//        }
-
             $user = Cats::get_responsible($this->post->cat_id);
 
+
+/*
             Phalanx::loadExtension('phpmailer');
             $mail = new PHPMailer(true);
 
@@ -358,10 +364,12 @@ class CatsWaitController extends Controller {
             $mail->ClearAttachments();
 
             Request::redirect(HOST . 'pedido-processado-com-sucesso');
+            */
         }
         else
         {
-            Request::redirect(HOST . 'falha-ao-processar-pedido');
+          echo 'ERRO';
+            //Request::redirect(HOST . 'falha-ao-processar-pedido');
         }
     }
 

@@ -15,28 +15,28 @@ class CatsController extends Controller {
     public function godfathered()
     {
         Phalanx::loadClasses('Godfather');
-        
+
         $this->views = new Views(new Template("public", "default.phtml"));
         //$this->views->cat_list = Godfather::get_detailed();
         $this->views->display('godfathered_cats.phtml');
     }
-    
+
     public function godfathered_form()
     {
         $this->views = new Views(new Template("public", "default.phtml"));
-        
+
         $this->views->display('godfathered_form.phtml');
     }
 
     public function godfathered_send()
     {
         $m = Model::Factory('newsletter');
-        
+
         $m->name          = $this->post->nome;
         $m->email         = $this->post->email;
         $m->opt_in_date   = date('Y-m-d H:i:s');
         $insertion_status = $m->insert();
-                        
+
         Phalanx::loadExtension('phpmailer');
         $mail = new PHPMailer(true);
 
@@ -45,8 +45,8 @@ class CatsController extends Controller {
         $mail->Host       = "smtp.adoteumgatinho.com.br";
         $mail->Port       = 587;
         $mail->Username   = "sistema@adoteumgatinho.com.br";
-        $mail->Password   = "aussie00"; 
-            
+        $mail->Password   = "aussie00";
+
         $mail->IsHTML(true);
         $mail->CharSet = 'UTF-8';
 
@@ -58,53 +58,53 @@ class CatsController extends Controller {
 
         $mail->Subject = "Formulário de Apadrinhamento - AUG";
         $mail->MsgHTML(nl2br("Olá! Recebemos um cadastro para apadrinhamento:
-            
+
         <em>Nome:</em> {$this->post->nome}
         <em>E-Mail:</em> {$this->post->email}
         <em>Endereço:</em> {$this->post->endereco}
         <em>Cidade/UF:</em> {$this->post->cidade}/{$this->post->estado}
-        
+
         <em>Valor da Doação:</em> {$this->post->valor}
         <em>Dia da Doação:</em> {$this->post->dia}
         <em>Forma de Pagamento:</em> {$this->post->pagamento}
-        
+
         No caso de depósito programado:
         <em>Período:</em> {$this->post->deposito_programado}
-    
+
         <em>Gatos escolhidos:</em> {$this->post->gatos}
-        
+
         <em>Comentários:</em> {$this->post->comentarios}
         --
         Adote um Gatinho
         ".date("d/m/Y H:i").""));
 
         //$mail->SMTPDebug = 1;
-        
+
         if(!$mail->Send()) {
             echo 'Mailer error: ' . $mail->ErrorInfo;
         }
 
         Request::redirect(HOST . 'apadrinhamento/cadastrado');
     }
-    
+
     public function godfathered_success()
     {
         $template = new Template("public", "/default.phtml");
-        
+
         $template->og = new stdClass;
-        
+
         $template->og->title = 'Adote um Gatinho';
         $template->og->img = HOST.'templates/public/css/images/logo.png';
         $template->og->description = 'Acabo de adotar um gatinho! Adote você também! ' . HOST;
-        
+
         $this->views = new Views($template);
         $this->views->display("/godfathered_success.phtml");
     }
-    
+
     public function details()
     {
         Phalanx::loadClasses('Cats');
-        
+
         $cat_data = Cats::get($this->get->cat_id);
         $template = new Template("public", "cats_full_page.phtml");
         $template->og = new stdClass;
@@ -120,28 +120,28 @@ class CatsController extends Controller {
     public function form()
     {
         Phalanx::loadClasses('Cats');
-        
+
         $user = Cats::get_responsible($this->get->cat_id);
-        
+
         $this->views = new Views(new Template("public", "default.phtml"));
         $this->views->cat_id = $this->get->cat_id;
         $this->views->responsible_email = $user[0]->email;
-        
+
         $this->views->display('adoption_form.phtml');
     }
 
     public function proccess()
     {
         Phalanx::loadClasses('Cats');
-        
+
         $cat_id = $this->get->cat_id;
-        
+
         $c = Model::Factory('cats');
         $c->where("id = {$cat_id}");
         $gato = $c->get();
-        
+
         $m = Model::Factory('cats_interests');
-        
+
         $m->cats_id                  = $this->post->cat_id;
         $m->name                     = $this->post->name;
         $m->email                    = $this->post->email;
@@ -166,8 +166,8 @@ class CatsController extends Controller {
             $items_that_block_ur_cat[] = $item;
         }
         $m->items_that_block_your_cat  = implode("\n", $items_that_block_ur_cat);
-        
-        
+
+
         ////////AIEEE
         $have_other_petss = array();
         foreach($this->post->have_other_pets as $item)
@@ -175,23 +175,23 @@ class CatsController extends Controller {
             $have_other_petss[] = $item;
         }
         $m->have_other_pets  = implode("\n", $have_other_petss);
-        
-        
-        
+
+
+
         $items_that_your_house_have = array();
         foreach($this->post->items_that_your_house_have as $item)
         {
             $items_that_your_house_have[] = $item;
         }
         $m->items_that_your_house_have  = implode("\n", $items_that_your_house_have);
-        
+
         $house_window_types = array();
         foreach($this->post->house_window_types as $item)
         {
             $house_window_types[] = $item;
         }
         $m->house_window_types  = implode("\n", $house_window_types);
-        
+
         $m->already_had_a_cat          = $this->post->already_had_a_cat;
         $m->what_happened_to_your_cats = $this->post->what_happened_to_your_cats;
         $m->have_other_pets            = $this->post->have_other_pets;
@@ -209,7 +209,7 @@ class CatsController extends Controller {
         $m->deliver_the_cat_back         = $this->post->deliver_the_cat_back;
         $m->do_not_repass_the_cat        = $this->post->do_not_repass_the_cat;
         $m->tell_us_about_address_change = $this->post->tell_us_about_address_change;
-        
+
         $m->sign_an_adoption_contract    = $this->post->sign_an_adoption_contract;
         $m->comments                     = $this->post->comments;
 
@@ -227,7 +227,7 @@ class CatsController extends Controller {
             $msg = nl2br("Olá! Recebemos um pedido de adoção:
 
             Gato: {$gato->name}
-                    
+
             <b>Sobre você e sua família</b>
 
             <em>Nome:</em> {$this->post->name}
@@ -282,7 +282,7 @@ class CatsController extends Controller {
             {$m->items_that_block_your_cat}
             ");
             }
-            
+
             if($this->post->lives_in == "COBERTURA COM TELAS")
             {
                 $msg .= nl2br("<em>Se assinalou \"Cobertura com telas\":</em>
@@ -296,17 +296,17 @@ class CatsController extends Controller {
             {$m->items_that_block_your_cat}
             ");
             }
-            
+
             $msg .= nl2br("
             <em>Para qualquer tipo de casa ou apartamento, responda se você possui:</em>
             {$m->items_that_your_house_have}
             ");
-            
+
             $msg .= nl2br("
             <em>E sobre as basculantes, elas são de que tipo:</em>
             {$m->house_window_types}
             ");
-            
+
             $msg .= nl2br("
             <b>Seus animais</b>
 
@@ -327,13 +327,13 @@ class CatsController extends Controller {
             $msg .= nl2br("<em>Tem outros animais em casa?</em> {$m->have_other_petss}
             ");
 
-            
-            
-            
-            
-            
-            
-            
+
+
+
+
+
+
+
 
             if($this->post->have_other_pets == "SIM GATO")
             {
@@ -361,7 +361,7 @@ class CatsController extends Controller {
 
             <em>O que fará se não puder cuidar mais do gatinho?</em>
             {$this->post->what_youll_do_if_you_cant_take_care_of_the_cat_anymore}
-                
+
             <em>O que fará se tiver que mudar de cidade ou país?</em>
             {$this->post->what_youll_do_if_you_move_from_city_or_country}
 
@@ -396,43 +396,43 @@ class CatsController extends Controller {
             --
             Adote um Gatinho
             ".date("d/m/Y H:i")."");
-            
-            
+
+
 //            foreach($this->post->items_that_block_your_cat as $item)
 //        {
 //            $items_that_block_ur_cat[] = $item;
 //        }
 
             $user = Cats::get_responsible($this->post->cat_id);
- 
+
             Phalanx::loadExtension('phpmailer');
             $mail = new PHPMailer(true);
-            
+
             $mail->IsSMTP();
             $mail->SMTPAuth   = true;
             $mail->Host       = "smtp.adoteumgatinho.com.br";
             $mail->Port       =  587;
             $mail->Username   = "sistema@adoteumgatinho.com.br";
-            $mail->Password   = "aussie00"; 
+            $mail->Password   = "aussie00";
 
-            $mail->IsHTML(true); 
+            $mail->IsHTML(true);
             $mail->CharSet = 'UTF-8';
-            
+
             $mail->SetFrom("informacoes@adoteumgatinho.com.br", "Adote um Gatinho");
             $mail->AddReplyTo($this->post->email, $this->post->nome);
             $mail->AddAddress($user[0]->email);
-            
+
             if(!$user) $mail->AddAddress("informacoes@adoteumgatinho.com.br");
 
             $mail->Subject = "Formulário de Adoção - Gato: {$gato->name} - AUG";
             $mail->MsgHTML($msg);
 
             //$mail->SMTPDebug = 1;
-            
+
             if(!$mail->Send()) {
                 echo 'Mailer error: ' . $mail->ErrorInfo;
             }
-            
+
             $mail->ClearAllRecipients();
             $mail->ClearAttachments();
 
@@ -448,12 +448,12 @@ class CatsController extends Controller {
     public function success_page()
     {
         $template = new Template("public", "default.phtml");
-        
+
         $template->og = new stdClass;
         $template->og->title = 'Adote um Gatinho';
         $template->og->img = HOST.'templates/public/css/images/logo.png';
         $template->og->description = 'Acabo de adotar um gatinho! Adote você também! ' . HOST;
-        
+
         $this->views = new Views($template);
         $this->views->display("adoption_success.phtml");
     }
