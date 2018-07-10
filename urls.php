@@ -219,8 +219,8 @@
         //petz
 
         'adm/gatos/fila-de-espera'					    	=> 'admin.CatsWaitController.show',
-        'adm/gatos/fila-de-espera/(?P<page>\d+?)'                    	=> 'admin.CatsWaitController.show',
-
+        'adm/gatos/fila-de-espera/(?P<page>\d+?)' => 'admin.CatsWaitController.show',
+        'adm/gatos/fila-de-espera/editar/(?P<cat_id>\d+?)' => 'admin.CatsWaitController.profile'
         // 'adm/gatos/fila-de-espera/(?P<page>\d+?)'    	=> 'admin.CatsWaitController.show',
         )
     );

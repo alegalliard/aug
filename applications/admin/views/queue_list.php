@@ -23,19 +23,25 @@
 <table width="100%" border="1">
     <thead>
         <tr>
-          <th>Empresa</th>
             <th>Gato</th>
             <th>Candidatos</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-          <td>Petz</td>
-            <td>Amor Purrfeito</td>
-            <td>7</td>
-            <td><a href="/adm/gatos/fila-de-espera/gato/87661">Detalhes</a></td>
-        </tr>
+        <?php if(is_array($this->data) and (sizeof($this->data) > 0)):?>
+        <?php foreach($this->data as $row):?>
+            <tr>
+                <td><?= $row->cat_name ?></td>
+                <td><?= $row->users ?></td>
+                <td><a href="/adm/gatos/fila-de-espera/editar/<?= $row->cat_id ?>">Detalhes</a></td>
+            </tr>
+        <?php endforeach;?>
+        <?php else:?>
+            <tr>
+                <td colspan="4" align="center">Nenhum registro encontrado</td>
+            </tr>
+        <?php endif;?>
       </tbody>
 </table>
 
