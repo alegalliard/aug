@@ -1,90 +1,73 @@
+<link rel="stylesheet" href="/css/admin.fila.css">
 <h1 class="h1"><?php echo $this->title;?></h1>
 
-<style media="screen">
-.h1{
-  color: #2d4770;
-  text-shadow: none
-}
-img {
-  max-width: 100%;
-  height: auto;
-}
-.row {
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 20px;
-    float: left;
-}
-.row .col {
-  margin-left: auto;
-  left: auto;
-  right: auto;
-  float: left;
-}
-.row .col.s1 {
-    width: 8.3333333333%;
-}
-.row .col.s2 {
-    width: 16.6666666667%;
-}
-.row .col.s3 {
-    width: 25%;
-}
-.row .col.s4 {
-    width: 33.3333333333%;
-}
-.row .col.s5 {
-    width: 41.6666666667%;
-}
-.row .col.s6 {
-    width: 50%;
-}
-.row .col.s7 {
-    width: 58.3333333333%;
-}
-.row .col.s8 {
-    width: 66.6666666667%;
-}
-.row .col.s9 {
-    width: 75%;
-}
-.row .col.s10 {
-    width: 83.3333333333%;
-}
-.row .col.s11 {
-    width: 91.6666666667%;
-}
-.row .col.s12 {
-    width: 100%;
-}
-
-.queue_list{
-  width: 100%;
-}
-
-.queue_list tr{
-  border-bottom: 1px #eee solid
-}
-
-.queue_list td, .queue_list th {
-  padding:5px 15px;
-}
-
-.m-b-10{
-  margin-bottom: 1.0rem;
-}
-
-.p-05{
-  padding: .5rem;
-}
-.text-center {
-  text-align: center;
-}
-</style>
-
-
 <div class="row">
-  <h2>Lista de espera de <?php echo $this->data[0]->cat_name;?></h2>
+  <h2 class="col s12">Lista de espera de <span id="cat-name"><?php echo $this->data[0]->cat_name;?></span></h2>
+
+
+  <section class="col s12">
+    <form class="row" action="index.html" method="post" id="petz-notification" style="display:none">
+      <fieldset class="rel">
+
+        <div class="row m-b-0">
+          <div class="col s10">
+            <legend class=" legend">Enviar email e mudar status</legend>
+          </div>
+
+          <div class="col s2">
+            <button type="button" class="close">X</button>
+          </div>
+        </div>
+
+        <div class="row">
+          <input type="hidden" name="current_id" id="current_id" value="">
+        <div class="col s4">
+          <label for="current_user">Para</label>
+          <input type="text" name="current_user" id="current_user" value="">
+        </div>
+
+        <div class="col s4">
+          <label for="current_email">E-mail</label>
+          <input type="text" name="current_email" id="current_email" value="">
+        </div>
+
+        <div class="col s4">
+          <label for="tipo">Tipo de mensagem</label>
+          <select id="tipo" name="tipo" disabled="disabled">
+            <option value="APPROVED">Cadastro aprovado</option>
+            <option value="REJECTED">Cadastro rejeitado</option>
+          </select>
+        </div>
+
+        <div class="col s12">
+          <label for="notify">Deseja notificar o usuário por email?</label>
+          <select name="notify" id="notify">
+            <option value="1">Sim</option>
+            <option value="0">Não</option>
+          </select>
+        </div>
+
+        <div class="col s12" id="email_box">
+          <label for="msg">Conteúdo do email</label>
+          <textarea id="msg" name="msg"></textarea>
+        </div>
+
+        <div class="col s12">
+          <p class="alert alert-warning"><strong>Atenção: </strong> Só é possível aprovar um usuário por vez.
+            Submeter este formulário implicará na mudança
+          de status em cadeia: todos os demais usuários que não estiverem marcados
+          como REJEITADOS serão recolocados na fila de espera, mas não serão notificados.</p>
+        </div>
+
+        <div class="col s12">
+          <button type="submit" name="button" class="submit">Enviar</button>
+        </div>
+        </div>
+      </fieldset>
+    </form>
+  </section>
+
+
   <div class="col s4 text-center">
     <!-- <img src="<?php echo MEDIA_DIR;?>uploads/cats/<?= $this->data[0]->cat_picture;?>" class="m-b-10" /> -->
     <img src="http://www.adoteumgatinho.com.br/media/uploads/cats/<?= $this->data[0]->cat_picture;?>" class="m-b-10" />
@@ -109,17 +92,17 @@ img {
       <tbody>
         <?php //if(isset($this->data) and count($this->data) > 0) {?>
           <?php foreach($this->data as $row) {?>
-            <tr data-id="<?= $row->queue_id ?>">
+            <tr data-id="<?= $row->queue_id ?>" data-user="<?= $row->user_id ?>">
               <td>
-                <a href="<?php echo HOST;?>"><?= $row->user_name ?></a><br>
+                <a href="#-<?php echo HOST;?>"><?= $row->user_name ?></a><br>
                 <small>
                   <?= $row->user_email ?> <br>
                   <?= $row->user_tel ?>
                 </small>
               </td>
               <td>
-                <select class="" name="fila-<?= $row->queue_id ?>"  data-id="<?= $row->queue_id ?>">
-                  <option value=""></option>
+                <select class="statuses" name="fila-<?= $row->queue_id ?>"  data-id="<?= $row->queue_id ?>" data-name="<?= $row->user_name ?>" data-email="<?= strtolower($row->user_email) ?>">
+                  <option value="" <?= (isset($row->status) < 3) ? 'selected="selected"' : '' ?>></option>
                   <option value="WAIT" <?= ($row->status == 'WAIT') ? 'selected="selected"' : '' ?>>Aguardando</option>
                   <option value="APPROVED" <?= ($row->status == 'APPROVED') ? 'selected="selected"' : '' ?>>Aprovado</option>
                   <option value="REJECTED" <?= ($row->status == 'REJECTED') ? 'selected="selected"' : '' ?>>Rejeitado</option>
@@ -130,6 +113,7 @@ img {
                 $date = new DateTime($row->register_date);
                 echo $date->format('d/m/Y') .'<br><small>às '.  $date->format('H:i:s') . '</small>'; ?>
               </td>
+
             </tr>
           <?php } ?>
         <?php //} ?>
@@ -137,3 +121,5 @@ img {
     </table>
   </div>
 </div>
+
+<script src="/js/admin.fila.js"></script>

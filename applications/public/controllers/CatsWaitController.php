@@ -331,7 +331,7 @@ class CatsWaitController extends Controller {
             $user = Cats::get_responsible($this->post->cat_id);
 
 
-/*
+
             Phalanx::loadExtension('phpmailer');
             $mail = new PHPMailer(true);
 
@@ -364,7 +364,7 @@ class CatsWaitController extends Controller {
             $mail->ClearAttachments();
 
             Request::redirect(HOST . 'pedido-processado-com-sucesso');
-            */
+
         }
         else
         {
@@ -392,4 +392,5 @@ class CatsWaitController extends Controller {
         $this->views = new Views(new Template("public", "default.phtml"));
         $this->views->display("adoption_error.phtml");
     }
+
 }

@@ -50,76 +50,36 @@ class CatsWaitController extends Controller {
     }
 
 
-    public function save()
+    public function change()
     {
-        // $godfathers = array();
-        //
-        // if(is_object($this->post->godfathers))
-        // {
-        //     foreach($this->post->godfathers as $gf)
-        //     {
-        //         $godfathers[] = $gf;
-        //     }
-        // }
-        //
-        // $mdl = Model::Factory('cats');
-        //
-        // $mdl->name                  = $this->post->cat_name;
-        // $mdl->gender                = $this->post->cat_gender;
-        // $mdl->description           = $this->post->cat_desc;
-        // $mdl->full_description      = $this->post->cat_full_desc;
-        // $mdl->godfather_description = $this->post->godfather_description;
-        // $mdl->quantity              = $this->post->quantity;
-        // $mdl->age                   = $this->post->cat_age;
-        // $mdl->company               = $this->post->cat_company;
-        // $mdl->social                = $this->post->social;
-        // $mdl->playful               = $this->post->playful;
-        // $mdl->lovely                = $this->post->lovely;
-        // $mdl->special               = $this->post->special;
-        // $mdl->godfathers_list       = serialize($godfathers);
-        // $mdl->video_embed_code      = $this->post->video;
-        // //$mdl->inactive              = 0;
-        // $mdl->responsible_user_id   = $this->post->responsible_user_id;
-        //
-        // if($this->post->section) $mdl->section = $this->post->section;
-        // if($this->post->adoption_date) $mdl->adoption_date = $this->post->adoption_date;
-        // //if($this->post->registry_date) $mdl->registry_date = $this->post->registry_date;
-        //
-        // if(isset($filename)) $mdl->picture = $filename;
-        // if(isset($filename2)) $mdl->picture_2 = $filename2;
-        // if(isset($filename3)) $mdl->picture_3 = $filename3;
-        // if(isset($filename4)) $mdl->picture_4 = $filename4;
-        //
-        // if($this->post->id)
-        // {
-        //     $mdl->where("id='{$this->post->id}'");
-        //     $mdl->update();
-        //
-        //     $cat_id = $this->post->id;
-        // }
-        // else
-        // {
-        //     $mdl->registry_date = date('Y-m-d H:i:s');
-        //
-        //     $cat_id = $mdl->insert();
-        //
-        //     if ($this->post->section==1) $this->promote($cat_id);
-        //     if ($this->post->section==2) $this->promote_godfathered($cat_id);
-        // }
-        //
-        // Request::redirect(HOST.'adm/gatos/editar/' . $cat_id);
-    }
+      Phalanx::loadClasses('Queue');
+      $mdl = Model::Factory('adoption_queue');
+      $mdl->status = $this->post->status;
+      $mdl->where("id='{$this->post->id}'");
+      $status = $mdl->update();
 
+      if(isset($this->post->send_email) && $this->post->send_email === 1) {
+        Phalanx::loadExtension('phpmailer');
+        $mail = new PHPMailer(true);
 
-    public function activate()
-    {
+        $mail->IsSMTP();
+        
 
-        // $m = Model::Factory('cats');
-        //
-        // $m->inactive = 0;
-        // $m->where("id=".$this->get->cat_id);
-        // $m->update();
-        //
-        // Request::redirect(HOST . 'adm/gatos/desativados');
+        $mail->IsHTML(true);
+        $mail->CharSet = 'UTF-8';
+
+        $mail->SetFrom("contato@adoteumgatinho.com.br", "Adote um Gatinho");
+        $mail->AddReplyTo("contato@adoteumgatinho.com.br", "Adote um Gatinho");
+        $mail->AddAddress($this->post->email);
+
+        $mail->Subject = "Aprovação - Adote um Gatinho e Petz";
+        $mail->MsgHTML(nl2br($this->post->message));
+
+        $mail->SMTPDebug = 0;
+
+        if(!$mail->Send()) {
+            echo 'Mailer error: ' . $mail->ErrorInfo;
+        }
+      }
     }
 }

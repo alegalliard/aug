@@ -506,190 +506,190 @@ include('top.phtml');
 
 <script type="text/javascript">
 
-  //   $(function(){
-  //       $("#adopt").validate({
-	// 		rules: {
-	// 			name: {
-	// 				required: true,
-	// 				minlength: 3
-	// 			},
-  //               email: {
-	// 				required: true,
-  //                   email:true
-	// 			},
-  //               age: {
-	// 				required: true,
-  //                   number: true
-	// 			},
-  //               address: {
-	// 				required: true
-	// 			},
-  //               address_number: {
-	// 				required: true,
-  //                   number: true
-	// 			},
-  //               address_neighborhood: {
-	// 				required: true
-	// 			},
-  //               address_city: {
-	// 				required: true
-	// 			},
-  //               address_state: {
-	// 				required: true
-	// 			},
-  //               number_of_adults_at_home: {
-	// 				required: true
-	// 			},
-  //               why_adopt_a_cat: {
-	// 				required: true
-	// 			},
-  //               owner_accept_pets: {
-	// 				required: true
-	// 			},
-  //               lives_in: {
-	// 				required: true
-	// 			},
-  //               items_that_block_your_cat: {
-	// 				required: true
-	// 			},
-  //               items_that_your_house_have: {
-	// 				required: true
-	// 			},
-  //               house_window_types: {
-	// 				required: true
-	// 			},
-  //               already_had_a_cat: {
-	// 				required: true
-	// 			},
-  //               have_other_pets: {
-	// 				required: true
-	// 			},
-  //               someone_has_allergy: {
-	// 				required: true
-	// 			},
-  //               what_youll_do_if_you_lose_your_cat: {
-	// 				required: true
-	// 			},
-  //               what_youll_do_if_you_cant_take_care_of_the_cat_anymore: {
-	// 				required: true
-	// 			},
-  //               what_youll_do_if_you_move_from_city_or_country: {
-	// 				required: true
-	// 			},
-  //               cats_can_live_more_than_fifteen_years_dont_know: {
-	// 				required: true
-	// 			},
-  //               house_can_be_revisited: {
-	// 				required: true
-	// 			},
-  //               deliver_the_cat_back: {
-	// 				required: true
-	// 			},
-  //               do_not_repass_the_cat: {
-	// 				required: true
-	// 			},
-  //               tell_us_about_address_change: {
-	// 				required: true
-	// 			},
-  //               sign_an_adoption_contract: {
-	// 				required: true
-	// 			},
-  //               how_you_met_aug: {
-	// 				required: true
-	// 			}
-	// 		},
-	// 		messages: {
-	// 			name: {
-	// 				required: 'Campo obrigatório',
-	// 				minlength: 'Campo obrigatório'
-	// 			},
-  //               email: {
-	// 				required: 'Campo obrigatório',
-  //                   email:'Insira um endereço de e-mail válido'
-	// 			},
-  //               age: {
-	// 				required: 'Campo obrigatório',
-  //                   number: 'Campo obrigatório'
-	// 			},
-  //               address: {
-	// 				required: 'Campo obrigatório'
-	// 			},
-  //               address_number: {
-	// 				required: 'Campo obrigatório',
-  //                   number: 'Campo obrigatório'
-	// 			},
-  //               address_neighborhood: {
-	// 				required: 'Campo obrigatório'
-	// 			},
-  //               address_city: {
-	// 				required: 'Campo obrigatório'
-	// 			},
-  //               address_state: {
-	// 				required: 'Campo obrigatório'
-	// 			},
-  //               number_of_adults_at_home: {
-	// 				required: 'Campo obrigatório'
-	// 			},
-  //               why_adopt_a_cat: {
-	// 				required: 'Campo obrigatório'
-	// 			},
-  //               owner_accept_pets: {
-	// 				required: 'Campo obrigatório'
-	// 			},
-  //               lives_in: {
-	// 				required: 'Campo obrigatório'
-	// 			},
-  //               items_that_block_your_cat: {
-	// 				required: 'Campo obrigatório'
-	// 			},
-  //               items_that_your_house_have: {
-	// 				required: 'Campo obrigatório'
-	// 			},
-  //               house_window_types: {
-	// 				required: 'Campo obrigatório'
-	// 			},
-  //               already_had_a_cat: {
-	// 				required: 'Campo obrigatório'
-	// 			},
-  //               have_other_pets: {
-	// 				required: 'Campo obrigatório'
-	// 			},
-  //               someone_has_allergy: {
-	// 				required: 'Campo obrigatório'
-	// 			},
-  //               what_youll_do_if_you_lose_your_cat: {
-	// 				required: 'Campo obrigatório'
-	// 			},
-  //               what_youll_do_if_you_cant_take_care_of_the_cat_anymore: {
-	// 				required: 'Campo obrigatório'
-	// 			},
-  //               what_youll_do_if_you_move_from_city_or_country: {
-	// 				required: 'Campo obrigatório'
-	// 			},
-  //               cats_can_live_more_than_fifteen_years_dont_know: {
-	// 				required: 'Campo obrigatório'
-	// 			},
-  //               house_can_be_revisited: {
-	// 				required: 'Campo obrigatório'
-	// 			},
-  //               deliver_the_cat_back: {
-	// 				required: 'Campo obrigatório'
-	// 			},
-  //               do_not_repass_the_cat: {
-	// 				required: 'Campo obrigatório'
-	// 			},
-  //               tell_us_about_address_change: {
-	// 				required: 'Campo obrigatório'
-	// 			},
-  //               sign_an_adoption_contract: {
-	// 				required: 'Campo obrigatório'
-	// 			},
-  //               how_you_met_aug: {
-	// 				required: 'Campo obrigatório'
-	// 			}
-	// 		}
-	// 	});
-  //
-  // });
+    $(function(){
+        $("#adopt").validate({
+			rules: {
+				name: {
+					required: true,
+					minlength: 3
+				},
+                email: {
+					required: true,
+                    email:true
+				},
+                age: {
+					required: true,
+                    number: true
+				},
+                address: {
+					required: true
+				},
+                address_number: {
+					required: true,
+                    number: true
+				},
+                address_neighborhood: {
+					required: true
+				},
+                address_city: {
+					required: true
+				},
+                address_state: {
+					required: true
+				},
+                number_of_adults_at_home: {
+					required: true
+				},
+                why_adopt_a_cat: {
+					required: true
+				},
+                owner_accept_pets: {
+					required: true
+				},
+                lives_in: {
+					required: true
+				},
+                items_that_block_your_cat: {
+					required: true
+				},
+                items_that_your_house_have: {
+					required: true
+				},
+                house_window_types: {
+					required: true
+				},
+                already_had_a_cat: {
+					required: true
+				},
+                have_other_pets: {
+					required: true
+				},
+                someone_has_allergy: {
+					required: true
+				},
+                what_youll_do_if_you_lose_your_cat: {
+					required: true
+				},
+                what_youll_do_if_you_cant_take_care_of_the_cat_anymore: {
+					required: true
+				},
+                what_youll_do_if_you_move_from_city_or_country: {
+					required: true
+				},
+                cats_can_live_more_than_fifteen_years_dont_know: {
+					required: true
+				},
+                house_can_be_revisited: {
+					required: true
+				},
+                deliver_the_cat_back: {
+					required: true
+				},
+                do_not_repass_the_cat: {
+					required: true
+				},
+                tell_us_about_address_change: {
+					required: true
+				},
+                sign_an_adoption_contract: {
+					required: true
+				},
+                how_you_met_aug: {
+					required: true
+				}
+			},
+			messages: {
+				name: {
+					required: 'Campo obrigatório',
+					minlength: 'Campo obrigatório'
+				},
+                email: {
+					required: 'Campo obrigatório',
+                    email:'Insira um endereço de e-mail válido'
+				},
+                age: {
+					required: 'Campo obrigatório',
+                    number: 'Campo obrigatório'
+				},
+                address: {
+					required: 'Campo obrigatório'
+				},
+                address_number: {
+					required: 'Campo obrigatório',
+                    number: 'Campo obrigatório'
+				},
+                address_neighborhood: {
+					required: 'Campo obrigatório'
+				},
+                address_city: {
+					required: 'Campo obrigatório'
+				},
+                address_state: {
+					required: 'Campo obrigatório'
+				},
+                number_of_adults_at_home: {
+					required: 'Campo obrigatório'
+				},
+                why_adopt_a_cat: {
+					required: 'Campo obrigatório'
+				},
+                owner_accept_pets: {
+					required: 'Campo obrigatório'
+				},
+                lives_in: {
+					required: 'Campo obrigatório'
+				},
+                items_that_block_your_cat: {
+					required: 'Campo obrigatório'
+				},
+                items_that_your_house_have: {
+					required: 'Campo obrigatório'
+				},
+                house_window_types: {
+					required: 'Campo obrigatório'
+				},
+                already_had_a_cat: {
+					required: 'Campo obrigatório'
+				},
+                have_other_pets: {
+					required: 'Campo obrigatório'
+				},
+                someone_has_allergy: {
+					required: 'Campo obrigatório'
+				},
+                what_youll_do_if_you_lose_your_cat: {
+					required: 'Campo obrigatório'
+				},
+                what_youll_do_if_you_cant_take_care_of_the_cat_anymore: {
+					required: 'Campo obrigatório'
+				},
+                what_youll_do_if_you_move_from_city_or_country: {
+					required: 'Campo obrigatório'
+				},
+                cats_can_live_more_than_fifteen_years_dont_know: {
+					required: 'Campo obrigatório'
+				},
+                house_can_be_revisited: {
+					required: 'Campo obrigatório'
+				},
+                deliver_the_cat_back: {
+					required: 'Campo obrigatório'
+				},
+                do_not_repass_the_cat: {
+					required: 'Campo obrigatório'
+				},
+                tell_us_about_address_change: {
+					required: 'Campo obrigatório'
+				},
+                sign_an_adoption_contract: {
+					required: 'Campo obrigatório'
+				},
+                how_you_met_aug: {
+					required: 'Campo obrigatório'
+				}
+			}
+		});
+
+  });
 
 </script>
