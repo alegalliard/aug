@@ -63,7 +63,11 @@ class CatsWaitController extends Controller {
         $mail = new PHPMailer(true);
 
         $mail->IsSMTP();
-        
+        $mail->SMTPAuth   = true;
+        $mail->Host       = "smtp.adoteumgatinho.com.br";
+        $mail->Port       = 587;
+        $mail->Username   = "sistema@adoteumgatinho.com.br";
+        $mail->Password   = "aussie00";
 
         $mail->IsHTML(true);
         $mail->CharSet = 'UTF-8';

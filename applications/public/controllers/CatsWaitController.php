@@ -66,6 +66,8 @@ class CatsWaitController extends Controller {
     public function proccess()
     {
         Phalanx::loadClasses('Cats');
+        // echo 'OADIOASIDOAS';
+        // die();
 
         $cat_id = $this->get->cat_id;
 
@@ -92,6 +94,8 @@ class CatsWaitController extends Controller {
         $m->why_adopt_a_cat          = $this->post->why_adopt_a_cat;
         $m->owner_accept_pets        = $this->post->owner_accept_pets;
         $m->lives_in                 = $this->post->lives_in;
+
+        // print_r($m);
 
         $items_that_block_ur_cat = array();
         foreach($this->post->items_that_block_your_cat as $item)
@@ -155,7 +159,7 @@ class CatsWaitController extends Controller {
 
         $status = $m->insert();
 
-        // print_r($status);
+        print_r($status);
 
         if($status)
         {
@@ -332,36 +336,7 @@ class CatsWaitController extends Controller {
 
 
 
-            Phalanx::loadExtension('phpmailer');
-            $mail = new PHPMailer(true);
-
-            $mail->IsSMTP();
-            $mail->SMTPAuth   = true;
-            $mail->Host       = "smtp.adoteumgatinho.com.br";
-            $mail->Port       =  587;
-            $mail->Username   = "sistema@adoteumgatinho.com.br";
-            $mail->Password   = "aussie00";
-
-            $mail->IsHTML(true);
-            $mail->CharSet = 'UTF-8';
-
-            $mail->SetFrom("informacoes@adoteumgatinho.com.br", "Petz - Adote um Gatinho");
-            $mail->AddReplyTo($this->post->email, $this->post->nome);
-            $mail->AddAddress($user[0]->email);
-
-            if(!$user) $mail->AddAddress("informacoes@adoteumgatinho.com.br");
-
-            $mail->Subject = "Fila de espera Petz: {$gato->name} - AUG";
-            $mail->MsgHTML($msg);
-
-            //$mail->SMTPDebug = 1;
-
-            if(!$mail->Send()) {
-                echo 'Mailer error: ' . $mail->ErrorInfo;
-            }
-
-            $mail->ClearAllRecipients();
-            $mail->ClearAttachments();
+            
 
             Request::redirect(HOST . 'pedido-processado-com-sucesso');
 

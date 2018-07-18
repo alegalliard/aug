@@ -10,7 +10,7 @@
 		<link rel="shortcut icon" href="<?php echo HOST;?>favicon.png" type="image/png" />
         <meta name="theme-color" content="#fa9319">
 		<title><?php echo SITE_NAME;?></title>
-		
+
 
 		<?php if($this->og):?>
 			<meta property="og:title" content="<?php echo $this->og->title;?>" />
@@ -24,7 +24,7 @@
 	</head>
 	<body>
 <!--
-    
+
 		<div id="fb-root"></div>
                 <script>(function(d, s, id) {
                   var js, fjs = d.getElementsByTagName(s)[0];
@@ -34,9 +34,9 @@
                   fjs.parentNode.insertBefore(js, fjs);
                 }(document, 'script', 'facebook-jssdk'));</script>
 -->
-                
-                
-            <!-- # # # # # # # # # # # # # # 
+
+
+            <!-- # # # # # # # # # # # # # #
     Header
 # # # # # # # # # # # # # # -->
     <header class="row m-b-0 border_b_orange" id="head">
@@ -46,7 +46,7 @@
                 <div class="logotype hide-on-small-and-down" title="<?php echo SITE_NAME;?>"></div>
             </a>
         </div>
-        
+
         <div class="col s8 m6 l4">
 <!--           Ícones-->
             <ul class="col s10 nav right upper" id="nav-menu">
@@ -56,11 +56,12 @@
                     <button type="submit" class="col s3 float_submit" id="botao_busca"><i class="icon-grey ic-zoom m-l-10"></i></button>
                 </form>
                </li>
-               
+
                 <li class="relative right m-t-3" id="open_menu"><a href="#" class="grey-text"><i class="icon-grey ic-list"></i> <span class="hide-on-med-and-down">Menu</span></a>
                     <menu id="menu" class="right">
                         <ul>
                             <li><a href="<?php echo HOST;?>sobre">A ONG</a></li>
+														<li><a href="<?php echo HOST;?>reforma">Reforma</a></li>
                             <li><a href="<?php echo HOST;?>quero-adotar">Quero adotar</a></li>
                             <li><a href="<?php echo HOST;?>adocoes-especiais">Adoções especiais</a></li>
                             <li><a href="<?php echo HOST;?>quero-ajudar-a-aug">Quero ajudar</a></li>
@@ -74,8 +75,8 @@
                             <li><a href="<?php echo HOST;?>faq">FAQ</a></li>
                             <li><a href="<?php echo HOST;?>parceiros-e-links">Parceiros</a></li>
                             <li><a href="<?php echo HOST;?>contato">Contato</a></li>
-                          </ul> 
-                      </menu> 
+                          </ul>
+                      </menu>
                 </li>
                 <li class="hide-on-med-and-down right"><a href="<?php echo HOST;?>contato" class="icon-grey ic-email"></a></li>
                 <li class="hide-on-med-and-down right"><a href="#top_search" class="icon-grey ic-zoom" id="open_search"></a></li>
@@ -89,13 +90,13 @@
                 <a href="http://www.twitter.com/adoteumgatinho" class="icon-grey ic-twitter" target="_blank"></a> </li>
             </ul>
         </div>
-    </header>   
+    </header>
 
-  <!-- # # # # # # # # # # # # # # 
+  <!-- # # # # # # # # # # # # # #
     Elementos mobile
-# # # # # # # # # # # # # # -->         
+# # # # # # # # # # # # # # -->
 <nav class="hidden_menu hide-med-and-up">
-  
+
    <form class="row relative" action="<?php echo HOST;?>buscar" method="get">
      <div class="col s1">
          <button type="button" id="hide_menu"><i class="icon-white ic-arrow-right"></i></button>
@@ -107,9 +108,10 @@
    </form>
     <ul>
         <li><a href="<?php echo HOST;?>sobre">A ONG</a></li>
+				<li><a href="<?php echo HOST;?>reforma">Reforma</a></li>
         <li><a href="#">Quero adotar</a>
             <ul>
-              
+
                 <li><a href="<?php echo HOST;?>gatinhos-para-adocao" class="aug_blue">Gatinhos para adoção</a></li>
                 <li><a href="<?php echo HOST;?>adocoes-especiais" class="aug_blue">Adoções especiais</a></li>
                 <li><a href="<?php echo HOST;?>como-adotar-um-gatinho" class="aug_blue">Como faço para adotar um gatinho?</a></li>
@@ -130,11 +132,11 @@
         <li><a href="<?php echo HOST;?>parceiros-e-links">Parceiros</a></li>
         <li><a href="<?php echo HOST;?>contato">Contato</a></li>
     </ul>
-</nav>             
-        
-                
-                
-    <!-- # # # # # # # # # # # # # # 
+</nav>
+
+
+
+    <!-- # # # # # # # # # # # # # #
     Content
 # # # # # # # # # # # # # # -->
 
@@ -149,9 +151,9 @@
                 <h1 class="text-right h1">
                     <span class="blue-marker aug_blue white-on-dark-bg">Doe seu lar,</span><br>
                     <span class="purple-marker aug_purple white-on-dark-bg">adote um gatinho</span>
-                    <span class="col s8 offset-s4 aug_purple text_13 text-right m-t-20 purple-marker white-on-dark-bg" style="display:inline; font-weight: 100;">Adoções somente para São Paulo e ABC (Santo André, São Bernardo e São Caetano do Sul)</span>                  
+                    <span class="col s8 offset-s4 aug_purple text_13 text-right m-t-20 purple-marker white-on-dark-bg" style="display:inline; font-weight: 100;">Adoções somente para São Paulo e ABC (Santo André, São Bernardo e São Caetano do Sul)</span>
                 </h1><br>
-               
+
             </div>
             <menu class="col s9 m6 l6 offset-s2 offset-m5 offset-l5 upper">
                 <ul id="main-links">
@@ -169,7 +171,7 @@
 politica-de-adocao-aug" class="aug_purple"><i class="icon-purple ic-ok-doc"></i>Política de adoção</a></li>
                             <li><a href="<?php echo HOST;?>depoimentos" class="aug_purple"><i class="icon-purple ic-letter"></i>Depoimentos</a></li>
                             <li><a href="<?php echo HOST;?>quero-adotar#Informacoes-importantes" class="aug_purple"><i class="icon-purple ic-info"></i>Informações importantes</a></li>
-                            
+
                             <li class="hide-on-large-only">
                                 <button id="hide-sub" class="aug_purple_bg"><i class="icon-white ic-down"></i></button>
                             </li>
@@ -192,25 +194,25 @@ politica-de-adocao-aug" class="aug_purple"><i class="icon-purple ic-ok-doc"></i>
                 </ul>
             </menu>
         </div>
-        
-        
+
+
     </section>
 
 
-   
+
    <style>
        #breadcrumb, .row.border_b_purple{
            display: none
        }
-        
+
     </style>
 
 <!--      Carrega os gatos-->
        <?php //$this->loadViewContent(); ?>
-  
-    
 
-<!-- # # # # # # # # # # # # # # 
+
+
+<!-- # # # # # # # # # # # # # #
     Footer
 # # # # # # # # # # # # # # -->
 <footer id="footer">
@@ -236,7 +238,7 @@ politica-de-adocao-aug" class="aug_purple"><i class="icon-purple ic-ok-doc"></i>
                     <li><a href="<?php echo HOST;?>prestacao-de-contas/contas?year=2016">Prestação de contas</a></li>
                 </ul>
             </div>
-            
+
             <div class="col s4">
                 <ul class="block-box">
                     <li><a href="<?php echo HOST;?>aug-na-midia">Na mídia</a></li>
@@ -266,7 +268,7 @@ politica-de-adocao-aug" class="aug_purple"><i class="icon-purple ic-ok-doc"></i>
                     <input type="email"  name="email" id="email" placeholder="E-mail">
                     <button type="submit" class="icon-white ic-arrow-right"></button>
                 </div>
-            </form>            
+            </form>
         </fieldset>
     </section>
 
@@ -280,15 +282,27 @@ politica-de-adocao-aug" class="aug_purple"><i class="icon-purple ic-ok-doc"></i>
             <a href="http://www.elementodesign.com.br" target="_blank">Design by Elemento</a>
         </div>
     </div>
-</footer>      
-                
-                
+</footer>
+
+
+<div id="modal-tijolinho" class="modal modal-fixed-footer">
+	<div class="modal-content">
+		<a href="http://www.adoteumgatinho.org.br/reforma">
+			<img src="/media/banner-tijolinho.png" alt="Ajude a financiar nossa reforma" />
+		</a>
+	</div>
+	<div class="modal-footer">
+		<a href="#!" class="modal-close btn aug_blue ">Fechar</a>
+    <a href="http://www.adoteumgatinho.org.br/reforma" class="modal-close btn aug_orange">Quero ajudar</a>
+  </div>
+</div>
+
 <!--
-                
+
 <div class="fb-like" data-href="<?php echo HOST;?>" data-layout="button_count" data-send="false" data-width="120" data-show-faces="false"></div>
-                                                       
+
 <a href="https://twitter.com/share" class="twitter-share-button" data-url="<?php echo HOST;?>" data-count="horizontal">Tweet</a>
-                                                        
+
 							<form method="get" action="<?php echo HOST;?>buscar">
 								<input type="text" name="q" />
 								<button>Buscar</button>
@@ -305,14 +319,14 @@ politica-de-adocao-aug" class="aug_purple"><i class="icon-purple ic-ok-doc"></i>
 							foreach($billboards as $billboard):?>
 							<?php if($billboard->link != ''):?><a href="<?php echo $billboard->link;?>" target="_blank"><?php endif;?>
 								<img src="<?php echo MEDIA_DIR.'uploads/billboards/'.$billboard->image;?>" />
-							<?php if($billboard->link != ''):?></a><?php endif;?>	
+							<?php if($billboard->link != ''):?></a><?php endif;?>
 						<?php endforeach;?>
 					</div>
 				</div>
 				<div class="rounded"  style="margin-left: 15px;">
 					<span><a href="<?php echo HOST;?>cadastre-se">ACOMPANHE O NOSSO TRABALHO: Receba os boletins do AUG no seu email</a></span>
 				</div>
-				
+
 					<div class="fb-send" data-href="<?php echo HOST;?>"></div>
 					<iframe allowtransparency="true" frameborder="0" scrolling="no" src="//platform.twitter.com/widgets/tweet_button.html" style="background:#C00; width:100px; height:21px; margin: 0 0 -5px 5px;"></iframe>
 				</div>
@@ -352,9 +366,9 @@ politica-de-adocao-aug" class="aug_purple"><i class="icon-purple ic-ok-doc"></i>
 			<div style="font-size: 10px !important;">&copy; 2003 ~ <?php echo date('Y');?> Adote um Gatinho. Todos os Direitos Reservados.</div>
 		</div>
 
-	
+
 -->
-        
+
         <script type="text/javascript">
 
         var _gaq = _gaq || [];
@@ -368,10 +382,50 @@ politica-de-adocao-aug" class="aug_purple"><i class="icon-purple ic-ok-doc"></i>
         })();
 
         </script>
-        
 
-<!--<script src="<?php echo HOST;?>__novo/bower_components\materialize\dist\js/materialize.min.js"></script>-->
-<script src="<?php echo HOST;?>js/bin/materialize.min.js"></script>
+
+<!-- <script src="<?php echo HOST;?>js/bin/materialize.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <script src="<?php echo HOST;?>js/_main.min.js"></script>
+<script>
+
+$(function(){
+	if(window.innerWidth > 920) {
+		$('.modal').modal({
+			startingTop: 0,
+			endingTop: 0
+		});
+		$('#modal-tijolinho').modal('open');
+
+	}
+});
+</script>
+<style media="screen">
+
+	#modal-tijolinho {
+		height: 100vh!important;
+    width: 818px!important;
+		    max-height: 97vh!important;
+	}
+
+.btn {
+	padding: 10px;
+	margin-left:20px;
+}
+	.modal.modal-fixed-footer .modal-footer {
+    border-top: 1px solid rgba(0,0,0,0.1);
+    position: absolute;
+    bottom: 0;
+		width: 94%;
+}
+.modal .modal-footer {
+    border-radius: 0 0 2px 2px;
+    background-color: #fafafa;
+    padding: 4px 6px;
+    height: 56px;
+    width: 100%;
+    text-align: right;
+}
+</style>
 </body>
 </html>

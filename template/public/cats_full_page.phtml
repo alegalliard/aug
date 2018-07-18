@@ -6,10 +6,10 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>		
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 		<link rel="shortcut icon" href="<?php echo HOST;?>favicon.png" type="image/png" />
 		<title>Gatos para adoção em São Paulo e ABC</title>
-		
+
 
 		<?php if($this->og):?>
 			<meta property="og:title" content="<?php echo $this->og->title;?>" />
@@ -33,10 +33,10 @@
                   fjs.parentNode.insertBefore(js, fjs);
                 }(document, 'script', 'facebook-jssdk'));
         </script>
-                
+
 -->
-                
-            <!-- # # # # # # # # # # # # # # 
+
+            <!-- # # # # # # # # # # # # # #
     Header
 # # # # # # # # # # # # # # -->
     <header class="row m-b-0" id="head">
@@ -46,7 +46,7 @@
                 <div class="logotype hide-on-small-and-down" title="<?php echo SITE_NAME;?>"></div>
             </a>
         </div>
-        
+
         <div class="col s8 m6 l4">
 <!--           Ícones-->
             <ul class="col s10 nav right upper" id="nav-menu">
@@ -56,7 +56,7 @@
                     <button type="submit" class="col s3 float_submit" id="botao_busca"><i class="icon-grey ic-zoom m-l-10"></i></button>
                 </form>
                </li>
-               
+
                 <li class="relative right m-t-3" id="open_menu"><a href="#" class="grey-text"><i class="icon-grey ic-list"></i> <span class="hide-on-med-and-down">Menu</span></a>
                     <menu id="menu" class="right">
                         <ul>
@@ -74,8 +74,8 @@
                             <li><a href="<?php echo HOST;?>faq">FAQ</a></li>
                             <li><a href="<?php echo HOST;?>parceiros-e-links">Parceiros</a></li>
                             <li><a href="<?php echo HOST;?>contato">Contato</a></li>
-                          </ul> 
-                      </menu> 
+                          </ul>
+                      </menu>
                 </li>
                 <li class="hide-on-med-and-down right"><a href="<?php echo HOST;?>contato" class="icon-grey ic-email"></a></li>
                 <li class="hide-on-med-and-down right"><a href="#top_search" class="icon-grey ic-zoom" id="open_search"></a></li>
@@ -89,13 +89,13 @@
                 <a href="http://www.twitter.com/adoteumgatinho" class="icon-grey ic-twitter" target="_blank"></a> </li>
             </ul>
         </div>
-    </header>   
-                
-<!-- # # # # # # # # # # # # # # 
+    </header>
+
+<!-- # # # # # # # # # # # # # #
     Elementos mobile
-# # # # # # # # # # # # # # -->         
+# # # # # # # # # # # # # # -->
 <nav class="hidden_menu hide-med-and-up">
-  
+
    <form class="row relative" action="<?php echo HOST;?>buscar" method="get">
      <div class="col s1">
          <button type="button" id="hide_menu"><i class="icon-white ic-arrow-right"></i></button>
@@ -107,9 +107,10 @@
    </form>
     <ul>
         <li><a href="<?php echo HOST;?>sobre">A ONG</a></li>
+				<li><a href="<?php echo HOST;?>reforma">Reforma</a></li>
         <li><a href="#">Quero adotar</a>
             <ul>
-              
+
                 <li><a href="<?php echo HOST;?>gatinhos-para-adocao" class="aug_blue">Gatinhos para adoção</a></li>
                 <li><a href="<?php echo HOST;?>adocoes-especiais" class="aug_blue">Adoções especiais</a></li>
                 <li><a href="<?php echo HOST;?>como-adotar-um-gatinho" class="aug_blue">Como faço para adotar um gatinho?</a></li>
@@ -130,8 +131,8 @@
         <li><a href="<?php echo HOST;?>parceiros-e-links">Parceiros</a></li>
         <li><a href="<?php echo HOST;?>contato">Contato</a></li>
     </ul>
-</nav>       
-    <!-- # # # # # # # # # # # # # # 
+</nav>
+    <!-- # # # # # # # # # # # # # #
     Content
 # # # # # # # # # # # # # # -->
 <div class="aug_grey_bg">
@@ -139,11 +140,11 @@
       <?php $this->loadViewContent();?>
        <span class="aug_purple_bg title-cats bold upper">Gatinhos para ado&ccedil;&atilde;o</span>
 </div>
-   
-   
-    
-    
-<!-- # # # # # # # # # # # # # # 
+
+
+
+
+<!-- # # # # # # # # # # # # # #
     Footer
 # # # # # # # # # # # # # # -->
 <footer id="footer">
@@ -168,7 +169,7 @@
                     <li><a href="<?php echo HOST;?>prestacao-de-contas/contas?year=2016">Prestação de contas</a></li>
                 </ul>
             </div>
-            
+
             <div class="col s4">
                 <ul class="block-box">
                     <li><a href="<?php echo HOST;?>aug-na-midia">Na mídia</a></li>
@@ -198,7 +199,7 @@
                     <input type="email"  name="email" id="email" placeholder="E-mail">
                     <button type="submit" class="icon-white ic-arrow-right"></button>
                 </div>
-            </form>              
+            </form>
         </fieldset>
     </section>
 
@@ -212,10 +213,10 @@
             <a href="http://www.elementodesign.com.br" target="_blank">Design by Elemento</a>
         </div>
     </div>
-</footer>      
-                
-    
-        
+</footer>
+
+
+
         <script type="text/javascript">
 
         var _gaq = _gaq || [];
@@ -232,7 +233,7 @@
       $("ul>div:nth-child(4n+1)").hover(function(){
         $("span.title-cats").css('opacity', '0');},
         function(){
-          $("span.title-cats").css('opacity', '1'); 
+          $("span.title-cats").css('opacity', '1');
       });
       $("div.texto:first").hover(function() {
         $("span.title-cats").css('opacity', '0');
@@ -253,7 +254,7 @@
     });
 */
         </script>
-        
+
 
 <script src="<?php echo HOST;?>js/bin/materialize.min.js"></script>
 <script src="<?php echo HOST;?>js/_main.min.js"></script>
